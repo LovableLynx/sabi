@@ -9,5 +9,4 @@ transformers>=4.42
 datasets>=2.19
 peft>=0.11
 bitsandbytes>=0.43
-trl>=0.9
 accelerate>=0.31

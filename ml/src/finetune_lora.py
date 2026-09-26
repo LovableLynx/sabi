@@ -74,8 +74,10 @@ def main() -> None:
         print("\nDry run only — config and data validated, no training performed.")
         return
 
-    # --- Actual training code (requires transformers/peft/bitsandbytes/trl) ---
+    # --- Actual training code (requires transformers/peft/bitsandbytes) ---
     # Imported lazily so `--dry-run` works without heavy deps installed.
+    # Uses the plain transformers Trainer rather than TRL's SFTTrainer: TRL
+    # 1.x patches the lm_head in a way that crashes on 4-bit + LoRA models.
     try:
         import torch
         from datasets import load_dataset
@@ -84,9 +86,9 @@ def main() -> None:
             AutoModelForCausalLM,
             AutoTokenizer,
             BitsAndBytesConfig,
+            Trainer,
             TrainingArguments,
         )
-        from trl import SFTConfig, SFTTrainer
     except ImportError as e:
         raise SystemExit(
             "Missing ML dependencies for actual training.\n"
@@ -95,8 +97,10 @@ def main() -> None:
             f"Original error: {e}"
         )
 
-    # Kaggle's T4 (Turing) has no bf16 support; fall back to fp16 there.
-    use_bf16 = torch.cuda.is_available() and torch.cuda.is_bf16_supported()
+    # Native bf16 needs compute capability 8.0+ (Ampere). Kaggle's T4 is 7.5;
+    # torch.cuda.is_bf16_supported() can still return True there via slow
+    # emulation, so check the hardware generation directly.
+    use_bf16 = torch.cuda.is_available() and torch.cuda.get_device_capability(0)[0] >= 8
     compute_dtype = torch.bfloat16 if use_bf16 else torch.float16
     print(f"GPU: {torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'none'} "
           f"-> using {'bf16' if use_bf16 else 'fp16'}")
@@ -130,52 +134,91 @@ def main() -> None:
     model = get_peft_model(model, lora_config)
     model.print_trainable_parameters()
 
+    model.config.use_cache = False  # incompatible with gradient checkpointing
+
+    max_len = cfg["training"]["max_seq_length"]
     dataset = load_dataset("json", data_files=str(train_path), split="train")
 
-    def format_chat(example: dict) -> dict:
-        text = tokenizer.apply_chat_template(example["messages"], tokenize=False)
-        return {"text": text}
+    def tokenize_with_assistant_mask(example: dict) -> dict:
+        """Tokenize the dialogue and compute loss ONLY on tutor (assistant)
+        turns. Training on the student turns too would teach the model to
+        imitate confused students, not to tutor.
 
-    # Keep only the rendered text so TRL doesn't also try to treat the
-    # "messages" column as a conversational dataset.
-    dataset = dataset.map(format_chat, remove_columns=dataset.column_names)
+        Renders the chat template one message at a time; the Llama-3 template
+        is prefix-stable (each turn ends in <|eot_id|>), so the tokens each
+        new message adds can be labelled by that message's role."""
+        msgs = example["messages"]
+        input_ids: list[int] = []
+        labels: list[int] = []
+        for i, msg in enumerate(msgs):
+            text = tokenizer.apply_chat_template(msgs[: i + 1], tokenize=False)
+            ids = tokenizer(text, add_special_tokens=False)["input_ids"]
+            if ids[: len(input_ids)] != input_ids:
+                prefix_mismatches.append(example.get("id", "?"))
+            new_ids = ids[len(input_ids):]
+            input_ids = ids
+            labels += new_ids if msg["role"] == "assistant" else [-100] * len(new_ids)
+        input_ids, labels = input_ids[:max_len], labels[:max_len]
+        return {"input_ids": input_ids, "labels": labels, "attention_mask": [1] * len(input_ids)}
+
+    prefix_mismatches: list[str] = []
+    dataset = dataset.map(tokenize_with_assistant_mask, remove_columns=dataset.column_names)
+    if prefix_mismatches:
+        raise SystemExit(
+            f"Chat template is not prefix-stable for {len(set(prefix_mismatches))} "
+            f"examples (e.g. {sorted(set(prefix_mismatches))[:5]}), so tutor-only "
+            f"loss masking would mislabel tokens. Stopping rather than training "
+            f"on bad labels — report this so the masking can be adapted."
+        )
+    dataset = dataset.filter(lambda ex: any(l != -100 for l in ex["labels"]))
+    lengths = [len(x) for x in dataset["input_ids"]]
+    print(f"Tokenized {len(dataset)} examples; length min/avg/max = "
+          f"{min(lengths)}/{sum(lengths) // len(lengths)}/{max(lengths)} tokens "
+          f"(truncation limit {max_len})")
+
+    def collate(batch: list[dict]) -> dict:
+        width = max(len(ex["input_ids"]) for ex in batch)
+        pad_id = tokenizer.pad_token_id
+
+        def pad(seq: list[int], value: int) -> list[int]:
+            return seq + [value] * (width - len(seq))
+
+        return {
+            "input_ids": torch.tensor([pad(ex["input_ids"], pad_id) for ex in batch]),
+            "labels": torch.tensor([pad(ex["labels"], -100) for ex in batch]),
+            "attention_mask": torch.tensor([pad(ex["attention_mask"], 0) for ex in batch]),
+        }
 
     output_dir = root / cfg["training"]["output_dir"]
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    # TRL renamed max_seq_length -> max_length and tokenizer -> processing_class
-    # across versions; pick whichever the installed version accepts.
-    import inspect
-    sft_params = inspect.signature(SFTConfig.__init__).parameters
-    seq_len_key = "max_length" if "max_length" in sft_params else "max_seq_length"
-
-    sft_config = SFTConfig(
+    training_args = TrainingArguments(
         output_dir=str(output_dir),
         num_train_epochs=cfg["training"]["num_epochs"],
         per_device_train_batch_size=cfg["training"]["per_device_train_batch_size"],
         gradient_accumulation_steps=cfg["training"]["gradient_accumulation_steps"],
         learning_rate=cfg["training"]["learning_rate"],
-        logging_steps=10,
+        lr_scheduler_type="cosine",
+        warmup_ratio=0.05,
+        logging_steps=5,
         save_strategy="epoch",
         bf16=use_bf16,
         fp16=not use_bf16,
+        gradient_checkpointing=True,
         report_to=[],
-        dataset_text_field="text",
-        **{seq_len_key: cfg["training"]["max_seq_length"]},
+        remove_unused_columns=False,  # our collator needs the raw fields
     )
 
-    trainer_params = inspect.signature(SFTTrainer.__init__).parameters
-    tok_key = "processing_class" if "processing_class" in trainer_params else "tokenizer"
-
-    trainer = SFTTrainer(
+    trainer = Trainer(
         model=model,
-        args=sft_config,
+        args=training_args,
         train_dataset=dataset,
-        **{tok_key: tokenizer},
+        data_collator=collate,
     )
 
     trainer.train()
     trainer.save_model(str(output_dir / "final_adapter"))
+    tokenizer.save_pretrained(str(output_dir / "final_adapter"))
     print(f"\nTraining complete. LoRA adapter saved to {output_dir / 'final_adapter'}")
     print("Next: run ml/eval/benchmark.py comparing base vs. fine-tuned model.")
 
