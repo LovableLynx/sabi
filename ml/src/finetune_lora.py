@@ -95,10 +95,16 @@ def main() -> None:
             f"Original error: {e}"
         )
 
+    # Kaggle's T4 (Turing) has no bf16 support; fall back to fp16 there.
+    use_bf16 = torch.cuda.is_available() and torch.cuda.is_bf16_supported()
+    compute_dtype = torch.bfloat16 if use_bf16 else torch.float16
+    print(f"GPU: {torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'none'} "
+          f"-> using {'bf16' if use_bf16 else 'fp16'}")
+
     bnb_config = BitsAndBytesConfig(
         load_in_4bit=True,
         bnb_4bit_quant_type="nf4",
-        bnb_4bit_compute_dtype=torch.bfloat16,
+        bnb_4bit_compute_dtype=compute_dtype,
         bnb_4bit_use_double_quant=True,
     )
 
@@ -130,10 +136,18 @@ def main() -> None:
         text = tokenizer.apply_chat_template(example["messages"], tokenize=False)
         return {"text": text}
 
-    dataset = dataset.map(format_chat)
+    # Keep only the rendered text so TRL doesn't also try to treat the
+    # "messages" column as a conversational dataset.
+    dataset = dataset.map(format_chat, remove_columns=dataset.column_names)
 
     output_dir = root / cfg["training"]["output_dir"]
     output_dir.mkdir(parents=True, exist_ok=True)
+
+    # TRL renamed max_seq_length -> max_length and tokenizer -> processing_class
+    # across versions; pick whichever the installed version accepts.
+    import inspect
+    sft_params = inspect.signature(SFTConfig.__init__).parameters
+    seq_len_key = "max_length" if "max_length" in sft_params else "max_seq_length"
 
     sft_config = SFTConfig(
         output_dir=str(output_dir),
@@ -143,17 +157,21 @@ def main() -> None:
         learning_rate=cfg["training"]["learning_rate"],
         logging_steps=10,
         save_strategy="epoch",
-        bf16=True,
+        bf16=use_bf16,
+        fp16=not use_bf16,
         report_to=[],
         dataset_text_field="text",
-        max_seq_length=cfg["training"]["max_seq_length"],
+        **{seq_len_key: cfg["training"]["max_seq_length"]},
     )
+
+    trainer_params = inspect.signature(SFTTrainer.__init__).parameters
+    tok_key = "processing_class" if "processing_class" in trainer_params else "tokenizer"
 
     trainer = SFTTrainer(
         model=model,
         args=sft_config,
         train_dataset=dataset,
-        tokenizer=tokenizer,
+        **{tok_key: tokenizer},
     )
 
     trainer.train()
