@@ -1,0 +1,13 @@
+# ML pipeline dependencies for Socratic Igbá
+# Data validation / dataset building (lightweight, run anywhere):
+pyyaml>=6.0
+requests>=2.31
+
+# Fine-tuning (heavy — install only on a GPU machine/Colab/Kaggle/rented box):
+torch>=2.1
+transformers>=4.42
+datasets>=2.19
+peft>=0.11
+bitsandbytes>=0.43
+trl>=0.9
+accelerate>=0.31

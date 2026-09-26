@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# ML training outputs (large, regenerable — don't commit model weights/checkpoints)
+ml/outputs/*.jsonl
+ml/outputs/lora_run_*/
+ml/outputs/*.safetensors
+ml/outputs/*.bin
+ml/outputs/results_*.json
+ml/outputs/smoketest_results_*.json
+ml/outputs/comparison_report.md
+ml/outputs/smoketest_comparison_report.md
+ml/outputs/split_manifest.json
+
+# Node (in case app tooling is added later)
+node_modules/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+*.log

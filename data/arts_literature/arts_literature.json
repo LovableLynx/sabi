@@ -1,0 +1,1161 @@
+{
+  "_topic_tags_in_use": [
+    "figurative_language",
+    "theme",
+    "characterisation",
+    "poetic_devices",
+    "unseen_prose",
+    "irony",
+    "setting_and_context"
+  ],
+  "examples": [
+    {
+      "id": "lit-0001",
+      "subject": "literature",
+      "topic": "figurative_language",
+      "source": "WAEC 2019 Paper 3, Q4 + Examiner Report",
+      "difficulty": "credit",
+      "student_opening": "What does 'the sun refused to rise' mean in the poem?",
+      "misconception": "Student is reading the line literally instead of as personification/pathetic fallacy.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "What does 'the sun refused to rise' mean in the poem?"
+        },
+        {
+          "role": "tutor",
+          "text": "Good question. Before I tell you — think about when your mother says 'this yam is stubborn, it refuses to get soft.' Can a yam actually refuse anything?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "No, it's just talking like the yam has a mind."
+        },
+        {
+          "role": "tutor",
+          "text": "Exactly that idea. So if the yam can't really 'refuse', what is the writer doing when they say the sun 'refused' to rise?",
+          "technique": "guided_transfer"
+        },
+        {
+          "role": "student",
+          "text": "The writer is giving the sun human behaviour, like it can choose."
+        },
+        {
+          "role": "tutor",
+          "text": "That's it — that's called personification. Now, why might a poet choose to say the sun 'refused' rather than simply 'the sun did not rise'? What mood does 'refused' add?",
+          "technique": "extend_to_effect"
+        }
+      ],
+      "correct_understanding": "The line personifies the sun, giving it human will/defiance, which conveys a mood of gloom, wrongness, or resistance beyond a plain literal statement.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "n/a"
+    },
+    {
+      "id": "lit-0002",
+      "subject": "literature",
+      "topic": "poetic_devices",
+      "source": "WAEC 2018 Paper 3, Q6 + Examiner Report",
+      "difficulty": "credit",
+      "student_opening": "What is the effect of the repetition in the last stanza? I really don't understand this at all.",
+      "misconception": "Student cannot connect a formal device (repetition) to the emotional/thematic effect it produces, and disengages when asked to think it through themselves.",
+      "escalated": true,
+      "turns": [
+        {
+          "role": "student",
+          "text": "What is the effect of the repetition in the last stanza? I really don't understand this at all."
+        },
+        {
+          "role": "tutor",
+          "text": "No wahala, let's take it slowly. Think of a town crier who repeats the same warning three times through the village at night. Why would he repeat it instead of saying it once?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "I don't know, maybe so people hear well? I still don't get how that connects to the poem."
+        },
+        {
+          "role": "tutor",
+          "text": "That's part of it — repetition makes sure something is not missed. In the poem, the poet repeats 'we shall not forget' three times. If a town crier repeats a warning to make sure it sinks in and feels urgent, what might repeating 'we shall not forget' be doing to the reader?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "I'm still confused, can you just tell me the answer?"
+        },
+        {
+          "role": "tutor",
+          "text": "Fair enough, let's narrow it right down: when the crier repeats the warning, it starts to feel less like information and more like an urgent command, almost impossible to ignore. Now — does 'we shall not forget' feel more like a fact being stated once, or like a vow being insisted on?",
+          "technique": "escalated_hint"
+        },
+        {
+          "role": "student",
+          "text": "I still don't see it clearly."
+        },
+        {
+          "role": "tutor",
+          "text": "Okay, let's work through it together: the repetition of 'we shall not forget' turns a simple statement into an emphatic vow — it mimics how people actually swear an oath by saying it more than once, and it builds a mood of solemn determination and collective memory, as if the whole community is speaking with one voice. So the effect is emphasis plus a sense of communal, unbreakable resolve.",
+          "technique": "worked_example"
+        }
+      ],
+      "correct_understanding": "The threefold repetition of 'we shall not forget' functions like an oath or communal vow, turning a plain statement into emphatic, solemn insistence and creating a mood of collective determination/resolve.",
+      "max_turns_to_resolution": 3,
+      "frustration_threshold": 2,
+      "notation_check": "n/a"
+    },
+    {
+      "id": "lit-0003",
+      "subject": "literature",
+      "topic": "characterisation",
+      "source": "WAEC-style practice item, Literature-in-English, characterisation",
+      "difficulty": "credit",
+      "student_opening": "Why do people say the old chief in the novel is a 'round' character? Isn't he just the village head, one type of person?",
+      "misconception": "Student thinks characterisation is about social role/title rather than complexity and change in the character across the story.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "Why do people say the old chief in the novel is a 'round' character? Isn't he just the village head, one type of person?"
+        },
+        {
+          "role": "tutor",
+          "text": "Think of a trader at Onitsha market who sells cloth in the morning but by evening you find out she's also the one quietly paying school fees for three orphans in her compound. Is she just 'the cloth seller', or is there more to her than the one label?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "There's more to her — she has different sides."
+        },
+        {
+          "role": "tutor",
+          "text": "Exactly. Now think about the chief — does the novel only ever show him giving orders as 'the village head', or do we also see him doubt himself, change his mind, or act against what we'd expect a chief to act like?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "Actually yes, he cries in private after banishing his son, and later he regrets the decision."
+        },
+        {
+          "role": "tutor",
+          "text": "Good catch. So if a character shows contradictions, growth, or hidden depths rather than staying fixed to one trait, what does that tell you about how 'flat' vs 'round' is actually being judged?",
+          "technique": "guided_transfer"
+        }
+      ],
+      "correct_understanding": "A round character (the chief) is judged by psychological complexity and capacity to change or surprise the reader, not by social title — his private doubt and regret after banishing his son shows layers beyond his public role as chief.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "n/a"
+    },
+    {
+      "id": "lit-0004",
+      "subject": "literature",
+      "topic": "irony",
+      "source": "WAEC-style practice item, Literature-in-English, dramatic irony",
+      "difficulty": "pass",
+      "student_opening": "The watchman in the play keeps saying 'nothing bad will happen tonight' but then something bad happens. Is that just a coincidence in the plot?",
+      "misconception": "Student is reading the line as plot coincidence rather than recognising dramatic irony, where the audience knows more than the character.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "The watchman in the play keeps saying 'nothing bad will happen tonight' but then something bad happens. Is that just a coincidence in the plot?"
+        },
+        {
+          "role": "tutor",
+          "text": "Imagine you're watching a Nollywood film where the audience already saw the armed robbers hiding behind the house, but the security man on screen is whistling happily, telling his wife on the phone that all is quiet. Who knows more at that moment — the audience or the security man?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "The audience knows more than him."
+        },
+        {
+          "role": "tutor",
+          "text": "Right. Now apply that to the watchman's line — does the audience/reader already have information (maybe from an earlier scene) that makes his confidence sound hollow or even a little frightening?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "Yes, we already saw the conspirators planning the attack earlier in the play."
+        },
+        {
+          "role": "tutor",
+          "text": "So when a character speaks with confidence that the audience knows is misplaced, because we've been shown something they haven't, what literary device is at work, and what effect does it create — comedy, tension, or foreboding?",
+          "technique": "guided_transfer"
+        }
+      ],
+      "correct_understanding": "This is dramatic irony: the audience/reader knows the conspirators are already planning the attack, so the watchman's confident reassurance creates tension and foreboding rather than being mere coincidence.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "n/a"
+    },
+    {
+      "id": "lit-0005",
+      "subject": "literature",
+      "topic": "setting_and_context",
+      "source": "WAEC-style practice item, Literature-in-English, setting and context",
+      "difficulty": "pass",
+      "student_opening": "Why do I need to know the setting is a drought year? It doesn't matter, the story is about the family fighting, not about weather.",
+      "misconception": "Student treats setting as background decoration disconnected from plot/theme, missing that the drought is the pressure driving the family conflict.",
+      "escalated": true,
+      "turns": [
+        {
+          "role": "student",
+          "text": "Why do I need to know the setting is a drought year? It doesn't matter, the story is about the family fighting, not about weather."
+        },
+        {
+          "role": "tutor",
+          "text": "Think about a farming family during a bad harvest season, when the yam barns are almost empty before the next planting. Does that kind of season usually make relations in the compound calmer, or more tense?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "I don't know, maybe tense, but I still don't see why that matters for the story. It's just weather."
+        },
+        {
+          "role": "tutor",
+          "text": "Let's narrow it: in the story, the father and his brother start quarrelling over the last barn of yams. If there had been a bumper harvest instead of a drought, would there even be a 'last barn' to fight over?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "I'm still not seeing the connection, can you just tell me why the setting matters?"
+        },
+        {
+          "role": "tutor",
+          "text": "No wahala. Here it is worked through: the drought isn't decoration — it creates scarcity, and that scarcity is the actual engine of the family conflict. Setting in literature often works this way — it's not just 'where/when', it manufactures the pressure that forces characters into the choices and clashes that make up the plot. So the drought explains WHY the brothers turn on each other now, over yams, instead of staying at peace as before.",
+          "technique": "worked_example"
+        }
+      ],
+      "correct_understanding": "The drought-year setting is not mere background; it creates the scarcity (the last barn of yams) that directly causes the family conflict, so setting functions here as a driver of plot and theme, not decoration.",
+      "max_turns_to_resolution": 3,
+      "frustration_threshold": 2,
+      "notation_check": "n/a"
+    },
+    {
+      "id": "lit-0006",
+      "subject": "literature",
+      "topic": "figurative_language",
+      "source": "WAEC-style practice item, Literature-in-English, simile and metaphor",
+      "difficulty": "credit",
+      "student_opening": "The poet says 'her anger was a harmattan wind'. Is that a metaphor or a simile? I always confuse the two.",
+      "misconception": "Student cannot distinguish simile (using 'like'/'as') from metaphor (direct equation) and does not know how to test which one a line is.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "The poet says 'her anger was a harmattan wind'. Is that a metaphor or a simile? I always confuse the two."
+        },
+        {
+          "role": "tutor",
+          "text": "Think of two ways a market woman might describe a rude customer to her neighbour: 'that customer is like a mad dog today' versus 'that customer is a mad dog today'. Do both sentences use the same small connecting word?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "No — the first one uses 'like' and the second one doesn't."
+        },
+        {
+          "role": "tutor",
+          "text": "Good noticing. Simile always needs that connecting word — 'like' or 'as' — to compare two things while keeping them separate. Now look again at 'her anger was a harmattan wind' — does it use 'like' or 'as' anywhere, or does it flatly say her anger IS the wind?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "It just says her anger 'was' the wind, no 'like' or 'as'."
+        },
+        {
+          "role": "tutor",
+          "text": "So based on that test, which of the two figures of speech is the poet actually using here, and what does comparing her anger directly to a harmattan wind (dry, harsh, everywhere) suggest about its intensity?",
+          "technique": "extend_to_effect"
+        }
+      ],
+      "correct_understanding": "'Her anger was a harmattan wind' is a metaphor (a direct equation without 'like/as'), and it suggests her anger is dry, harsh, pervasive and impossible to escape, like the harmattan season itself.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "n/a"
+    },
+    {
+      "id": "lit-0007",
+      "subject": "literature",
+      "topic": "theme",
+      "source": "WAEC-style practice item, Literature-in-English, theme identification",
+      "difficulty": "credit",
+      "student_opening": "Is the theme of the novel just 'tradition versus change'? That feels too simple for such a long book.",
+      "misconception": "Student has identified a surface-level theme label but hasn't examined how the text complicates or takes a position on it through specific events.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "Is the theme of the novel just 'tradition versus change'? That feels too simple for such a long book."
+        },
+        {
+          "role": "tutor",
+          "text": "Think about a village council meeting where the elders want to keep settling land disputes the old way, but the younger men who went to the city want to use the new court system. Is that clash ever just a clean, simple fight, or does it usually get complicated by who benefits and who loses?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "It gets complicated — some elders benefit from the old way even when it's unfair, and some young men just want power, not real justice."
+        },
+        {
+          "role": "tutor",
+          "text": "Exactly — that's the kind of texture a real theme has. So instead of stopping at the label 'tradition versus change', look at two or three specific scenes in the novel where this clash plays out. What do those scenes suggest the author actually thinks about which side is right, or whether either side is fully right?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "In the scenes I remember, the ones who blindly follow either side end up suffering, only the characters who adapt thoughtfully survive well."
+        },
+        {
+          "role": "tutor",
+          "text": "That's a much richer theme statement than just 'tradition versus change' — now, how would you phrase the theme in one sentence that captures that idea of thoughtful adaptation versus blind loyalty to either side?",
+          "technique": "guided_transfer"
+        }
+      ],
+      "correct_understanding": "The theme is more precisely that rigid adherence to either pure tradition or pure change leads characters to suffering, while thoughtful, selective adaptation allows survival and growth — 'tradition vs change' is only the surface label.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "n/a"
+    },
+    {
+      "id": "lit-0008",
+      "subject": "literature",
+      "topic": "unseen_prose",
+      "source": "WAEC-style practice item, Literature-in-English, unseen prose comprehension",
+      "difficulty": "pass",
+      "student_opening": "In this unseen passage, the writer describes the room 'shrinking' around the character. The room can't actually shrink, so what is this?",
+      "misconception": "Student notices the impossibility but does not connect it to how figurative language can convey psychological state (anxiety/claustrophobia) in prose.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "In this unseen passage, the writer describes the room 'shrinking' around the character. The room can't actually shrink, so what is this?"
+        },
+        {
+          "role": "tutor",
+          "text": "Think of how a small danfo bus feels during rush hour once six more passengers squeeze in — the bus itself hasn't gotten smaller, but how does it FEEL to the person already sitting inside?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "It feels like there's less space, like the bus is closing in on you, even though it's the same size."
+        },
+        {
+          "role": "tutor",
+          "text": "Good — that's a feeling, not a physical fact. Now think about the character in the passage — what emotional state might make a room feel like it's closing in, even though its walls haven't moved?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "Maybe he's feeling trapped or anxious about something happening in that room."
+        },
+        {
+          "role": "tutor",
+          "text": "That's the right track. Given that, how would you describe what the writer is doing with 'the room shrinking' — is it a literal event or a technique for showing us the character's inner state?",
+          "technique": "guided_transfer"
+        }
+      ],
+      "correct_understanding": "The 'shrinking room' is figurative language conveying the character's psychological state — feelings of anxiety, entrapment, or claustrophobia — rather than a literal physical event.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "n/a"
+    },
+    {
+      "id": "lit-0009",
+      "subject": "literature",
+      "topic": "poetic_devices",
+      "source": "WAEC-style practice item, Literature-in-English, alliteration and sound effects",
+      "difficulty": "pass",
+      "student_opening": "The line has 'silent, sullen, suffering slaves' — I know it's alliteration but why would a poet bother with that, does it even mean anything?",
+      "misconception": "Student can label the device but assumes it is purely decorative with no functional link between sound and meaning.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "The line has 'silent, sullen, suffering slaves' — I know it's alliteration but why would a poet bother with that, does it even mean anything?"
+        },
+        {
+          "role": "tutor",
+          "text": "Think of a talking drum player at a festival — he doesn't just hit the drum randomly, he repeats a particular beat pattern to build a mood, maybe heaviness for mourning or urgency for war. Does the repeated pattern serve the mood, or is it just noise?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "It serves the mood, it's deliberate."
+        },
+        {
+          "role": "tutor",
+          "text": "Right. Now say 'silent, sullen, suffering slaves' slowly to yourself — that repeated hard 's' sound — does it come out sounding light and quick, or heavy and drawn-out, almost like a hiss or a groan?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "It sounds heavy, almost like a long hiss when you say it slowly."
+        },
+        {
+          "role": "tutor",
+          "text": "So if the repeated 's' sound physically forces the reader to slow down and produce something like a hiss or sigh, what mood or feeling about the slaves' condition might that sound be reinforcing?",
+          "technique": "extend_to_effect"
+        }
+      ],
+      "correct_understanding": "The alliteration of the hard 's' sound in 'silent, sullen, suffering slaves' is not merely decorative — the drawn-out, hissing quality of the repeated sound reinforces the mood of heaviness, oppression and suppressed suffering.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "n/a"
+    },
+    {
+      "id": "lit-0010",
+      "subject": "literature",
+      "topic": "characterisation",
+      "source": "WAEC-style practice item, Literature-in-English, indirect characterisation",
+      "difficulty": "credit",
+      "student_opening": "The author never directly says the landlord is greedy. So how am I supposed to know that's his character trait?",
+      "misconception": "Student expects direct authorial statement of traits and does not know how to infer character from actions, speech, and others' reactions.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "The author never directly says the landlord is greedy. So how am I supposed to know that's his character trait?"
+        },
+        {
+          "role": "tutor",
+          "text": "Think about how you'd know your neighbour is stingy without them ever saying 'I am stingy'. What would you actually notice — their words, or something else?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "You'd notice from what they do, like never lending anything even small things, or complaining about every kobo spent."
+        },
+        {
+          "role": "tutor",
+          "text": "Exactly — you read behaviour, not a label. Now go back to the landlord: what does he actually DO in the text — how does he react when a tenant is one day late with rent, and how do other tenants speak about him behind his back?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "He threatens to throw the tenant's things outside immediately, and the other tenants whisper that he's never given anyone extra time, even for sickness."
+        },
+        {
+          "role": "tutor",
+          "text": "Those are exactly the kind of clues — his harsh actions and other characters' reactions to him. So what do we call this technique, where the author reveals character through action, dialogue and others' responses instead of stating it directly?",
+          "technique": "guided_transfer"
+        }
+      ],
+      "correct_understanding": "This is indirect characterisation: the landlord's greed is revealed through his harsh actions (threatening eviction over one day's delay) and through other characters' reactions/gossip, rather than stated directly by the narrator.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "n/a"
+    },
+    {
+      "id": "lit-0011",
+      "subject": "literature",
+      "topic": "irony",
+      "source": "WAEC-style practice item, Literature-in-English, situational irony",
+      "difficulty": "credit",
+      "student_opening": "The man builds a strong fence to keep thieves out, but his own son turns out to be the thief. Isn't that just a plot twist, not irony?",
+      "misconception": "Student conflates 'irony' with 'surprise/twist' generally, without recognising the specific contrast between expectation and outcome that defines situational irony.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "The man builds a strong fence to keep thieves out, but his own son turns out to be the thief. Isn't that just a plot twist, not irony?"
+        },
+        {
+          "role": "tutor",
+          "text": "Think of a man who buys the strongest padlock in the market to protect his shop from armed robbers, only to later discover his own trusted shop assistant has been taking money quietly all along. Is the danger he prepared for the same as the danger that actually got him?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "No — he prepared for outside thieves but the real threat was from inside, someone he trusted."
+        },
+        {
+          "role": "tutor",
+          "text": "Right — there's a gap between what he expected and what actually happened, from the exact place he thought was safe. Now, is 'irony' just any surprising twist, or specifically this kind of gap between expectation and outcome?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "I think it's specifically about that gap, not just any surprise."
+        },
+        {
+          "role": "tutor",
+          "text": "Good instinct — so with the father and his son, what makes this situational irony rather than a plain plot twist: is it merely that we didn't expect it, or is it that the outcome directly contradicts the very thing he tried to prevent?",
+          "technique": "guided_transfer"
+        }
+      ],
+      "correct_understanding": "This is situational irony: the outcome (the son being the thief) directly contradicts the father's expectation and effort (the fence built specifically to keep thieves out), not merely an unexpected event.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "n/a"
+    },
+    {
+      "id": "lit-0012",
+      "subject": "literature",
+      "topic": "figurative_language",
+      "source": "WAEC-style practice item, Literature-in-English, symbolism",
+      "difficulty": "pass",
+      "student_opening": "What does the recurring image of the broken drum symbolize? I've read the chapter three times and I still don't see it, just tell me.",
+      "misconception": "Student cannot move from noticing a recurring image to interpreting what abstract idea it represents across its repeated appearances.",
+      "escalated": true,
+      "turns": [
+        {
+          "role": "student",
+          "text": "What does the recurring image of the broken drum symbolize? I've read the chapter three times and I still don't see it, just tell me."
+        },
+        {
+          "role": "tutor",
+          "text": "Let's slow down together. Think of the talking drum in a village — it's normally used to call people to gather, to pass messages, to celebrate. If that drum is broken throughout the story, what important thing might no longer be happening in the community?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "Maybe they can't communicate or celebrate together anymore? I still don't know how that becomes a 'symbol' though."
+        },
+        {
+          "role": "tutor",
+          "text": "That's actually very close. Let's narrow it further: every time the drum appears broken in the chapter, check what is happening around it — is it near scenes of the community falling apart, losing unity, or failing to warn each other of danger?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "I still can't connect it properly, can you just explain what it symbolizes?"
+        },
+        {
+          "role": "tutor",
+          "text": "Sure, let's work through it: the drum reappears broken right before the village fails to unite against the invaders, and again when a funeral passes without the proper communal rites. Across both scenes, the broken drum consistently marks a breakdown in communal voice and unity — so it symbolizes the loss of communal cohesion/tradition, not just a damaged object.",
+          "technique": "worked_example"
+        }
+      ],
+      "correct_understanding": "The recurring broken drum symbolizes the breakdown of communal unity and tradition — each appearance coincides with the community failing to gather, warn, or mourn together as it once did.",
+      "max_turns_to_resolution": 3,
+      "frustration_threshold": 2,
+      "notation_check": "n/a"
+    },
+    {
+      "id": "lit-0013",
+      "subject": "literature",
+      "topic": "setting_and_context",
+      "source": "WAEC-style practice item, Literature-in-English, historical/social context",
+      "difficulty": "credit",
+      "student_opening": "Why do we need to know about colonial rule to understand this play? The play is just about a family arguing over land.",
+      "misconception": "Student isolates the family conflict from its historical/social context, missing how colonial land policy shapes the specific conflict.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "Why do we need to know about colonial rule to understand this play? The play is just about a family arguing over land."
+        },
+        {
+          "role": "tutor",
+          "text": "Think about how a new government policy on land certificates could suddenly turn cousins who used to farm side by side peacefully into rivals fighting in court. Does the policy cause the personalities to change, or does it change what's at stake between them?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "It changes what's at stake — now there's a paper that says only one person legally owns it."
+        },
+        {
+          "role": "tutor",
+          "text": "Exactly. Now in the play, the colonial land registration system is doing something similar — it's replacing communal/customary land-holding with individual titles. How might that new system be the actual root of why this particular family — who might have shared the land peacefully before — is now fighting over it?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "Because now only one person's name can go on the colonial land title, so the brothers who used to share are forced to compete for a single legal owner."
+        },
+        {
+          "role": "tutor",
+          "text": "That's a strong reading. So how would you now describe the relationship between the historical context (colonial land policy) and the personal family conflict on stage?",
+          "technique": "guided_transfer"
+        }
+      ],
+      "correct_understanding": "The colonial land registration policy is the historical driver that converts communal land-sharing into individual legal ownership, which directly manufactures the specific family conflict over land in the play.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "n/a"
+    },
+    {
+      "id": "lit-0014",
+      "subject": "literature",
+      "topic": "theme",
+      "source": "WAEC-style practice item, Literature-in-English, theme of ambition/greed",
+      "difficulty": "credit",
+      "student_opening": "Is the moral of the story just 'greed is bad'? That seems too plain for a WAEC set text.",
+      "misconception": "Student flattens a nuanced theme into a simple moral slogan without examining the specific consequences and character arcs the text uses to develop it.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "Is the moral of the story just 'greed is bad'? That seems too plain for a WAEC set text."
+        },
+        {
+          "role": "tutor",
+          "text": "Think of a man in an Esusu contribution group who, when it's finally his turn to collect the pooled money, decides to also secretly borrow from the next three people's shares. What specifically goes wrong for him afterward — is it just 'bad luck', or is there a direct chain of consequences?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "There's a direct chain — the group finds out, he loses their trust, and nobody will contribute with him again, so he's isolated."
+        },
+        {
+          "role": "tutor",
+          "text": "Good — that's more specific than 'greed is bad'. Now trace the same kind of chain in the main character's story: what exact consequences follow from his ambition, and do they affect only him, or others too?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "His ambition leads him to betray his friend, which costs him the friendship, and it also destroys his friend's family's trust in the whole community."
+        },
+        {
+          "role": "tutor",
+          "text": "Now you have a theme with real texture — how would you restate the theme to capture both the personal cost and the wider social damage, instead of just 'greed is bad'?",
+          "technique": "guided_transfer"
+        }
+      ],
+      "correct_understanding": "The theme is more precisely about how unchecked ambition/greed corrodes trust and relationships, producing consequences that extend beyond the individual to damage the wider community — not simply 'greed is bad' as a flat moral.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "n/a"
+    },
+    {
+      "id": "lit-0015",
+      "subject": "literature",
+      "topic": "figurative_language",
+      "source": "WAEC-style practice item, Literature-in-English, hyperbole",
+      "difficulty": "pass",
+      "student_opening": "The character says 'I have told you a million times to sweep this compound'. Is a million times something to take seriously in the analysis?",
+      "misconception": "Student is unsure whether to read an obvious exaggeration literally or figuratively and doesn't know the term/effect of hyperbole.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "The character says 'I have told you a million times to sweep this compound'. Is a million times something to take seriously in the analysis?"
+        },
+        {
+          "role": "tutor",
+          "text": "When your aunty says 'I have warned you a thousand times not to play near that gutter', has she actually counted a thousand warnings, or is she making a point some other way?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "She hasn't counted, she's just showing how frustrated and repetitive it feels to her."
+        },
+        {
+          "role": "tutor",
+          "text": "Exactly — she's exaggerating on purpose for effect, not stating a fact. So back in the play, is 'a million times' meant to be counted literally, or is it doing the same job as your aunty's 'a thousand times'?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "It's doing the same job — showing frustration through exaggeration."
+        },
+        {
+          "role": "tutor",
+          "text": "Right — what's the specific literary term for deliberate exaggeration used for emphasis rather than literal truth, and what emotion is it emphasising here?",
+          "technique": "guided_transfer"
+        }
+      ],
+      "correct_understanding": "This is hyperbole — deliberate exaggeration ('a million times') used not literally but to emphasise the speaker's frustration and sense of repeated, unheeded instruction.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "n/a"
+    },
+    {
+      "id": "lit-0016",
+      "subject": "literature",
+      "topic": "characterisation",
+      "source": "WAEC-style practice item, Literature-in-English, foil characters",
+      "difficulty": "credit",
+      "student_opening": "Why does the writer even need the quiet younger brother character? He barely does anything in the story.",
+      "misconception": "Student sees a minor character as narratively unnecessary, not recognising the character's function as a foil that sharpens the protagonist's traits by contrast.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "Why does the writer even need the quiet younger brother character? He barely does anything in the story."
+        },
+        {
+          "role": "tutor",
+          "text": "Think of two okada riders parked side by side — one revs his engine loudly, overtakes recklessly, argues with every passenger about fare; the other quietly waits his turn, agrees the fare politely, and rides steadily. Standing next to the quiet one, does the reckless rider's behaviour become more or less noticeable?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "More noticeable — the calm one makes the reckless one's behaviour stand out even more by contrast."
+        },
+        {
+          "role": "tutor",
+          "text": "Exactly that idea. Now think about the quiet younger brother next to the loud, impulsive protagonist — even though the brother 'does little', what is his presence doing to how we perceive the protagonist's impulsiveness and pride?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "His calmness makes the protagonist's recklessness and pride look even more extreme by comparison."
+        },
+        {
+          "role": "tutor",
+          "text": "That's it — so what do we call a character whose main function is to highlight another character's traits through contrast, even without a large role of their own?",
+          "technique": "guided_transfer"
+        }
+      ],
+      "correct_understanding": "The quiet younger brother functions as a foil: his calm, humble traits sit in deliberate contrast to the protagonist's impulsiveness and pride, making those traits stand out more sharply to the reader.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "n/a"
+    },
+    {
+      "id": "lit-0017",
+      "subject": "literature",
+      "topic": "poetic_devices",
+      "source": "WAEC-style practice item, Literature-in-English, imagery",
+      "difficulty": "pass",
+      "student_opening": "The poem describes 'the smell of fresh rain on dry earth' — that's just describing weather, right, not really a poetic device?",
+      "misconception": "Student does not recognise sensory description as deliberate imagery working to evoke a specific feeling/association in the reader.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "The poem describes 'the smell of fresh rain on dry earth' — that's just describing weather, right, not really a poetic device?"
+        },
+        {
+          "role": "tutor",
+          "text": "Think about the first heavy rain after a long, dry harmattan season — that particular earthy smell. When you smell it, what feeling usually comes with it — dread, or relief and renewal?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "Relief, like something good is finally coming, renewal."
+        },
+        {
+          "role": "tutor",
+          "text": "Good — so that smell carries an emotional association beyond just being 'weather information'. When a poet deliberately chooses a sensory detail like smell to trigger that feeling in the reader, what is that technique called, and what feeling might it be building toward in this poem's context?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "I think it's called imagery, and here it might be building toward hope or relief after a hard time in the poem."
+        },
+        {
+          "role": "tutor",
+          "text": "You're on the right track — so if this image appears right after a stanza about suffering or drought, what shift in mood might the poet be signalling through it?",
+          "technique": "extend_to_effect"
+        }
+      ],
+      "correct_understanding": "The sensory detail of rain-smell is deliberate imagery, chosen to evoke relief and renewal, and if placed after a stanza of suffering/drought it signals a thematic shift toward hope.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "n/a"
+    },
+    {
+      "id": "lit-0018",
+      "subject": "literature",
+      "topic": "unseen_prose",
+      "source": "WAEC-style practice item, Literature-in-English, tone in unseen prose",
+      "difficulty": "credit",
+      "student_opening": "How do I know the tone of this unseen passage is 'bitter' and not just 'sad'? They feel similar to me.",
+      "misconception": "Student cannot distinguish closely related tones and does not know to use specific word choice/diction as evidence for tone.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "How do I know the tone of this unseen passage is 'bitter' and not just 'sad'? They feel similar to me."
+        },
+        {
+          "role": "tutor",
+          "text": "Think of two different market women who both lost customers to a new shop nearby. One says quietly, 'ah, business is slow these days, God will provide' — the other says sharply, 'that woman stole my customers with her cheating scale, useless thief'. Do both sound the same, even though both are unhappy?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "No — the first one sounds resigned and sad, the second one sounds angry and blaming."
+        },
+        {
+          "role": "tutor",
+          "text": "Right — sadness tends to sound resigned or mournful, while bitterness usually carries blame, resentment or sharp/accusatory word choice. Now go back to the passage — find the actual words the narrator uses about the person who wronged them. Do they sound resigned, or accusing?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "The narrator calls the man 'that traitor' and says he 'smiled while he destroyed us' — that does sound accusing, not just sad."
+        },
+        {
+          "role": "tutor",
+          "text": "Good evidence-finding. So based on those specific word choices, would you now say the tone leans more toward plain sadness, or toward bitterness with an edge of blame?",
+          "technique": "guided_transfer"
+        }
+      ],
+      "correct_understanding": "The tone is bitter rather than merely sad, evidenced by accusatory diction ('that traitor', 'smiled while he destroyed us') that carries blame and resentment, not just resigned sorrow.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "n/a"
+    },
+    {
+      "id": "lit-0019",
+      "subject": "literature",
+      "topic": "irony",
+      "source": "WAEC-style practice item, Literature-in-English, verbal irony",
+      "difficulty": "pass",
+      "student_opening": "When the character says 'what a wonderful day' right after his shop burns down, is that just him being sarcastic, or is it a literary device?",
+      "misconception": "Student recognises sarcasm colloquially but does not connect it to the formal term 'verbal irony' or its function in characterisation/tone.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "When the character says 'what a wonderful day' right after his shop burns down, is that just him being sarcastic, or is it a literary device?"
+        },
+        {
+          "role": "tutor",
+          "text": "When your friend's danfo breaks down in traffic during rain and he laughs and says 'ah, today is my lucky day o', does he actually mean the day is lucky?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "No, he means the opposite, he's being sarcastic about how unlucky it is."
+        },
+        {
+          "role": "tutor",
+          "text": "Exactly — saying the opposite of what is meant, usually for a bitter or humorous effect. Is 'sarcasm' just an everyday word for a feeling, or is there a specific literary term for this technique of saying the opposite of what's meant?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "I think there's a formal term for it but I can't remember what it's called."
+        },
+        {
+          "role": "tutor",
+          "text": "It's closely related to irony — specifically the kind that happens through what a character SAYS rather than through events. Given that clue, what would you call this device, and what does it reveal about the shop owner's emotional state in that moment?",
+          "technique": "guided_transfer"
+        }
+      ],
+      "correct_understanding": "This is verbal irony (the character says the opposite of what he means), and it reveals the shop owner's devastation masked by bitter, defensive humour rather than genuine happiness.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "n/a"
+    },
+    {
+      "id": "lit-0020",
+      "subject": "literature",
+      "topic": "theme",
+      "source": "WAEC-style practice item, Literature-in-English, theme of fate versus free will",
+      "difficulty": "credit",
+      "student_opening": "Is the tragedy in this play because of fate, or because the hero made his own bad choices? I keep going back and forth and I just want the answer.",
+      "misconception": "Student treats fate and free will as mutually exclusive rather than examining how the text may present them as intertwined, and wants a binary answer instead of engaging with textual evidence.",
+      "escalated": true,
+      "turns": [
+        {
+          "role": "student",
+          "text": "Is the tragedy in this play because of fate, or because the hero made his own bad choices? I keep going back and forth and I just want the answer."
+        },
+        {
+          "role": "tutor",
+          "text": "Think of a farmer warned by the village diviner that a particular field will bring him trouble if he plants there. He plants there anyway, out of stubborn pride, and disaster follows. Was the trouble purely fate, purely his choice, or somehow both?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "Maybe both, but I still don't know how to decide which one the play actually emphasises. Can you just tell me which one it is?"
+        },
+        {
+          "role": "tutor",
+          "text": "Fair, let's narrow it: go to the prophecy/warning scene in the play — does the hero have any real chance to choose differently after hearing the warning, or is he written as having no options at all?",
+          "technique": "escalated_hint"
+        },
+        {
+          "role": "student",
+          "text": "He does get a chance to change course but his pride makes him ignore the warning, I still don't know how to conclude from that though."
+        },
+        {
+          "role": "tutor",
+          "text": "Good, that's actually the answer forming. Let's walk it through: because the hero is given a real warning and a real choice, and it's his pride that makes him ignore it, the play presents fate as setting the STAGE for tragedy (the prophecy), while free will (his choice to ignore it) is what actually TRIGGERS it. So the tragedy isn't purely fate or purely choice — it's fate providing the opportunity, and the hero's flawed choice pulling the trigger.",
+          "technique": "worked_example"
+        }
+      ],
+      "correct_understanding": "The play presents fate and free will as intertwined: the prophecy sets up the possibility of tragedy, but the hero's own choice (driven by pride/hamartia) to ignore the warning is what actually brings the tragedy about.",
+      "max_turns_to_resolution": 3,
+      "frustration_threshold": 2,
+      "notation_check": "n/a"
+    },
+    {
+      "id": "lit-0021",
+      "subject": "literature",
+      "topic": "figurative_language",
+      "source": "WAEC-style practice item, Literature-in-English, personification and pathetic fallacy",
+      "difficulty": "credit",
+      "student_opening": "The storm 'howled with rage' right when the villain is defeated — is that just describing bad weather at a coincidental time?",
+      "misconception": "Student does not connect natural imagery timed to plot events as pathetic fallacy reflecting emotional/moral atmosphere.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "The storm 'howled with rage' right when the villain is defeated — is that just describing bad weather at a coincidental time?"
+        },
+        {
+          "role": "tutor",
+          "text": "Think about how elders sometimes say 'even the sky is angry today' when thunder crashes right after a serious injustice happens in the village. Do people actually believe the sky has emotions, or are they using the weather to mirror the mood of the moment?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "They're using the weather to mirror the mood, not saying the sky literally feels angry."
+        },
+        {
+          "role": "tutor",
+          "text": "Exactly. Now, is the storm 'howling with rage' at the exact moment of the villain's defeat likely to be random timing, or is the writer using nature to echo the emotional intensity of that scene?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "The writer is probably using it to echo the intensity and maybe a sense of justice or violence in that moment."
+        },
+        {
+          "role": "tutor",
+          "text": "Good reading. There's a specific term for when nature's weather/mood is written to mirror human emotion or events — can you recall it, or work out what family of personification this falls under?",
+          "technique": "guided_transfer"
+        }
+      ],
+      "correct_understanding": "This is pathetic fallacy (a form of personification applied to nature), where the storm's 'rage' mirrors the emotional intensity and violence of the villain's defeat rather than being a coincidental weather detail.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "n/a"
+    },
+    {
+      "id": "lit-0022",
+      "subject": "literature",
+      "topic": "setting_and_context",
+      "source": "WAEC-style practice item, Literature-in-English, setting and mood",
+      "difficulty": "pass",
+      "student_opening": "Why does the writer spend so much time describing the marketplace at the start of the story? Can't we just skip to the main event?",
+      "misconception": "Student views extended setting description as padding rather than recognising it establishes mood and social context essential to later events.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "Why does the writer spend so much time describing the marketplace at the start of the story? Can't we just skip to the main event?"
+        },
+        {
+          "role": "tutor",
+          "text": "Think about how a market day itself tells you something — the noise, the haggling, traders calling out prices, everyone busy and alert. If a writer sets a scene there instead of, say, a quiet empty church, what kind of mood or energy are they already building before anything even happens?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "A busy, noisy, alert kind of energy, maybe tension too since people are always negotiating."
+        },
+        {
+          "role": "tutor",
+          "text": "Good. Now think ahead — later in the story, a public accusation happens in that same marketplace, in front of a crowd. If the writer had instead set that accusation in an empty room, would it carry the same weight of public shame and witnesses?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "No, the marketplace crowd makes the accusation much more public and shameful."
+        },
+        {
+          "role": "tutor",
+          "text": "So what is the opening market description actually doing for the story, beyond just filling space before 'the main event'?",
+          "technique": "guided_transfer"
+        }
+      ],
+      "correct_understanding": "The marketplace setting establishes a mood of public, communal energy and sets up the social stakes (witnesses, gossip, shame) that make the later public accusation scene carry real weight — it is not filler.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "n/a"
+    },
+    {
+      "id": "lit-0023",
+      "subject": "literature",
+      "topic": "characterisation",
+      "source": "WAEC-style practice item, Literature-in-English, protagonist motivation",
+      "difficulty": "credit",
+      "student_opening": "I don't understand why the heroine refuses the marriage offer even though her family needs the money. Doesn't that make her selfish?",
+      "misconception": "Student judges the character's action by surface consequence (family loses money) without examining the character's internal values/motivation the text develops.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "I don't understand why the heroine refuses the marriage offer even though her family needs the money. Doesn't that make her selfish?"
+        },
+        {
+          "role": "tutor",
+          "text": "Think of a young woman in the village whose family wants her to marry a wealthy but much older widower for the bride price, while she's already promised herself to finish her apprenticeship as a tailor first. If she says no, is it necessarily because she doesn't care about her family, or could there be another value she's protecting?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "Maybe she's protecting her own future and independence, not just being selfish."
+        },
+        {
+          "role": "tutor",
+          "text": "Good instinct. Now go back to earlier chapters — has the heroine shown, through her actions or words, that she values independence, education, or choosing her own path over financial security?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "Yes, earlier she secretly saved money to learn a trade and told her friend she never wanted to be 'owned' by a husband's money."
+        },
+        {
+          "role": "tutor",
+          "text": "That's strong textual evidence. Given that established motivation, how would you now explain her refusal — as selfishness, or as consistency with a value she's held throughout the story?",
+          "technique": "guided_transfer"
+        }
+      ],
+      "correct_understanding": "The heroine's refusal is consistent with an established value of independence and self-determination shown earlier in the text (saving money, resisting being 'owned'), not simple selfishness toward her family.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "n/a"
+    },
+    {
+      "id": "lit-0024",
+      "subject": "literature",
+      "topic": "poetic_devices",
+      "source": "WAEC-style practice item, Literature-in-English, rhythm and structure",
+      "difficulty": "pass",
+      "student_opening": "Does it matter that the poem's lines get shorter and shorter toward the end? I thought only rhyme and imagery mattered in poetry.",
+      "misconception": "Student overlooks structural/visual and rhythmic choices (line length, stanza shape) as meaningful poetic devices beyond rhyme and imagery.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "Does it matter that the poem's lines get shorter and shorter toward the end? I thought only rhyme and imagery mattered in poetry.'"
+        },
+        {
+          "role": "tutor",
+          "text": "Think of a town crier's announcement as the night gets late — early in the evening his sentences are long and full, but as he grows tired and the village goes quiet, his calls become shorter, almost breathless. What might that shortening tell listeners about his energy or urgency?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "Maybe that he's getting tired, or that things are becoming more urgent and rushed."
+        },
+        {
+          "role": "tutor",
+          "text": "Good — a change in rhythm/length can carry meaning just like word choice can. Now look at where in the poem the lines start shortening — is it near a moment of exhaustion, urgency, or emotional collapse in the content?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "It's near the end where the speaker is describing their own death or fading strength, so it could mirror that fading."
+        },
+        {
+          "role": "tutor",
+          "text": "That's a strong connection — so what would you say the shortening lines are doing structurally to reflect the poem's content at that point?",
+          "technique": "guided_transfer"
+        }
+      ],
+      "correct_understanding": "The progressively shortening lines are a structural device that mirrors the poem's content — a fading, weakening, or urgent quality — showing that structure and rhythm, not just rhyme and imagery, carry meaning.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "n/a"
+    },
+    {
+      "id": "lit-0025",
+      "subject": "literature",
+      "topic": "unseen_prose",
+      "source": "WAEC-style practice item, Literature-in-English, point of view",
+      "difficulty": "credit",
+      "student_opening": "The unseen passage is told by a character who admits they might be wrong about what happened. Does that change how I should read it?",
+      "misconception": "Student does not recognise the unreliable narrator technique and its effect on how a reader should evaluate the narrator's claims.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "The unseen passage is told by a character who admits they might be wrong about what happened. Does that change how I should read it?"
+        },
+        {
+          "role": "tutor",
+          "text": "Think about hearing gossip about a compound quarrel from only one relative who admits, 'well, I wasn't fully there, and I don't like that woman anyway'. Would you take that account as the complete, unbiased truth, or would you want to hear the other side too?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "I'd want to hear the other side too, since the relative admits bias and wasn't fully present."
+        },
+        {
+          "role": "tutor",
+          "text": "Exactly the instinct you need here. So when a first-person narrator in a story admits uncertainty or shows possible bias, should you, as a reader, treat everything they say as objective fact?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "No, I should treat their account with some doubt, since they might be leaving things out or seeing it wrongly."
+        },
+        {
+          "role": "tutor",
+          "text": "Right — what is the technical term for a narrator whose account the reader is meant to question rather than fully trust, and how should that change your approach to answering questions about 'what really happened' in the passage?",
+          "technique": "guided_transfer"
+        }
+      ],
+      "correct_understanding": "This is an unreliable narrator; the reader must treat the narrator's account with critical distance, cross-checking claims against other details in the passage rather than accepting the narration as objective fact.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "n/a"
+    },
+    {
+      "id": "lit-0026",
+      "subject": "literature",
+      "topic": "irony",
+      "source": "WAEC-style practice item, Literature-in-English, tragic irony in drama",
+      "difficulty": "pass",
+      "student_opening": "The audience knows the potion is poison, but the character drinks it to try to save himself. Why does that make the scene more powerful, not less?",
+      "misconception": "Student senses the scene works but cannot articulate why audience foreknowledge intensifies tragedy rather than reducing suspense.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "The audience knows the potion is poison, but the character drinks it to try to save himself. Why does that make the scene more powerful, not less?"
+        },
+        {
+          "role": "tutor",
+          "text": "Imagine watching a video where a child is about to eat what he thinks is sweet, but you can clearly see it's actually a bitter native medicine wrapped like candy. Does the fact that YOU already know make the moment feel less tense, or does it make you want to shout a warning?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "It makes me want to shout a warning, it feels more tense because I can't stop it."
+        },
+        {
+          "role": "tutor",
+          "text": "That helplessness is exactly the effect. Now apply that to the drama — because the audience knows the potion is poison but the character doesn't, and the audience can do nothing to stop him, what emotional effect does that produce as we watch him drink it, believing it will save him?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "It creates a feeling of dread and helplessness, like we're watching a disaster we can't prevent."
+        },
+        {
+          "role": "tutor",
+          "text": "That's precisely why dramatic irony intensifies rather than reduces tension — so how would you explain, in exam language, why this technique makes the scene MORE powerful rather than less?",
+          "technique": "guided_transfer"
+        }
+      ],
+      "correct_understanding": "Audience foreknowledge (dramatic irony) intensifies the scene by creating helpless dread — the audience anticipates the tragedy the character cannot see coming, which heightens emotional tension rather than reducing suspense.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "n/a"
+    },
+    {
+      "id": "lit-0027",
+      "subject": "literature",
+      "topic": "figurative_language",
+      "source": "WAEC-style practice item, Literature-in-English, extended metaphor",
+      "difficulty": "credit",
+      "student_opening": "The whole poem compares life to a journey on a road, stanza after stanza. I can point out a few road images but I don't know how to write about it as a WHOLE device, just tell me how to describe it.",
+      "misconception": "Student can spot isolated images but does not understand the concept of an extended/sustained metaphor running through an entire poem.",
+      "escalated": true,
+      "turns": [
+        {
+          "role": "student",
+          "text": "The whole poem compares life to a journey on a road, stanza after stanza. I can point out a few road images but I don't know how to write about it as a WHOLE device, just tell me how to describe it."
+        },
+        {
+          "role": "tutor",
+          "text": "Think of a proverb your grandmother might use once, like 'slow and steady wins the race'. Now imagine instead she built an entire long story around it — the runner's shoes, the bumps in the road, the finish line — and kept returning to running images throughout the whole story. Would that still be just one small proverb, or something bigger?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "Something bigger, since it's sustained through the whole story, not just one line. I still don't know what to call that or how to write it up though."
+        },
+        {
+          "role": "tutor",
+          "text": "Let's narrow it down: when a single comparison (life = a journey) isn't just used once but is developed and returned to across many lines or the whole poem — road, potholes, crossroads, destination — that sustained version of a metaphor has its own name. Can you guess it, thinking about the word 'extended'?",
+          "technique": "escalated_hint"
+        },
+        {
+          "role": "student",
+          "text": "I think it might be called an extended metaphor but I still don't know how to actually write about it in an essay."
+        },
+        {
+          "role": "tutor",
+          "text": "You've got the term right. Here's how to work with it: first name the device ('the poet uses an extended metaphor of life as a journey'), then trace at least three specific road-images across different stanzas (e.g., 'crossroads' for difficult choices, 'potholes' for hardship, 'the long road ahead' for uncertainty about the future), and finally explain what single overall view of life this sustained comparison builds — for instance, that life is unpredictable, requires endurance, and is never truly finished until the final destination.",
+          "technique": "worked_example"
+        }
+      ],
+      "correct_understanding": "The poem uses an extended (sustained) metaphor of life as a journey, developed through recurring road-images (crossroads, potholes, the road ahead) across multiple stanzas, building an overall view of life as unpredictable and requiring endurance.",
+      "max_turns_to_resolution": 3,
+      "frustration_threshold": 2,
+      "notation_check": "n/a"
+    }
+  ]
+}

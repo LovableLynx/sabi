@@ -1,0 +1,38 @@
+# LoRA fine-tuning config for Socratic Igbá on N-ATLAS
+# Adjust paths/hyperparameters here rather than editing finetune_lora.py.
+
+model:
+  # Confirmed: https://huggingface.co/NCAIR1/N-ATLaS
+  # Llama-3 8B base (LlamaForCausalLM), 32 layers, hidden 4096, vocab 128256.
+  # Context length ceiling is 8,092 tokens — training/inference must fit
+  # within this (see training.max_seq_length below).
+  base_model: "NCAIR1/N-ATLaS"
+
+data:
+  train_file: "ml/outputs/train.jsonl"
+
+lora:
+  r: 16
+  alpha: 32
+  dropout: 0.05
+  # Standard attention + MLP projection targets for Llama-3 architecture.
+  target_modules:
+    - "q_proj"
+    - "k_proj"
+    - "v_proj"
+    - "o_proj"
+    - "gate_proj"
+    - "up_proj"
+    - "down_proj"
+
+training:
+  num_epochs: 3
+  learning_rate: 0.0002
+  per_device_train_batch_size: 2
+  gradient_accumulation_steps: 8
+  # N-ATLAS's hard context ceiling is 8,092 tokens. 2048 is a safe budget for
+  # our multi-turn dialogues (6-8 short turns); raise only if you start
+  # seeing truncated training examples, and never above ~7800 to leave room
+  # for the system prompt + special tokens.
+  max_seq_length: 2048
+  output_dir: "ml/outputs/lora_run_1"

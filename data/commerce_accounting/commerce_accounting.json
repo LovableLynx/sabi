@@ -1,0 +1,1118 @@
+{
+  "_topic_tags_in_use": [
+    "double_entry",
+    "bank_reconciliation",
+    "depreciation",
+    "trial_balance",
+    "final_accounts"
+  ],
+  "_notation_convention": "Every ledger/table uses the fixed columns: | Date | Account | Debit (₦) | Credit (₦) |. Running balance/total row labeled 'Balance c/d' or 'Total'. Double-entry examples must show both legs in the same table.",
+  "examples": [
+    {
+      "id": "acc-0001",
+      "subject": "accounting",
+      "topic": "double_entry",
+      "source": "WAEC 2020 Paper 2, Q2 + Examiner Report",
+      "difficulty": "credit",
+      "student_opening": "I bought goods for cash, ₦5000. Which account do I debit and which do I credit? I always mix this up.",
+      "misconception": "Student does not have a reliable mental model for 'what comes in is debited, what goes out is credited' and guesses randomly.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "I bought goods for cash, ₦5000. Which account do I debit and which do I credit? I always mix this up."
+        },
+        {
+          "role": "tutor",
+          "text": "Think of an Esusu contribution book. When a member's money comes INTO the group's pool, the secretary writes it on one side; when money goes OUT to pay a member, it's written on the other side. In your transaction, which account is receiving something — Goods, or Cash?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "Goods is receiving something — the goods came into the business."
+        },
+        {
+          "role": "tutor",
+          "text": "Good. In accounting, the account that receives value is debited. So what happens to the Goods (Purchases) account?",
+          "technique": "guided_transfer"
+        },
+        {
+          "role": "student",
+          "text": "Purchases account is debited ₦5000."
+        },
+        {
+          "role": "tutor",
+          "text": "Correct. Now, Cash left the business to pay for those goods — value is going OUT of the cash account. So what do we do to Cash?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "Credit the Cash account ₦5000."
+        },
+        {
+          "role": "tutor",
+          "text": "Exactly. Now write both legs of this out as a single table with Date, Account, Debit and Credit columns, the way we always format it.",
+          "technique": "extend_to_effect"
+        }
+      ],
+      "correct_understanding": "| Date | Account | Debit (₦) | Credit (₦) |\n|------|---------|-----------|------------|\n| ...  | Purchases | 5000 | |\n| ...  | Cash | | 5000 |\nPurchases (goods received) is debited; Cash (value given out) is credited — the double-entry principle that every debit has a matching credit.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "acc-0002",
+      "subject": "accounting",
+      "topic": "double_entry",
+      "source": "WAEC-style practice item, Financial Accounting, double entry",
+      "difficulty": "credit",
+      "student_opening": "I sold goods on credit to Chidi for ₦8000. Which accounts are affected? I only know cash sales, not credit sales.",
+      "misconception": "Student's mental model of double entry is limited to cash transactions and does not know a credit sale creates a debtor (receivable) rather than affecting cash immediately.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "I sold goods on credit to Chidi for ₦8000. Which accounts are affected? I only know cash sales, not credit sales."
+        },
+        {
+          "role": "tutor",
+          "text": "Think of a trader in the market who lets a trusted customer 'carry the goods now, pay next market day'. Has cash actually entered the trader's box today, or has something else of value been created — a promise to pay?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "No cash has entered yet, but the customer now owes the trader money — a promise to pay."
+        },
+        {
+          "role": "tutor",
+          "text": "Exactly — that promise to pay is recorded as a debtor, in this case 'Chidi' or 'Debtors account', and since value (a right to receive money) has come INTO the business, what happens to that account — debit or credit?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "Debit the Chidi (debtors) account ₦8000, since it's receiving value."
+        },
+        {
+          "role": "tutor",
+          "text": "Correct. Now the business gave OUT goods in exchange, meaning value left the Sales side conceptually — in accounting, a sale is recorded as income leaving through the Sales account. Which side does the Sales account go on, and can you now write both legs as a single table with Date, Account, Debit and Credit columns?",
+          "technique": "extend_to_effect"
+        }
+      ],
+      "correct_understanding": "| Date | Account | Debit (₦) | Credit (₦) |\n|------|---------|-----------|------------|\n| ... | Chidi (Debtors) | 8000 | |\n| ... | Sales | | 8000 |\nDebtors (Chidi) is debited because the business now has a right to receive ₦8000; Sales is credited because revenue has been earned, even though cash has not yet been received.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "acc-0003",
+      "subject": "accounting",
+      "topic": "depreciation",
+      "source": "WAEC-style practice item, Financial Accounting, depreciation (straight line)",
+      "difficulty": "credit",
+      "student_opening": "A machine cost ₦100,000 with a scrap value of ₦10,000 and a useful life of 5 years. How do I find the annual depreciation using the straight line method?",
+      "misconception": "Student may divide the full cost by useful life without subtracting scrap/residual value first, overstating annual depreciation.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "A machine cost ₦100,000 with a scrap value of ₦10,000 and a useful life of 5 years. How do I find the annual depreciation using the straight line method?"
+        },
+        {
+          "role": "tutor",
+          "text": "Think of a farmer who buys a wheelbarrow for ₦20,000, and after years of use, expects to sell the worn-out wheelbarrow for scrap metal at ₦2,000. Is the FULL ₦20,000 actually 'lost' to wear and tear, or only the part he won't recover at the end?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "Only the part he won't recover — the ₦2,000 scrap value isn't really lost."
+        },
+        {
+          "role": "tutor",
+          "text": "Exactly — depreciation only spreads out the amount actually lost in value, which is cost minus scrap (residual) value. So for the machine, what is that depreciable amount, cost minus scrap value?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "100,000 minus 10,000 equals 90,000."
+        },
+        {
+          "role": "tutor",
+          "text": "Correct. Now divide that ₦90,000 depreciable amount evenly over the 5-year useful life — what is the annual depreciation charge?",
+          "technique": "extend_to_effect"
+        }
+      ],
+      "correct_understanding": "Depreciable amount = Cost − Scrap value = 100,000 − 10,000 = 90,000. Annual depreciation (straight line) = 90,000 / 5 = ₦18,000 per year.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "acc-0004",
+      "subject": "accounting",
+      "topic": "bank_reconciliation",
+      "source": "WAEC-style practice item, Financial Accounting, bank reconciliation",
+      "difficulty": "pass",
+      "student_opening": "My cash book shows ₦45,000 but the bank statement shows ₦52,000. There's an unpresented cheque of ₦7,000. Why don't the two balances match, and which one do I adjust?",
+      "misconception": "Student assumes one of the two records must simply be wrong, rather than understanding timing differences (like unpresented cheques) that will resolve themselves once the cheque clears.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "My cash book shows ₦45,000 but the bank statement shows ₦52,000. There's an unpresented cheque of ₦7,000. Why don't the two balances match, and which one do I adjust?"
+        },
+        {
+          "role": "tutor",
+          "text": "Think of writing an IOU note to a friend at a village contribution meeting, promising to pay ₦7,000 from your Esusu savings — you've already recorded in your own book that the money is gone, but your friend hasn't yet gone to collect it from your savings box. At this moment, does your savings box actually show less money, or does it still show the full amount because the friend hasn't collected yet?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "The savings box still shows the full amount because the friend hasn't collected the money yet."
+        },
+        {
+          "role": "tutor",
+          "text": "Exactly that timing gap. In the same way, you've already written the cheque and deducted it in your cash book, but the recipient hasn't yet presented it to the bank for payment, so the bank statement doesn't reflect it yet. To reconcile, do you adjust the bank statement balance by adding or subtracting the unpresented cheque to match your cash book logic?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "I think you subtract the unpresented cheque from the bank statement balance."
+        },
+        {
+          "role": "tutor",
+          "text": "Good instinct — try that subtraction with the figures given (₦52,000 bank balance, ₦7,000 unpresented cheque) and see whether it brings the two balances into agreement.",
+          "technique": "guided_transfer"
+        }
+      ],
+      "correct_understanding": "Adjusted bank balance = 52,000 − 7,000 (unpresented cheque) = 45,000, which now agrees with the cash book balance of ₦45,000. The difference was a timing difference, not an error — the cheque had been recorded as paid in the cash book but not yet presented at the bank.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "acc-0005",
+      "subject": "accounting",
+      "topic": "trial_balance",
+      "source": "WAEC-style practice item, Financial Accounting, trial balance and suspense account",
+      "difficulty": "credit",
+      "student_opening": "My trial balance doesn't balance — debit side is ₦2,000 more than credit side. What do I do with that ₦2,000?",
+      "misconception": "Student does not know that a temporary suspense account is opened to hold the difference until the error causing the imbalance is found and corrected.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "My trial balance doesn't balance — debit side is ₦2,000 more than credit side. What do I do with that ₦2,000?"
+        },
+        {
+          "role": "tutor",
+          "text": "Think of a market women's cooperative counting the day's total contributions, and the two people counting arrive at figures ₦2,000 apart. Would the sensible treasurer just pick one number and move on, or would she record the ₦2,000 difference somewhere temporary while they go back to find the counting mistake?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "She would record it somewhere temporary while they look for the mistake, not just ignore it."
+        },
+        {
+          "role": "tutor",
+          "text": "Exactly the right instinct. In accounting, that 'somewhere temporary' has a specific name — an account opened purely to hold a trial balance difference until the actual error is traced. What do you think that account is called?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "I believe it's called a suspense account."
+        },
+        {
+          "role": "tutor",
+          "text": "Correct term. Since the debit side is ₦2,000 more than the credit side, which side of the suspense account would you place the ₦2,000 to make the trial balance balance temporarily?",
+          "technique": "guided_transfer"
+        }
+      ],
+      "correct_understanding": "A Suspense account is opened, and since the debit column exceeds the credit column by ₦2,000, the ₦2,000 is entered on the credit side of the suspense account to make the trial balance balance temporarily, pending discovery of the actual error.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "acc-0006",
+      "subject": "accounting",
+      "topic": "final_accounts",
+      "source": "WAEC-style practice item, Financial Accounting, trading account and gross profit",
+      "difficulty": "pass",
+      "student_opening": "Sales were ₦200,000, opening stock ₦30,000, purchases ₦120,000, and closing stock ₦25,000. How do I find gross profit?",
+      "misconception": "Student may forget to compute cost of goods sold correctly (opening stock + purchases − closing stock) before subtracting from sales.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "Sales were ₦200,000, opening stock ₦30,000, purchases ₦120,000, and closing stock ₦25,000. How do I find gross profit?"
+        },
+        {
+          "role": "tutor",
+          "text": "Think of a provisions store owner who started the month with some bags of rice already in the store, bought more bags during the month, and at month end counted what was still unsold. What she actually SOLD during the month is not just what she bought — it's what she started with, plus what she bought, minus what's left over. Does that logic make sense for finding what left the store?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "Yes, that makes sense — what she sold equals opening stock plus purchases minus closing stock."
+        },
+        {
+          "role": "tutor",
+          "text": "Exactly — that's the cost of goods sold. Using opening stock + purchases − closing stock, what value do you get for cost of goods sold here?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "30,000 + 120,000 − 25,000 = 125,000."
+        },
+        {
+          "role": "tutor",
+          "text": "Correct. Now, gross profit is sales minus cost of goods sold — subtract your 125,000 from the ₦200,000 sales figure. What do you get?",
+          "technique": "extend_to_effect"
+        }
+      ],
+      "correct_understanding": "Cost of goods sold = Opening stock + Purchases − Closing stock = 30,000 + 120,000 − 25,000 = 125,000. Gross profit = Sales − Cost of goods sold = 200,000 − 125,000 = ₦75,000.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "acc-0007",
+      "subject": "accounting",
+      "topic": "double_entry",
+      "source": "WAEC-style practice item, Financial Accounting, double entry (drawings)",
+      "difficulty": "credit",
+      "student_opening": "The owner took ₦3,000 cash from the business for personal use. How do I record that? Is it an expense of the business?",
+      "misconception": "Student mistakenly treats owner's drawings as a business expense rather than a reduction of the owner's capital/equity.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "The owner took ₦3,000 cash from the business for personal use. How do I record that? Is it an expense of the business?"
+        },
+        {
+          "role": "tutor",
+          "text": "Think of a woman who runs a small business from her compound, and a member of the family's Esusu group who is also the treasurer takes money from the pool for his own wedding expenses, not for group activities. Is that money spent 'for the group's benefit', or is it really the treasurer withdrawing his own stake early?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "It's really him withdrawing his own stake, not spending for the group's benefit."
+        },
+        {
+          "role": "tutor",
+          "text": "Exactly — it's a withdrawal of the owner's own investment, not a cost of running the business. In accounting, this is called Drawings, and it reduces the owner's capital rather than counting as an expense. Since cash is leaving the business, what happens to the Cash account — debit or credit?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "Credit the Cash account, since cash is going out."
+        },
+        {
+          "role": "tutor",
+          "text": "Correct. And the Drawings account receives that value conceptually (it records what the owner has taken out), so it is debited. Can you now write both legs as a single table with Date, Account, Debit and Credit columns?",
+          "technique": "extend_to_effect"
+        }
+      ],
+      "correct_understanding": "| Date | Account | Debit (₦) | Credit (₦) |\n|------|---------|-----------|------------|\n| ... | Drawings | 3000 | |\n| ... | Cash | | 3000 |\nDrawings is debited (owner withdrawing capital) and Cash is credited (cash leaving the business); drawings reduce owner's capital and are not a business expense.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "acc-0008",
+      "subject": "accounting",
+      "topic": "depreciation",
+      "source": "WAEC-style practice item, Financial Accounting, depreciation (reducing balance)",
+      "difficulty": "credit",
+      "student_opening": "A vehicle cost ₦500,000 and depreciates at 20% per annum using the reducing balance method. What is the depreciation for the second year? I don't get why it's not the same amount every year, just tell me the number.",
+      "misconception": "Student assumes reducing balance depreciation gives a fixed amount each year like straight line, not realising the rate applies to the reducing net book value each year.",
+      "escalated": true,
+      "turns": [
+        {
+          "role": "student",
+          "text": "A vehicle cost ₦500,000 and depreciates at 20% per annum using the reducing balance method. What is the depreciation for the second year? I don't get why it's not the same amount every year, just tell me the number."
+        },
+        {
+          "role": "tutor",
+          "text": "Think of a farmer's yam barn that loses 20% of whatever is CURRENTLY inside it to spoilage every month, not 20% of the original full barn every time. If the barn already lost some yams last month, is this month's 20% spoilage calculated from the original full barn, or from what remains now?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "From what remains now, not the original amount. I still don't know how to turn that into the actual naira figure for year two though, just tell me."
+        },
+        {
+          "role": "tutor",
+          "text": "Fair, here's a stronger hint: first find year one's depreciation as 20% of the original cost, subtract it to get the net book value at the start of year two, then take 20% of THAT reduced figure — not 20% of ₦500,000 again. Try working out year one's depreciation and the resulting net book value first.",
+          "technique": "escalated_hint"
+        },
+        {
+          "role": "student",
+          "text": "Year one is 20% of 500,000 which is 100,000, so net book value becomes 400,000, but I still can't finish year two, can we do it together?"
+        },
+        {
+          "role": "tutor",
+          "text": "Yes, let's finish it: year two's depreciation is 20% of the reduced net book value of ₦400,000, which is 0.20 * 400,000 = ₦80,000. Notice it's smaller than year one's ₦100,000, because reducing balance is always calculated on the shrinking net book value, not the original cost.",
+          "technique": "worked_example"
+        }
+      ],
+      "correct_understanding": "Year 1 depreciation = 20% of 500,000 = 100,000, giving net book value = 500,000 − 100,000 = 400,000. Year 2 depreciation = 20% of 400,000 = ₦80,000 — smaller than year 1 because the rate is applied to the reducing net book value each year.",
+      "max_turns_to_resolution": 3,
+      "frustration_threshold": 2,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "acc-0009",
+      "subject": "accounting",
+      "topic": "trial_balance",
+      "source": "WAEC-style practice item, Financial Accounting, errors and the trial balance",
+      "difficulty": "pass",
+      "student_opening": "If a transaction was completely omitted from both the debit and credit side, why does my trial balance still balance? Shouldn't it show an error?",
+      "misconception": "Student assumes any accounting error will automatically be caught by the trial balance, not knowing certain errors (e.g. complete omission, errors of principle, compensating errors) do not disturb its arithmetic balance.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "If a transaction was completely omitted from both the debit and credit side, why does my trial balance still balance? Shouldn't it show an error?"
+        },
+        {
+          "role": "tutor",
+          "text": "Think of two men weighing bags of garri on either side of a balance scale at the market. If a whole extra bag that was supposed to be weighed on BOTH sides is simply never brought to the scale at all, does the scale tip to one side, or does it stay level, just showing a wrong but 'balanced' total?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "The scale stays level, it just shows a wrong total, since nothing unequal was added to either side."
+        },
+        {
+          "role": "tutor",
+          "text": "Exactly — the scale (or trial balance) only checks that debits equal credits in total, not that every transaction that SHOULD be there actually is. If a transaction is left out of both sides equally (both its debit and credit legs), does that create any inequality between total debits and total credits?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "No, since nothing was added to either side, there's no inequality created, so the trial balance still balances."
+        },
+        {
+          "role": "tutor",
+          "text": "Right — so what does this tell you about what a trial balance actually proves and does NOT prove about the accuracy of the accounts?",
+          "technique": "guided_transfer"
+        }
+      ],
+      "correct_understanding": "A trial balance only proves that total debits equal total credits arithmetically; it does not guarantee accuracy. An error of complete omission (a transaction left out of both sides) does not disturb the balance because no inequality between debit and credit totals is created.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "acc-0010",
+      "subject": "accounting",
+      "topic": "final_accounts",
+      "source": "WAEC-style practice item, Financial Accounting, profit and loss account",
+      "difficulty": "credit",
+      "student_opening": "I have gross profit of ₦75,000, rent expense ₦10,000, wages ₦20,000, and discount received ₦5,000. How do I find net profit?",
+      "misconception": "Student may forget that discount received is an income (added), not an expense (subtracted), and lump it in with the expenses incorrectly.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "I have gross profit of ₦75,000, rent expense ₦10,000, wages ₦20,000, and discount received ₦5,000. How do I find net profit?"
+        },
+        {
+          "role": "tutor",
+          "text": "Think of a trader's evening balance: her gross profit is like the pile of money already made from selling goods. Rent and wages are like money she has to pay OUT of that pile. But discount RECEIVED — money others gave HER as a reduction on what she owed them — does that come out of her pile, or add to it?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "It adds to her pile, since it's money she benefited from, not money going out."
+        },
+        {
+          "role": "tutor",
+          "text": "Exactly — discount received is other income, added to gross profit, not subtracted like an expense. So what is the correct order of operations: gross profit plus discount received, then minus the two expenses?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "Yes — 75,000 + 5,000 − 10,000 − 20,000."
+        },
+        {
+          "role": "tutor",
+          "text": "Correct approach. Work through that calculation — what is the final net profit figure?",
+          "technique": "extend_to_effect"
+        }
+      ],
+      "correct_understanding": "Net profit = Gross profit + Discount received − Rent − Wages = 75,000 + 5,000 − 10,000 − 20,000 = ₦50,000.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "acc-0011",
+      "subject": "accounting",
+      "topic": "double_entry",
+      "source": "WAEC-style practice item, Financial Accounting, returns inwards",
+      "difficulty": "pass",
+      "student_opening": "A customer returned damaged goods worth ₦2,000 that he had bought on credit. How do I record this return? I'm confused, just show me the entries.",
+      "misconception": "Student may reverse the original sale entry directly on the Sales account instead of using a separate Returns Inwards account, and wants the entries stated rather than reasoned through.",
+      "escalated": true,
+      "turns": [
+        {
+          "role": "student",
+          "text": "A customer returned damaged goods worth ₦2,000 that he had bought on credit. How do I record this return? I'm confused, just show me the entries."
+        },
+        {
+          "role": "tutor",
+          "text": "Let's reason it out together first. Think of a tailor who sold a customer a pair of trousers on credit, but the customer brings it back because of a bad stitch. Does the tailor tear up the original sales record entirely, or does she keep the original record but note separately that some goods came back?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "Maybe she keeps the original record, but I still don't know how to write the actual entries, can you just show me?"
+        },
+        {
+          "role": "tutor",
+          "text": "No wahala — here's a stronger hint: accounting keeps a separate account called Returns Inwards for goods coming back, rather than erasing the original sale. Since this account reduces revenue, it is debited; and because the customer's debt to us is now smaller, the Debtors account is credited. Try writing that out as a table yourself first.",
+          "technique": "escalated_hint"
+        },
+        {
+          "role": "student",
+          "text": "I tried but I'm not sure I placed the amounts on the right side, can you just finish it for me?"
+        },
+        {
+          "role": "tutor",
+          "text": "Sure, here it is worked through:\n| Date | Account | Debit (₦) | Credit (₦) |\n|------|---------|-----------|------------|\n| ... | Returns Inwards | 2000 | |\n| ... | Customer (Debtors) | | 2000 |\nReturns Inwards is debited because it reduces revenue, and the Debtors account is credited because the customer no longer owes for the returned goods.",
+          "technique": "worked_example"
+        }
+      ],
+      "correct_understanding": "| Date | Account | Debit (₦) | Credit (₦) |\n|------|---------|-----------|------------|\n| ... | Returns Inwards | 2000 | |\n| ... | Customer (Debtors) | | 2000 |\nReturns Inwards is debited (it reduces revenue) and the Debtors account is credited (the customer's debt is reduced), since the customer no longer owes for the returned goods.",
+      "max_turns_to_resolution": 3,
+      "frustration_threshold": 2,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "acc-0012",
+      "subject": "accounting",
+      "topic": "bank_reconciliation",
+      "source": "WAEC-style practice item, Financial Accounting, bank reconciliation (bank charges)",
+      "difficulty": "pass",
+      "student_opening": "The bank statement shows a ₦500 bank charge that isn't in my cash book yet. Which one do I correct — the cash book or the bank statement?",
+      "misconception": "Student assumes the bank statement (external document) must always be adjusted, not realising items known only to the bank (like charges) require the cash book to be updated instead.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "The bank statement shows a ₦500 bank charge that isn't in my cash book yet. Which one do I correct — the cash book or the bank statement?"
+        },
+        {
+          "role": "tutor",
+          "text": "Think of a village cooperative's bank agent who deducts a small service fee directly from the group's savings account, without first telling the group's own secretary who keeps the handwritten record book. Who finds out about that deduction first — the bank's own record, or the secretary's handwritten book?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "The bank's own record finds out first, since the bank made the deduction itself."
+        },
+        {
+          "role": "tutor",
+          "text": "Exactly — the bank statement is already correct and up to date on charges it applied; it's the cash book (the business's own record) that is missing this information and needs updating. So should you adjust the bank statement, or update your cash book to include the ₦500 charge?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "I should update my cash book to include the ₦500 charge."
+        },
+        {
+          "role": "tutor",
+          "text": "Right. Since a bank charge reduces the money in the account, how would you record that ₦500 charge in the cash book — as an addition or a deduction from your cash book balance?",
+          "technique": "guided_transfer"
+        }
+      ],
+      "correct_understanding": "The cash book is updated (not the bank statement) because the bank already knows about and has correctly recorded its own charge; the ₦500 bank charge is deducted from the cash book balance to bring it into agreement with the bank statement.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "acc-0013",
+      "subject": "accounting",
+      "topic": "final_accounts",
+      "source": "WAEC-style practice item, Financial Accounting, balance sheet / accounting equation",
+      "difficulty": "credit",
+      "student_opening": "A business has assets of ₦300,000 and liabilities of ₦120,000. How do I find the owner's capital?",
+      "misconception": "Student may not recall the accounting equation (Assets = Capital + Liabilities) and cannot rearrange it to solve for capital.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "A business has assets of ₦300,000 and liabilities of ₦120,000. How do I find the owner's capital?"
+        },
+        {
+          "role": "tutor",
+          "text": "Think of a compound house that is worth a certain amount in total. Some of that value was paid for using a loan from a cooperative society, and the rest was paid for from the family's own savings. If you know the total value of the house and how much is still owed on the loan, how would you find how much the family's own savings actually contributed?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "Subtract the loan amount from the total value of the house to get the family's own contribution."
+        },
+        {
+          "role": "tutor",
+          "text": "Exactly that logic. In accounting, this is the accounting equation: Assets = Capital + Liabilities. Rearranged to find Capital, what would the formula be?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "Capital = Assets − Liabilities."
+        },
+        {
+          "role": "tutor",
+          "text": "Correct rearrangement. Now substitute Assets = 300,000 and Liabilities = 120,000 — what is the owner's capital?",
+          "technique": "extend_to_effect"
+        }
+      ],
+      "correct_understanding": "Capital = Assets − Liabilities = 300,000 − 120,000 = ₦180,000.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "acc-0014",
+      "subject": "accounting",
+      "topic": "double_entry",
+      "source": "WAEC-style practice item, Financial Accounting, double entry (capital introduced)",
+      "difficulty": "pass",
+      "student_opening": "The owner brought in ₦50,000 cash to start the business. Which account is debited and which is credited?",
+      "misconception": "Student may think Capital should be debited since the owner is 'giving' money, confusing the personal act of giving with the accounting treatment of the business receiving it.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "The owner brought in ₦50,000 cash to start the business. Which account is debited and which is credited?"
+        },
+        {
+          "role": "tutor",
+          "text": "Think of the business as a separate person from its owner, like a young man who is given start-up capital by his father to begin trading in the market — from the young man's (the business's) point of view, is he receiving money, or giving money away?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "He's receiving money from his father, from the business's point of view."
+        },
+        {
+          "role": "tutor",
+          "text": "Exactly — and the account that receives value is debited. So which account, Cash or Capital, actually received value here, from the business's perspective?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "Cash received the value, so Cash is debited."
+        },
+        {
+          "role": "tutor",
+          "text": "Correct. And Capital represents what the business now owes back to the owner (the owner's stake), so it is credited. Can you lay both legs out in our standard table format?",
+          "technique": "extend_to_effect"
+        }
+      ],
+      "correct_understanding": "| Date | Account | Debit (₦) | Credit (₦) |\n|------|---------|-----------|------------|\n| ... | Cash | 50000 | |\n| ... | Capital | | 50000 |\nCash is debited (the business received cash) and Capital is credited (representing the owner's stake/what the business owes the owner).",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "acc-0015",
+      "subject": "accounting",
+      "topic": "trial_balance",
+      "source": "WAEC-style practice item, Financial Accounting, errors of commission",
+      "difficulty": "pass",
+      "student_opening": "A payment to 'John' was wrongly posted to 'Joan's' account instead, but both are debtor accounts and the amounts match. Why is this still an error if the trial balance balances fine?",
+      "misconception": "Student believes that if the trial balance balances, no error exists, missing that errors of commission (posting to the wrong person's account of the correct type) don't disturb the trial balance but still misstate individual account balances.",
+      "escalated": true,
+      "turns": [
+        {
+          "role": "student",
+          "text": "A payment to 'John' was wrongly posted to 'Joan's' account instead, but both are debtor accounts and the amounts match. Why is this still an error if the trial balance balances fine?"
+        },
+        {
+          "role": "tutor",
+          "text": "Think of a village council collecting land tax, where the clerk correctly records that ₦2,000 was received in total, but mistakenly credits Mrs. Adeyemi's household record instead of Mr. Adeyemi's, even though the total money collected by the council is still correctly ₦2,000. Does the council's total collected amount look wrong, even though one household's individual record is now wrong?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "The total collected still looks correct, but Mrs. Adeyemi and Mr. Adeyemi's individual records are now both wrong. I still don't see why that counts as an error the trial balance should catch, just tell me."
+        },
+        {
+          "role": "tutor",
+          "text": "Fair — here's the key hint: the trial balance only totals debits and credits across ALL accounts; it has no way of checking WHICH specific person's account received a posting, only that some debit account and some credit account balanced. Since John's account and Joan's account are the same TYPE of account (both debtors) for the same amount, does the overall total change at all?",
+          "technique": "escalated_hint"
+        },
+        {
+          "role": "student",
+          "text": "No, the overall total doesn't change since it's still a debtor account with the same amount either way, but I'm still not sure what this error is officially called."
+        },
+        {
+          "role": "tutor",
+          "text": "Let's settle it: this is called an error of commission — the correct type of account was used and amounts matched, but the WRONG PERSON's specific account was posted to. It doesn't affect the trial balance's totals because both accounts are of the same class, but it still means John's account understates what he actually paid and Joan's overstates hers, which must be corrected once discovered.",
+          "technique": "worked_example"
+        }
+      ],
+      "correct_understanding": "This is an error of commission: the entry was posted to the correct type of account (a debtor) with the correct amount, but to the wrong specific person's account (Joan instead of John). It does not disturb the trial balance's totals but still misstates the individual accounts of both John and Joan and must be corrected.",
+      "max_turns_to_resolution": 3,
+      "frustration_threshold": 2,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "acc-0016",
+      "subject": "accounting",
+      "topic": "final_accounts",
+      "source": "WAEC-style practice item, Financial Accounting, accruals and prepayments",
+      "difficulty": "credit",
+      "student_opening": "Rent paid during the year was ₦60,000, but ₦10,000 of it was for next year in advance. What figure do I actually charge to this year's profit and loss account?",
+      "misconception": "Student may charge the full cash amount paid without adjusting for the prepaid portion that belongs to the next accounting period.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "Rent paid during the year was ₦60,000, but ₦10,000 of it was for next year in advance. What figure do I actually charge to this year's profit and loss account?"
+        },
+        {
+          "role": "tutor",
+          "text": "Think of a shop owner who pays her landlord for 13 months of rent in one lump sum in December, one month being for January of the following year. When she draws up her accounts for THIS year, should the whole 13 months' payment be treated as this year's expense, or only the part that actually covers this year?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "Only the part that covers this year should be treated as this year's expense."
+        },
+        {
+          "role": "tutor",
+          "text": "Exactly — that's the accruals concept: expenses are matched to the period they relate to, not simply when cash was paid. So of the ₦60,000 paid, how much actually relates to NEXT year rather than this year?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "₦10,000 relates to next year."
+        },
+        {
+          "role": "tutor",
+          "text": "Correct. So what figure should actually be charged as this year's rent expense in the profit and loss account, after removing that prepaid portion?",
+          "technique": "extend_to_effect"
+        }
+      ],
+      "correct_understanding": "This year's rent expense = Total paid − Prepaid portion = 60,000 − 10,000 = ₦50,000, with the ₦10,000 shown as a prepayment (asset) in the balance sheet, matching the accruals concept.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "acc-0017",
+      "subject": "accounting",
+      "topic": "double_entry",
+      "source": "WAEC-style practice item, Financial Accounting, discount allowed",
+      "difficulty": "pass",
+      "student_opening": "A debtor who owed ₦10,000 paid us ₦9,500 cash in full settlement, and we allowed him ₦500 discount. How do I record this?",
+      "misconception": "Student may only record the cash received and forget to also record the discount allowed as a separate expense, leaving the debtor's account not fully cleared.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "A debtor who owed ₦10,000 paid us ₦9,500 cash in full settlement, and we allowed him ₦500 discount. How do I record this?"
+        },
+        {
+          "role": "tutor",
+          "text": "Think of a landlord who is owed ₦10,000 rent but tells the tenant, 'if you pay everything today in cash, I'll knock off ₦500 as a reward for prompt payment.' After the tenant pays ₦9,500, does the landlord still consider any part of the ₦10,000 still owing?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "No, the landlord considers the whole ₦10,000 settled, even though only ₦9,500 was actually received in cash."
+        },
+        {
+          "role": "tutor",
+          "text": "Exactly — the debt is fully cleared, but only ₦9,500 came in as cash; the other ₦500 is treated as an expense (discount allowed) to the business, not as unpaid debt. So to fully clear the debtor's ₦10,000 account, what two credit entries need to appear against it — cash of what amount, and discount allowed of what amount?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "Credit Cash ₦9,500 and credit Discount Allowed... wait, is discount allowed debited or credited?"
+        },
+        {
+          "role": "tutor",
+          "text": "Good question to pause on — discount allowed is an expense to the business (money effectively lost), and expenses are debited. So the debtor's account is credited with both 9,500 (cash) and 500 (discount) to clear the full 10,000; can you now write out all three accounts affected — Debtor, Cash, and Discount Allowed — in our standard table?",
+          "technique": "extend_to_effect"
+        }
+      ],
+      "correct_understanding": "| Date | Account | Debit (₦) | Credit (₦) |\n|------|---------|-----------|------------|\n| ... | Cash | 9500 | |\n| ... | Discount Allowed | 500 | |\n| ... | Debtor | | 10000 |\nCash (9,500) and Discount Allowed (500) are debited, together clearing the Debtor's account, which is credited with the full 10,000 owed.",
+      "max_turns_to_resolution": 5,
+      "frustration_threshold": 3,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "acc-0018",
+      "subject": "accounting",
+      "topic": "bank_reconciliation",
+      "source": "WAEC-style practice item, Financial Accounting, bank reconciliation (uncredited lodgement)",
+      "difficulty": "credit",
+      "student_opening": "I paid ₦15,000 into the bank on the last day of the month, but it doesn't show on this month's bank statement yet. How does this affect my reconciliation?",
+      "misconception": "Student may assume the deposit is lost or in error rather than recognising it as a timing difference (uncredited lodgement/deposit in transit) requiring an adjustment when reconciling.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "I paid ₦15,000 into the bank on the last day of the month, but it doesn't show on this month's bank statement yet. How does this affect my reconciliation?"
+        },
+        {
+          "role": "tutor",
+          "text": "Think of dropping off a parcel at a village transport park just before the last vehicle leaves for the city — you know you've handed it over, but the receiver in the city won't confirm receiving it until the parcel actually arrives, maybe the next day. Has the parcel been lost, or is it simply still in transit?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "It's still in transit, not lost — it just hasn't been recorded as received yet."
+        },
+        {
+          "role": "tutor",
+          "text": "Exactly right timing gap. Your cash book already shows the ₦15,000 as deposited, but the bank simply hasn't processed it into the statement yet. To reconcile, should you add or subtract this ₦15,000 on the bank statement side to bring it in line with your cash book?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "You should add the ₦15,000 to the bank statement balance."
+        },
+        {
+          "role": "tutor",
+          "text": "Good — that's the correct adjustment direction. Once the bank processes it in the next statement period, will this difference still need adjusting, or will it disappear naturally?",
+          "technique": "guided_transfer"
+        }
+      ],
+      "correct_understanding": "This is an uncredited lodgement (deposit in transit): the cash book already reflects the deposit, but the bank statement has not yet recorded it. To reconcile, the ₦15,000 is added to the bank statement balance; the difference will disappear naturally once the bank processes it in the following period.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "acc-0019",
+      "subject": "accounting",
+      "topic": "trial_balance",
+      "source": "WAEC-style practice item, Financial Accounting, purpose and limitations of a trial balance",
+      "difficulty": "pass",
+      "student_opening": "If the trial balance balances, does that mean my books are 100% correct with no mistakes?",
+      "misconception": "Student equates an arithmetically balanced trial balance with total accuracy of the accounting records, not recognising the categories of errors that a trial balance cannot detect.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "If the trial balance balances, does that mean my books are 100% correct with no mistakes?"
+        },
+        {
+          "role": "tutor",
+          "text": "Think of a market association's treasurer who correctly counts and confirms that the total money collected from members matches the total money recorded as spent and remaining — the totals agree perfectly. Does that guarantee that EVERY individual member's contribution was recorded correctly, with no member's name mixed up or an entire member's payment forgotten completely?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "No, the totals agreeing doesn't guarantee every individual record is correct — some mix-ups could still balance out overall."
+        },
+        {
+          "role": "tutor",
+          "text": "Exactly — a trial balance works the same way: it confirms totals match, but certain kinds of mistakes (like recording a transaction to the wrong person's account of the same type, or leaving a transaction out completely from both sides) won't disturb that overall balance at all. So what should you conclude a balanced trial balance actually proves, versus what it does NOT prove?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "It proves the arithmetic of debits and credits agree overall, but it doesn't prove every individual entry is correct or complete."
+        },
+        {
+          "role": "tutor",
+          "text": "That's exactly the right distinction — can you now name at least one type of error that could exist even in a perfectly balanced trial balance?",
+          "technique": "guided_transfer"
+        }
+      ],
+      "correct_understanding": "A balanced trial balance only proves that total debits equal total credits arithmetically; it does not prove the books are error-free. Errors of omission, commission, principle, original entry, and compensating errors can all exist without disturbing the trial balance's arithmetic agreement.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "acc-0020",
+      "subject": "accounting",
+      "topic": "final_accounts",
+      "source": "WAEC-style practice item, Financial Accounting, carriage inwards and outwards",
+      "difficulty": "credit",
+      "student_opening": "Why is carriage inwards added to purchases in the trading account, but carriage outwards is treated as a separate expense in the profit and loss account? I've read this three times, just explain it plainly.",
+      "misconception": "Student treats both types of carriage cost identically, not distinguishing between costs of bringing goods IN (part of cost of sales) versus costs of delivering goods OUT to customers (a selling/distribution expense), and wants a plain explanation rather than working it out.",
+      "escalated": true,
+      "turns": [
+        {
+          "role": "student",
+          "text": "Why is carriage inwards added to purchases in the trading account, but carriage outwards is treated as a separate expense in the profit and loss account? I've read this three times, just explain it plainly."
+        },
+        {
+          "role": "tutor",
+          "text": "Let's work through it together first. Think of a trader who pays a truck driver to bring bags of rice FROM the wholesale market TO her shop, versus later paying an okada rider to deliver a bag of rice TO a customer's house after it's sold. Is the first cost part of getting the goods ready to sell, or part of the effort to sell them to a specific customer?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "Maybe the first is about getting goods ready, but I still can't connect that to the actual accounting treatment, can you just explain it plainly?"
+        },
+        {
+          "role": "tutor",
+          "text": "Fair, here's a stronger hint: any cost of bringing goods IN and making them ready for sale is treated as part of the cost of the goods themselves, so it joins purchases in the trading account and affects gross profit. Any cost of moving already-sold goods OUT to customers is a selling expense, separate from cost of goods sold, so it sits in the profit and loss account instead. Try matching 'inwards' and 'outwards' to those two descriptions yourself.",
+          "technique": "escalated_hint"
+        },
+        {
+          "role": "student",
+          "text": "I think inwards goes with the trading account and outwards with profit and loss, but I'm still not fully confident, can you just confirm and finish explaining?"
+        },
+        {
+          "role": "tutor",
+          "text": "You've got it right. Carriage inwards (bringing goods to the business) is added to purchases in the trading account, because it is part of the cost of acquiring the goods, and it directly affects gross profit. Carriage outwards (delivering sold goods to customers) is a selling/distribution expense charged in the profit and loss account instead, affecting net profit rather than gross profit, since it happens after the sale, not before it.",
+          "technique": "worked_example"
+        }
+      ],
+      "correct_understanding": "Carriage inwards is added to purchases in the trading account because it is a cost of acquiring goods (part of cost of sales), directly affecting gross profit; carriage outwards is a selling/distribution expense charged in the profit and loss account, affecting net profit instead, since it relates to delivering already-sold goods.",
+      "max_turns_to_resolution": 3,
+      "frustration_threshold": 2,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "acc-0021",
+      "subject": "accounting",
+      "topic": "double_entry",
+      "source": "WAEC-style practice item, Financial Accounting, correction of errors",
+      "difficulty": "pass",
+      "student_opening": "A cash payment of ₦4,000 for repairs was wrongly debited to the Motor Vehicle account instead of the Repairs account. How do I correct it?",
+      "misconception": "Student may try to simply delete/erase the wrong entry rather than using a correcting journal entry that reverses the wrong debit and applies the correct one.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "A cash payment of ₦4,000 for repairs was wrongly debited to the Motor Vehicle account instead of the Repairs account. How do I correct it?"
+        },
+        {
+          "role": "tutor",
+          "text": "Think of a farmer who mistakenly stores this season's pepper harvest in the yam barn instead of the pepper store. To fix the mix-up, does he simply pretend the pepper was never harvested, or does he physically move it out of the wrong barn and into the correct one?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "He moves it out of the wrong barn and into the correct one, he doesn't pretend it never happened."
+        },
+        {
+          "role": "tutor",
+          "text": "Exactly — in accounting we don't erase the wrong entry, we make a correcting entry that removes it from the wrong account and places it in the right one. Since Motor Vehicle was wrongly debited, what entry would first REMOVE the ₦4,000 from Motor Vehicle — would you debit or credit Motor Vehicle now?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "Credit Motor Vehicle ₦4,000 to remove it, since it was wrongly debited there."
+        },
+        {
+          "role": "tutor",
+          "text": "Correct — and now the ₦4,000 needs to land correctly in Repairs. Which side does Repairs go on, and can you lay out the full correcting entry in our standard table?",
+          "technique": "extend_to_effect"
+        }
+      ],
+      "correct_understanding": "| Date | Account | Debit (₦) | Credit (₦) |\n|------|---------|-----------|------------|\n| ... | Repairs | 4000 | |\n| ... | Motor Vehicle | | 4000 |\nThe correcting entry debits Repairs (the correct account) and credits Motor Vehicle (to remove the wrongly debited amount), moving the ₦4,000 to where it correctly belongs.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "acc-0022",
+      "subject": "accounting",
+      "topic": "final_accounts",
+      "source": "WAEC-style practice item, Financial Accounting, provision for doubtful debts",
+      "difficulty": "credit",
+      "student_opening": "Debtors total ₦80,000 and we want to create a 5% provision for doubtful debts. Why do we even bother if we don't know for sure which debtors won't pay? Just tell me the amount.",
+      "misconception": "Student does not understand the prudence concept behind estimating likely bad debts in advance rather than waiting for certainty, and wants the number without engaging with the reasoning.",
+      "escalated": true,
+      "turns": [
+        {
+          "role": "student",
+          "text": "Debtors total ₦80,000 and we want to create a 5% provision for doubtful debts. Why do we even bother if we don't know for sure which debtors won't pay? Just tell me the amount."
+        },
+        {
+          "role": "tutor",
+          "text": "Think of a yam seller who, from years of experience, knows that out of every 100 bags she sells on credit, roughly 5 bags' worth of money is never fully recovered from certain customers, even though she doesn't know in advance exactly WHICH customers will fail to pay. Should she wait until each failure actually happens before adjusting her expectations, or plan ahead using her experience?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "She should plan ahead using her experience, rather than waiting. I still don't know how that becomes a naira figure though, just give me the number."
+        },
+        {
+          "role": "tutor",
+          "text": "Fair, here's the direct hint: the provision is simply an estimated percentage of total debtors, calculated as 5% of ₦80,000 — try that multiplication yourself first.",
+          "technique": "escalated_hint"
+        },
+        {
+          "role": "student",
+          "text": "I got 4,000 but I'm not fully sure that's right or what it even means for the accounts."
+        },
+        {
+          "role": "tutor",
+          "text": "That's correct: 5% of 80,000 = ₦4,000. This means the business prudently reduces its expected recoverable debtors by ₦4,000 in the accounts (shown as a deduction from debtors in the balance sheet, and as an expense in the profit and loss account), reflecting realistic expectation of some unpaid debts even without knowing which specific customers will default.",
+          "technique": "worked_example"
+        }
+      ],
+      "correct_understanding": "Provision for doubtful debts = 5% of 80,000 = ₦4,000. This is charged as an expense in the profit and loss account and shown as a deduction from debtors in the balance sheet, reflecting the prudence concept of anticipating likely (though not yet certain) bad debts.",
+      "max_turns_to_resolution": 3,
+      "frustration_threshold": 2,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "acc-0023",
+      "subject": "accounting",
+      "topic": "double_entry",
+      "source": "WAEC-style practice item, Financial Accounting, double entry (fixed asset on credit)",
+      "difficulty": "credit",
+      "student_opening": "The business bought office furniture worth ₦30,000 on credit from Bimbo Furnitures. Which accounts are affected?",
+      "misconception": "Student may treat this as a Purchases (trading stock) entry rather than recognising it as acquisition of a fixed asset, and may not correctly identify the creditor account.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "The business bought office furniture worth ₦30,000 on credit from Bimbo Furnitures. Which accounts are affected?"
+        },
+        {
+          "role": "tutor",
+          "text": "Think of the difference between a provisions trader buying bags of rice to resell to customers, versus that same trader buying a new wooden shop counter to use in her own shop for years. Is the shop counter meant to be resold like the rice, or kept and used long-term in the business?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "The shop counter is meant to be kept and used long-term, not resold like the rice."
+        },
+        {
+          "role": "tutor",
+          "text": "Exactly — so the furniture is a fixed (non-current) asset, not trading stock/purchases. Since the business now owns this furniture (value coming in), what happens to the Furniture (or Fixtures and Fittings) account — debit or credit?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "Debit the Furniture account ₦30,000, since it's receiving value."
+        },
+        {
+          "role": "tutor",
+          "text": "Correct. And since this was bought on credit, Bimbo Furnitures is now a creditor the business owes — which side does that creditor's account go on, and can you lay both legs out in our standard table?",
+          "technique": "extend_to_effect"
+        }
+      ],
+      "correct_understanding": "| Date | Account | Debit (₦) | Credit (₦) |\n|------|---------|-----------|------------|\n| ... | Furniture | 30000 | |\n| ... | Bimbo Furnitures (Creditor) | | 30000 |\nFurniture (a fixed asset) is debited because it is received into the business, and Bimbo Furnitures is credited as a creditor, since the business now owes for it.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "acc-0024",
+      "subject": "accounting",
+      "topic": "bank_reconciliation",
+      "source": "WAEC-style practice item, Financial Accounting, dishonoured cheque",
+      "difficulty": "pass",
+      "student_opening": "A customer's cheque for ₦6,000 that I had already recorded as received bounced (was dishonoured) according to the bank statement. What do I do now?",
+      "misconception": "Student may leave the original entry as-is, not realising a dishonoured cheque means the earlier recorded receipt must be reversed since the money was not actually received.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "A customer's cheque for ₦6,000 that I had already recorded as received bounced (was dishonoured) according to the bank statement. What do I do now?"
+        },
+        {
+          "role": "tutor",
+          "text": "Think of a trader who is told by a customer 'I've paid you', and she happily marks the customer's name as cleared in her debt book — only to later find out at the bank that the customer's cheque could not actually be cashed. Is the customer's debt truly settled, or does it need to go back to being an amount still owed?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "It needs to go back to being an amount still owed, since the money never actually came in."
+        },
+        {
+          "role": "tutor",
+          "text": "Exactly — the earlier entry recording the ₦6,000 as received must be reversed. Since you had originally debited Cash/Bank and credited the Debtor's account when the cheque was first recorded, what should the reversing entry now do to those same two accounts?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "Now we should credit Cash/Bank ₦6,000 and debit the Debtor's account ₦6,000, reversing it."
+        },
+        {
+          "role": "tutor",
+          "text": "Exactly the correct reversal logic. Can you lay that reversing entry out in our standard table format?",
+          "technique": "extend_to_effect"
+        }
+      ],
+      "correct_understanding": "| Date | Account | Debit (₦) | Credit (₦) |\n|------|---------|-----------|------------|\n| ... | Debtor | 6000 | |\n| ... | Bank | | 6000 |\nThe dishonoured cheque reverses the original entry: Debtor is debited (the debt is reinstated) and Bank is credited (the ₦6,000 is removed since it was never actually received).",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "acc-0025",
+      "subject": "accounting",
+      "topic": "trial_balance",
+      "source": "WAEC-style practice item, Financial Accounting, trial balance classification",
+      "difficulty": "pass",
+      "student_opening": "Why does the Rent account go on the debit side of the trial balance, but the Sales account goes on the credit side? How do I know which side any account belongs on?",
+      "misconception": "Student does not have a reliable rule for predicting which side (debit/credit) a given account's balance normally falls on in the trial balance.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "Why does the Rent account go on the debit side of the trial balance, but the Sales account goes on the credit side? How do I know which side any account belongs on?"
+        },
+        {
+          "role": "tutor",
+          "text": "Think of Rent as money flowing OUT of the business to a landlord, like water flowing out of a tank, while Sales is money-value flowing IN from customers, like water flowing into that same tank. Expenses and assets — things that cost the business or that the business owns — tend to behave like the outgoing/holding side. Which side, debit or credit, did we already agree represents value 'received into' an account?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "Debit represents value received into an account."
+        },
+        {
+          "role": "tutor",
+          "text": "Good recall. Expenses like Rent represent value the business has 'received' the benefit of (a place to trade), so they carry debit balances. Income like Sales represents value the business has given out in exchange for money earned, which behaves like a credit. Using that pattern, would you expect an Asset like Cash to normally be a debit or credit balance, and a Liability like a Loan?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "Cash (an asset) would normally be debit, and a Loan (a liability) would normally be credit."
+        },
+        {
+          "role": "tutor",
+          "text": "Exactly right pattern — assets and expenses are normally debit balances, while liabilities, capital and income are normally credit balances. Can you now explain in your own words the general rule you'd use to quickly classify any new account you come across?",
+          "technique": "guided_transfer"
+        }
+      ],
+      "correct_understanding": "As a general rule: assets and expenses normally carry debit balances, while liabilities, capital and income normally carry credit balances. Rent (an expense) is therefore debit, and Sales (income) is credit.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "acc-0026",
+      "subject": "accounting",
+      "topic": "final_accounts",
+      "source": "WAEC-style practice item, Financial Accounting, closing stock in final accounts",
+      "difficulty": "credit",
+      "student_opening": "Why does closing stock appear both in the trading account AND in the balance sheet? Isn't that recording it twice?",
+      "misconception": "Student thinks closing stock appearing in two statements means double counting, not understanding it represents one balance used for two different purposes (calculating cost of sales, and showing a year-end asset).",
+      "turns": [
+        {
+          "role": "student",
+          "text": "Why does closing stock appear both in the trading account AND in the balance sheet? Isn't that recording it twice?"
+        },
+        {
+          "role": "tutor",
+          "text": "Think of counting the bags of rice left unsold in a trader's store at the end of the year. She uses that SAME count for two different purposes: to work out how many bags she actually sold this year (for her profit calculation), and to know what stock she is still holding as valuable property going into next year. Is she counting the rice twice, or using one count for two different questions?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "She's using one count for two different questions, not counting it twice."
+        },
+        {
+          "role": "tutor",
+          "text": "Exactly — that's the same idea here. In the trading account, closing stock is subtracted to help calculate cost of goods sold (what left the business), while in the balance sheet, that same closing stock figure is shown as a current asset (what the business still owns). Does using the same figure for two different purposes in two different statements count as double-counting the value in the business's total wealth?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "No, since it's just being used to answer two different questions, not adding extra value that doesn't exist."
+        },
+        {
+          "role": "tutor",
+          "text": "Exactly right. So how would you explain to someone else why this isn't double counting, in one clear sentence?",
+          "technique": "guided_transfer"
+        }
+      ],
+      "correct_understanding": "Closing stock is not double-counted: the same physical stock figure is used in the trading account to calculate cost of goods sold (subtracted, since it wasn't sold) and separately shown in the balance sheet as a current asset (what remains owned at year end) — one figure serving two different accounting purposes.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "reviewed"
+    }
+  ]
+}

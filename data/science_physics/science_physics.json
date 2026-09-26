@@ -1,0 +1,1119 @@
+{
+  "_topic_tags_in_use": [
+    "kinematics",
+    "electromagnetism",
+    "optics",
+    "mechanics",
+    "waves",
+    "current_electricity"
+  ],
+  "_notation_convention": "Powers with ^, explicit * for multiplication, fractions inline with parentheses, Greek letters as Unicode (θ, Δ, ω, μ), vectors as vec(F), units space-separated (e.g. 20 m/s). One canonical rearrangement of each formula per fact.",
+  "examples": [
+    {
+      "id": "phy-0001",
+      "subject": "physics",
+      "topic": "kinematics",
+      "source": "WAEC 2021 Paper 2, Q7 + Examiner Report",
+      "difficulty": "credit",
+      "student_opening": "A car decelerates from 20 m/s to rest in 4 s. Find the deceleration. I don't know which formula to use.",
+      "misconception": "Student cannot map the real-world braking scenario onto the correct kinematics equation (v = u + a*t) and does not recognise 'coming to rest' as v = 0.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "A car decelerates from 20 m/s to rest in 4 s. Find the deceleration. I don't know which formula to use."
+        },
+        {
+          "role": "tutor",
+          "text": "Think of an okada braking to stop at a checkpoint. At the start it is moving fast, and at the end, how fast is it moving when it has fully stopped?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "It's not moving at all, so the speed is 0."
+        },
+        {
+          "role": "tutor",
+          "text": "Good — so 'comes to rest' means final velocity v = 0 m/s. Now, out of u, v, a, t — which three values do you already know from the question?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "u = 20 m/s, v = 0 m/s, t = 4 s."
+        },
+        {
+          "role": "tutor",
+          "text": "Exactly right. Now which of the standard equations of motion has only u, v, a and t in it, with no distance s?",
+          "technique": "guided_transfer"
+        },
+        {
+          "role": "student",
+          "text": "v = u + a*t"
+        },
+        {
+          "role": "tutor",
+          "text": "Correct formula. Now rearrange it to make a the subject, then substitute your three known values — what do you get?",
+          "technique": "extend_to_effect"
+        }
+      ],
+      "correct_understanding": "a = (v - u)/t = (0 - 20)/4 = -5 m/s^2. The negative sign confirms deceleration.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "phy-0002",
+      "subject": "physics",
+      "topic": "kinematics",
+      "source": "WAEC 2019 Paper 2, Q5 + Examiner Report",
+      "difficulty": "credit",
+      "student_opening": "A stone is dropped from a tower and hits the ground after 3 s. How do I find the height of the tower? There's no initial speed given.",
+      "misconception": "Student thinks a missing initial velocity means the problem cannot be solved, not recognising 'dropped' means u = 0 m/s.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "A stone is dropped from a tower and hits the ground after 3 s. How do I find the height of the tower? There's no initial speed given."
+        },
+        {
+          "role": "tutor",
+          "text": "Think of a mango falling from a tree branch when nobody throws it, it just lets go. At the very instant it leaves the branch, is it already moving fast, or is it starting from rest?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "It starts from rest, it's not thrown, just released."
+        },
+        {
+          "role": "tutor",
+          "text": "Exactly — 'dropped' always means initial velocity u = 0 m/s. Now, which equation of motion relates distance s to u, a (which is g here) and t, without needing final velocity v?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "s = u*t + (1/2)*a*t^2"
+        },
+        {
+          "role": "tutor",
+          "text": "Correct choice. Now substitute u = 0 m/s, a = g = 10 m/s^2, and t = 3 s into that formula — what expression do you get before you finish the arithmetic?",
+          "technique": "extend_to_effect"
+        }
+      ],
+      "correct_understanding": "s = u*t + (1/2)*a*t^2 = 0*3 + (1/2)*10*3^2 = 0 + (1/2)*10*9 = 45 m. The height of the tower is 45 m.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "phy-0003",
+      "subject": "physics",
+      "topic": "current_electricity",
+      "source": "WAEC 2020 Paper 2, Q9 + Examiner Report",
+      "difficulty": "credit",
+      "student_opening": "Two resistors of 4 ohm and 6 ohm are connected in parallel. What is the combined resistance? I just added them like series.",
+      "misconception": "Student applies the series addition rule (R = R1 + R2) to a parallel arrangement instead of the reciprocal rule.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "Two resistors of 4 ohm and 6 ohm are connected in parallel. What is the combined resistance? I just added them like series."
+        },
+        {
+          "role": "tutor",
+          "text": "Think of two okada riders both carrying passengers from the same park to the same destination by two different roads at the same time, instead of one rider waiting for the other to finish first. Does opening a second road make the total trip for all passengers faster or slower overall?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "Faster, since passengers can go by either road at once."
+        },
+        {
+          "role": "tutor",
+          "text": "Good — parallel paths make it EASIER for current to flow overall, meaning the combined resistance must be smaller than either resistor alone, not their simple sum. Does R = R1 + R2 = 10 ohm fit that idea of 'easier flow, smaller resistance'?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "No, 10 ohm is bigger than either 4 or 6 ohm, so that formula must be wrong for parallel. So which formula should I use instead?"
+        },
+        {
+          "role": "tutor",
+          "text": "Right instinct. For parallel resistors, use 1/R = 1/R1 + 1/R2. Substitute R1 = 4 ohm and R2 = 6 ohm — what do you get for 1/R first, before inverting to find R?",
+          "technique": "guided_transfer"
+        }
+      ],
+      "correct_understanding": "1/R = 1/4 + 1/6 = 3/12 + 2/12 = 5/12, so R = 12/5 = 2.4 ohm. The combined resistance is smaller than either individual resistor, consistent with parallel paths easing current flow.",
+      "max_turns_to_resolution": 5,
+      "frustration_threshold": 3,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "phy-0004",
+      "subject": "physics",
+      "topic": "mechanics",
+      "source": "WAEC 2018 Paper 2, Q3 + Examiner Report",
+      "difficulty": "pass",
+      "student_opening": "A see-saw balances with a 20 kg child at 2 m from the pivot on one side. Where should a 40 kg child sit on the other side to balance it? I don't see how the masses relate to distance.",
+      "misconception": "Student does not know the principle of moments (force times distance) and assumes equal masses or equal distances are needed rather than balancing turning effects.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "A see-saw balances with a 20 kg child at 2 m from the pivot on one side. Where should a 40 kg child sit on the other side to balance it? I don't see how the masses relate to distance."
+        },
+        {
+          "role": "tutor",
+          "text": "Think of two men carrying a heavy log balanced on a single fulcrum log at the market, one much stronger than the other. If the heavier man stands very close to the middle and the lighter man stands far from it, can the log still balance, or does someone need to move?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "It can still balance if the stronger, heavier one stands closer to the middle."
+        },
+        {
+          "role": "tutor",
+          "text": "Exactly — a bigger weight needs a shorter distance from the pivot to have the same turning effect as a smaller weight further out. What quantity do you think represents that 'turning effect' — is it just mass, just distance, or a combination of both?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "A combination — maybe mass multiplied by distance."
+        },
+        {
+          "role": "tutor",
+          "text": "Correct, that's called the moment. For balance, the moment on one side must equal the moment on the other: 20 kg * 2 m must equal 40 kg * d. Set up that equation and solve for d — what do you get?",
+          "technique": "guided_transfer"
+        }
+      ],
+      "correct_understanding": "For balance: 20*2 = 40*d, so d = 40/40 = 1 m. The 40 kg child must sit 1 m from the pivot, since the heavier child needs a shorter distance to produce the same moment.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "phy-0005",
+      "subject": "physics",
+      "topic": "optics",
+      "source": "WAEC 2021 Paper 2, Q11 + Examiner Report",
+      "difficulty": "credit",
+      "student_opening": "Why does a stick look bent when I dip it halfway into a bucket of water? Is the stick actually bending?",
+      "misconception": "Student believes the stick physically bends rather than understanding the apparent bending is due to refraction of light at the water-air boundary.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "Why does a stick look bent when I dip it halfway into a bucket of water? Is the stick actually bending?"
+        },
+        {
+          "role": "tutor",
+          "text": "If you pull the stick back out of the bucket, is it actually bent when you hold it and check with your hands?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "No, when I take it out it's completely straight."
+        },
+        {
+          "role": "tutor",
+          "text": "Good — so the bending is only an appearance while it's in the water, not a real physical change. Think about an okada suddenly leaving a smooth tarred road onto soft sandy ground at an angle — does its direction of travel change suddenly at that boundary?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "Yes, the direction can change suddenly when it crosses from one surface to another."
+        },
+        {
+          "role": "tutor",
+          "text": "That's a good parallel — light behaves similarly at the boundary between two different media (air and water) of different densities. What is the name for light changing direction as it passes from one medium into another, and how does that explain why the submerged part of the stick appears to be in a different position?",
+          "technique": "guided_transfer"
+        }
+      ],
+      "correct_understanding": "This is refraction: light bends as it passes from water into air (media of different optical densities/refractive indices) at the water's surface, so the light from the submerged part reaches our eyes from an altered direction, making the stick appear bent even though it is physically straight.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "phy-0006",
+      "subject": "physics",
+      "topic": "electromagnetism",
+      "source": "WAEC 2017 Paper 2, Q13 + Examiner Report",
+      "difficulty": "credit",
+      "student_opening": "Why does moving a magnet in and out of a coil of wire produce current, but holding it still inside the coil does not?",
+      "misconception": "Student thinks the mere presence of a magnetic field near a coil generates current, rather than understanding that a CHANGING magnetic flux is required.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "Why does moving a magnet in and out of a coil of wire produce current, but holding it still inside the coil does not?"
+        },
+        {
+          "role": "tutor",
+          "text": "Think of a woman fanning a fire with a hand fan versus just holding the fan still close to the fire. Which action actually makes the fire flare up — the moving fan, or the stationary one?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "The moving fan, the stationary one does nothing extra."
+        },
+        {
+          "role": "tutor",
+          "text": "Right — it's the movement/change that produces the effect, not just presence. In the same way, is it the magnet simply being near the coil that produces current, or is it the CHANGE in the magnetic field passing through the coil as it moves?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "It must be the change, since a still magnet doesn't do anything."
+        },
+        {
+          "role": "tutor",
+          "text": "Exactly the right idea — what is the name of this principle, where a changing magnetic flux through a coil induces an electromotive force/current, and what happens to that current the moment the magnet stops moving?",
+          "technique": "guided_transfer"
+        }
+      ],
+      "correct_understanding": "This is electromagnetic induction (Faraday's law): an e.m.f./current is induced only when there is a changing magnetic flux through the coil; once the magnet stops moving, the flux is constant and no current is induced.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "phy-0007",
+      "subject": "physics",
+      "topic": "waves",
+      "source": "WAEC 2019 Paper 2, Q14 + Examiner Report",
+      "difficulty": "pass",
+      "student_opening": "A man shouts toward a cliff 170 m away and hears the echo 1 s later. How do I find the speed of sound? I don't know why we don't just use 170/1.",
+      "misconception": "Student forgets the sound travels the distance twice (to the cliff and back) before the echo is heard, so dividing by total time alone without doubling the distance is wrong.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "A man shouts toward a cliff 170 m away and hears the echo 1 s later. How do I find the speed of sound? I don't know why we don't just use 170/1."
+        },
+        {
+          "role": "tutor",
+          "text": "Think of a ball you throw against a wall so it bounces straight back to your hand. Does the ball only travel the distance to the wall, or does it also travel back to you before you catch it?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "It travels there and back, so double the distance to the wall."
+        },
+        {
+          "role": "tutor",
+          "text": "Exactly. So for the echo, does the sound only travel 170 m to the cliff, or does it also have to travel 170 m back to the man's ear before he hears the echo?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "It has to travel there and back, so the total distance is 2 times 170 m."
+        },
+        {
+          "role": "tutor",
+          "text": "Correct. Using speed = total distance / total time, what value do you get for the speed of sound using 2*170 m over the 1 s given?",
+          "technique": "extend_to_effect"
+        }
+      ],
+      "correct_understanding": "Total distance = 2*170 = 340 m, and speed = distance/time = 340/1 = 340 m/s, which is the known speed of sound in air.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "phy-0008",
+      "subject": "physics",
+      "topic": "mechanics",
+      "source": "WAEC 2020 Paper 2, Q6 + Examiner Report",
+      "difficulty": "credit",
+      "student_opening": "A net force of 20 N acts on a 4 kg trolley. Why does the trolley accelerate at 5 m/s^2 and not just move at a constant 20 m/s?",
+      "misconception": "Student confuses force with velocity, not understanding that a constant net force produces constant acceleration (continuously changing velocity), not a fixed speed.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "A net force of 20 N acts on a 4 kg trolley. Why does the trolley accelerate at 5 m/s^2 and not just move at a constant 20 m/s?"
+        },
+        {
+          "role": "tutor",
+          "text": "Think of a boy continuously pushing his younger brother's wheelbarrow with steady effort from behind, without stopping. Does the wheelbarrow immediately jump to one fixed speed and stay there, or does it keep getting faster and faster the longer he keeps pushing?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "It keeps getting faster and faster the longer he pushes."
+        },
+        {
+          "role": "tutor",
+          "text": "Exactly — a continued force keeps changing the velocity, that's acceleration, not a jump to one constant speed. Now, which formula relates force F, mass m, and acceleration a?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "F = m*a"
+        },
+        {
+          "role": "tutor",
+          "text": "Correct. Rearrange that to make a the subject, then substitute F = 20 N and m = 4 kg — what value do you get for a?",
+          "technique": "guided_transfer"
+        }
+      ],
+      "correct_understanding": "a = F/m = 20/4 = 5 m/s^2. The constant net force produces a constant acceleration, meaning the trolley's velocity keeps increasing by 5 m/s every second, not a single fixed speed.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "phy-0009",
+      "subject": "physics",
+      "topic": "kinematics",
+      "source": "WAEC 2022 Paper 2, Q4 + Examiner Report",
+      "difficulty": "pass",
+      "student_opening": "A cyclist increases speed from 4 m/s to 12 m/s while covering 32 m. Find the acceleration. I keep mixing up which formula to use, just give me the formula.",
+      "misconception": "Student has memorised multiple equations of motion but cannot select the correct one for the given known variables (u, v, s — no t), defaulting to asking for the answer instead of reasoning it out.",
+      "escalated": true,
+      "turns": [
+        {
+          "role": "student",
+          "text": "A cyclist increases speed from 4 m/s to 12 m/s while covering 32 m. Find the acceleration. I keep mixing up which formula to use, just give me the formula."
+        },
+        {
+          "role": "tutor",
+          "text": "Let's slow down and check what we actually have first, like a trader counting her wares before pricing them. From the question, which of u, v, a, t, s do you already know?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "u = 4 m/s, v = 12 m/s, s = 32 m. I still don't know which formula uses exactly those three without needing t, just tell me which one."
+        },
+        {
+          "role": "tutor",
+          "text": "No wahala, here's a strong hint: out of the standard equations of motion, only one connects u, v, a and s together with no t in it at all — it looks like v^2 = u^2 + 2*a*s. Try substituting your three known values into that one and see what you can isolate for a.",
+          "technique": "escalated_hint"
+        },
+        {
+          "role": "student",
+          "text": "I plugged in the numbers but I'm getting confused with the squaring and rearranging, I still can't finish it."
+        },
+        {
+          "role": "tutor",
+          "text": "Let's work through it together step by step: v^2 = u^2 + 2*a*s becomes 12^2 = 4^2 + 2*a*32, which is 144 = 16 + 64*a. Subtracting 16 from both sides gives 128 = 64*a, so a = 128/64 = 2 m/s^2.",
+          "technique": "worked_example"
+        }
+      ],
+      "correct_understanding": "Using v^2 = u^2 + 2*a*s: 144 = 16 + 64*a, so 64*a = 128, giving a = 2 m/s^2.",
+      "max_turns_to_resolution": 3,
+      "frustration_threshold": 2,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "phy-0010",
+      "subject": "physics",
+      "topic": "current_electricity",
+      "source": "WAEC 2016 Paper 2, Q8 + Examiner Report",
+      "difficulty": "pass",
+      "student_opening": "A bulb has 12 V across it and 3 A flowing through it. How do I find its resistance? I don't know which quantity goes where in Ohm's law.",
+      "misconception": "Student has heard of Ohm's law but does not know how to correctly assign V, I, R from the given values or rearrange the formula.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "A bulb has 12 V across it and 3 A flowing through it. How do I find its resistance? I don't know which quantity goes where in Ohm's law."
+        },
+        {
+          "role": "tutor",
+          "text": "Think of water flowing through a narrow pipe from an overhead tank — the tank's height (pressure) pushes the water, and the pipe's narrowness resists the flow. In an electric circuit, which quantity plays the role of the 'pushing pressure', voltage or current?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "Voltage plays the role of the pushing pressure."
+        },
+        {
+          "role": "tutor",
+          "text": "Good. And current (3 A) is like the rate of water actually flowing through, being pushed by that pressure but held back by resistance. Ohm's law says V = I*R — if you know V and I, how would you rearrange this to solve for R?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "R = V/I"
+        },
+        {
+          "role": "tutor",
+          "text": "Correct rearrangement. Now substitute V = 12 V and I = 3 A into R = V/I — what value do you get?",
+          "technique": "extend_to_effect"
+        }
+      ],
+      "correct_understanding": "R = V/I = 12/3 = 4 ohm.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "phy-0011",
+      "subject": "physics",
+      "topic": "waves",
+      "source": "WAEC 2018 Paper 2, Q10 + Examiner Report",
+      "difficulty": "credit",
+      "student_opening": "A wave has a frequency of 50 Hz and wavelength of 4 m. What formula do I use to find its speed? I keep forgetting the wave equation, just tell me.",
+      "misconception": "Student cannot recall or derive the relationship v = f*λ connecting speed, frequency and wavelength, and asks for the formula outright instead of reasoning toward it.",
+      "escalated": true,
+      "turns": [
+        {
+          "role": "student",
+          "text": "A wave has a frequency of 50 Hz and wavelength of 4 m. What formula do I use to find its speed? I keep forgetting the wave equation, just tell me."
+        },
+        {
+          "role": "tutor",
+          "text": "Let's reason it out first. Think of a line of dancers doing a Bata dance step, where each dancer repeats the same movement 50 times in one minute, and each complete movement covers 4 steps of ground. If you wanted the total ground covered per minute, would you add those numbers, or multiply them?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "I think multiply, but I still don't see how that turns into a wave formula, can you just give me the equation?"
+        },
+        {
+          "role": "tutor",
+          "text": "No wahala, here's a stronger hint: frequency (cycles per second) multiplied by wavelength (distance covered per cycle) gives distance covered per second, which is exactly speed — so the relationship has the shape v = f*λ. Try substituting f = 50 Hz and λ = 4 m into that yourself.",
+          "technique": "escalated_hint"
+        },
+        {
+          "role": "student",
+          "text": "I substituted but I'm not confident I multiplied correctly, can we just finish it together?"
+        },
+        {
+          "role": "tutor",
+          "text": "Sure — v = f*λ = 50*4 = 200 m/s. So the wave travels at 200 m/s, found simply by multiplying how many cycles pass per second by how far each cycle stretches.",
+          "technique": "worked_example"
+        }
+      ],
+      "correct_understanding": "v = f*λ = 50*4 = 200 m/s.",
+      "max_turns_to_resolution": 3,
+      "frustration_threshold": 2,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "phy-0012",
+      "subject": "physics",
+      "topic": "mechanics",
+      "source": "WAEC 2019 Paper 2, Q2 + Examiner Report",
+      "difficulty": "pass",
+      "student_opening": "A man pushes a wheelbarrow with a force of 100 N over a distance of 15 m. How do I calculate the work done? Is it just the force alone?",
+      "misconception": "Student thinks work done equals force alone, not recognising work requires force multiplied by displacement in the direction of the force.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "A man pushes a wheelbarrow with a force of 100 N over a distance of 15 m. How do I calculate the work done? Is it just the force alone?"
+        },
+        {
+          "role": "tutor",
+          "text": "If a man pushes the wheelbarrow with the same strength but the load never moves at all, has he done any useful work in the physics sense, even though he's sweating?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "I guess not, since nothing moved even though he tried hard."
+        },
+        {
+          "role": "tutor",
+          "text": "Right — effort alone (force) is not enough; there must also be movement (distance) for work to be done. So which two quantities from the question must you combine to calculate work done, and how — added or multiplied?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "Force and distance, multiplied together."
+        },
+        {
+          "role": "tutor",
+          "text": "Correct. Using W = F*d, substitute F = 100 N and d = 15 m — what value do you get for the work done?",
+          "technique": "extend_to_effect"
+        }
+      ],
+      "correct_understanding": "W = F*d = 100*15 = 1500 J.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "phy-0013",
+      "subject": "physics",
+      "topic": "electromagnetism",
+      "source": "WAEC 2020 Paper 2, Q15 + Examiner Report",
+      "difficulty": "credit",
+      "student_opening": "Why does a wire carrying current jump/move when placed in a magnetic field? Nothing is touching it.",
+      "misconception": "Student does not realise that a current-carrying conductor in a magnetic field experiences a mechanical force (motor effect) even without physical contact.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "Why does a wire carrying current jump/move when placed in a magnetic field? Nothing is touching it."
+        },
+        {
+          "role": "tutor",
+          "text": "Think about how two people fanning air toward each other from different directions can push a light paper between them without either person touching the paper directly. Can a 'field' of moving air exert a force on something without direct contact?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "Yes, moving air can push things without touching them directly."
+        },
+        {
+          "role": "tutor",
+          "text": "Good parallel — a magnetic field can also exert a force on a conductor without direct contact, as long as current is flowing through it inside that field. This is called the motor effect. What two things does the size of that force depend on — do you think it's just the current, or the current together with something about the field and the wire's position?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "Maybe the current, the strength of the magnetic field, and how the wire is positioned relative to the field."
+        },
+        {
+          "role": "tutor",
+          "text": "That's the right combination — current, magnetic flux density, and the angle between the wire and the field. What do we call the rule used to predict the direction this force acts in?",
+          "technique": "guided_transfer"
+        }
+      ],
+      "correct_understanding": "A current-carrying conductor in a magnetic field experiences a force (the motor effect) due to the interaction between the field and the moving charges in the wire; the direction is found using Fleming's left-hand rule, and magnitude depends on current, magnetic flux density, and the angle between wire and field (F = B*I*l*sinθ).",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "phy-0014",
+      "subject": "physics",
+      "topic": "optics",
+      "source": "WAEC 2021 Paper 2, Q9 + Examiner Report",
+      "difficulty": "pass",
+      "student_opening": "Why can a converging lens sometimes form an image on a screen, but a mirror image in a plane mirror can never be caught on a screen?",
+      "misconception": "Student does not understand the distinction between real images (formed by actual convergence of light rays) and virtual images (where rays only appear to diverge from a point).",
+      "turns": [
+        {
+          "role": "student",
+          "text": "Why can a converging lens sometimes form an image on a screen, but a mirror image in a plane mirror can never be caught on a screen?"
+        },
+        {
+          "role": "tutor",
+          "text": "Think of two masquerades performing at a festival — one physically walks and stands at an actual spot in the arena, while the other's reflection appears to stand behind a cloth screen without any real body being there. If you tried to touch the exact spot behind the screen, would you catch anything real?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "No, there's nothing physically there behind the screen, it just looks like something is there."
+        },
+        {
+          "role": "tutor",
+          "text": "Good analogy sense. Now, when light rays from an object actually meet/converge at a point after passing through a lens, can you place a screen right there and catch a real picture, versus when rays only APPEAR to spread out from behind a mirror without actually meeting there?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "If the rays actually meet at a point, you can catch it on a screen, but if they only appear to come from a point, you can't."
+        },
+        {
+          "role": "tutor",
+          "text": "Exactly right distinction. So what are the two types of images called based on whether light rays actually converge (catchable on a screen) or only appear to diverge from a point (not catchable)?",
+          "technique": "guided_transfer"
+        }
+      ],
+      "correct_understanding": "A real image forms where light rays actually converge and can be captured on a screen (as a converging lens can produce); a virtual image forms where rays only appear to diverge from a point (as in a plane mirror) and cannot be captured on a screen.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "phy-0015",
+      "subject": "physics",
+      "topic": "current_electricity",
+      "source": "WAEC 2017 Paper 2, Q12 + Examiner Report",
+      "difficulty": "credit",
+      "student_opening": "A battery of e.m.f. 6 V and internal resistance 1 ohm is connected to a 5 ohm resistor. What is the current in the circuit? I don't understand why we add the internal resistance, just tell me the formula.",
+      "misconception": "Student ignores internal resistance and treats the external resistor as the only resistance in the circuit, not understanding the battery itself resists current flow.",
+      "escalated": true,
+      "turns": [
+        {
+          "role": "student",
+          "text": "A battery of e.m.f. 6 V and internal resistance 1 ohm is connected to a 5 ohm resistor. What is the current in the circuit? I don't understand why we add the internal resistance, just tell me the formula."
+        },
+        {
+          "role": "tutor",
+          "text": "Think of a water tank supplying a pipe to your compound — the tank's own narrow outlet pipe also resists water flow a little, even before the water reaches your compound's tap. Does that outlet act like it isn't there, or does it also slow the flow somewhat?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "It also slows the flow somewhat, it's not zero resistance. I still don't know how that becomes a formula though, just show me."
+        },
+        {
+          "role": "tutor",
+          "text": "Fair, here's a stronger hint: the battery's internal resistance acts exactly like that narrow outlet — it's in series with the external resistor, so total resistance is R_total = R_internal + R_external, and current I = e.m.f./R_total. Try substituting the numbers into that.",
+          "technique": "escalated_hint"
+        },
+        {
+          "role": "student",
+          "text": "I get confused adding the resistances and dividing, can we just do it together?"
+        },
+        {
+          "role": "tutor",
+          "text": "Sure, step by step: R_total = 1 + 5 = 6 ohm. Then I = e.m.f./R_total = 6/6 = 1 A. So the current flowing in the circuit is 1 A, reduced from what you'd get ignoring internal resistance (6/5 = 1.2 A) because the battery itself resists the flow too.",
+          "technique": "worked_example"
+        }
+      ],
+      "correct_understanding": "Total resistance = internal + external = 1 + 5 = 6 ohm. Current I = e.m.f./R_total = 6/6 = 1 A.",
+      "max_turns_to_resolution": 3,
+      "frustration_threshold": 2,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "phy-0016",
+      "subject": "physics",
+      "topic": "mechanics",
+      "source": "WAEC 2019 Paper 2, Q8 + Examiner Report",
+      "difficulty": "credit",
+      "student_opening": "A 2 kg trolley moving at 3 m/s collides and sticks to a stationary 1 kg trolley. How do I find their common velocity after collision?",
+      "misconception": "Student does not know to apply conservation of momentum for a perfectly inelastic collision (objects sticking together) rather than trying to average the velocities.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "A 2 kg trolley moving at 3 m/s collides and sticks to a stationary 1 kg trolley. How do I find their common velocity after collision?"
+        },
+        {
+          "role": "tutor",
+          "text": "Think of a moving danfo bus that suddenly links up and moves together with a stalled bus it just bumped into, both now rolling forward as one unit. Does all the 'push' (momentum) that the moving bus had just vanish, or does it get shared into the combined mass now moving together?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "It gets shared into the combined mass, it doesn't just vanish."
+        },
+        {
+          "role": "tutor",
+          "text": "Right — that's the principle of conservation of momentum: total momentum before collision equals total momentum after. What is the total momentum before collision, using momentum = mass * velocity for the moving trolley (the stationary one contributes zero)?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "2 * 3 = 6 kg*m/s before collision."
+        },
+        {
+          "role": "tutor",
+          "text": "Correct. After collision, both trolleys move together as combined mass (2+1) kg at some common velocity v. Set 6 = (2+1)*v and solve for v — what do you get?",
+          "technique": "guided_transfer"
+        }
+      ],
+      "correct_understanding": "By conservation of momentum: 2*3 + 1*0 = (2+1)*v, so 6 = 3*v, giving v = 2 m/s.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "phy-0017",
+      "subject": "physics",
+      "topic": "waves",
+      "source": "WAEC 2018 Paper 2, Q7 + Examiner Report",
+      "difficulty": "pass",
+      "student_opening": "Why does a talking drum sound higher in pitch when the strings are tightened? What does tightening even do?",
+      "misconception": "Student does not connect tension of a vibrating string/membrane to increased frequency of vibration and therefore higher pitch.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "Why does a talking drum sound higher in pitch when the strings are tightened? What does tightening even do?"
+        },
+        {
+          "role": "tutor",
+          "text": "Think about plucking a loose rubber band versus a tightly stretched one. Which one vibrates back and forth faster when you pluck it?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "The tightly stretched one vibrates faster."
+        },
+        {
+          "role": "tutor",
+          "text": "Exactly — tension increases how fast something vibrates. In sound, what quantity describes how many vibrations happen per second, and how is that quantity related to the pitch we hear — does higher frequency sound higher or lower in pitch?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "Frequency, and higher frequency sounds higher in pitch."
+        },
+        {
+          "role": "tutor",
+          "text": "Right connections made. So how does tightening the talking drum's strings ultimately change the frequency of the drum skin's vibration, and therefore the pitch you hear?",
+          "technique": "guided_transfer"
+        }
+      ],
+      "correct_understanding": "Tightening the drum's strings increases the tension in the drum skin, which increases the frequency of its vibration; since higher frequency corresponds to higher pitch, the drum sounds higher-pitched.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "phy-0018",
+      "subject": "physics",
+      "topic": "kinematics",
+      "source": "WAEC 2020 Paper 2, Q3 + Examiner Report",
+      "difficulty": "credit",
+      "student_opening": "On a velocity-time graph, how do I find the distance travelled? I only know how to find acceleration from the slope.",
+      "misconception": "Student knows slope gives acceleration but does not know that the area under a velocity-time graph gives distance/displacement.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "On a velocity-time graph, how do I find the distance travelled? I only know how to find acceleration from the slope."
+        },
+        {
+          "role": "tutor",
+          "text": "Think of filling a rectangular water tank at a steady rate — if you know the rate of filling (like litres per minute) and the time spent filling, how would you find the total volume of water collected: from a slope, or from something else about the graph of rate against time?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "Maybe from the area under that rate-versus-time graph, like rate multiplied by time."
+        },
+        {
+          "role": "tutor",
+          "text": "Good instinct — multiplying a rate by time to get a total quantity is exactly an 'area under the graph' calculation. Now apply that idea to a velocity-time graph: velocity is like the 'rate', and time is on the other axis. What total quantity would multiplying velocity by time (the area under the graph) give you?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "It would give the total distance travelled."
+        },
+        {
+          "role": "tutor",
+          "text": "Exactly — so for a graph that isn't a simple rectangle, like a triangle or trapezium shape, what general geometric approach would you take to find that area and hence the distance?",
+          "technique": "guided_transfer"
+        }
+      ],
+      "correct_understanding": "The area under a velocity-time graph gives the distance travelled (or displacement); for non-rectangular shapes, this is found by breaking the region into simple shapes (triangles, rectangles, trapeziums) and summing their areas.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "phy-0019",
+      "subject": "physics",
+      "topic": "current_electricity",
+      "source": "WAEC 2016 Paper 2, Q11 + Examiner Report",
+      "difficulty": "pass",
+      "student_opening": "In a series circuit with two bulbs, why is the current the same through both, but the voltage is shared between them?",
+      "misconception": "Student assumes both current and voltage behave the same way in series circuits, not distinguishing that current stays constant while voltage divides across series components.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "In a series circuit with two bulbs, why is the current the same through both, but the voltage is shared between them?"
+        },
+        {
+          "role": "tutor",
+          "text": "Think of a single-file queue of people (like current) passing through two narrow gates (like the bulbs) one after another on their way into a stadium. Does the NUMBER of people passing per minute change between the first gate and the second gate, if there's only one path?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "No, the number of people per minute stays the same through both gates since it's one single line."
+        },
+        {
+          "role": "tutor",
+          "text": "Exactly — that's why current, which is like the flow rate through a single path, stays the same throughout a series circuit. Now think of voltage as the total 'effort' or push supplied by the battery — if that push has to be used up overcoming resistance at gate 1 AND gate 2, does all of it get used at just one gate, or does it get divided between them?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "It gets divided between the two gates, based on how much resistance each one has."
+        },
+        {
+          "role": "tutor",
+          "text": "Right. So in electrical terms, what determines how the total voltage is shared between the two bulbs in series?",
+          "technique": "guided_transfer"
+        }
+      ],
+      "correct_understanding": "In series, current is the same throughout because there is only one path for charge to flow, while the total voltage (e.m.f.) is divided between the components in proportion to their individual resistances.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "phy-0020",
+      "subject": "physics",
+      "topic": "electromagnetism",
+      "source": "WAEC 2021 Paper 2, Q16 + Examiner Report",
+      "difficulty": "credit",
+      "student_opening": "A step-up transformer has 100 turns on the primary and 500 turns on the secondary. If primary voltage is 20 V, why is the secondary voltage bigger, not smaller?",
+      "misconception": "Student does not know the turns ratio relationship and may think more turns should somehow reduce voltage, confusing it with resistance intuition.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "A step-up transformer has 100 turns on the primary and 500 turns on the secondary. If primary voltage is 20 V, why is the secondary voltage bigger, not smaller?"
+        },
+        {
+          "role": "tutor",
+          "text": "Think of two Esusu contribution groups of different sizes collecting from the same rate per member — a group of 100 people contributing a fixed amount each will raise a smaller total pool than a group of 500 people contributing at that same rate. Does a bigger group naturally end up with a bigger total, all else equal?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "Yes, a bigger group raises more total money."
+        },
+        {
+          "role": "tutor",
+          "text": "Good parallel — in a transformer, voltage induced in a coil is proportional to the number of turns in that coil (for the same changing flux). If the secondary has 5 times more turns than the primary, what relationship would you expect between secondary voltage and primary voltage?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "The secondary voltage should be about 5 times the primary voltage."
+        },
+        {
+          "role": "tutor",
+          "text": "Exactly the right ratio thinking. Using Vs/Vp = Ns/Np, substitute Np = 100, Ns = 500, Vp = 20 V — what value do you calculate for Vs?",
+          "technique": "guided_transfer"
+        }
+      ],
+      "correct_understanding": "Vs/Vp = Ns/Np, so Vs = Vp*(Ns/Np) = 20*(500/100) = 20*5 = 100 V. More secondary turns means more induced voltage, consistent with a step-up transformer.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "phy-0021",
+      "subject": "physics",
+      "topic": "mechanics",
+      "source": "WAEC 2019 Paper 2, Q1 + Examiner Report",
+      "difficulty": "pass",
+      "student_opening": "Why does a sharp knife cut more easily than a blunt one, even with the same force from my hand? I don't get it, just explain it to me plainly.",
+      "misconception": "Student thinks only force matters for cutting effect, not recognising that pressure depends on both force and the area over which it acts, and asks for a plain explanation rather than reasoning it through.",
+      "escalated": true,
+      "turns": [
+        {
+          "role": "student",
+          "text": "Why does a sharp knife cut more easily than a blunt one, even with the same force from my hand? I don't get it, just explain it to me plainly."
+        },
+        {
+          "role": "tutor",
+          "text": "Let's think it through together first. Think of pressing your thumb flat against a mound of soft eba versus pressing with just the tip of a sharpened stick, using the same effort from your arm both times. Which one sinks into the eba more easily?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "Probably the stick tip, but I still don't see the physics reason, can you just tell me why?"
+        },
+        {
+          "role": "tutor",
+          "text": "Fair, here's a stronger hint: the same push (force) squeezed into a much smaller contact area produces a far bigger squeezing effect there — that squeezing effect per unit area is called pressure, P = F/A. Think about whether a knife's edge or a blunt edge gives a smaller area for the same hand force.",
+          "technique": "escalated_hint"
+        },
+        {
+          "role": "student",
+          "text": "I think I get the idea but I still can't put it into a full explanation myself, can you just finish it for me?"
+        },
+        {
+          "role": "tutor",
+          "text": "Sure, here it is worked through: pressure P = F/A. A sharp knife's edge has a very small contact area A, so for the same applied force F, P = F/A becomes large. A blunt knife has a wider edge (bigger A), so the same force spreads out and produces much smaller pressure. That's why the sharp knife cuts more easily even with identical force from your hand.",
+          "technique": "worked_example"
+        }
+      ],
+      "correct_understanding": "Pressure P = F/A; a sharp knife has a much smaller contact area than a blunt one, so for the same applied force it produces much greater pressure, allowing it to cut more easily.",
+      "max_turns_to_resolution": 3,
+      "frustration_threshold": 2,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "phy-0022",
+      "subject": "physics",
+      "topic": "optics",
+      "source": "WAEC 2020 Paper 2, Q13 + Examiner Report",
+      "difficulty": "credit",
+      "student_opening": "Why does light sometimes bounce back completely inside a glass block instead of coming out? I thought light always refracts out.",
+      "misconception": "Student assumes light always refracts through a boundary, not knowing that beyond the critical angle, total internal reflection occurs instead.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "Why does light sometimes bounce back completely inside a glass block instead of coming out? I thought light always refracts out."
+        },
+        {
+          "role": "tutor",
+          "text": "Think of trying to exit a crowded market stall through a very narrow gap in the fence at a sharp, grazing angle versus walking straight out through a wide open gate. At some very steep angles, can you actually squeeze out at all, or do you just get pushed back into the crowd?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "At a very steep sideways angle, you might not be able to get out at all, you'd just be stuck inside."
+        },
+        {
+          "role": "tutor",
+          "text": "Good intuition — there's a limiting angle beyond which light cannot escape the denser medium and is entirely reflected back inside instead. What do you think that special limiting angle is called?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "I think it's called the critical angle."
+        },
+        {
+          "role": "tutor",
+          "text": "Correct term. So what condition on the angle of incidence (compared to the critical angle) causes total internal reflection instead of the light refracting out?",
+          "technique": "guided_transfer"
+        }
+      ],
+      "correct_understanding": "When light travels from a denser to a less dense medium at an angle of incidence greater than the critical angle, it undergoes total internal reflection instead of refracting out, being entirely reflected back into the denser medium.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "phy-0023",
+      "subject": "physics",
+      "topic": "waves",
+      "source": "WAEC 2018 Paper 2, Q17 + Examiner Report",
+      "difficulty": "credit",
+      "student_opening": "A closed pipe of length 0.5 m resonates with sound of speed 340 m/s. How do I find the lowest (fundamental) frequency? I don't even know how a closed pipe is different from an open one, just tell me the formula.",
+      "misconception": "Student does not know that a closed pipe supports a quarter-wavelength fundamental mode (λ = 4L), unlike an open pipe (λ = 2L), and defaults to asking for the formula outright.",
+      "escalated": true,
+      "turns": [
+        {
+          "role": "student",
+          "text": "A closed pipe of length 0.5 m resonates with sound of speed 340 m/s. How do I find the lowest (fundamental) frequency? I don't even know how a closed pipe is different from an open one, just tell me the formula."
+        },
+        {
+          "role": "tutor",
+          "text": "Think of a native flute that is open at both ends versus a bottle you blow across that is sealed at the bottom, closed at one end only. At the closed end of the bottle, can the air actually move freely back and forth, or is it forced to stay still there?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "At the closed end, the air can't move freely, it has to stay still. I still don't see how that gives me a formula though, just tell me it."
+        },
+        {
+          "role": "tutor",
+          "text": "Fair, here's a stronger hint: because the closed end must be a node (no movement) and the open end must be an antinode (maximum movement), the shortest possible wave pattern that fits is only a QUARTER of a full wave inside the pipe's length L. That gives λ = 4*L. Try using v = f*λ with that.",
+          "technique": "escalated_hint"
+        },
+        {
+          "role": "student",
+          "text": "I still can't finish combining those two ideas into numbers, can we do it together?"
+        },
+        {
+          "role": "tutor",
+          "text": "Sure, step by step: λ = 4*L = 4*0.5 = 2 m. Then from v = f*λ, f = v/λ = 340/2 = 170 Hz. So the fundamental frequency is 170 Hz.",
+          "technique": "worked_example"
+        }
+      ],
+      "correct_understanding": "For a closed pipe, the fundamental wavelength is λ = 4*L = 4*0.5 = 2 m. Frequency f = v/λ = 340/2 = 170 Hz.",
+      "max_turns_to_resolution": 3,
+      "frustration_threshold": 2,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "phy-0024",
+      "subject": "physics",
+      "topic": "current_electricity",
+      "source": "WAEC 2017 Paper 2, Q6 + Examiner Report",
+      "difficulty": "pass",
+      "student_opening": "A 60 W bulb is used for 5 hours. How do I calculate the electrical energy consumed in kWh? I don't know how power and energy are related.",
+      "misconception": "Student conflates power (rate of energy use) with energy itself and does not know to multiply power by time to get energy consumed.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "A 60 W bulb is used for 5 hours. How do I calculate the electrical energy consumed in kWh? I don't know how power and energy are related."
+        },
+        {
+          "role": "tutor",
+          "text": "Think of a tap running water at a steady rate of so many buckets per hour. If you want to know the TOTAL water collected after several hours, do you use the rate alone, or the rate combined with the time it ran?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "The rate combined with the time, multiplied together."
+        },
+        {
+          "role": "tutor",
+          "text": "Exactly — energy is power (the rate) multiplied by time. Since the bulb's power is already in watts, and you want the answer in kWh, what should you first convert 60 W into before multiplying by the 5 hours?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "Convert 60 W into kilowatts, so 60/1000 = 0.06 kW."
+        },
+        {
+          "role": "tutor",
+          "text": "Correct conversion. Now multiply that power in kW by the time in hours — what value do you get for the energy consumed?",
+          "technique": "extend_to_effect"
+        }
+      ],
+      "correct_understanding": "Energy = Power * time = 0.06 kW * 5 h = 0.3 kWh.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "phy-0025",
+      "subject": "physics",
+      "topic": "mechanics",
+      "source": "WAEC 2021 Paper 2, Q5 + Examiner Report",
+      "difficulty": "credit",
+      "student_opening": "A pulley system lifts a 200 N load using an effort of 50 N. What is the mechanical advantage, and why does the effort need to be less than the load?",
+      "misconception": "Student may confuse mechanical advantage's ratio direction (load/effort vs effort/load) and not understand why a machine can let a smaller effort move a bigger load.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "A pulley system lifts a 200 N load using an effort of 50 N. What is the mechanical advantage, and why does the effort need to be less than the load?"
+        },
+        {
+          "role": "tutor",
+          "text": "Think of a well-arranged pulley used to draw a heavy bucket of water from a deep village well — instead of one person lifting the full weight directly by a single rope, the pulley lets the rope share the load's weight across multiple supporting strands. Does that arrangement make the puller feel like he's lifting the full weight, or something less?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "Something less, that's the whole point of using the pulley."
+        },
+        {
+          "role": "tutor",
+          "text": "Exactly — the machine lets a smaller effort move a bigger load by trading off distance moved. Mechanical advantage is defined as load divided by effort — using MA = load/effort, what do you get substituting load = 200 N and effort = 50 N?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "200/50 = 4"
+        },
+        {
+          "role": "tutor",
+          "text": "Correct calculation. Given that MA = 4 means the load is 4 times the effort, what does that tell you about how many supporting rope strands or pulley wheels are likely being used to share that load?",
+          "technique": "guided_transfer"
+        }
+      ],
+      "correct_understanding": "Mechanical advantage MA = load/effort = 200/50 = 4, meaning the pulley system allows an effort 4 times smaller than the load to lift it, typically using 4 supporting strands of rope.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "reviewed"
+    },
+    {
+      "id": "phy-0026",
+      "subject": "physics",
+      "topic": "kinematics",
+      "source": "WAEC 2022 Paper 2, Q2 + Examiner Report",
+      "difficulty": "credit",
+      "student_opening": "Two danfo buses move toward each other, one at 15 m/s and the other at 10 m/s. Why do I add the speeds instead of subtracting to find how fast they approach each other?",
+      "misconception": "Student defaults to subtracting velocities regardless of direction, not recognising that relative velocity of approach for objects moving toward each other requires vector addition of their speeds.",
+      "turns": [
+        {
+          "role": "student",
+          "text": "Two danfo buses move toward each other, one at 15 m/s and the other at 10 m/s. Why do I add the speeds instead of subtracting to find how fast they approach each other?"
+        },
+        {
+          "role": "tutor",
+          "text": "Think of two market women walking toward each other from opposite ends of a long road, one walking briskly and one walking more slowly. Is the gap between them closing faster than either woman's own walking speed alone, or slower?",
+          "technique": "cultural_analogy_probe"
+        },
+        {
+          "role": "student",
+          "text": "Faster than either one alone, since they're both moving to close the same gap from opposite sides."
+        },
+        {
+          "role": "tutor",
+          "text": "Exactly — when two things move toward each other, their approach speeds combine because both contribute to closing the same distance. Now, would that same addition logic apply if the two buses were instead moving in the SAME direction, one chasing the other?",
+          "technique": "narrowing"
+        },
+        {
+          "role": "student",
+          "text": "No, if they move in the same direction, I think you'd subtract instead, since one is only slowly catching up to the other."
+        },
+        {
+          "role": "tutor",
+          "text": "Right distinction — direction determines add or subtract for relative velocity. So back to our two buses moving toward each other at 15 m/s and 10 m/s, using vec(v) as vectors in opposite directions, what is their relative velocity of approach?",
+          "technique": "guided_transfer"
+        }
+      ],
+      "correct_understanding": "Since the buses move toward each other (opposite directions), their relative velocity of approach is the sum of their speeds: 15 + 10 = 25 m/s. If they moved in the same direction, the relative velocity would instead be the difference of their speeds.",
+      "max_turns_to_resolution": 4,
+      "frustration_threshold": 3,
+      "notation_check": "reviewed"
+    }
+  ]
+}
