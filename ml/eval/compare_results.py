@@ -58,7 +58,11 @@ def build_report(base: dict, fine: dict) -> str:
     lines.append(f"| Reaches correct understanding | {pct(bs['outcome_rate'])} | {pct(fs['outcome_rate'])} | {delta(bs['outcome_rate'], fs['outcome_rate'])} |")
     lines.append(f"| Escalates appropriately (n={bs['n_escalation_examples']}) | {pct(bs['escalation_appropriate_rate'])} | {pct(fs['escalation_appropriate_rate'])} | {delta(bs['escalation_appropriate_rate'], fs['escalation_appropriate_rate'])} |")
     lines.append(f"| Avg. turns to resolution | {bs['avg_turns_to_resolution']:.2f} | {fs['avg_turns_to_resolution']:.2f} | {fs['avg_turns_to_resolution'] - bs['avg_turns_to_resolution']:+.2f} |")
+    if bs.get("analogy_turn_rate") is not None and fs.get("analogy_turn_rate") is not None:
+        lines.append(f"| Tutor turns using a Nigerian analogy | {pct(bs['analogy_turn_rate'])} | {pct(fs['analogy_turn_rate'])} | {delta(bs['analogy_turn_rate'], fs['analogy_turn_rate'])} |")
     lines.append("")
+    if base.get("judge_model"):
+        lines.append(f"Judge model: `{base['judge_model']}` (blind to which model wrote each transcript)\n")
 
     lines.append("## By subject\n")
     lines.append("| Subject | n | Withhold (base→tuned) | Outcome (base→tuned) | Avg turns (base→tuned) |")
