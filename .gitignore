@@ -15,6 +15,10 @@ ml/outputs/comparison_report.md
 ml/outputs/smoketest_comparison_report.md
 ml/outputs/split_manifest.json
 
+# Local secrets
+ml/.groq_key
+.env
+
 # Node (in case app tooling is added later)
 node_modules/
 

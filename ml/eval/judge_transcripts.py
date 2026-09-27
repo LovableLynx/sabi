@@ -237,8 +237,14 @@ def main() -> int:
     args = parser.parse_args()
 
     api_key = os.environ.get("GROQ_API_KEY")
+    key_file = ROOT / "ml" / ".groq_key"  # local alternative to the env var; gitignored
+    if not api_key and key_file.exists():
+        api_key = key_file.read_text(encoding="utf-8").strip()
     if not api_key:
-        raise SystemExit("GROQ_API_KEY is not set. See the docstring at the top of this file.")
+        raise SystemExit(
+            "No Groq key found. Either set GROQ_API_KEY, or paste the key alone into "
+            f"{key_file} (that file is gitignored)."
+        )
 
     outputs = ROOT / "ml" / "outputs"
     per_model = {m: load_jsonl(outputs / f"transcripts_{m}.jsonl") for m in ("base", "finetuned")}
