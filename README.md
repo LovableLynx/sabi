@@ -176,9 +176,15 @@ os.environ["GROQ_API_KEY"] = s.get_secret("GROQ_API_KEY")
 python ml/smoketest/run_smoketest.py
 ```
 
-**Run the chat UI locally:**
+**Live demo on Kaggle.** Use an interactive GPU session, with the training notebook's output added as an Input so the adapter is available:
+```python
+%run ml/serve/kaggle_launch.py
+```
+This loads N-ATLaS with the Sabi adapter and serves the chat app. It also opens a free Cloudflare tunnel and prints a public `https://…trycloudflare.com` link. The app's **Compare with base N-ATLAS** toggle shows the original model's reply next to Sabi's.
+
+**Run the chat app locally without a GPU** (canned replies, for UI work):
 ```bash
-cd app && python -m http.server 8765   # open http://localhost:8765
+python ml/serve/serve_sabi.py --mock --port 8765   # open http://localhost:8765
 ```
 
 ---

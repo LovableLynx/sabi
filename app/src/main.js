@@ -1,16 +1,18 @@
-// Sabi — minimal chat UI skeleton
+// Sabi — chat UI
 // Three subjects: literature (plain text), physics (symbol palette + KaTeX),
 // accounting (structured ledger row entry -> fixed markdown table).
 //
-// Wire `sendToModel()` to your fine-tuned N-ATLAS inference endpoint when ready.
-// Until then it echoes a stub Socratic-style response so the UI/render path
-// can be demoed and tested independently of the model.
+// Talks to ml/serve/serve_sabi.py (POST /api/chat). When the app is served by
+// that server, the API is same-origin. To point a separately hosted copy at a
+// server, open it with ?api=https://your-tunnel-url
 
 const SUBJECTS = {
   literature: { label: "Literature", mode: "plain" },
   physics: { label: "Physics", mode: "physics" },
   accounting: { label: "Financial Accounting", mode: "accounting" },
 };
+
+const API_BASE = (new URLSearchParams(location.search).get("api") || "").replace(/\/$/, "");
 
 const state = {
   subject: "literature",
@@ -19,6 +21,9 @@ const state = {
     physics: [],
     accounting: [],
   },
+  pending: false,
+  compare: false, // also ask base N-ATLAS and show its reply alongside Sabi's
+  backend: { status: "checking", model: "" }, // checking | model | mock | offline
 };
 
 const app = document.getElementById("app");
@@ -40,8 +45,38 @@ function buildHeader() {
   header.className = "app-header";
   header.innerHTML = `
     <h1>Sabi — N-ATLAS Tutor</h1>
-    <p>Guides, never gives the answer directly. Fine-tuned for WAEC/JAMB Arts, Science &amp; Commerce streams with Nigerian cultural grounding.</p>
+    <p>Guides you to the answer instead of handing it over. Fine-tuned for WAEC/JAMB Arts, Science &amp; Commerce streams with Nigerian cultural grounding.</p>
   `;
+
+  const bar = document.createElement("div");
+  bar.className = "status-bar";
+
+  const labels = {
+    checking: "Connecting…",
+    model: "Live: fine-tuned N-ATLAS",
+    mock: "Test mode: mock replies",
+    offline: "Offline: no model server",
+  };
+  const badge = document.createElement("span");
+  badge.className = "status-badge " + state.backend.status;
+  badge.textContent = labels[state.backend.status];
+  if (state.backend.model) badge.title = state.backend.model;
+  bar.appendChild(badge);
+
+  const toggle = document.createElement("label");
+  toggle.className = "compare-toggle";
+  const box = document.createElement("input");
+  box.type = "checkbox";
+  box.checked = state.compare;
+  box.disabled = state.backend.status === "offline";
+  box.onchange = () => {
+    state.compare = box.checked;
+  };
+  toggle.appendChild(box);
+  toggle.appendChild(document.createTextNode(" Compare with base N-ATLAS"));
+  bar.appendChild(toggle);
+
+  header.appendChild(bar);
   return header;
 }
 
@@ -81,12 +116,32 @@ function buildChatWindow() {
     win.appendChild(hint);
   }
   msgs.forEach((m) => {
-    const bubble = document.createElement("div");
-    bubble.className = "bubble " + m.role;
-    bubble.innerHTML = renderContent(m.text, m.role);
-    win.appendChild(bubble);
+    if (m.role === "tutor" && m.baseText !== undefined) {
+      // Side-by-side: Sabi's reply next to what base N-ATLAS would have said.
+      const pair = document.createElement("div");
+      pair.className = "compare-pair";
+      pair.appendChild(makeBubble("tutor", m.text, "Sabi (fine-tuned)"));
+      pair.appendChild(makeBubble("base", m.baseText, "Base N-ATLAS (no fine-tuning)"));
+      win.appendChild(pair);
+    } else {
+      win.appendChild(makeBubble(m.role, m.text));
+    }
   });
+  if (state.pending) {
+    const thinking = document.createElement("div");
+    thinking.className = "bubble tutor thinking";
+    thinking.textContent = "Sabi is thinking…";
+    win.appendChild(thinking);
+  }
   return win;
+}
+
+function makeBubble(role, text, label) {
+  const bubble = document.createElement("div");
+  bubble.className = "bubble " + role;
+  bubble.innerHTML =
+    (label ? `<div class="bubble-label">${escapeHtml(label)}</div>` : "") + renderContent(text, role);
+  return bubble;
 }
 
 // Render markdown tables (accounting) as real <table> elements; leave
@@ -166,7 +221,15 @@ function buildPlainInputRow(onSend) {
   const btn = document.createElement("button");
   btn.className = "send-btn";
   btn.textContent = "Ask";
+  btn.disabled = state.pending;
+  textarea.onkeydown = (e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      btn.click();
+    }
+  };
   btn.onclick = () => {
+    if (state.pending) return;
     const val = textarea.value.trim();
     if (!val) return;
     onSend(val);
@@ -247,7 +310,9 @@ function buildLedgerForm() {
   const submitBtn = document.createElement("button");
   submitBtn.className = "send-btn";
   submitBtn.textContent = "Submit ledger";
+  submitBtn.disabled = state.pending;
   submitBtn.onclick = () => {
+    if (state.pending) return;
     const table = ledgerRowsToMarkdown(ledgerRows);
     const question = askInput.value.trim();
     const combined = question ? `${question}\n\n${table}` : table;
@@ -282,25 +347,56 @@ function ledgerRowsToMarkdown(rows) {
   return [header, sep, body].join("\n");
 }
 
-// ---- Message submission / model call stub ----
+// ---- Message submission / model calls ----
 
-function submitMessage(text) {
-  state.history[state.subject].push({ role: "student", text });
+async function submitMessage(text) {
+  const subject = state.subject; // the student may switch tabs while waiting
+  const history = state.history[subject];
+  history.push({ role: "student", text });
+  state.pending = true;
   render();
 
-  sendToModel(state.subject, state.history[state.subject]).then((reply) => {
-    state.history[state.subject].push({ role: "tutor", text: reply });
+  try {
+    const { reply, baseReply } = await sendToModel(history, state.compare);
+    history.push(baseReply === undefined ? { role: "tutor", text: reply } : { role: "tutor", text: reply, baseText: baseReply });
+  } catch (err) {
+    history.push({ role: "error", text: `Could not reach Sabi: ${err.message}` });
+  } finally {
+    state.pending = false;
     render();
-  });
+  }
 }
 
-// STUB: replace with a fetch() call to your fine-tuned N-ATLAS inference
-// endpoint once it's deployed. Keep the contract: (subject, historyArray) ->
-// Promise<string>. The returned string may contain a markdown table
-// (accounting) or $...$ math (physics), both of which the renderer handles.
-async function sendToModel(subject, history) {
-  await new Promise((r) => setTimeout(r, 400));
-  return "[stub tutor response] This is a placeholder — connect sendToModel() in main.js to your fine-tuned N-ATLAS endpoint. The tutor should never state the answer directly; it should ask a guiding question using a Nigerian cultural analogy.";
+// Only student/tutor turns go to the model; error notices and base replies
+// shown in compare mode are UI-only and are never part of the conversation.
+async function sendToModel(history, compare) {
+  if (state.backend.status === "offline") {
+    throw new Error("no model server is running. Start ml/serve/serve_sabi.py and reload.");
+  }
+  const messages = history
+    .filter((m) => m.role === "student" || m.role === "tutor")
+    .map((m) => ({ role: m.role === "student" ? "user" : "assistant", content: m.text }));
+
+  const res = await fetch(`${API_BASE}/api/chat`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ messages, model: compare ? "both" : "sabi" }),
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || `server returned ${res.status}`);
+  return { reply: data.reply, baseReply: data.base_reply };
+}
+
+async function checkBackend() {
+  try {
+    const res = await fetch(`${API_BASE}/api/health`);
+    const data = await res.json();
+    state.backend = { status: data.mode === "mock" ? "mock" : "model", model: data.model || "" };
+  } catch {
+    state.backend = { status: "offline", model: "" };
+  }
+  render();
 }
 
 render();
+checkBackend();

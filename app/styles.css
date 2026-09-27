@@ -187,11 +187,36 @@ button.send-btn {
 
 .ledger-row {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr 1fr auto;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr) auto;
   gap: 6px;
 }
 
+/* Phone: Date + Account on one line, Debit + Credit + remove on the next. */
+@media (max-width: 640px) {
+  .ledger-row {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+  .ledger-row input:nth-child(2) {
+    grid-column: span 2;
+  }
+}
+
+.ledger-form textarea {
+  resize: none;
+  background: #0c110d;
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 0.85rem;
+  font-family: inherit;
+  min-height: 40px;
+}
+
 .ledger-row input {
+  min-width: 0;
   background: #0c110d;
   color: var(--text);
   border: 1px solid var(--border);
@@ -226,6 +251,98 @@ button.send-btn {
   color: var(--muted);
   font-size: 0.75rem;
   margin-top: 4px;
+}
+
+.status-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.status-badge {
+  font-size: 0.75rem;
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+
+.status-badge.model {
+  color: #08170a;
+  background: var(--accent);
+  border-color: var(--accent);
+  font-weight: 600;
+}
+
+.status-badge.mock {
+  color: #1d1600;
+  background: #d9b44a;
+  border-color: #d9b44a;
+}
+
+.status-badge.offline {
+  color: #f3d6d6;
+  background: #4a2020;
+  border-color: #4a2020;
+}
+
+.compare-toggle {
+  font-size: 0.8rem;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.compare-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  align-self: stretch;
+}
+
+.compare-pair .bubble {
+  max-width: none;
+}
+
+@media (max-width: 640px) {
+  .compare-pair {
+    grid-template-columns: 1fr;
+  }
+}
+
+.bubble.base {
+  background: #1d1f22;
+  border: 1px dashed var(--border);
+  color: var(--muted);
+}
+
+.bubble.error {
+  align-self: center;
+  background: #3a1a1a;
+  color: #f3d6d6;
+  font-size: 0.85rem;
+}
+
+.bubble.thinking {
+  color: var(--muted);
+  font-style: italic;
+}
+
+.bubble-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .app-footer {
