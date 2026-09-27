@@ -75,8 +75,9 @@ def main() -> None:
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
 
-    # A 4-bit 8B model (~6 GB) fits on one T4; keep it on a single GPU so
-    # generation doesn't bounce activations between two cards.
+    # device_map="auto", same as training: transformers 5.x materialises the
+    # fp16 weights (~16 GB) before quantising, which overflows a single 15 GB
+    # T4 if the whole model is pinned to one card.
     model = AutoModelForCausalLM.from_pretrained(
         base_model,
         quantization_config=BitsAndBytesConfig(
@@ -85,10 +86,11 @@ def main() -> None:
             bnb_4bit_compute_dtype=compute_dtype,
             bnb_4bit_use_double_quant=True,
         ),
-        device_map={"": 0},
+        device_map="auto",
     )
     model = PeftModel.from_pretrained(model, str(adapter_dir))
     model.eval()
+    input_device = model.get_input_embeddings().weight.device
 
     stop_ids = [tokenizer.eos_token_id]
     eot = tokenizer.convert_tokens_to_ids("<|eot_id|>")
@@ -100,7 +102,7 @@ def main() -> None:
             tokenizer.apply_chat_template(m, tokenize=False, add_generation_prompt=True)
             for m in batch_msgs
         ]
-        enc = tokenizer(texts, return_tensors="pt", padding=True, add_special_tokens=False).to("cuda:0")
+        enc = tokenizer(texts, return_tensors="pt", padding=True, add_special_tokens=False).to(input_device)
         ctx = nullcontext() if use_adapter else model.disable_adapter()
         with torch.no_grad(), ctx:
             out = model.generate(

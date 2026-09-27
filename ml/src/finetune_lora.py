@@ -220,7 +220,8 @@ def main() -> None:
     trainer.save_model(str(output_dir / "final_adapter"))
     tokenizer.save_pretrained(str(output_dir / "final_adapter"))
     print(f"\nTraining complete. LoRA adapter saved to {output_dir / 'final_adapter'}")
-    print("Next: run ml/eval/benchmark.py comparing base vs. fine-tuned model.")
+    print("Next: python ml/eval/generate_transcripts.py --adapter "
+          f"{(output_dir / 'final_adapter').relative_to(root)}")
 
 
 if __name__ == "__main__":
