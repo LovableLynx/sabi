@@ -133,7 +133,9 @@ def call_groq(api_key: str, model: str, prompt: str) -> dict:
         )
         if resp.status_code == 429:
             wait = float(resp.headers.get("retry-after", "10"))
-            if wait > 120:
+            # Short cooldowns (per-minute/hour token windows) are worth waiting
+            # out; a wait longer than this means the daily quota is spent.
+            if wait > 900:
                 raise DailyLimitReached(f"Groq rate limit: retry-after {wait:.0f}s")
             print(f"    rate limited, waiting {wait:.0f}s")
             time.sleep(wait + 1)
