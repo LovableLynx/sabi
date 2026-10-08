@@ -1,0 +1,473 @@
+{
+  "subject": "literature",
+  "units": [
+    {
+      "id": "lit-u1",
+      "title": "Mama Put Comparisons: Figures of Speech",
+      "topic": "figurative_language",
+      "emoji": "🎭",
+      "lessons": [
+        {
+          "id": "lit-u1-l1",
+          "source_id": "lit-0079",
+          "question": "Consider the two lines: (i) 'He fights like a lion.' (ii) 'He is a lion in battle.' Which statement correctly identifies them?",
+          "options": [
+            "Both are metaphors because both compare two things",
+            "(i) is a simile and (ii) is a metaphor",
+            "(i) is a metaphor and (ii) is a simile",
+            "Both are similes because both mention a lion"
+          ],
+          "answer_index": 1,
+          "explanation": "A simile compares openly using 'like' or 'as', while a metaphor says one thing simply IS the other. Line (i) uses 'like'; line (ii) does not.",
+          "hint": "Look for the 'connector' words. Is there a 'like' or 'as' standing between the man and the lion, like a conductor between bus and passenger?"
+        },
+        {
+          "id": "lit-u1-l2",
+          "source_id": "lit-0001",
+          "question": "A poem about a village in mourning begins: 'The sun refused to rise.' What is the poet doing in this line?",
+          "options": [
+            "Reporting that there was an eclipse that morning",
+            "Using a simile to compare the sun to a mourner",
+            "Personifying the sun to create a mood of gloom",
+            "Using hyperbole to show the day was very hot"
+          ],
+          "answer_index": 2,
+          "explanation": "Only a person can 'refuse' something, so the sun is given human will. This personification makes the whole world seem to share the village's sorrow.",
+          "hint": "Can the sun really say 'I no go rise today'? Ask yourself who normally refuses things."
+        },
+        {
+          "id": "lit-u1-l3",
+          "source_id": "lit-0015",
+          "question": "A mother shouts at her son: 'I have told you a million times to sweep this compound!' How should a student analyse 'a million times'?",
+          "options": [
+            "As hyperbole showing her frustration at being ignored",
+            "As a literal count of how often she has spoken",
+            "As a writing error, since nobody speaks a million times",
+            "As an oxymoron joining two opposite ideas"
+          ],
+          "answer_index": 0,
+          "explanation": "This is hyperbole, a deliberate exaggeration. It is not meant to be counted; it stresses how tired she is of repeating herself.",
+          "hint": "When your mum says she has called you 'one thousand times', is she actually counting, or is she telling you how vexed she is?"
+        },
+        {
+          "id": "lit-u1-l4",
+          "source_id": "lit-0034",
+          "question": "A poet describes a daughter's wedding as 'a joyful mourning'. What is the best explanation of this phrase?",
+          "options": [
+            "It is a mistake, because joy and mourning cannot exist together",
+            "It is a simile comparing a wedding to a funeral",
+            "It is hyperbole exaggerating how sad weddings are",
+            "It is an oxymoron capturing the family's mixed feelings"
+          ],
+          "answer_index": 3,
+          "explanation": "An oxymoron puts two opposite words side by side on purpose. Here it captures real mixed emotion: happiness at the wedding and grief that the daughter is leaving home.",
+          "hint": "Think of a mother at her daughter's traditional marriage, smiling and crying at the same time. Can two opposite feelings sit in one heart?"
+        },
+        {
+          "id": "lit-u1-l5",
+          "source_id": "lit-0111",
+          "question": "In a novel, an elder says 'The crown will decide the matter,' and later a narrator says 'All hands were needed on the farm.' Which is correct?",
+          "options": [
+            "Both are synecdoche because both replace people with objects",
+            "'The crown' is metonymy; 'hands' is synecdoche",
+            "'The crown' is synecdoche; 'hands' is metonymy",
+            "Both are personification of objects and body parts"
+          ],
+          "answer_index": 1,
+          "explanation": "A crown is associated with a king but is not part of him, so it is metonymy. Hands are an actual part of the workers, so using a part for the whole is synecdoche.",
+          "hint": "Is the item a real PART of the person, like a finger, or just something linked to them, like a cap on Oga's head?"
+        }
+      ]
+    },
+    {
+      "id": "lit-u2",
+      "title": "Town Crier: Sound & Repetition",
+      "topic": "poetic_devices",
+      "emoji": "🥁",
+      "lessons": [
+        {
+          "id": "lit-u2-l1",
+          "source_id": "lit-0029",
+          "question": "A poem describes a village smithy: 'the hammer's clang rang through the forge.' What device does 'clang' illustrate?",
+          "options": [
+            "Alliteration, because it repeats a consonant",
+            "Personification, because the hammer speaks",
+            "Onomatopoeia, because the word imitates the sound",
+            "A random word choice with no special effect"
+          ],
+          "answer_index": 2,
+          "explanation": "'Clang' sounds like metal striking metal, so it is onomatopoeia. It lets the reader almost hear the forge instead of just being told about it.",
+          "hint": "Say the word out loud. Does it sound like the thing it describes, the way 'gbam' sounds like a door slamming?"
+        },
+        {
+          "id": "lit-u2-l2",
+          "source_id": "lit-0009",
+          "question": "A poem about captives contains the line 'silent, sullen, suffering slaves'. What is the main effect of the repeated 's' sound?",
+          "options": [
+            "Its hushed, drawn-out sound deepens the mood of heavy oppression",
+            "It is only decoration to make the line sound pretty",
+            "It makes the line rhyme with the next one",
+            "It shows the slaves are happy and singing"
+          ],
+          "answer_index": 0,
+          "explanation": "Alliteration is not just decoration. The slow, hissing 's' sound reinforces the heaviness and suppressed suffering the words describe.",
+          "hint": "Read it slowly. Does it sound quick and cheerful like a highlife beat, or slow and heavy like a long sigh?"
+        },
+        {
+          "id": "lit-u2-l3",
+          "source_id": "lit-0049",
+          "question": "Consider the line 'the moon swoons over the lagoon'. The repeated 'oo' sound in 'moon', 'swoons' and 'lagoon' is an example of:",
+          "options": [
+            "End-rhyme, since the words sound alike",
+            "Alliteration, since sounds are repeated",
+            "Onomatopoeia, since the moon makes a sound",
+            "Assonance, the repetition of vowel sounds within a line"
+          ],
+          "answer_index": 3,
+          "explanation": "Assonance repeats vowel sounds inside and across words in a line, giving a smooth, musical flow. End-rhyme only happens at the ends of lines, and alliteration repeats consonants.",
+          "hint": "Is the repeated sound a vowel or a consonant? And is it only at the end of the line, or spread across it?"
+        },
+        {
+          "id": "lit-u2-l4",
+          "source_id": "lit-0064",
+          "question": "In a protest poem, almost every line of the second stanza begins with 'We shall...' ('We shall rise... We shall build... We shall not bow...'). What is the effect?",
+          "options": [
+            "It is a stylistic habit with no real purpose",
+            "Anaphora builds momentum and a tone of collective resolve",
+            "It shows the poet ran out of new words",
+            "It creates a refrain that ends every stanza"
+          ],
+          "answer_index": 1,
+          "explanation": "Repeating the same words at the start of successive lines is anaphora. Each 'We shall' adds weight, building rising determination like a crowd chanting together.",
+          "hint": "Picture a rally where the crowd answers each point with the same opening words. Does the energy go up or down?"
+        },
+        {
+          "id": "lit-u2-l5",
+          "source_id": "lit-0054",
+          "question": "In a poem about a chase, many lines have no punctuation at the end and run straight into the next: 'He ran through the market and down / the hill and into the night'. Why?",
+          "options": [
+            "It is a printing error in the poem",
+            "It is caesura, a pause in the middle of the line",
+            "It is enjambment, creating urgency and breathless movement",
+            "It is free verse, so the lines have no structure"
+          ],
+          "answer_index": 2,
+          "explanation": "Enjambment lets a sentence spill over a line break without stopping. Here it carries the reader forward without rest, mirroring the breathless chase.",
+          "hint": "If you read it aloud, do you get a chance to pause and catch your breath, like a danfo that refuses to stop at the bus stop?"
+        }
+      ]
+    },
+    {
+      "id": "lit-u3",
+      "title": "Moonlight Tales: Oral Literature",
+      "topic": "oral_literature",
+      "emoji": "🌕",
+      "lessons": [
+        {
+          "id": "lit-u3-l1",
+          "source_id": "lit-0135",
+          "question": "A storyteller begins a folktale by calling 'Story, story!' and the audience replies 'Story!' What is the main function of this opening?",
+          "options": [
+            "It is an opening formula that gains attention and frames the tale",
+            "It is meaningless filler before the real story starts",
+            "It tells the audience the moral of the story",
+            "It is a riddle the audience must solve"
+          ],
+          "answer_index": 0,
+          "explanation": "Opening formulae are conventions that mark entry into the world of the tale. The call-and-reply wins attention and shows the audience agrees to take part.",
+          "hint": "Think of how a church service or a school assembly opens with a set greeting. What does that opening do to the crowd?"
+        },
+        {
+          "id": "lit-u3-l2",
+          "source_id": "lit-0136",
+          "question": "An oral work song goes: Leader: 'Who will carry the load?' Chorus: 'We will carry it!' This pattern repeats throughout. What is it, and why is it used?",
+          "options": [
+            "Mere repetition that makes the song boring",
+            "A refrain that only the leader sings",
+            "A dirge that mourns the workers' suffering",
+            "Call-and-response, creating communal participation and rhythm"
+          ],
+          "answer_index": 3,
+          "explanation": "One voice calls and the group answers. This call-and-response builds unity, keeps the rhythm of the work, and lets everyone share in the performance.",
+          "hint": "Remember a football chant or a 'Gbosa!' reply. Who is talking, one person or everybody?"
+        },
+        {
+          "id": "lit-u3-l3",
+          "source_id": "lit-0137",
+          "question": "In a novel, an elder rarely speaks plainly and instead uses proverbs such as 'The lizard that jumps from the tall iroko will praise itself.' Why does the writer make him speak this way?",
+          "options": [
+            "To slow the story down and fill pages",
+            "Proverbs carry ancestral authority and persuade wisely and tactfully",
+            "Because the elder cannot speak English well",
+            "Proverbs are decorations with no role in the argument"
+          ],
+          "answer_index": 1,
+          "explanation": "Proverbs carry the weight of communal wisdom, so they persuade powerfully and can soften criticism. They also mark the elder as wise and respected.",
+          "hint": "When your grandfather wants to correct you without shouting, how does he do it? Does a proverb make his point weaker or stronger?"
+        },
+        {
+          "id": "lit-u3-l4",
+          "source_id": "lit-0134",
+          "question": "An exam question says: 'Discuss the tortoise as a trickster figure.' Which view best fits the trickster in Nigerian folktales?",
+          "options": [
+            "He is purely evil and the tales want us to hate him",
+            "He is a pure hero whose actions are always good",
+            "He is admired for his wit but punished for his greed and deceit",
+            "He is a minor character with no real importance"
+          ],
+          "answer_index": 2,
+          "explanation": "The trickster is ambivalent: we enjoy his cleverness against stronger animals, yet his greed is often punished, as with his cracked shell. The tales both entertain and warn.",
+          "hint": "Think of a very 'sharp guy' in your area. You laugh at his clever stunts, but would you trust him with your money?"
+        },
+        {
+          "id": "lit-u3-l5",
+          "source_id": "lit-0143",
+          "question": "An oral poem says of a dead farmer: 'Who will now feed the goats? / Who will wake the compound at cockcrow? / Our pillar has fallen.' What type of oral poem is this?",
+          "options": [
+            "A dirge, lamenting the dead with sorrowful rhetorical questions",
+            "A praise poem, because it says good things about him",
+            "A folktale, because it tells a story about a farmer",
+            "An incantation, because it repeats questions"
+          ],
+          "answer_index": 0,
+          "explanation": "A dirge is a funeral lament. Its sorrowful tone, rhetorical questions about the loss and remembrance of the person's virtues all point to mourning, not simple praise.",
+          "hint": "The person in the poem is gone. At what kind of gathering would people ask 'who will now do this for us?'"
+        }
+      ]
+    },
+    {
+      "id": "lit-u4",
+      "title": "Wahala Twists: Irony & Satire",
+      "topic": "irony",
+      "emoji": "🙃",
+      "lessons": [
+        {
+          "id": "lit-u4-l1",
+          "source_id": "lit-0019",
+          "question": "Right after his shop burns down, a trader looks at the ashes and says, 'What a wonderful day.' What device is the writer using?",
+          "options": [
+            "Dramatic irony, because the audience knows more",
+            "Hyperbole, because he exaggerates the day",
+            "Situational irony, because the fire was unexpected",
+            "Verbal irony, saying the opposite of what he means"
+          ],
+          "answer_index": 3,
+          "explanation": "He says 'wonderful' but means terrible, which is verbal irony. It shows his devastation hidden behind bitter humour.",
+          "hint": "Focus on his WORDS. Does what he says match what he truly feels, like when someone stuck in Lagos traffic says 'I'm enjoying myself'?"
+        },
+        {
+          "id": "lit-u4-l2",
+          "source_id": "lit-0011",
+          "question": "A man builds a high fence to keep thieves away from his house, but it turns out that the thief is his own son. Why is this situational irony and not just a plot twist?",
+          "options": [
+            "Because any surprising event in a story is irony",
+            "Because the outcome directly contradicts what his effort was meant to achieve",
+            "Because the son says the opposite of what he means",
+            "Because the audience knew about the son from the start"
+          ],
+          "answer_index": 1,
+          "explanation": "Situational irony is a specific gap between what is expected or intended and what happens. The fence was built against thieves, yet the thief was inside all along.",
+          "hint": "A twist is any surprise. Ask: does the ending turn the man's own plan upside down?"
+        },
+        {
+          "id": "lit-u4-l3",
+          "source_id": "lit-0004",
+          "question": "In a play, the audience has seen conspirators plan a night attack. Later the watchman tells the villagers, 'Nothing bad will happen tonight.' What does this create?",
+          "options": [
+            "A coincidence in the plot with no special effect",
+            "Verbal irony, because the watchman is being sarcastic",
+            "Dramatic irony, building tension because we know more than he does",
+            "Comic relief, because the watchman is a minor character"
+          ],
+          "answer_index": 2,
+          "explanation": "Dramatic irony happens when the audience knows something a character does not. His confident words fill us with dread because we know the attack is coming.",
+          "hint": "Who in the hall knows about the plan: the watchman, or you sitting in the audience?"
+        },
+        {
+          "id": "lit-u4-l4",
+          "source_id": "lit-0187",
+          "question": "A question asks you to 'examine the playwright's use of satire'. Which statement best explains how satire relates to irony?",
+          "options": [
+            "Satire is a mode that ridicules vice; irony is one of its tools",
+            "Satire and irony are exactly the same thing",
+            "Irony is the purpose; satire is a small technique inside it",
+            "Satire is only found in poems, irony only in plays"
+          ],
+          "answer_index": 0,
+          "explanation": "Satire is the overall purpose of exposing and mocking folly or corruption, often to push for change. Irony, exaggeration and caricature are some of the tools it uses.",
+          "hint": "Think of a comedy skit mocking politicians. The aim is to criticise; what tricks does the comedian use to do it?"
+        },
+        {
+          "id": "lit-u4-l5",
+          "source_id": "lit-0189",
+          "question": "In a play, a clever old woman asks a corrupt councillor: 'Please, my son, where did the road money go? I'm just an old woman, I don't understand these things.' What is she doing?",
+          "options": [
+            "Showing genuine confusion about government money",
+            "Using hyperbole about her age and weakness",
+            "Showing respect by calling him 'my son'",
+            "Using feigned ignorance (Socratic irony) to expose his corruption"
+          ],
+          "answer_index": 3,
+          "explanation": "She pretends to be simple so her innocent-looking questions force the councillor to reveal his guilt in public. Her 'ignorance' actually shows how sharp she is.",
+          "hint": "Have you seen an elder 'play dumb' to catch someone in a lie? Is she really confused, or is she setting a trap?"
+        }
+      ]
+    },
+    {
+      "id": "lit-u5",
+      "title": "Nollywood Backstage: Drama Techniques",
+      "topic": "drama_technique",
+      "emoji": "🎬",
+      "lessons": [
+        {
+          "id": "lit-u5-l1",
+          "source_id": "lit-0068",
+          "question": "In a play, a character stands alone on stage and speaks his secret fears and plans aloud for a long time. What is this convention called, and why is it used?",
+          "options": [
+            "A dialogue, to show his relationship with other characters",
+            "A soliloquy, to reveal his inner thoughts directly to the audience",
+            "An aside, to make a quick joke to another character",
+            "Exposition, to give background on the setting"
+          ],
+          "answer_index": 1,
+          "explanation": "A soliloquy is spoken by a character alone on stage, letting the audience hear his private thoughts. It is a stage convention, not meant to be realistic.",
+          "hint": "He is alone, and nobody else on stage hears him. So who is he really talking to?"
+        },
+        {
+          "id": "lit-u5-l2",
+          "source_id": "lit-0069",
+          "question": "During a family meeting on stage, a character mutters, 'If only they knew what I did,' and the text shows the other characters do not react at all. What is this?",
+          "options": [
+            "An aside, heard by the audience but not by the other characters",
+            "A mistake by the playwright, since others should hear him",
+            "A soliloquy, since only one character is speaking",
+            "A monologue addressed to the whole family"
+          ],
+          "answer_index": 0,
+          "explanation": "An aside is a short remark the audience hears but the other characters, by convention, do not. It reveals a private reaction in the middle of the action.",
+          "hint": "Others are present on stage this time, yet they don't react. It's like whispering to your friend in the back row during assembly."
+        },
+        {
+          "id": "lit-u5-l3",
+          "source_id": "lit-0072",
+          "question": "In the middle of a tense scene where a chief is accused of murder, two drunk palace guards argue comically over a stolen chicken. What is the playwright's purpose?",
+          "options": [
+            "To ruin the serious mood the play has built",
+            "To show the playwright could not maintain the tension",
+            "To provide comic relief, giving the audience a breather",
+            "To introduce the main conflict of the play"
+          ],
+          "answer_index": 2,
+          "explanation": "Comic relief gives the audience a short emotional rest without erasing the seriousness. It can even make the tragedy hit harder when the tension returns.",
+          "hint": "During a long, stressful exam period, why do students still crack jokes in the hostel? What does a little laughter do?"
+        },
+        {
+          "id": "lit-u5-l4",
+          "source_id": "lit-0077",
+          "question": "Early in Act One, a stage direction reads: '(He fingers a small dagger hidden in his sleeve.)' Nothing happens with the dagger until much later. Why include it?",
+          "options": [
+            "It is filler that has no importance",
+            "It is exposition about the character's family background",
+            "It is comic relief to lighten the mood",
+            "It is foreshadowing, hinting at violence to come"
+          ],
+          "answer_index": 3,
+          "explanation": "Foreshadowing plants an early hint that becomes important later. The hidden dagger prepares the attentive audience for danger ahead.",
+          "hint": "In a Nollywood film, when the camera lingers on a gun in a drawer, do you expect it to stay in the drawer forever?"
+        },
+        {
+          "id": "lit-u5-l5",
+          "source_id": "lit-0174",
+          "question": "In a tragedy, a proud king loses his throne and wealth; soon after, he discovers that his own decree caused his son's death. Which term matches the DISCOVERY?",
+          "options": [
+            "Anagnorisis, the character's recognition moving from ignorance to knowledge",
+            "Peripeteia, the reversal of fortune",
+            "Catharsis, the audience's release of pity and fear",
+            "Comic relief, the audience's emotional breather"
+          ],
+          "answer_index": 0,
+          "explanation": "Peripeteia is the reversal of fortune (losing the throne), while anagnorisis is the moment of recognition (discovering the truth). They often come close together but are different.",
+          "hint": "Separate what HAPPENS to him (the fall) from what he finally KNOWS (the truth). Which one is the question asking about?"
+        }
+      ]
+    },
+    {
+      "id": "lit-u6",
+      "title": "WAEC Hot Seat: Unseen Poetry",
+      "topic": "unseen_poetry",
+      "emoji": "📜",
+      "lessons": [
+        {
+          "id": "lit-u6-l1",
+          "source_id": "lit-0150",
+          "question": "An unseen poem begins: 'I sold my mother's wrapper to buy a lottery ticket.' The question asks you to describe 'the speaker'. Who is the speaker?",
+          "options": [
+            "The poet, confessing what he did in real life",
+            "The reader, whom the poem is accusing",
+            "A persona, a voice the poet creates, such as a desperate gambler",
+            "The mother, whose wrapper was sold"
+          ],
+          "answer_index": 2,
+          "explanation": "The 'I' in a poem is a speaker or persona created by the poet, not necessarily the poet himself. Here the persona lets the poet explore and criticise gambling.",
+          "hint": "When a Nollywood actor plays a thief, is he confessing his own life? Who is the 'I' in a poem really?"
+        },
+        {
+          "id": "lit-u6-l2",
+          "source_id": "lit-0163",
+          "question": "A question asks for both the tone and the mood of a flood poem. Which pair of definitions is correct?",
+          "options": [
+            "Tone and mood mean the same thing, so one word answers both",
+            "Tone is the poem's subject; mood is its rhyme scheme",
+            "Tone is the reader's feeling; mood is the poet's attitude",
+            "Tone is the speaker's attitude; mood is the atmosphere felt by the reader"
+          ],
+          "answer_index": 3,
+          "explanation": "Tone is the speaker's attitude to the subject, shown through word choice (for example, bitter). Mood is the atmosphere the poem creates in the reader (for example, gloomy).",
+          "hint": "Think of a teacher announcing results. Her voice may sound calm (her attitude), but the class still feels tense (the atmosphere). Which is which?"
+        },
+        {
+          "id": "lit-u6-l3",
+          "source_id": "lit-0152",
+          "question": "A poem's first two stanzas describe wedding drums and dancing. Stanza three begins: 'Yet the mother's eyes search for the son who is not here.' What is the best comment on tone?",
+          "options": [
+            "The tone is joyful throughout, because of the wedding",
+            "The tone shifts at 'Yet' from celebration to sorrow",
+            "The tone is angry, because the son refused to come",
+            "The tone is neutral, since it only describes events"
+          ],
+          "answer_index": 1,
+          "explanation": "The word 'Yet' signals a turn. The joyful opening makes the mother's grief for her absent son more painful by contrast, so tone must be tracked across the poem.",
+          "hint": "Watch out for little turning words like 'but', 'yet' and 'however'. They are like a driver's indicator: a change of direction is coming."
+        },
+        {
+          "id": "lit-u6-l4",
+          "source_id": "lit-0154",
+          "question": "A sonnet has three quatrains (ABAB CDCD EFEF) praising a harmattan morning, then ends with a rhyming couplet (GG) about a homeless man shivering in its cold. What does the couplet do?",
+          "options": [
+            "It concludes with a twist that undercuts the earlier praise",
+            "It simply repeats what the quatrains already said",
+            "It has no special role; it is just the last two lines",
+            "It introduces a refrain that will repeat later"
+          ],
+          "answer_index": 0,
+          "explanation": "In a Shakespearean sonnet the final couplet often summarises or twists the argument. Here it turns the praise around by revealing the harmattan's harsh side.",
+          "hint": "At the end of a long speech, what does a good speaker save for the last line: something forgettable, or the punchline?"
+        },
+        {
+          "id": "lit-u6-l5",
+          "source_id": "lit-0160",
+          "question": "In a poem, a landlord tells a silent new tenant how generous he is, adding that he evicted the last tenant 'only because the man was ungrateful' for a rent increase. What does the poem reveal?",
+          "options": [
+            "The landlord is truly generous and kind",
+            "The tenant is ungrateful and dishonest",
+            "The poet personally dislikes all landlords",
+            "In this dramatic monologue, the landlord unknowingly exposes his own greed"
+          ],
+          "answer_index": 3,
+          "explanation": "In a dramatic monologue, one speaker addresses a silent listener and reveals more than he intends. His own details contradict his claims of generosity, creating irony.",
+          "hint": "Don't just believe what he says about himself. Look at what he actually DID. Does his story match his self-praise?"
+        }
+      ]
+    }
+  ]
+}

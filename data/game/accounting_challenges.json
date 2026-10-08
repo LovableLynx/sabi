@@ -1,0 +1,473 @@
+{
+  "subject": "accounting",
+  "units": [
+    {
+      "id": "acc-u1",
+      "title": "Esusu Book: Double Entry",
+      "topic": "double_entry",
+      "emoji": "📒",
+      "lessons": [
+        {
+          "id": "acc-u1-l1",
+          "source_id": "acc-0001",
+          "question": "Mama Ngozi buys goods for resale worth ₦5,000 and pays cash immediately. Which entry records this in her books?",
+          "options": [
+            "Debit Purchases, Credit Cash",
+            "Debit Cash, Credit Purchases",
+            "Debit Sales, Credit Cash",
+            "Debit Purchases, Credit Sales"
+          ],
+          "answer_index": 0,
+          "explanation": "Goods coming in are debited to Purchases; cash going out is credited to Cash. Debit the receiver, credit the giver.",
+          "hint": "When you buy pure water with cash, the sachets come in and the naira leaves your pocket. Which account receives, which one gives?"
+        },
+        {
+          "id": "acc-u1-l2",
+          "source_id": "acc-0002",
+          "question": "A business sells goods on credit to Chidi for ₦8,000. Which entry is correct?",
+          "options": [
+            "Debit Sales, Credit Chidi (Debtor)",
+            "Debit Cash, Credit Sales",
+            "Debit Chidi (Debtor), Credit Sales",
+            "Debit Chidi (Debtor), Credit Purchases"
+          ],
+          "answer_index": 2,
+          "explanation": "Chidi now owes the business ₦8,000, so his account is debited; Sales is credited because goods went out as revenue.",
+          "hint": "No cash changed hands, so who now 'owes' the shop, like a customer who says 'I go pay you next week'?"
+        },
+        {
+          "id": "acc-u1-l3",
+          "source_id": "acc-0041",
+          "question": "The owner of a provisions shop takes goods costing ₦4,000 home for his family's use. No cash is paid. How is this recorded?",
+          "options": [
+            "Debit Purchases, Credit Drawings",
+            "Debit Drawings, Credit Purchases",
+            "Debit Drawings, Credit Cash",
+            "Debit General Expenses, Credit Purchases"
+          ],
+          "answer_index": 1,
+          "explanation": "Goods taken by the owner are drawings (debit Drawings) and they reduce goods bought for resale (credit Purchases). No cash moved, so Cash is not touched.",
+          "hint": "If you take Indomie from your own shop for dinner, the shop did not 'spend' money. You took the value out. Which account tracks what the owner takes?"
+        },
+        {
+          "id": "acc-u1-l4",
+          "source_id": "acc-0017",
+          "question": "A debtor who owed ₦10,000 pays ₦9,500 cash in full settlement, and is allowed a discount of ₦500. With what amount is the debtor's account credited?",
+          "options": [
+            "₦9,500",
+            "₦500",
+            "₦10,500",
+            "₦10,000"
+          ],
+          "answer_index": 3,
+          "explanation": "Cash ₦9,500 plus Discount Allowed ₦500 are both debited, so the debtor is credited with the full ₦10,000 to clear the debt.",
+          "hint": "The customer's slate must go to zero. How much did he owe before you 'dashed' him the discount?"
+        },
+        {
+          "id": "acc-u1-l5",
+          "source_id": "acc-0059",
+          "question": "A trader sells goods for ₦22,000, a figure that already includes 10% VAT. What amount should be credited to the Sales account?",
+          "options": [
+            "₦22,000",
+            "₦20,000",
+            "₦19,800",
+            "₦2,000"
+          ],
+          "answer_index": 1,
+          "explanation": "Net sales = ₦22,000 / 1.10 = ₦20,000. The ₦2,000 VAT is owed to the tax authority, so it is a liability, not revenue.",
+          "hint": "VAT is like money a friend asks you to hold for someone else. It passes through your hand but it is not yours. Is the 10% on the net price or on the total?"
+        }
+      ]
+    },
+    {
+      "id": "acc-u2",
+      "title": "Balogun Market Final Accounts",
+      "topic": "final_accounts",
+      "emoji": "🧾",
+      "lessons": [
+        {
+          "id": "acc-u2-l1",
+          "source_id": "acc-0013",
+          "question": "A business has total assets of ₦300,000 and total liabilities of ₦120,000. What is the owner's capital?",
+          "options": [
+            "₦420,000",
+            "₦300,000",
+            "₦180,000",
+            "₦120,000"
+          ],
+          "answer_index": 2,
+          "explanation": "Capital = Assets − Liabilities = ₦300,000 − ₦120,000 = ₦180,000.",
+          "hint": "If your shop goods are worth plenty but you still owe the wholesaler, what is truly yours after you settle him?"
+        },
+        {
+          "id": "acc-u2-l2",
+          "source_id": "acc-0006",
+          "question": "Sales ₦200,000; opening stock ₦30,000; purchases ₦120,000; closing stock ₦25,000. What is the gross profit?",
+          "options": [
+            "₦75,000",
+            "₦50,000",
+            "₦25,000",
+            "₦105,000"
+          ],
+          "answer_index": 0,
+          "explanation": "Cost of goods sold = ₦30,000 + ₦120,000 − ₦25,000 = ₦125,000; gross profit = ₦200,000 − ₦125,000 = ₦75,000.",
+          "hint": "Goods left on your shelf at year end were not sold. Should their cost be part of what you 'used up' to make sales?"
+        },
+        {
+          "id": "acc-u2-l3",
+          "source_id": "acc-0010",
+          "question": "Gross profit is ₦75,000. Rent is ₦10,000, wages are ₦20,000, and discount received is ₦5,000. What is the net profit?",
+          "options": [
+            "₦40,000",
+            "₦45,000",
+            "₦110,000",
+            "₦50,000"
+          ],
+          "answer_index": 3,
+          "explanation": "Discount received is income, so it is added: ₦75,000 + ₦5,000 − ₦10,000 − ₦20,000 = ₦50,000.",
+          "hint": "When the wholesaler at Balogun market knocks something off your bill, did you gain or lose?"
+        },
+        {
+          "id": "acc-u2-l4",
+          "source_id": "acc-0022",
+          "question": "Debtors at year end total ₦80,000. A 5% provision for doubtful debts is created. What figure for debtors appears in the balance sheet (net)?",
+          "options": [
+            "₦84,000",
+            "₦76,000",
+            "₦80,000",
+            "₦4,000"
+          ],
+          "answer_index": 1,
+          "explanation": "Provision = 5% × ₦80,000 = ₦4,000; it is deducted from debtors, giving ₦76,000 (prudence concept).",
+          "hint": "If you suspect some customers who buy on credit will never pay, do you show the full amount they owe or a more careful figure?"
+        },
+        {
+          "id": "acc-u2-l5",
+          "source_id": "acc-0097",
+          "question": "Sales ₦500,000; opening stock ₦40,000; purchases ₦280,000; closing stock ₦60,000; total expenses ₦90,000. What is the net profit?",
+          "options": [
+            "₦90,000",
+            "₦240,000",
+            "₦150,000",
+            "₦30,000"
+          ],
+          "answer_index": 2,
+          "explanation": "Cost of sales = ₦260,000; gross profit = ₦240,000; net profit = ₦240,000 − ₦90,000 = ₦150,000.",
+          "hint": "Do it in two steps like climbing stairs: find gross profit first, then remove the running expenses."
+        }
+      ]
+    },
+    {
+      "id": "acc-u3",
+      "title": "Okada Wear and Tear: Depreciation",
+      "topic": "depreciation",
+      "emoji": "🛵",
+      "lessons": [
+        {
+          "id": "acc-u3-l1",
+          "source_id": "acc-0003",
+          "question": "A machine cost ₦100,000, has a scrap value of ₦10,000 and a useful life of 5 years. What is the annual depreciation using the straight line method?",
+          "options": [
+            "₦20,000",
+            "₦18,000",
+            "₦22,000",
+            "₦90,000"
+          ],
+          "answer_index": 1,
+          "explanation": "(Cost − Scrap value) / Life = (₦100,000 − ₦10,000) / 5 = ₦18,000 per year.",
+          "hint": "If you can still sell the old machine to a scrap buyer at the end, should that part of the cost be 'used up' over the years?"
+        },
+        {
+          "id": "acc-u3-l2",
+          "source_id": "acc-0030",
+          "question": "A machine costing ₦120,000 is bought exactly halfway through the financial year. Depreciation is 10% per annum, straight line, time-apportioned. What is this year's charge?",
+          "options": [
+            "₦12,000",
+            "₦1,000",
+            "₦114,000",
+            "₦6,000"
+          ],
+          "answer_index": 3,
+          "explanation": "Full year = 10% × ₦120,000 = ₦12,000; owned for half the year, so ₦12,000 × 1/2 = ₦6,000.",
+          "hint": "If you rent a shop for only six months, do you pay the whole year's rent? How long was this machine actually used this year?"
+        },
+        {
+          "id": "acc-u3-l3",
+          "source_id": "acc-0008",
+          "question": "A vehicle cost ₦500,000 and is depreciated at 20% per annum on the reducing balance method. What is the depreciation for the SECOND year?",
+          "options": [
+            "₦80,000",
+            "₦100,000",
+            "₦400,000",
+            "₦320,000"
+          ],
+          "answer_index": 0,
+          "explanation": "Year 1: 20% × ₦500,000 = ₦100,000, NBV ₦400,000. Year 2: 20% × ₦400,000 = ₦80,000.",
+          "hint": "Like a danfo bus that loses value each year, reducing balance applies the rate to what is LEFT, not to the original price."
+        },
+        {
+          "id": "acc-u3-l4",
+          "source_id": "acc-0061",
+          "question": "A generator costs ₦200,000 and is depreciated at 25% per annum on the reducing balance method. What is its net book value at the end of 2 years?",
+          "options": [
+            "₦100,000",
+            "₦87,500",
+            "₦112,500",
+            "₦150,000"
+          ],
+          "answer_index": 2,
+          "explanation": "Year 1: ₦200,000 − ₦50,000 = ₦150,000. Year 2: 25% × ₦150,000 = ₦37,500, so NBV = ₦112,500.",
+          "hint": "Your 'I better pass my neighbour' generator loses a quarter of its remaining value each year. Work year by year, not from the shop price each time."
+        },
+        {
+          "id": "acc-u3-l5",
+          "source_id": "acc-0100",
+          "question": "A machine that cost ₦75,000, with accumulated depreciation of ₦30,000, is sold for ₦60,000. How is the result treated?",
+          "options": [
+            "Sales revenue of ₦60,000 in trading account",
+            "Loss on disposal of ₦15,000 in P&L",
+            "Profit on disposal of ₦30,000 in P&L",
+            "Profit on disposal of ₦15,000 in P&L"
+          ],
+          "answer_index": 3,
+          "explanation": "NBV = ₦75,000 − ₦30,000 = ₦45,000; proceeds ₦60,000 exceed NBV by ₦15,000, a profit on disposal shown as other income, not sales.",
+          "hint": "Selling your old okada is not your normal trade. Compare the cash you got with what the okada was worth in your books."
+        }
+      ]
+    },
+    {
+      "id": "acc-u4",
+      "title": "Bank Alert Wahala: Reconciliation",
+      "topic": "bank_reconciliation",
+      "emoji": "🏦",
+      "lessons": [
+        {
+          "id": "acc-u4-l1",
+          "source_id": "acc-0012",
+          "question": "The bank statement shows a bank charge of ₦500 that has not been entered in the cash book. What should be done?",
+          "options": [
+            "Deduct ₦500 from the cash book balance",
+            "Add ₦500 to the cash book balance",
+            "Add ₦500 to the bank statement balance",
+            "No entry; it is only a timing difference"
+          ],
+          "answer_index": 0,
+          "explanation": "The bank has already recorded its own charge correctly, so the cash book is updated: the ₦500 is credited (deducted) in the cash book.",
+          "hint": "When you get a debit alert for SMS charges, who needs to update their records: the bank, or you?"
+        },
+        {
+          "id": "acc-u4-l2",
+          "source_id": "acc-0018",
+          "question": "A trader paid ₦15,000 into the bank on the last day of the month, but it is not yet on the bank statement. How is it treated in the bank reconciliation statement?",
+          "options": [
+            "Deduct ₦15,000 from the bank statement balance",
+            "Deduct ₦15,000 from the cash book balance",
+            "Add ₦15,000 to the bank statement balance",
+            "Add ₦15,000 to the cash book balance"
+          ],
+          "answer_index": 2,
+          "explanation": "This is an uncredited lodgement: the cash book already shows it, so ₦15,000 is added to the bank statement balance to reconcile.",
+          "hint": "Money you sent that 'has not dropped' yet is still yours. Which record is missing it, your book or the bank's?"
+        },
+        {
+          "id": "acc-u4-l3",
+          "source_id": "acc-0004",
+          "question": "The bank statement shows ₦52,000. A cheque of ₦7,000 issued to a supplier has not yet been presented. What is the adjusted bank statement balance?",
+          "options": [
+            "₦59,000",
+            "₦45,000",
+            "₦52,000",
+            "₦38,000"
+          ],
+          "answer_index": 1,
+          "explanation": "Adjusted balance = ₦52,000 − ₦7,000 = ₦45,000; the unpresented cheque is already deducted in the cash book.",
+          "hint": "The supplier has not gone to cash the cheque yet, but the money is already promised. Should it still count as available?"
+        },
+        {
+          "id": "acc-u4-l4",
+          "source_id": "acc-0103",
+          "question": "A customer's cheque for ₦18,000, already recorded as received and banked, is returned dishonoured. Which entry corrects the books?",
+          "options": [
+            "Debit Bank, Credit Customer (Debtor)",
+            "Debit Bad Debts, Credit Bank",
+            "Debit Bank Charges, Credit Customer (Debtor)",
+            "Debit Customer (Debtor), Credit Bank"
+          ],
+          "answer_index": 3,
+          "explanation": "The original receipt is reversed: Bank is credited because the money never arrived, and the customer is debited because he still owes.",
+          "hint": "If someone's transfer is reversed, have they paid you? Undo the original entry."
+        },
+        {
+          "id": "acc-u4-l5",
+          "source_id": "acc-0102",
+          "question": "A bank statement shows ₦102,000. There are unpresented cheques of ₦30,000 and an uncredited lodgement of ₦13,000. What is the adjusted bank statement balance?",
+          "options": [
+            "₦85,000",
+            "₦119,000",
+            "₦145,000",
+            "₦59,000"
+          ],
+          "answer_index": 0,
+          "explanation": "Adjusted balance = ₦102,000 − ₦30,000 + ₦13,000 = ₦85,000.",
+          "hint": "Cheques you wrote will soon leave the account; money you paid in will soon arrive. Which way does each one move the bank's figure?"
+        }
+      ]
+    },
+    {
+      "id": "acc-u5",
+      "title": "Partners in the Provisions Shop",
+      "topic": "partnership_accounts",
+      "emoji": "🤝",
+      "lessons": [
+        {
+          "id": "acc-u5-l1",
+          "source_id": "acc-0067",
+          "question": "Musa (capital ₦300,000) and Tunde (capital ₦100,000) run a provisions shop with no partnership agreement. Net profit is ₦80,000. What is Musa's share?",
+          "options": [
+            "₦60,000",
+            "₦80,000",
+            "₦20,000",
+            "₦40,000"
+          ],
+          "answer_index": 3,
+          "explanation": "With no agreement, the Partnership Act rule is that profits are shared equally, so Musa gets ₦80,000 / 2 = ₦40,000.",
+          "hint": "If two brothers never agreed on sharing, what does the law say: share by money contributed, or share alike?"
+        },
+        {
+          "id": "acc-u5-l2",
+          "source_id": "acc-0070",
+          "question": "Chidi and Emeka share profits in the ratio 3:2. Residual profit after salaries and interest on capital is ₦100,000. What is Chidi's share?",
+          "options": [
+            "₦40,000",
+            "₦60,000",
+            "₦50,000",
+            "₦20,000"
+          ],
+          "answer_index": 1,
+          "explanation": "3 + 2 = 5 parts; one part = ₦20,000; Chidi gets 3 × ₦20,000 = ₦60,000.",
+          "hint": "Sharing suya 3:2 means cutting it into how many equal pieces first?"
+        },
+        {
+          "id": "acc-u5-l3",
+          "source_id": "acc-0072",
+          "question": "Funke and Grace admit Halima as a partner. Halima pays ₦150,000 cash into the business bank account as her capital. Which entry is correct?",
+          "options": [
+            "Debit Halima's Capital, Credit Bank",
+            "Debit Bank, Credit Halima's Current Account",
+            "Debit Bank, Credit Halima's Capital",
+            "Debit Bank, Credit Funke's and Grace's Capital"
+          ],
+          "answer_index": 2,
+          "explanation": "Bank receives ₦150,000 (debit), and Halima's Capital account is credited with her long-term stake in the business.",
+          "hint": "Think of joining an esusu group: your contribution goes into the pot, and the group records it under YOUR name. Which type of account holds a partner's fixed investment?"
+        },
+        {
+          "id": "acc-u5-l4",
+          "source_id": "acc-0111",
+          "question": "Ibrahim's current account opens with a credit balance of ₦15,000. He is credited with salary ₦30,000, interest on capital ₦8,000 and profit share ₦42,000. His drawings are ₦50,000. What is the closing balance?",
+          "options": [
+            "₦45,000",
+            "₦145,000",
+            "₦30,000",
+            "₦95,000"
+          ],
+          "answer_index": 0,
+          "explanation": "Credits ₦95,000 less drawings ₦50,000 = ₦45,000 credit balance owed to Ibrahim.",
+          "hint": "Salary and profit share are what the business 'owes' him; drawings are what he has already collected. Which side does each go?"
+        },
+        {
+          "id": "acc-u5-l5",
+          "source_id": "acc-0069",
+          "question": "Ade and Bola share profits equally. Net profit is ₦200,000. Ade gets a salary of ₦40,000. Interest on capital: Ade ₦20,000, Bola ₦10,000. What is Ade's total share?",
+          "options": [
+            "₦100,000",
+            "₦65,000",
+            "₦125,000",
+            "₦160,000"
+          ],
+          "answer_index": 2,
+          "explanation": "Residual = ₦200,000 − ₦40,000 − ₦30,000 = ₦130,000, so ₦65,000 each. Ade = ₦40,000 + ₦20,000 + ₦65,000 = ₦125,000.",
+          "hint": "Like sharing a party's leftover jollof: serve the agreed special portions first, then split what remains."
+        }
+      ]
+    },
+    {
+      "id": "acc-u6",
+      "title": "Town Union Treasurer",
+      "topic": "nonprofit_accounts",
+      "emoji": "🏛️",
+      "lessons": [
+        {
+          "id": "acc-u6-l1",
+          "source_id": "acc-0126",
+          "question": "A club's accumulated fund at the start of the year is ₦180,000. The income and expenditure account shows a DEFICIT of ₦22,000. What is the closing accumulated fund?",
+          "options": [
+            "₦202,000",
+            "₦158,000",
+            "₦22,000",
+            "₦180,000"
+          ],
+          "answer_index": 1,
+          "explanation": "A deficit reduces the accumulated fund: ₦180,000 − ₦22,000 = ₦158,000. Only a surplus is added.",
+          "hint": "If your town union spent more than it earned this year, does its savings pot grow or shrink?"
+        },
+        {
+          "id": "acc-u6-l2",
+          "source_id": "acc-0113",
+          "question": "A town union starts the year with cash of ₦45,000. Receipts: levies ₦120,000, donations ₦30,000, bazaar ₦55,000. Payments: hall rent ₦60,000, refreshments ₦25,000, plastic chairs ₦80,000. What is the closing cash balance?",
+          "options": [
+            "₦40,000",
+            "₦165,000",
+            "₦250,000",
+            "₦85,000"
+          ],
+          "answer_index": 3,
+          "explanation": "Closing cash = ₦45,000 + ₦205,000 − ₦165,000 = ₦85,000. All cash paid, including chairs, appears in receipts and payments.",
+          "hint": "Count the cash box like a treasurer: what was inside before the year started? Then every naira in and out, including the chairs."
+        },
+        {
+          "id": "acc-u6-l3",
+          "source_id": "acc-0128",
+          "question": "A club paid rent of ₦40,000 this year, including ₦8,000 owed from last year. At year end ₦6,000 rent is still owing. What rent goes into the income and expenditure account?",
+          "options": [
+            "₦38,000",
+            "₦40,000",
+            "₦42,000",
+            "₦26,000"
+          ],
+          "answer_index": 0,
+          "explanation": "Rent expense = ₦40,000 − ₦8,000 (last year's) + ₦6,000 (still owing) = ₦38,000.",
+          "hint": "Last year's debt to the landlord belongs to last year. This year's unpaid rent is still this year's cost."
+        },
+        {
+          "id": "acc-u6-l4",
+          "source_id": "acc-0115",
+          "question": "An old students' association received ₦80,000 dues in 2024: ₦5,000 was for 2023 and ₦3,000 was for 2025. Members still owe ₦7,000 for 2024. What is the 2024 subscription income?",
+          "options": [
+            "₦80,000",
+            "₦87,000",
+            "₦79,000",
+            "₦65,000"
+          ],
+          "answer_index": 2,
+          "explanation": "₦80,000 − ₦5,000 − ₦3,000 + ₦7,000 = ₦79,000. Only dues that belong to 2024 count, paid or not.",
+          "hint": "Ask of each naira: 'Is this dues FOR 2024?' Not 'Did it ENTER the purse in 2024?'"
+        },
+        {
+          "id": "acc-u6-l5",
+          "source_id": "acc-0117",
+          "question": "Subscriptions: arrears at 1 Jan ₦4,000; in advance at 1 Jan ₦2,500; cash received ₦96,000; arrears at 31 Dec ₦6,000; in advance at 31 Dec ₦3,500. What subscription income goes to the income and expenditure account?",
+          "options": [
+            "₦100,000",
+            "₦97,000",
+            "₦98,500",
+            "₦95,000"
+          ],
+          "answer_index": 1,
+          "explanation": "₦96,000 − ₦4,000 + ₦2,500 + ₦6,000 − ₦3,500 = ₦97,000.",
+          "hint": "Opening arrears were already counted as last year's income; opening advance was paid last year for THIS year. Which one adds, which one subtracts?"
+        }
+      ]
+    }
+  ]
+}

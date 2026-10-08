@@ -1,0 +1,473 @@
+{
+  "subject": "physics",
+  "units": [
+    {
+      "id": "phy-u1",
+      "title": "Danfo Physics: Motion",
+      "topic": "kinematics",
+      "emoji": "🚌",
+      "lessons": [
+        {
+          "id": "phy-u1-l1",
+          "source_id": "phy-0001",
+          "question": "A danfo bus travelling at 20 m/s brakes and comes to rest in 4 s. What is its acceleration?",
+          "options": [
+            "-5 m/s^2",
+            "-0.2 m/s^2",
+            "5 m/s^2",
+            "-80 m/s^2"
+          ],
+          "answer_index": 0,
+          "explanation": "a = (v - u)/t = (0 - 20)/4 = -5 m/s^2. The negative sign shows deceleration.",
+          "hint": "'Comes to rest' tells you the final velocity. Which one is it when the bus stops at the bus stop?"
+        },
+        {
+          "id": "phy-u1-l2",
+          "source_id": "phy-0026",
+          "question": "Two danfo buses move toward each other on a straight road, one at 15 m/s and the other at 10 m/s. At what speed are they approaching each other?",
+          "options": [
+            "25 m/s",
+            "150 m/s",
+            "12.5 m/s",
+            "5 m/s"
+          ],
+          "answer_index": 0,
+          "explanation": "Moving in opposite directions, the speeds add: 15 + 10 = 25 m/s.",
+          "hint": "If you and your friend walk toward each other in a market, does the gap close faster or slower than if only one of you moved?"
+        },
+        {
+          "id": "phy-u1-l3",
+          "source_id": "phy-0002",
+          "question": "A stone is dropped from the top of a water tower and hits the ground after 3 s. Taking g = 10 m/s^2 and ignoring air resistance, how tall is the tower?",
+          "options": [
+            "30 m",
+            "90 m",
+            "45 m",
+            "15 m"
+          ],
+          "answer_index": 2,
+          "explanation": "u = 0, so s = u*t + (1/2)*g*t^2 = 0 + (1/2)*10*3^2 = 45 m.",
+          "hint": "'Dropped' tells you the starting speed, like a mango falling straight off the branch. Which term disappears?"
+        },
+        {
+          "id": "phy-u1-l4",
+          "source_id": "phy-0009",
+          "question": "An okada rider increases speed from 4 m/s to 12 m/s while covering 32 m. What is the acceleration?",
+          "options": [
+            "4 m/s^2",
+            "2.5 m/s^2",
+            "2 m/s^2",
+            "0.25 m/s^2"
+          ],
+          "answer_index": 2,
+          "explanation": "No time is given, so use v^2 = u^2 + 2*a*s: 144 = 16 + 64*a, so a = 128/64 = 2 m/s^2.",
+          "hint": "You know u, v and s but not t. Pick the equation of motion that has no t in it."
+        },
+        {
+          "id": "phy-u1-l5",
+          "source_id": "phy-0108",
+          "question": "A boy throws a stone horizontally at 20 m/s from the top of a 45 m cliff. Taking g = 10 m/s^2, how long does it take to hit the ground?",
+          "options": [
+            "2.25 s",
+            "9 s",
+            "3 s",
+            "4.5 s"
+          ],
+          "answer_index": 2,
+          "explanation": "Vertical motion is independent of horizontal speed: t = sqrt(2*h/g) = sqrt(2*45/10) = sqrt(9) = 3 s.",
+          "hint": "Does throwing a stone sideways make gravity pull it down any faster or slower? Focus only on the vertical drop."
+        }
+      ]
+    },
+    {
+      "id": "phy-u2",
+      "title": "Talking Drum Waves",
+      "topic": "waves",
+      "emoji": "🥁",
+      "lessons": [
+        {
+          "id": "phy-u2-l1",
+          "source_id": "phy-0011",
+          "question": "A wave has a frequency of 50 Hz and a wavelength of 4 m. What is its speed?",
+          "options": [
+            "12.5 m/s",
+            "200 m/s",
+            "54 m/s",
+            "0.08 m/s"
+          ],
+          "answer_index": 1,
+          "explanation": "v = f*λ = 50*4 = 200 m/s.",
+          "hint": "Each second, 50 waves pass and each is 4 m long, like 50 danfos of 4 m each driving past you. How much road is covered?"
+        },
+        {
+          "id": "phy-u2-l2",
+          "source_id": "phy-0037",
+          "question": "A talking drum's skin completes 4 oscillations in 2 s. What is the period of the oscillation?",
+          "options": [
+            "0.5 Hz",
+            "0.5 s",
+            "2 s",
+            "8 s"
+          ],
+          "answer_index": 1,
+          "explanation": "T = time/number of oscillations = 2/4 = 0.5 s (the frequency is 4/2 = 2 Hz, and T = 1/f).",
+          "hint": "Period is the time for ONE oscillation. If 4 happen in 2 s, how long does each one take?"
+        },
+        {
+          "id": "phy-u2-l3",
+          "source_id": "phy-0093",
+          "question": "A boy shouts toward a rock face at Olumo Rock and hears the echo 2 s later. If the speed of sound is 340 m/s, how far away is the rock face?",
+          "options": [
+            "170 m",
+            "1360 m",
+            "680 m",
+            "340 m"
+          ],
+          "answer_index": 3,
+          "explanation": "The 2 s is a round trip, so one-way time = 1 s: distance = 340*1 = 340 m.",
+          "hint": "The sound has to travel to the rock AND come back, like going to the market and returning home. How much of the time is one way?"
+        },
+        {
+          "id": "phy-u2-l4",
+          "source_id": "phy-0041",
+          "question": "An open pipe (open at both ends) of length 0.34 m is sounding its fundamental note. If the speed of sound is 340 m/s, what is the fundamental frequency?",
+          "options": [
+            "250 Hz",
+            "500 Hz",
+            "1000 Hz",
+            "115.6 Hz"
+          ],
+          "answer_index": 1,
+          "explanation": "For an open pipe λ = 2*L = 0.68 m, so f = v/λ = 340/0.68 = 500 Hz.",
+          "hint": "An open pipe like a flute has an antinode at both ends. How many quarter-wavelengths fit between two antinodes with one node in the middle?"
+        },
+        {
+          "id": "phy-u2-l5",
+          "source_id": "phy-0023",
+          "question": "A pipe closed at one end has a length of 0.5 m. If the speed of sound is 340 m/s, what is its fundamental (lowest) frequency?",
+          "options": [
+            "170 Hz",
+            "680 Hz",
+            "85 Hz",
+            "340 Hz"
+          ],
+          "answer_index": 0,
+          "explanation": "For a closed pipe λ = 4*L = 4*0.5 = 2 m, so f = v/λ = 340/2 = 170 Hz.",
+          "hint": "Blowing across an empty Coke bottle: the closed bottom is a node and the open mouth an antinode. What fraction of a wavelength is that?"
+        }
+      ]
+    },
+    {
+      "id": "phy-u3",
+      "title": "NEPA Wahala: Current Electricity",
+      "topic": "current_electricity",
+      "emoji": "💡",
+      "lessons": [
+        {
+          "id": "phy-u3-l1",
+          "source_id": "phy-0010",
+          "question": "A bulb in a rechargeable lantern has 12 V across it and a current of 3 A flowing through it. What is its resistance?",
+          "options": [
+            "0.25 Ω",
+            "36 Ω",
+            "15 Ω",
+            "4 Ω"
+          ],
+          "answer_index": 3,
+          "explanation": "R = V/I = 12/3 = 4 Ω.",
+          "hint": "Ohm's law is V = I*R. Which quantity do you divide by which to leave R alone?"
+        },
+        {
+          "id": "phy-u3-l2",
+          "source_id": "phy-0003",
+          "question": "Two resistors of 4 Ω and 6 Ω are connected in parallel. What is their combined resistance?",
+          "options": [
+            "10 Ω",
+            "2.4 Ω",
+            "0.42 Ω",
+            "5 Ω"
+          ],
+          "answer_index": 1,
+          "explanation": "1/R = 1/4 + 1/6 = 5/12, so R = 12/5 = 2.4 Ω, smaller than either resistor.",
+          "hint": "Opening a second gate at a crowded stadium makes it easier for people to leave. Should the combined resistance be bigger or smaller than 4 Ω?"
+        },
+        {
+          "id": "phy-u3-l3",
+          "source_id": "phy-0043",
+          "question": "A 2 Ω resistor is connected in series with a parallel combination of 3 Ω and 6 Ω resistors. What is the total resistance?",
+          "options": [
+            "2.5 Ω",
+            "4 Ω",
+            "11 Ω",
+            "1 Ω"
+          ],
+          "answer_index": 1,
+          "explanation": "Parallel part: 1/R = 1/3 + 1/6 = 1/2, so R = 2 Ω. Total = 2 + 2 = 4 Ω.",
+          "hint": "Simplify the parallel pair first, like sorting out the side-road before joining the main expressway."
+        },
+        {
+          "id": "phy-u3-l4",
+          "source_id": "phy-0162",
+          "question": "A keke battery has an e.m.f. of 12 V and an internal resistance of 0.5 Ω. What is its terminal voltage when it delivers a current of 2 A?",
+          "options": [
+            "11 V",
+            "12 V",
+            "1 V",
+            "13 V"
+          ],
+          "answer_index": 0,
+          "explanation": "V = E - I*r = 12 - 2*0.5 = 11 V; 1 V is 'lost' inside the battery.",
+          "hint": "Some of the battery's voltage is used up pushing current through its own insides. Should the terminal voltage be more or less than 12 V?"
+        },
+        {
+          "id": "phy-u3-l5",
+          "source_id": "phy-0159",
+          "question": "A 1500 W pressing iron is used for 2 hours every day for 30 days. If one unit (1 kWh) costs ₦70, what is the total cost?",
+          "options": [
+            "₦6,300",
+            "₦210",
+            "₦6,300,000",
+            "₦3,150"
+          ],
+          "answer_index": 0,
+          "explanation": "Energy = 1.5 kW * (2*30) h = 90 kWh, so cost = 90*₦70 = ₦6,300.",
+          "hint": "NEPA bills in kWh, not Wh. Convert the iron's power to kilowatts before you multiply."
+        }
+      ]
+    },
+    {
+      "id": "phy-u4",
+      "title": "Wheelbarrow Wisdom: Machines",
+      "topic": "simple_machines",
+      "emoji": "🏗️",
+      "lessons": [
+        {
+          "id": "phy-u4-l1",
+          "source_id": "phy-0133",
+          "question": "A windlass over a village well has a handle that turns in a circle of radius 40 cm. The axle the rope winds on has radius 8 cm. What is the velocity ratio?",
+          "options": [
+            "25",
+            "32",
+            "5",
+            "0.2"
+          ],
+          "answer_index": 2,
+          "explanation": "VR = (2*π*R)/(2*π*r) = R/r = 40/8 = 5.",
+          "hint": "In one turn, your hand travels round the big circle while the rope winds round the small axle. Compare the two circles."
+        },
+        {
+          "id": "phy-u4-l2",
+          "source_id": "phy-0141",
+          "question": "A wheelbarrow carries a 600 N load of sand whose weight acts 0.4 m from the wheel axle. The handles are 1.2 m from the axle. What upward effort is needed at the handles?",
+          "options": [
+            "1800 N",
+            "150 N",
+            "600 N",
+            "200 N"
+          ],
+          "answer_index": 3,
+          "explanation": "Moments about the axle: E*1.2 = 600*0.4 = 240, so E = 240/1.2 = 200 N.",
+          "hint": "The wheel is the pivot. Measure both distances from the axle, then balance the moments."
+        },
+        {
+          "id": "phy-u4-l3",
+          "source_id": "phy-0130",
+          "question": "A pulley system with velocity ratio 4 lifts an 800 N load at a building site with an effort of 250 N. What is its efficiency?",
+          "options": [
+            "125%",
+            "80%",
+            "31.25%",
+            "3.2%"
+          ],
+          "answer_index": 1,
+          "explanation": "MA = 800/250 = 3.2; efficiency = (MA/VR)*100% = (3.2/4)*100% = 80%.",
+          "hint": "First find MA from load and effort. A real machine on a site can never beat 100%, so check your answer."
+        },
+        {
+          "id": "phy-u4-l4",
+          "source_id": "phy-0137",
+          "question": "A labourer lifts a 500 N bag of cement through 2 m using a pulley. He pulls with a force of 200 N and draws in 6 m of rope. What is the efficiency?",
+          "options": [
+            "120%",
+            "33.3%",
+            "83.3%",
+            "40%"
+          ],
+          "answer_index": 2,
+          "explanation": "Work output = 500*2 = 1000 J; work input = 200*6 = 1200 J; efficiency = (1000/1200)*100% = 83.3%.",
+          "hint": "Efficiency = useful work out / work put in. Which work does the cement get, and which does the labourer do?"
+        },
+        {
+          "id": "phy-u4-l5",
+          "source_id": "phy-0139",
+          "question": "A machine has a velocity ratio of 5 and an efficiency of 70%. What effort is needed to lift a load of 1400 N?",
+          "options": [
+            "2000 N",
+            "400 N",
+            "196 N",
+            "280 N"
+          ],
+          "answer_index": 1,
+          "explanation": "MA = (70/100)*5 = 3.5, so effort = load/MA = 1400/3.5 = 400 N.",
+          "hint": "Use efficiency and VR to find MA first. Friction means you need MORE effort than an ideal machine would."
+        }
+      ]
+    },
+    {
+      "id": "phy-u5",
+      "title": "Mama Put Kitchen: Heat and Gases",
+      "topic": "thermal_physics",
+      "emoji": "🔥",
+      "lessons": [
+        {
+          "id": "phy-u5-l1",
+          "source_id": "phy-0070",
+          "question": "How much heat is needed to completely melt 0.2 kg of ice at 0°C? (Specific latent heat of fusion of ice = 336000 J/kg)",
+          "options": [
+            "6720 J",
+            "67200 J",
+            "336000 J",
+            "1680000 J"
+          ],
+          "answer_index": 1,
+          "explanation": "Melting happens at constant temperature, so Q = m*L = 0.2*336000 = 67200 J (no Δθ term).",
+          "hint": "Ice in your pure water sachet melts without its temperature changing. Which formula has no Δθ in it?"
+        },
+        {
+          "id": "phy-u5-l2",
+          "source_id": "phy-0068",
+          "question": "How much heat is needed to raise 0.5 kg of water in a kettle from 25°C to 100°C? (Specific heat capacity of water = 4200 J/(kg*K))",
+          "options": [
+            "52500 J",
+            "210000 J",
+            "157500 J",
+            "315000 J"
+          ],
+          "answer_index": 2,
+          "explanation": "Δθ = 100 - 25 = 75°C; Q = m*c*Δθ = 0.5*4200*75 = 157500 J.",
+          "hint": "Use the CHANGE in temperature, not the final reading. How many degrees does the water actually rise?"
+        },
+        {
+          "id": "phy-u5-l3",
+          "source_id": "phy-0067",
+          "question": "A 2 kg block of iron absorbs 45000 J of heat and its temperature rises from 20°C to 70°C. What is the specific heat capacity of iron?",
+          "options": [
+            "1125 J/(kg*K)",
+            "321.4 J/(kg*K)",
+            "900 J/(kg*K)",
+            "450 J/(kg*K)"
+          ],
+          "answer_index": 3,
+          "explanation": "c = Q/(m*Δθ) = 45000/(2*50) = 450 J/(kg*K).",
+          "hint": "Specific heat capacity is heat per kilogram per degree. Make sure both the mass and the temperature rise are in your denominator."
+        },
+        {
+          "id": "phy-u5-l4",
+          "source_id": "phy-0176",
+          "question": "A fixed mass of gas in a bicycle pump is at 100 kPa and occupies 6 L. It is compressed to 3 L at constant temperature. What is the new pressure?",
+          "options": [
+            "50 kPa",
+            "600 kPa",
+            "1800 kPa",
+            "200 kPa"
+          ],
+          "answer_index": 3,
+          "explanation": "Boyle's law: P_1*V_1 = P_2*V_2, so 100*6 = P_2*3 and P_2 = 200 kPa.",
+          "hint": "Squeeze the same air into half the space, like passengers packed into a smaller bus. Do they hit the walls more or less often?"
+        },
+        {
+          "id": "phy-u5-l5",
+          "source_id": "phy-0177",
+          "question": "A gas occupies 300 cm^3 at 27°C. What is its volume at 127°C if the pressure stays constant?",
+          "options": [
+            "64 cm^3",
+            "225 cm^3",
+            "400 cm^3",
+            "1411 cm^3"
+          ],
+          "answer_index": 2,
+          "explanation": "Use kelvin: T_1 = 300 K, T_2 = 400 K. V_2 = V_1*T_2/T_1 = 300*400/300 = 400 cm^3.",
+          "hint": "Gas laws only work with temperature measured from absolute zero. Convert both Celsius readings first."
+        }
+      ]
+    },
+    {
+      "id": "phy-u6",
+      "title": "Harmattan Shock: Electrostatics",
+      "topic": "electrostatics",
+      "emoji": "⚡",
+      "lessons": [
+        {
+          "id": "phy-u6-l1",
+          "source_id": "phy-0150",
+          "question": "A capacitor stores a charge of 60 μC when connected across a 12 V battery. What is its capacitance?",
+          "options": [
+            "5 μF",
+            "60 μF",
+            "0.2 μF",
+            "720 μF"
+          ],
+          "answer_index": 0,
+          "explanation": "C = Q/V = 60 μC/12 V = 5 μF, i.e. 5 μC stored per volt.",
+          "hint": "Capacitance is charge stored PER volt, a bit like price per litre at the filling station. Divide or multiply?"
+        },
+        {
+          "id": "phy-u6-l2",
+          "source_id": "phy-0148",
+          "question": "A charge of 5*10^-6 C placed in an electric field experiences a force of 0.02 N. What is the electric field intensity?",
+          "options": [
+            "2.5*10^-4 N/C",
+            "1*10^-7 N/C",
+            "0.02 N/C",
+            "4000 N/C"
+          ],
+          "answer_index": 3,
+          "explanation": "E = F/q = 0.02/(5*10^-6) = 4000 N/C.",
+          "hint": "Field strength is force per unit charge. Divide the force by the charge, and watch the power of ten."
+        },
+        {
+          "id": "phy-u6-l3",
+          "source_id": "phy-0147",
+          "question": "The electrostatic force between two point charges is 0.8 N. If the distance between them is halved, what is the new force?",
+          "options": [
+            "3.2 N",
+            "0.2 N",
+            "0.4 N",
+            "1.6 N"
+          ],
+          "answer_index": 0,
+          "explanation": "F ∝ 1/r^2, so halving r multiplies F by 2^2 = 4: F = 4*0.8 = 3.2 N.",
+          "hint": "Coulomb's law has r squared at the bottom. What happens to 1/r^2 when r becomes r/2?"
+        },
+        {
+          "id": "phy-u6-l4",
+          "source_id": "phy-0146",
+          "question": "Two point charges of 2 μC and 3 μC are 0.3 m apart in air. What is the force between them? (k = 9*10^9 N m^2/C^2)",
+          "options": [
+            "0.18 N",
+            "6*10^11 N",
+            "0.6 N",
+            "1.8*10^11 N"
+          ],
+          "answer_index": 2,
+          "explanation": "F = k*q_1*q_2/r^2 = 9*10^9*(2*10^-6)*(3*10^-6)/0.3^2 = 0.054/0.09 = 0.6 N (repulsive).",
+          "hint": "Convert μC to C (1 μC = 10^-6 C) and remember to square the distance."
+        },
+        {
+          "id": "phy-u6-l5",
+          "source_id": "phy-0158",
+          "question": "A 2 μF and a 4 μF capacitor are in parallel, and this pair is in series with a 3 μF capacitor. The network is connected across 12 V. What charge flows from the battery?",
+          "options": [
+            "108 μC",
+            "11.1 μC",
+            "72 μC",
+            "24 μC"
+          ],
+          "answer_index": 3,
+          "explanation": "Parallel: 2 + 4 = 6 μF; series with 3 μF: 1/C = 1/6 + 1/3 = 1/2, so C = 2 μF. Q = C*V = 2*12 = 24 μC.",
+          "hint": "Capacitors follow the opposite rules to resistors: add in parallel, reciprocals in series. Reduce the parallel pair first."
+        }
+      ]
+    }
+  ]
+}

@@ -7,6 +7,8 @@ gives a working live demo.
     POST /api/chat      -> {"messages": [{"role": "user"|"assistant", "content": ...}],
                             "model": "sabi" | "base" | "both"}
                         <- {"reply": "...", "base_reply": "..." (when model == "both")}
+    GET  /api/leaderboard -> {"players": [{id, nickname, avatar, state, school, xp}, ...]}
+    POST /api/score     -> {id, nickname, avatar, state, school, xp}  (upsert one player)
 
 "sabi" = N-ATLAS with the fine-tuned LoRA adapter switched on.
 "base" = the same weights with the adapter switched off (original N-ATLAS).
@@ -37,6 +39,14 @@ sys.path.insert(0, str(ROOT / "ml" / "src"))
 from build_dataset import SYSTEM_PROMPT  # noqa: E402  same prompt the model was trained with
 
 MAX_HISTORY_MESSAGES = 16  # keep prompts well inside N-ATLAS's 8k context
+
+NIGERIAN_STATES = {
+    "Abia", "Adamawa", "Akwa Ibom", "Anambra", "Bauchi", "Bayelsa", "Benue", "Borno",
+    "Cross River", "Delta", "Ebonyi", "Edo", "Ekiti", "Enugu", "FCT Abuja", "Gombe",
+    "Imo", "Jigawa", "Kaduna", "Kano", "Katsina", "Kebbi", "Kogi", "Kwara", "Lagos",
+    "Nasarawa", "Niger", "Ogun", "Ondo", "Osun", "Oyo", "Plateau", "Rivers", "Sokoto",
+    "Taraba", "Yobe", "Zamfara",
+}
 
 
 class MockTutor:
@@ -113,7 +123,66 @@ class ModelTutor:
         return self.tokenizer.decode(out[0, enc["input_ids"].shape[1]:], skip_special_tokens=True).strip()
 
 
-def make_handler(tutor, lock: threading.Lock):
+class Leaderboard:
+    """Players and XP in a JSON file. One record per player id; the newest
+    submission wins. There is no anti-cheat — fine for a demo or a
+    supervised class trial, not for a prize competition."""
+
+    MAX_PLAYERS_RETURNED = 1000
+
+    def __init__(self, path: Path):
+        self.path = path
+        self.lock = threading.Lock()
+        self.players: dict[str, dict] = {}
+        if path.exists():
+            try:
+                self.players = {p["id"]: p for p in json.loads(path.read_text(encoding="utf-8"))}
+            except (ValueError, KeyError, TypeError):
+                print(f"Warning: could not read {path}; starting an empty leaderboard", flush=True)
+
+    @staticmethod
+    def validate(raw: dict) -> dict:
+        def text(key: str, lo: int, hi: int) -> str:
+            value = " ".join(str(raw.get(key, "")).split())
+            if not lo <= len(value) <= hi:
+                raise ValueError(f"{key} must be {lo}-{hi} characters")
+            return value
+
+        player_id = text("id", 8, 64)
+        if not all(c.isalnum() or c == "-" for c in player_id):
+            raise ValueError("invalid id")
+        state = text("state", 2, 40)
+        if state not in NIGERIAN_STATES:
+            raise ValueError("unknown state")
+        xp = raw.get("xp")
+        if not isinstance(xp, int) or isinstance(xp, bool) or not 0 <= xp <= 1_000_000:
+            raise ValueError("xp must be a whole number 0-1,000,000")
+        return {
+            "id": player_id,
+            "nickname": text("nickname", 2, 20),
+            "avatar": text("avatar", 1, 8),
+            "state": state,
+            "school": text("school", 2, 60),
+            "xp": xp,
+            "updated": int(time.time()),
+        }
+
+    def upsert(self, raw: dict) -> dict:
+        player = self.validate(raw)
+        with self.lock:
+            self.players[player["id"]] = player
+            tmp = self.path.with_suffix(".tmp")
+            tmp.write_text(json.dumps(list(self.players.values()), ensure_ascii=False), encoding="utf-8")
+            tmp.replace(self.path)  # atomic, so a crash never leaves a half-written file
+        return player
+
+    def top(self) -> list[dict]:
+        with self.lock:
+            ranked = sorted(self.players.values(), key=lambda p: (-p["xp"], p["nickname"].lower()))
+        return [{k: p[k] for k in ("id", "nickname", "avatar", "state", "school", "xp")} for p in ranked[: self.MAX_PLAYERS_RETURNED]]
+
+
+def make_handler(tutor, lock: threading.Lock, board: Leaderboard):
     class Handler(BaseHTTPRequestHandler):
         def log_message(self, fmt, *args):
             sys.stderr.write(f"[{self.log_date_time_string()}] {fmt % args}\n")
@@ -137,7 +206,10 @@ def make_handler(tutor, lock: threading.Lock):
         def do_GET(self):
             path = self.path.split("?", 1)[0]
             if path == "/api/health":
-                self._json({"status": "ok", "mode": tutor.mode, "model": tutor.info})
+                self._json({"status": "ok", "mode": tutor.mode, "model": tutor.info, "leaderboard": True})
+                return
+            if path == "/api/leaderboard":
+                self._json({"players": board.top()})
                 return
             rel = "index.html" if path in ("", "/") else path.lstrip("/")
             target = (APP_DIR / rel).resolve()
@@ -152,7 +224,19 @@ def make_handler(tutor, lock: threading.Lock):
             self.wfile.write(body)
 
         def do_POST(self):
-            if self.path.split("?", 1)[0] != "/api/chat":
+            path = self.path.split("?", 1)[0]
+            if path == "/api/score":
+                try:
+                    length = int(self.headers.get("Content-Length", 0))
+                    if length > 4096:
+                        raise ValueError("request too large")
+                    player = board.upsert(json.loads(self.rfile.read(length)))
+                except (ValueError, TypeError, AttributeError) as e:
+                    self._json({"error": f"invalid score: {e}"}, status=400)
+                    return
+                self._json({"ok": True, "player": player})
+                return
+            if path != "/api/chat":
                 self._json({"error": "not found"}, status=404)
                 return
             try:
@@ -199,6 +283,7 @@ def main() -> None:
     parser.add_argument("--port", type=int, default=8000)
     parser.add_argument("--max-new-tokens", type=int, default=300)
     parser.add_argument("--mock", action="store_true", help="canned replies, no GPU/model needed")
+    parser.add_argument("--leaderboard-file", default="ml/outputs/leaderboard.json")
     args = parser.parse_args()
 
     if args.mock:
@@ -211,7 +296,13 @@ def main() -> None:
             raise SystemExit(f"Adapter not found: {adapter_dir}")
         tutor = ModelTutor(args.base_model, adapter_dir, args.max_new_tokens)
 
-    server = ThreadingHTTPServer((args.host, args.port), make_handler(tutor, threading.Lock()))
+    board_path = Path(args.leaderboard_file)
+    if not board_path.is_absolute():
+        board_path = ROOT / board_path
+    board_path.parent.mkdir(parents=True, exist_ok=True)
+    board = Leaderboard(board_path)
+
+    server = ThreadingHTTPServer((args.host, args.port), make_handler(tutor, threading.Lock(), board))
     print(f"Serving Sabi ({tutor.mode}: {tutor.info}) on http://{args.host}:{args.port}", flush=True)
     try:
         server.serve_forever()

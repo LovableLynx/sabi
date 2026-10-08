@@ -38,6 +38,53 @@ The third point is the main design decision. **Khanmigo**, the best-known tutor 
 
 ---
 
+## Sabi Arena: the student app
+
+Students use Sabi through **Sabi Arena**, a learning game built around Nigerian school life:
+
+- **The danfo route.** Each subject is a bus route. Every lesson is a bus stop with one real WAEC-style question. There are 90 stops in total, in 6 units per subject, and finishing a stop moves the danfo to the next one.
+- **Ask Sabi in any lesson.** The fine-tuned tutor helps the student reason it out without giving the answer away. The answer is then locked in as multiple choice and marked exactly, so marking never relies on the AI.
+- **XP that rewards working it out yourself:**
+  - +20 for a correct first try.
+  - +10 for solving it with no hints.
+  - +5 for talking it through with Sabi.
+  - Hints are available but cost the no-hint bonus.
+- **Fuel ⛽ instead of lives.** A wrong answer burns fuel. Fuel refills over time, or by practising a stop you've already finished.
+- **Ranks:**
+  1. JJC
+  2. Learner
+  3. Sharp
+  4. Distinction
+  5. Odogwu
+  6. Professor
+  7. Sabi Legend
+- **Other rewards:** a daily 🌶️ streak and badges such as *Okada Physicist*, *Esusu Accountant* and *I No Need Hint*.
+- **School, State and National leaderboards with regional titles**, as in Honor of Kings: *No.1 in Kings College*, *Top 10 · Lagos*, *Nigeria Top 100*. There are also state-vs-state and school-vs-school standings.
+- **Ijapa the tortoise**, the clever trickster from Yoruba folktales, cheers students on in Pidgin.
+
+### What makes it different
+
+Gamified WAEC/JAMB practice already exists: [PassGo](https://passgoapp.carrd.co/), [Edum](https://play.google.com/store/apps/details?id=com.edum.app&hl=en_US), [Prep50](https://prep50.com.ng/), [OBM Tutor](https://obmtutor.vercel.app/) and [Afrilearn](https://www.myafrilearn.com/products/learn-and-earn) all offer streaks, XP or leaderboards around past-question drills. Sabi Arena differs in four ways:
+
+1. **It teaches instead of marking.** The others test what a student already knows. Sabi's fine-tuned tutor guides students to the answer, with Nigerian analogies, and stops holding back once they are stuck (the escalation behaviour).
+2. **The points reward thinking.** XP is highest for solving a problem yourself, so the game encourages the same behaviour the tutor is trained for.
+3. **Schools compete as schools.** We found no existing WAEC/JAMB app with school-vs-school rankings. This is the hook for selling to schools and state education boards.
+4. **It works on weak data connections.** All 90 lessons load as a single 116 KB file. With no server reachable, lessons switch to **Offline Guided mode**, which replays Sabi's authored Socratic steps from the training data.
+
+### Built so each feature works alone
+
+The features never import each other. They talk through a small event bus, and each is loaded with its own guarded import:
+
+| If this is unavailable… | …this still works |
+|---|---|
+| Model server | Lessons, using offline guided steps; XP, leaderboard (on-device), profile |
+| Leaderboard server | Everything; scores are kept on the device |
+| Lesson content | Ask Sabi, leaderboard, profile |
+| Browser storage (private mode) | Everything, with progress kept in memory for the session |
+| Any single feature module | Every other feature (tested by blocking each module in turn) |
+
+---
+
 ## Architecture
 
 ```
@@ -182,9 +229,14 @@ python ml/smoketest/run_smoketest.py
 ```
 This loads N-ATLaS with the Sabi adapter and serves the chat app. It also opens a free Cloudflare tunnel and prints a public `https://…trycloudflare.com` link. The app's **Compare with base N-ATLAS** toggle shows the original model's reply next to Sabi's.
 
-**Run the chat app locally without a GPU** (canned replies, for UI work):
+**Run Sabi Arena locally without a GPU.** The tutor gives canned replies, and the leaderboard is real and stored in `ml/outputs/leaderboard.json`:
 ```bash
 python ml/serve/serve_sabi.py --mock --port 8765   # open http://localhost:8765
+```
+
+**After editing lesson files** in `data/game/*_challenges.json`, rebuild the game content:
+```bash
+python app/tools/build_content.py
 ```
 
 ---
@@ -192,12 +244,12 @@ python ml/serve/serve_sabi.py --mock --port 8765   # open http://localhost:8765
 ## Repository layout
 
 ```
-data/               600 dialogues + schema
+data/               600 dialogues + schema; data/game/ = 90 Sabi Arena lessons
 ml/src/             validate, build split, fine-tune
 ml/eval/            transcript generation, Groq judge, benchmark scoring, report
 ml/smoketest/       mock server for testing the eval pipeline without a GPU
 ml/configs/         LoRA hyperparameters
-app/                chat interface
+app/                Sabi Arena game: route, lessons, Ask Sabi, leaderboard (app/tools/ builds content)
 docs/               N-ATLAS model notes, positioning vs. prior work
 ```
 
