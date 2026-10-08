@@ -34,6 +34,7 @@ We **never ask for** real names, phone numbers, emails, dates of birth or locati
 | Clickjacking and content sniffing | `X-Frame-Options: DENY`, `frame-ancestors 'none'`, `X-Content-Type-Options: nosniff`, `Referrer-Policy: no-referrer` | `SECURITY_HEADERS` |
 | Reading server files through the web server | Paths are resolved and must stay inside `app/`. `app/tools/` is not served. Traversal attempts return 404. | `do_GET` |
 | Leaking internals in error messages | Model errors are logged on the server only; the browser gets a generic message. The server version banner is hidden. | `do_POST` |
+| Eavesdropping on public Wi-Fi | The live demo is only reachable through the Cloudflare tunnel's HTTPS. The server sends `Strict-Transport-Security` on tunnel requests, so browsers refuse to fall back to HTTP. There are no logins, passwords or cookies to steal. | `_headers` |
 | The server reachable from the local network | Binds to `127.0.0.1` by default. The tunnel connects locally. | `--host` |
 
 All of these are covered by an automated security suite of 38 checks. It covers id privacy, takeover attempts, XP limits, the nickname filter, size limits, deletion, headers, path traversal, rate limits, loopback binding, the app running under CSP, consent gating and XSS rendering.
@@ -44,6 +45,12 @@ All of these are covered by an automated security suite of 38 checks. It covers 
 - **No tokens in clone URLs.** A URL like `https://TOKEN@github.com/...` is saved by git in `.git/config`, and Kaggle saves `/kaggle/working` (including `.git/`) as notebook output. An early run did exactly this; that GitHub token has to be revoked. The repository is public, so cloning needs no token at all.
 - **Kaggle jobs started from a laptop** (`ml/kaggle/run_job.py`) can't read notebook secrets. They carry the one key each job needs in a temporary **private** Kaggle dataset. The job keeps keys in memory and never writes them to `/kaggle/working`, and the runner deletes the dataset when the job ends.
 - **The live demo link** (a Cloudflare quick tunnel) is public but random and temporary. Share it only with testers, and stop the Kaggle session when you finish.
+
+## Checklist items that don't apply
+
+- **Database row-level security (RLS):** there is no Supabase, Firebase or SQL database. The leaderboard is one server-side file, and the rule "you can only edit your own entry" is enforced by the secret device ID.
+- **SQL injection:** there are no SQL queries at all. User input never reaches a shell, `eval` or a query; it is only validated, stored as JSON, or passed to the model as text.
+- **Managed authentication (Clerk, Auth0, Supabase Auth):** Sabi deliberately has no accounts, so children never create passwords or give an email. If accounts are added later, they must use a managed provider, never home-made login code.
 
 ## Known limitations (not yet protected)
 

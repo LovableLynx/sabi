@@ -305,7 +305,12 @@ def make_handler(tutor, lock: threading.Lock, board: Leaderboard, limiter: RateL
             return ip
 
         def _headers(self, extra: dict | None = None) -> None:
-            for k, v in {**SECURITY_HEADERS, **(extra or {})}.items():
+            headers = {**SECURITY_HEADERS, **(extra or {})}
+            # The Cloudflare tunnel terminates HTTPS and forwards over local HTTP;
+            # when the visitor came in over HTTPS, tell the browser to stay on it.
+            if self.client_address[0] in ("127.0.0.1", "::1") and self.headers.get("X-Forwarded-Proto") == "https":
+                headers["Strict-Transport-Security"] = "max-age=31536000"
+            for k, v in headers.items():
                 self.send_header(k, v)
 
         def _json(self, payload: dict, status: int = 200) -> None:
