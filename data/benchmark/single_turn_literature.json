@@ -1,0 +1,1996 @@
+[
+  {
+    "id": "bt-lit-001",
+    "subject": "literature",
+    "topic": "figurative_language",
+    "student_message": "The poet writes 'the lagoon is a sheet of beaten silver at noon'. What figure of speech is this? WAEC question, one mark.",
+    "correct_understanding": "It is a metaphor: the lagoon is directly called a sheet of beaten silver, without 'like' or 'as', to suggest its shining flat surface.",
+    "answer_terms": [
+      "metaphor",
+      "metaphorical"
+    ]
+  },
+  {
+    "id": "bt-lit-002",
+    "subject": "literature",
+    "topic": "figurative_language",
+    "student_message": "Abeg, my story has 'the okada rider moved like a needle through cloth' in the traffic part. Which figure of speech be this?",
+    "correct_understanding": "It is a simile, because it uses 'like' to compare the rider's quick weaving through traffic to a needle passing through cloth.",
+    "answer_terms": [
+      "simile"
+    ]
+  },
+  {
+    "id": "bt-lit-003",
+    "subject": "literature",
+    "topic": "figurative_language",
+    "student_message": "'The old generator coughed, sputtered, then died.' Engine no fit cough or die na. What device is the writer using?",
+    "correct_understanding": "It is personification: human actions (coughing, dying) are given to a machine to make its breakdown vivid.",
+    "answer_terms": [
+      "personification",
+      "personified",
+      "personifies",
+      "personifying"
+    ]
+  },
+  {
+    "id": "bt-lit-004",
+    "subject": "literature",
+    "topic": "figurative_language",
+    "student_message": "In the novel the boy says 'I am so hungry I could swallow the whole of Oshodi market.' Identify the figure of speech.",
+    "correct_understanding": "It is hyperbole, a deliberate exaggeration to stress how hungry he is.",
+    "answer_terms": [
+      "hyperbole",
+      "hyperbolic",
+      "overstatement"
+    ]
+  },
+  {
+    "id": "bt-lit-005",
+    "subject": "literature",
+    "topic": "figurative_language",
+    "student_message": "The speaker says 'her letters were bitter honey to me'. What do you call it when a writer puts two opposite words side by side like 'bitter honey'?",
+    "correct_understanding": "It is an oxymoron: two contradictory terms are combined to show the letters brought both pain and sweetness.",
+    "answer_terms": [
+      "oxymoron"
+    ]
+  },
+  {
+    "id": "bt-lit-006",
+    "subject": "literature",
+    "topic": "figurative_language",
+    "student_message": "In the novel the newspaper says 'Aso Rock has rejected the bill'. A rock cannot reject anything. Which figure of speech is used there?",
+    "correct_understanding": "It is metonymy: Aso Rock, the seat of the presidency, stands for the President or the government closely associated with it.",
+    "answer_terms": [
+      "metonymy",
+      "metonym"
+    ]
+  },
+  {
+    "id": "bt-lit-007",
+    "subject": "literature",
+    "topic": "figurative_language",
+    "student_message": "The herdsman 'counted fifty heads of cattle' at the river. Why heads only? Is there a name for using one part to mean the whole animal?",
+    "correct_understanding": "It is synecdoche: a part (heads) is used to represent the whole (the cattle).",
+    "answer_terms": [
+      "synecdoche"
+    ]
+  },
+  {
+    "id": "bt-lit-008",
+    "subject": "literature",
+    "topic": "figurative_language",
+    "student_message": "When Emeka made a first class, his grandfather only said 'It is not a small thing.' Why say it in the negative instead of 'it is great'? What figure is that?",
+    "correct_understanding": "It is litotes, an understatement that affirms something by denying its opposite, here expressing strong pride modestly.",
+    "answer_terms": [
+      "litotes"
+    ]
+  },
+  {
+    "id": "bt-lit-009",
+    "subject": "literature",
+    "topic": "figurative_language",
+    "student_message": "My brother's report card says he is 'economical with the truth'. Na lie he dey tell abi? Why write it in that soft way? Which figure of speech?",
+    "correct_understanding": "It is a euphemism: a mild, polite expression used in place of the harsher statement that he lies.",
+    "answer_terms": [
+      "euphemism",
+      "euphemistic"
+    ]
+  },
+  {
+    "id": "bt-lit-010",
+    "subject": "literature",
+    "topic": "figurative_language",
+    "student_message": "In the poem the speaker cries 'Niger, old brown river, why do you carry my brothers away?' The river cannot answer him. Name the figure of speech.",
+    "correct_understanding": "It is apostrophe: the speaker directly addresses an absent or non-human thing (the river) as if it could hear and respond.",
+    "answer_terms": [
+      "apostrophe"
+    ]
+  },
+  {
+    "id": "bt-lit-011",
+    "subject": "literature",
+    "topic": "figurative_language",
+    "student_message": "In the story the father's old bicycle stays in the parlour years after he dies, and the son polishes it every Sunday. What does the bicycle stand for?",
+    "correct_understanding": "The bicycle symbolises the dead father's memory and continuing presence in the son's life, and the son's grief and loyalty.",
+    "answer_terms": [
+      "father's memory",
+      "memory of his father",
+      "remembrance",
+      "his father's presence"
+    ]
+  },
+  {
+    "id": "bt-lit-012",
+    "subject": "literature",
+    "topic": "figurative_language",
+    "student_message": "'I could hear the yellow of her laughter.' How person go hear colour? Which device is this one?",
+    "correct_understanding": "It is synaesthesia: one sense (hearing) is described in terms of another (sight/colour).",
+    "answer_terms": [
+      "synaesthesia",
+      "synesthesia"
+    ]
+  },
+  {
+    "id": "bt-lit-013",
+    "subject": "literature",
+    "topic": "figurative_language",
+    "student_message": "The character tells his son, 'To find yourself, you must first get lost in Lagos.' Isn't that contradicting itself? What figure of speech is this?",
+    "correct_understanding": "It is a paradox: a statement that seems self-contradictory but reveals a truth, that hardship and confusion can lead to self-discovery.",
+    "answer_terms": [
+      "paradox",
+      "paradoxical"
+    ]
+  },
+  {
+    "id": "bt-lit-014",
+    "subject": "literature",
+    "topic": "figurative_language",
+    "student_message": "The poet calls the corrupt governor 'our own Judas at the feast'. I no understand the Judas part. What device is the poet using?",
+    "correct_understanding": "It is a (biblical) allusion: the reference to Judas, who betrayed Jesus, presents the governor as a betrayer of his people.",
+    "answer_terms": [
+      "allusion",
+      "alludes",
+      "allusive"
+    ]
+  },
+  {
+    "id": "bt-lit-015",
+    "subject": "literature",
+    "topic": "figurative_language",
+    "student_message": "Just as the wedding guests scatter in a quarrel, the writer says 'the evening sky sulked and refused to give light.' Why describe the sky like that at that exact moment? Is there a name for it?",
+    "correct_understanding": "It is pathetic fallacy: nature/weather is given human feelings that mirror the gloomy, angry mood of the human scene.",
+    "answer_terms": [
+      "pathetic fallacy"
+    ]
+  },
+  {
+    "id": "bt-lit-016",
+    "subject": "literature",
+    "topic": "figurative_language",
+    "student_message": "'He spent a sleepless night on the hospital bench.' A night cannot sleep or not sleep. What is the device here?",
+    "correct_understanding": "It is a transferred epithet: the adjective 'sleepless', which belongs to the man, is transferred to the night.",
+    "answer_terms": [
+      "transferred epithet",
+      "hypallage"
+    ]
+  },
+  {
+    "id": "bt-lit-017",
+    "subject": "literature",
+    "topic": "poetic_devices",
+    "student_message": "The poem describes the frying pan with 'buzz, hiss, crackle'. What poetic device is that, please?",
+    "correct_understanding": "It is onomatopoeia: words whose sounds imitate the sounds they describe.",
+    "answer_terms": [
+      "onomatopoeia",
+      "onomatopoeic"
+    ]
+  },
+  {
+    "id": "bt-lit-018",
+    "subject": "literature",
+    "topic": "poetic_devices",
+    "student_message": "In the line 'grey days stay late in the rain', the 'ay' sound keeps coming back inside the words. Is there a name for that?",
+    "correct_understanding": "It is assonance, the repetition of similar vowel sounds within nearby words.",
+    "answer_terms": [
+      "assonance"
+    ]
+  },
+  {
+    "id": "bt-lit-019",
+    "subject": "literature",
+    "topic": "poetic_devices",
+    "student_message": "In 'the black truck struck the dock', the 'k' sound repeats at the ends of the words, not the beginning, so my friend says it's not alliteration. Then what is it?",
+    "correct_understanding": "It is consonance, the repetition of consonant sounds, especially at the end or middle of words.",
+    "answer_terms": [
+      "consonance"
+    ]
+  },
+  {
+    "id": "bt-lit-020",
+    "subject": "literature",
+    "topic": "poetic_devices",
+    "student_message": "Every line in stanza two ends with the same words: 'I waited in the rain / I wept in the rain / I walked home in the rain.' What is that repetition at the end called?",
+    "correct_understanding": "It is epistrophe (epiphora), the repetition of the same word or phrase at the end of successive lines.",
+    "answer_terms": [
+      "epistrophe",
+      "epiphora"
+    ]
+  },
+  {
+    "id": "bt-lit-021",
+    "subject": "literature",
+    "topic": "poetic_devices",
+    "student_message": "Help me find the rhyme scheme abeg: 'The harmattan is dry / The dust is in my eye / The farmers wait for rain / And count their seeds again.'",
+    "correct_understanding": "The rhyme scheme is AABB: two rhyming couplets (dry/eye, rain/again).",
+    "answer_terms": [
+      "aabb",
+      "rhyming couplets",
+      "couplet"
+    ]
+  },
+  {
+    "id": "bt-lit-022",
+    "subject": "literature",
+    "topic": "poetic_devices",
+    "student_message": "'The night was bright with the light of the lantern.' The rhyming words are inside the line, not at the end. What type of rhyme is that?",
+    "correct_understanding": "It is internal rhyme, where words within the same line rhyme with each other.",
+    "answer_terms": [
+      "internal rhyme"
+    ]
+  },
+  {
+    "id": "bt-lit-023",
+    "subject": "literature",
+    "topic": "poetic_devices",
+    "student_message": "This line: 'the GOAT a-WAITS the KNIFE be-SIDE the WALL'. Ten syllables, with the stress on every second one. What metre is it?",
+    "correct_understanding": "It is iambic pentameter: five iambs (unstressed-stressed pairs) per line.",
+    "answer_terms": [
+      "iambic pentameter",
+      "iambic",
+      "pentameter"
+    ]
+  },
+  {
+    "id": "bt-lit-024",
+    "subject": "literature",
+    "topic": "poetic_devices",
+    "student_message": "The poet pairs 'bend' with 'hand' and 'mother' with 'farther' at the ends of lines. They almost rhyme but not fully. What's the name for that?",
+    "correct_understanding": "It is half-rhyme (slant or near rhyme), where the sounds are similar but not identical.",
+    "answer_terms": [
+      "half rhyme",
+      "half-rhyme",
+      "slant rhyme",
+      "near rhyme"
+    ]
+  },
+  {
+    "id": "bt-lit-025",
+    "subject": "literature",
+    "topic": "poetic_devices",
+    "student_message": "The long poem doesn't rhyme at all, but every line has the same ten-syllable da-DUM da-DUM beat. Which verse form is that?",
+    "correct_understanding": "It is blank verse: unrhymed lines written in a regular metre, usually iambic pentameter.",
+    "answer_terms": [
+      "blank verse"
+    ]
+  },
+  {
+    "id": "bt-lit-026",
+    "subject": "literature",
+    "topic": "poetic_devices",
+    "student_message": "'The cold cement bit into my bare feet.' Which sense is this imagery appealing to?",
+    "correct_understanding": "It is tactile imagery, appealing to the sense of touch.",
+    "answer_terms": [
+      "tactile",
+      "sense of touch"
+    ]
+  },
+  {
+    "id": "bt-lit-027",
+    "subject": "literature",
+    "topic": "poetic_devices",
+    "student_message": "The poet writes 'crack, grind, clatter, gnash of the grinding mill' and the whole stanza sounds rough and harsh. What's the term for deliberately harsh sounds in poetry?",
+    "correct_understanding": "It is cacophony, the deliberate use of harsh, discordant sounds to suit a harsh subject.",
+    "answer_terms": [
+      "cacophony",
+      "cacophonous"
+    ]
+  },
+  {
+    "id": "bt-lit-028",
+    "subject": "literature",
+    "topic": "poetic_devices",
+    "student_message": "'Soft slumber, mellow moonlight, lull of the lagoon.' Apart from alliteration, what is the term for the smooth, pleasant sound of the whole line?",
+    "correct_understanding": "It is euphony, the use of smooth, harmonious, pleasing sounds.",
+    "answer_terms": [
+      "euphony",
+      "euphonious"
+    ]
+  },
+  {
+    "id": "bt-lit-029",
+    "subject": "literature",
+    "topic": "poetic_devices",
+    "student_message": "At the end of the poem the speaker asks 'Who will remember the names of the drowned?' and never answers. Why ask a question nobody answers? What device?",
+    "correct_understanding": "It is a rhetorical question, asked for effect rather than for an answer, here to make readers reflect on forgotten victims.",
+    "answer_terms": [
+      "rhetorical"
+    ]
+  },
+  {
+    "id": "bt-lit-030",
+    "subject": "literature",
+    "topic": "poetic_devices",
+    "student_message": "Each stanza in our poem has exactly four lines. Is there a special name for a four-line stanza? I need it for a one-word answer.",
+    "correct_understanding": "A four-line stanza is called a quatrain.",
+    "answer_terms": [
+      "quatrain"
+    ]
+  },
+  {
+    "id": "bt-lit-031",
+    "subject": "literature",
+    "topic": "poetic_devices",
+    "student_message": "'He lost his shop, his house, his wife, then his mind.' Each thing is bigger than the one before. Which device arranges ideas like that?",
+    "correct_understanding": "It is climax (gradation), the arrangement of ideas in ascending order of importance or intensity.",
+    "answer_terms": [
+      "climax",
+      "gradation",
+      "ascending order"
+    ]
+  },
+  {
+    "id": "bt-lit-032",
+    "subject": "literature",
+    "topic": "poetic_devices",
+    "student_message": "The poet writes 'Their bellies full, our pots empty; their lights bright, our streets dark.' What do you call this balancing of opposite ideas in parallel phrases?",
+    "correct_understanding": "It is antithesis: contrasting ideas placed side by side in balanced, parallel structures.",
+    "answer_terms": [
+      "antithesis",
+      "antithetical"
+    ]
+  },
+  {
+    "id": "bt-lit-033",
+    "subject": "literature",
+    "topic": "irony",
+    "student_message": "In the story, the fire service truck catches fire on its way to put out a fire. My classmates just laughed, but what is the writer actually doing there?",
+    "correct_understanding": "It is situational irony: the outcome is the opposite of what we expect from a fire truck.",
+    "answer_terms": [
+      "situational irony",
+      "irony",
+      "ironic"
+    ]
+  },
+  {
+    "id": "bt-lit-034",
+    "subject": "literature",
+    "topic": "irony",
+    "student_message": "In the play, we the audience know the stranger is the king in disguise, but the innkeeper insults him to his face. Which type of irony is this?",
+    "correct_understanding": "It is dramatic irony: the audience knows something a character does not.",
+    "answer_terms": [
+      "dramatic irony"
+    ]
+  },
+  {
+    "id": "bt-lit-035",
+    "subject": "literature",
+    "topic": "irony",
+    "student_message": "The lazy boy's mother calls him 'Mr Hardworking' every day when he wakes up at noon. Is she praising him? What figure of speech is she using?",
+    "correct_understanding": "She is using verbal irony (sarcasm): saying the opposite of what she means to mock his laziness.",
+    "answer_terms": [
+      "verbal irony",
+      "sarcasm",
+      "sarcastic",
+      "ironic"
+    ]
+  },
+  {
+    "id": "bt-lit-036",
+    "subject": "literature",
+    "topic": "irony",
+    "student_message": "In the tragedy, the king swears to punish whoever brought the plague on the city, not knowing he himself is the cause. What kind of irony are we watching?",
+    "correct_understanding": "It is tragic (dramatic) irony: the audience knows the king is condemning himself while he does not.",
+    "answer_terms": [
+      "tragic irony",
+      "dramatic irony"
+    ]
+  },
+  {
+    "id": "bt-lit-037",
+    "subject": "literature",
+    "topic": "irony",
+    "student_message": "The narrator says proudly 'Our town is the cleanest in Nigeria' while describing gutters full of refuse and goats chewing paper. Why the gap between what he says and what he describes?",
+    "correct_understanding": "It creates irony through a naive or unreliable narrator: the reader sees the truth the narrator's words contradict, which satirises the town.",
+    "answer_terms": [
+      "irony",
+      "ironic",
+      "unreliable narrator",
+      "naive narrator"
+    ]
+  },
+  {
+    "id": "bt-lit-038",
+    "subject": "literature",
+    "topic": "irony",
+    "student_message": "The woman spends the whole story searching for her lost gold ring, and at the end it is in the pocket of the dress she wore all along. Wetin be the literary term for this kind of ending?",
+    "correct_understanding": "It is situational irony: the outcome contradicts expectation, since the ring was with her the whole time.",
+    "answer_terms": [
+      "situational irony",
+      "irony",
+      "ironic"
+    ]
+  },
+  {
+    "id": "bt-lit-039",
+    "subject": "literature",
+    "topic": "irony",
+    "student_message": "Is it just a coincidence that the man who drowned in the story was the town's swimming instructor? My teacher underlined it in red.",
+    "correct_understanding": "It is not mere coincidence but situational irony: the person expected to be safest in water is the one who drowns.",
+    "answer_terms": [
+      "situational irony",
+      "irony",
+      "ironic"
+    ]
+  },
+  {
+    "id": "bt-lit-040",
+    "subject": "literature",
+    "topic": "irony",
+    "student_message": "The novelist describes the minister as 'a humble man who owns only six mansions and three private jets'. What is going on with the words 'humble' and 'only'?",
+    "correct_understanding": "The writer uses verbal irony to satirise the minister's greed; the words mean the opposite of what they say.",
+    "answer_terms": [
+      "verbal irony",
+      "ironic",
+      "irony"
+    ]
+  },
+  {
+    "id": "bt-lit-041",
+    "subject": "literature",
+    "topic": "irony",
+    "student_message": "We read the doctor's report early, so we know the husband is the one who can't have children. But in Act 2 he keeps blaming his wife and threatening to marry another. What effect is the playwright creating?",
+    "correct_understanding": "The playwright creates dramatic irony, which makes the husband's accusations painful and foolish to the audience.",
+    "answer_terms": [
+      "dramatic irony"
+    ]
+  },
+  {
+    "id": "bt-lit-042",
+    "subject": "literature",
+    "topic": "irony",
+    "student_message": "The soldier survives the whole war without a scratch, then on his first day home a coconut falls and kills him. Is there a term for this kind of twist of fate?",
+    "correct_understanding": "It is situational irony, often called irony of fate or cosmic irony.",
+    "answer_terms": [
+      "situational irony",
+      "irony of fate",
+      "cosmic irony",
+      "ironic"
+    ]
+  },
+  {
+    "id": "bt-lit-043",
+    "subject": "literature",
+    "topic": "irony",
+    "student_message": "Explain the device in these lines: 'Oh yes, our leaders love us dearly; / see how they feed us dreams.'",
+    "correct_understanding": "The lines use verbal irony (sarcasm): the speaker says the leaders love the people while meaning they neglect them and offer only empty promises.",
+    "answer_terms": [
+      "verbal irony",
+      "sarcasm",
+      "sarcastic",
+      "ironic"
+    ]
+  },
+  {
+    "id": "bt-lit-044",
+    "subject": "literature",
+    "topic": "irony",
+    "student_message": "The man who warns the whole village against gossip is revealed at the end as the one who started the rumour. What is the writer doing with this character?",
+    "correct_understanding": "The writer uses situational irony to expose the man's hypocrisy.",
+    "answer_terms": [
+      "situational irony",
+      "irony",
+      "ironic"
+    ]
+  },
+  {
+    "id": "bt-lit-045",
+    "subject": "literature",
+    "topic": "irony",
+    "student_message": "In this comedy, a girl disguises herself as a boy and another girl falls in love with her. We know, but the girl in love doesn't. Why does that make the audience laugh so much?",
+    "correct_understanding": "It is dramatic irony used for comic effect: the audience's superior knowledge makes the misunderstandings funny.",
+    "answer_terms": [
+      "dramatic irony"
+    ]
+  },
+  {
+    "id": "bt-lit-046",
+    "subject": "literature",
+    "topic": "irony",
+    "student_message": "In the poem 'Independence Day', every stanza celebrates freedom with flags and songs, then the last line is 'and the prisoners heard the cheering through the walls.' What effect does that last line create?",
+    "correct_understanding": "The last line creates irony: it contrasts the celebration of freedom with people who are not free, undercutting the celebration.",
+    "answer_terms": [
+      "irony",
+      "ironic"
+    ]
+  },
+  {
+    "id": "bt-lit-047",
+    "subject": "literature",
+    "topic": "irony",
+    "student_message": "In the story the woman prays every day for rain to save her farm. When the rain finally comes, it floods and washes the whole farm away. What do we call that?",
+    "correct_understanding": "It is situational irony: what she longed for as salvation becomes the cause of her ruin.",
+    "answer_terms": [
+      "situational irony",
+      "irony",
+      "ironic"
+    ]
+  },
+  {
+    "id": "bt-lit-048",
+    "subject": "literature",
+    "topic": "irony",
+    "student_message": "The boastful wrestler mocks a small boy all through the festival, saying he will crush him, and in the final match the small boy throws him. Na just plot twist, or something deeper?",
+    "correct_understanding": "It is situational irony that also punishes the wrestler's pride: the expected winner is defeated by the one he mocked.",
+    "answer_terms": [
+      "situational irony",
+      "irony",
+      "ironic"
+    ]
+  },
+  {
+    "id": "bt-lit-049",
+    "subject": "literature",
+    "topic": "drama_technique",
+    "student_message": "The character turns to the audience and whispers 'I don't trust this man at all' while the visitor is standing right next to him on stage. What do we call that line?",
+    "correct_understanding": "It is an aside: a remark the audience hears but the other characters on stage are assumed not to hear.",
+    "answer_terms": [
+      "aside"
+    ]
+  },
+  {
+    "id": "bt-lit-050",
+    "subject": "literature",
+    "topic": "drama_technique",
+    "student_message": "Our play starts with one actor walking out before anyone else and telling us the story will end in death. What is that opening speech called?",
+    "correct_understanding": "It is the prologue, an introductory speech before the main action.",
+    "answer_terms": [
+      "prologue"
+    ]
+  },
+  {
+    "id": "bt-lit-051",
+    "subject": "literature",
+    "topic": "drama_technique",
+    "student_message": "After the last scene, the town crier comes out alone and speaks to the audience about the lesson of the play. Which part of a play is that?",
+    "correct_understanding": "It is the epilogue, a concluding speech or section after the main action.",
+    "answer_terms": [
+      "epilogue"
+    ]
+  },
+  {
+    "id": "bt-lit-052",
+    "subject": "literature",
+    "topic": "drama_technique",
+    "student_message": "In the last scene everybody is about to be executed, then a messenger from the Oba rushes in with a pardon that nobody saw coming. My teacher frowned at this ending. What device is it?",
+    "correct_understanding": "It is deus ex machina: an improbable, sudden outside intervention that resolves the conflict artificially.",
+    "answer_terms": [
+      "deus ex machina"
+    ]
+  },
+  {
+    "id": "bt-lit-053",
+    "subject": "literature",
+    "topic": "drama_technique",
+    "student_message": "The general in the play boasts that he is greater than the gods and refuses to consult the oracle. In Greek tragedy, what is the term for this kind of overweening pride?",
+    "correct_understanding": "It is hubris, excessive pride or arrogance that defies the gods and leads to downfall.",
+    "answer_terms": [
+      "hubris"
+    ]
+  },
+  {
+    "id": "bt-lit-054",
+    "subject": "literature",
+    "topic": "drama_technique",
+    "student_message": "In one scene the two rivals fire short one-line replies at each other, very fast, like ping-pong. Is there a technical name for this kind of dialogue?",
+    "correct_understanding": "It is stichomythia: rapid alternating single lines of dialogue, usually in a heated exchange.",
+    "answer_terms": [
+      "stichomythia"
+    ]
+  },
+  {
+    "id": "bt-lit-055",
+    "subject": "literature",
+    "topic": "drama_technique",
+    "student_message": "At the end of Scene 2 the stage directions say all the actors stop dead in position and the lights hold on them for some seconds. What is this technique?",
+    "correct_understanding": "It is a tableau (freeze frame): actors hold a still picture to emphasise a dramatic moment.",
+    "answer_terms": [
+      "tableau",
+      "freeze frame",
+      "freeze-frame"
+    ]
+  },
+  {
+    "id": "bt-lit-056",
+    "subject": "literature",
+    "topic": "drama_technique",
+    "student_message": "The playwright puts the hot-tempered son next to his very calm cousin in almost every scene. Why pair them like that? What is the cousin called in drama terms?",
+    "correct_understanding": "The cousin is a foil: a contrasting character who highlights the son's qualities by contrast.",
+    "answer_terms": [
+      "foil"
+    ]
+  },
+  {
+    "id": "bt-lit-057",
+    "subject": "literature",
+    "topic": "drama_technique",
+    "student_message": "Which part of a play's plot structure comes right after the exposition, where the conflict builds up scene by scene towards the high point?",
+    "correct_understanding": "It is the rising action (complication).",
+    "answer_terms": [
+      "rising action",
+      "complication"
+    ]
+  },
+  {
+    "id": "bt-lit-058",
+    "subject": "literature",
+    "topic": "drama_technique",
+    "student_message": "At the very beginning of the script there is a list of all the characters and who they are, like 'Baba Ade - a retired teacher'. What is that list called?",
+    "correct_understanding": "It is the dramatis personae (cast list).",
+    "answer_terms": [
+      "dramatis personae",
+      "cast list"
+    ]
+  },
+  {
+    "id": "bt-lit-059",
+    "subject": "literature",
+    "topic": "drama_technique",
+    "student_message": "In the play a group of market women keep coming on stage together, singing and commenting on what the king is doing, but they are not part of the action. What is their technical role?",
+    "correct_understanding": "They function as a chorus, a group that comments on and interprets the action for the audience.",
+    "answer_terms": [
+      "chorus"
+    ]
+  },
+  {
+    "id": "bt-lit-060",
+    "subject": "literature",
+    "topic": "drama_technique",
+    "student_message": "The villain twirls his moustache, the heroine faints in every scene, the music swells, and good wins completely at the end. Which type of drama is this?",
+    "correct_understanding": "It is melodrama: exaggerated characters and emotions, sensational plot and a clear triumph of good over evil.",
+    "answer_terms": [
+      "melodrama",
+      "melodramatic"
+    ]
+  },
+  {
+    "id": "bt-lit-061",
+    "subject": "literature",
+    "topic": "drama_technique",
+    "student_message": "In this play a man keeps trying to buy bread from a shop that has no door, and the dialogue goes round in circles with no logic at all. What kind of drama is that? I'm confused.",
+    "correct_understanding": "It belongs to the Theatre of the Absurd, which uses illogical situations and circular dialogue to show the meaninglessness of human existence.",
+    "answer_terms": [
+      "absurd",
+      "absurdist"
+    ]
+  },
+  {
+    "id": "bt-lit-062",
+    "subject": "literature",
+    "topic": "drama_technique",
+    "student_message": "Before he betrays his brother, the prince stands alone on stage and speaks his plans aloud, with nobody else around. What is this speech called?",
+    "correct_understanding": "It is a soliloquy: a character alone on stage speaks his thoughts aloud for the audience.",
+    "answer_terms": [
+      "soliloquy",
+      "soliloquies"
+    ]
+  },
+  {
+    "id": "bt-lit-063",
+    "subject": "literature",
+    "topic": "drama_technique",
+    "student_message": "The playwright makes the police inspector so ridiculous that he arrests a goat for stealing, and the audience laughs at the whole police force. What technique is the playwright using?",
+    "correct_understanding": "The playwright uses satire: ridicule and exaggeration to criticise an institution.",
+    "answer_terms": [
+      "satire",
+      "satirical",
+      "satirise",
+      "satirize"
+    ]
+  },
+  {
+    "id": "bt-lit-064",
+    "subject": "literature",
+    "topic": "drama_technique",
+    "student_message": "In one scene the actor pretends to paddle a canoe across a river with no canoe, no paddle and no words at all. Which technique is that?",
+    "correct_understanding": "It is mime: acting out actions through gesture and movement without props or speech.",
+    "answer_terms": [
+      "mime",
+      "miming"
+    ]
+  },
+  {
+    "id": "bt-lit-065",
+    "subject": "literature",
+    "topic": "oral_literature",
+    "student_message": "Grandma's story is about how the cock got his red comb on top of his head. What type of folktale is this one?",
+    "correct_understanding": "It is an aetiological (explanatory) tale, which explains the origin of a natural feature.",
+    "answer_terms": [
+      "aetiological",
+      "etiological",
+      "explanatory tale",
+      "origin tale"
+    ]
+  },
+  {
+    "id": "bt-lit-066",
+    "subject": "literature",
+    "topic": "oral_literature",
+    "student_message": "At my uncle's burial the women sang 'You have gone where the road has no return; who will open the gate at dusk?' What kind of oral poetry is this?",
+    "correct_understanding": "It is a dirge, a funeral song or lament for the dead.",
+    "answer_terms": [
+      "dirge",
+      "lament",
+      "elegy"
+    ]
+  },
+  {
+    "id": "bt-lit-067",
+    "subject": "literature",
+    "topic": "oral_literature",
+    "student_message": "The very long poem about the hunter-hero Ajala who fights forest spirits, climbs to the sky and founds a town is told over three nights by a bard. What oral form is that?",
+    "correct_understanding": "It is an oral epic: a long narrative poem celebrating a hero's great deeds, often tied to a people's history.",
+    "answer_terms": [
+      "epic"
+    ]
+  },
+  {
+    "id": "bt-lit-068",
+    "subject": "literature",
+    "topic": "oral_literature",
+    "student_message": "In Mali and Senegal, there is a person who keeps family histories and sings them with a kora at ceremonies. What are they called?",
+    "correct_understanding": "They are griots (jali/jeli), hereditary oral historians and praise singers of West Africa.",
+    "answer_terms": [
+      "griot",
+      "jali",
+      "jeli"
+    ]
+  },
+  {
+    "id": "bt-lit-069",
+    "subject": "literature",
+    "topic": "oral_literature",
+    "student_message": "The story of how the first ruler of our town came down from heaven on an iron chain - what category of oral narrative deals with gods and creation like that?",
+    "correct_understanding": "It is a myth, a sacred narrative about gods, creation and origins.",
+    "answer_terms": [
+      "myth"
+    ]
+  },
+  {
+    "id": "bt-lit-070",
+    "subject": "literature",
+    "topic": "oral_literature",
+    "student_message": "The tale of the warrior queen who defended our town in the 1800s, with some magic added to it - what kind of narrative is based on a real historical person but exaggerated?",
+    "correct_understanding": "It is a legend: a traditional story about a historical person or event, embellished over time.",
+    "answer_terms": [
+      "legend"
+    ]
+  },
+  {
+    "id": "bt-lit-071",
+    "subject": "literature",
+    "topic": "oral_literature",
+    "student_message": "The song mothers sing, 'Sleep, sleep, little one, mama has gone to farm', while backing the baby - which type of oral poetry is it?",
+    "correct_understanding": "It is a lullaby (cradle song), sung to soothe a child to sleep.",
+    "answer_terms": [
+      "lullaby",
+      "lullabies",
+      "cradle song"
+    ]
+  },
+  {
+    "id": "bt-lit-072",
+    "subject": "literature",
+    "topic": "oral_literature",
+    "student_message": "The men pounding yam sing in rhythm with the pestle: 'Pound it! Make it smooth!' What type of song is this in oral literature?",
+    "correct_understanding": "It is a work (occupational) song, which coordinates rhythm and lightens labour.",
+    "answer_terms": [
+      "work song",
+      "occupational"
+    ]
+  },
+  {
+    "id": "bt-lit-073",
+    "subject": "literature",
+    "topic": "oral_literature",
+    "student_message": "In Yoruba culture hunters have a special poetry they chant about animals, the bush and their exploits. What is it called?",
+    "correct_understanding": "It is ijala, the Yoruba hunters' chant.",
+    "answer_terms": [
+      "ijala"
+    ]
+  },
+  {
+    "id": "bt-lit-074",
+    "subject": "literature",
+    "topic": "oral_literature",
+    "student_message": "At the end of the folktale my teacher says 'That is where my story ends; if I lie, may the tortoise bite me.' What do we call this ending part?",
+    "correct_understanding": "It is the closing formula, a conventional ending that signals the end of the tale.",
+    "answer_terms": [
+      "closing formula",
+      "formulaic ending",
+      "formulaic closing"
+    ]
+  },
+  {
+    "id": "bt-lit-075",
+    "subject": "literature",
+    "topic": "oral_literature",
+    "student_message": "The folktale ends with a question: three brothers each helped rescue the girl, so which one should marry her? The storyteller doesn't answer. What kind of tale?",
+    "correct_understanding": "It is a dilemma tale, which ends with an open question for the audience to debate.",
+    "answer_terms": [
+      "dilemma tale",
+      "dilemma"
+    ]
+  },
+  {
+    "id": "bt-lit-076",
+    "subject": "literature",
+    "topic": "oral_literature",
+    "student_message": "Why does the storyteller keep stopping so the children can shout, clap and sing along? To me it's just noise. What feature of oral literature is this?",
+    "correct_understanding": "It is audience participation: oral performance is communal, and the audience's responses are part of the art.",
+    "answer_terms": [
+      "audience participation",
+      "participation"
+    ]
+  },
+  {
+    "id": "bt-lit-077",
+    "subject": "literature",
+    "topic": "oral_literature",
+    "student_message": "When the babalawo consults the oracle, he chants verses with stories of past clients and their sacrifices. What is this body of oral poetry called?",
+    "correct_understanding": "It is the Ifa literary corpus (Odu Ifa), Yoruba divination poetry.",
+    "answer_terms": [
+      "ifa",
+      "odu ifa"
+    ]
+  },
+  {
+    "id": "bt-lit-078",
+    "subject": "literature",
+    "topic": "oral_literature",
+    "student_message": "The story has a talking goat and a talking hyena, and it ends with 'So, children, never trust a flatterer.' What is this kind of short tale called?",
+    "correct_understanding": "It is a fable, a short animal tale that teaches a moral.",
+    "answer_terms": [
+      "fable"
+    ]
+  },
+  {
+    "id": "bt-lit-079",
+    "subject": "literature",
+    "topic": "oral_literature",
+    "student_message": "What is the formal literary term for a poem that praises a ruler, like when the bard sings the Emir's greatness at Sallah?",
+    "correct_understanding": "It is a panegyric (praise poetry).",
+    "answer_terms": [
+      "panegyric",
+      "praise poem",
+      "praise poetry"
+    ]
+  },
+  {
+    "id": "bt-lit-080",
+    "subject": "literature",
+    "topic": "oral_literature",
+    "student_message": "The storyteller growls for the lion, squeaks for the rat, waves her hands and acts out the chase. Teacher says these are part of the 'text'. What are these performance elements called?",
+    "correct_understanding": "They are dramatisation/mimicry and gestures, the performance (paralinguistic) elements of oral literature.",
+    "answer_terms": [
+      "mimicry",
+      "dramatisation",
+      "dramatization",
+      "gestures"
+    ]
+  },
+  {
+    "id": "bt-lit-081",
+    "subject": "literature",
+    "topic": "narrative_structure",
+    "student_message": "The whole novel is made of letters between a girl in Kano and her sister in London. Nothing else, just letters. What type of novel is this?",
+    "correct_understanding": "It is an epistolary novel, told through letters.",
+    "answer_terms": [
+      "epistolary"
+    ]
+  },
+  {
+    "id": "bt-lit-082",
+    "subject": "literature",
+    "topic": "narrative_structure",
+    "student_message": "The story keeps saying 'I went', 'I saw', 'my mother told me'. Which point of view is that, abeg? I always mix them up.",
+    "correct_understanding": "It is first-person narration: the narrator is a character telling the story using 'I'.",
+    "answer_terms": [
+      "first person",
+      "first-person"
+    ]
+  },
+  {
+    "id": "bt-lit-083",
+    "subject": "literature",
+    "topic": "narrative_structure",
+    "student_message": "The narrator tells us what every character is secretly thinking - the wife, the husband, even the houseboy - and he is not one of them. What narrative viewpoint is that?",
+    "correct_understanding": "It is third-person omniscient narration: an all-knowing narrator outside the story.",
+    "answer_terms": [
+      "omniscient"
+    ]
+  },
+  {
+    "id": "bt-lit-084",
+    "subject": "literature",
+    "topic": "narrative_structure",
+    "student_message": "The short story is written like 'You wake up. You check your phone. You know he has not called.' Who is narrating this? It feels like it's talking to me.",
+    "correct_understanding": "It is second-person narration, which addresses the reader/protagonist as 'you'.",
+    "answer_terms": [
+      "second person",
+      "second-person"
+    ]
+  },
+  {
+    "id": "bt-lit-085",
+    "subject": "literature",
+    "topic": "narrative_structure",
+    "student_message": "The novel starts when Ade is born and moves year by year until he dies, with no jumping back or forward. What type of plot arrangement is this?",
+    "correct_understanding": "It is a linear (chronological) plot, with events in the order they happen.",
+    "answer_terms": [
+      "chronological",
+      "linear"
+    ]
+  },
+  {
+    "id": "bt-lit-086",
+    "subject": "literature",
+    "topic": "narrative_structure",
+    "student_message": "In Chapter 2 the narrator suddenly says 'Twenty years later, she would remember this morning in a prison cell,' then goes back to the morning. What is that technique called?",
+    "correct_understanding": "It is a flash-forward (prolepsis), a jump ahead to a future event.",
+    "answer_terms": [
+      "flash-forward",
+      "flashforward",
+      "flash forward",
+      "prolepsis"
+    ]
+  },
+  {
+    "id": "bt-lit-087",
+    "subject": "literature",
+    "topic": "narrative_structure",
+    "student_message": "The novel opens with the boy at the train station leaving the village, and ends with him as an old man at the same station coming back. What do we call that kind of structure?",
+    "correct_understanding": "It is a circular (cyclical) structure, where the ending returns to the beginning.",
+    "answer_terms": [
+      "circular",
+      "cyclical",
+      "cyclic"
+    ]
+  },
+  {
+    "id": "bt-lit-088",
+    "subject": "literature",
+    "topic": "narrative_structure",
+    "student_message": "Each chapter is told by a different family member - chapter 1 the mother, chapter 2 the son, chapter 3 the maid. Which narrative technique is that?",
+    "correct_understanding": "It uses multiple narrators (multiple points of view), giving different perspectives on the same events.",
+    "answer_terms": [
+      "multiple narrators",
+      "multiple points of view",
+      "multiple perspectives",
+      "polyphonic"
+    ]
+  },
+  {
+    "id": "bt-lit-089",
+    "subject": "literature",
+    "topic": "narrative_structure",
+    "student_message": "The novel switches between two stories in alternate chapters - a soldier in 1967 and a student in 2010 - and only at the end we learn they're grandfather and granddaughter. What structure is that?",
+    "correct_understanding": "It is a parallel (dual) narrative structure, two storylines running side by side that finally connect.",
+    "answer_terms": [
+      "parallel",
+      "dual narrative",
+      "double plot"
+    ]
+  },
+  {
+    "id": "bt-lit-090",
+    "subject": "literature",
+    "topic": "narrative_structure",
+    "student_message": "On the final page we discover the kind doctor who has been narrating was the killer all along. Chai! What is an ending like that called?",
+    "correct_understanding": "It is a twist (surprise) ending, which reverses the reader's understanding of the story.",
+    "answer_terms": [
+      "twist",
+      "surprise ending"
+    ]
+  },
+  {
+    "id": "bt-lit-091",
+    "subject": "literature",
+    "topic": "narrative_structure",
+    "student_message": "After Emeka is arrested, the next three chapters show the family coping with the trial before everything is finally settled. What part of the plot structure is that?",
+    "correct_understanding": "It is the falling action, the events after the climax leading to the resolution.",
+    "answer_terms": [
+      "falling action"
+    ]
+  },
+  {
+    "id": "bt-lit-092",
+    "subject": "literature",
+    "topic": "narrative_structure",
+    "student_message": "The writer keeps delaying telling us whether the missing girl is alive - every chapter gets close to the answer and then moves away. What effect is the writer creating?",
+    "correct_understanding": "The writer is building suspense, keeping the reader anxious and eager to read on.",
+    "answer_terms": [
+      "suspense",
+      "suspenseful"
+    ]
+  },
+  {
+    "id": "bt-lit-093",
+    "subject": "literature",
+    "topic": "narrative_structure",
+    "student_message": "The narrator is an old woman telling us about her teenage years, and she keeps saying 'I did not know then what I know now.' What kind of narration is this?",
+    "correct_understanding": "It is retrospective narration: an older narrator looks back on past events with hindsight.",
+    "answer_terms": [
+      "retrospective",
+      "hindsight"
+    ]
+  },
+  {
+    "id": "bt-lit-094",
+    "subject": "literature",
+    "topic": "narrative_structure",
+    "student_message": "The whole novel is just the fisherman fighting the storm and the sea to survive. The question asks the type of conflict. I don't know what to write.",
+    "correct_understanding": "It is an external conflict of man versus nature.",
+    "answer_terms": [
+      "man versus nature",
+      "man vs nature",
+      "person versus nature",
+      "external conflict"
+    ]
+  },
+  {
+    "id": "bt-lit-095",
+    "subject": "literature",
+    "topic": "narrative_structure",
+    "student_message": "The girl spends the whole novel torn inside between her duty to her father and her own dream. There's no outside enemy at all. What type of conflict is it?",
+    "correct_understanding": "It is an internal (psychological) conflict, man versus self.",
+    "answer_terms": [
+      "internal conflict",
+      "man versus self",
+      "person versus self",
+      "psychological"
+    ]
+  },
+  {
+    "id": "bt-lit-096",
+    "subject": "literature",
+    "topic": "narrative_structure",
+    "student_message": "The narrator uses 'she' all through, but we only ever see inside Ngozi's head, nobody else's thoughts. Which point of view is that?",
+    "correct_understanding": "It is third-person limited point of view, restricted to one character's consciousness.",
+    "answer_terms": [
+      "third-person limited",
+      "third person limited",
+      "limited point of view"
+    ]
+  },
+  {
+    "id": "bt-lit-097",
+    "subject": "literature",
+    "topic": "unseen_poetry",
+    "student_message": "Unseen poem: 'My hands are cracked like the dry season ground, / my back bends lower every harvest round; / yet still my children's school fees must be found.' Who is the speaker here?",
+    "correct_understanding": "The speaker is a poor, hardworking farmer and parent struggling to pay school fees.",
+    "answer_terms": [
+      "farmer"
+    ]
+  },
+  {
+    "id": "bt-lit-098",
+    "subject": "literature",
+    "topic": "unseen_poetry",
+    "student_message": "'You came with the rains and you left with the rains, / and the umbrella you forgot still leans by the door.' What is the tone of these lines? Help me, exam is tomorrow.",
+    "correct_understanding": "The tone is nostalgic and wistful, full of longing for someone who has gone.",
+    "answer_terms": [
+      "nostalgic",
+      "longing",
+      "wistful",
+      "melancholy"
+    ]
+  },
+  {
+    "id": "bt-lit-099",
+    "subject": "literature",
+    "topic": "unseen_poetry",
+    "student_message": "This short poem: 'Harmattan morning - / dust settles on the bicycle; / grandfather's cough stops.' Only three lines. What type of poem is it?",
+    "correct_understanding": "It is a haiku: three lines in a 5-7-5 syllable pattern capturing a single moment.",
+    "answer_terms": [
+      "haiku"
+    ]
+  },
+  {
+    "id": "bt-lit-100",
+    "subject": "literature",
+    "topic": "unseen_poetry",
+    "student_message": "'There once was a driver named Joe / whose danfo was terribly slow; / he'd stop for a chat / with each goat and each cat, / so we never got where we'd go.' What form is this?",
+    "correct_understanding": "It is a limerick: a humorous five-line poem with an AABBA rhyme scheme.",
+    "answer_terms": [
+      "limerick"
+    ]
+  },
+  {
+    "id": "bt-lit-101",
+    "subject": "literature",
+    "topic": "unseen_poetry",
+    "student_message": "The whole poem is a palace guard talking to a silent visitor: 'Sit, stranger. You ask why the Oba's door is barred?' and we learn his secrets from his words. What poetic form is this?",
+    "correct_understanding": "It is a dramatic monologue: one speaker addresses a silent listener and reveals his character.",
+    "answer_terms": [
+      "dramatic monologue"
+    ]
+  },
+  {
+    "id": "bt-lit-102",
+    "subject": "literature",
+    "topic": "unseen_poetry",
+    "student_message": "The 14-line poem has an eight-line part describing a problem and then a six-line part giving the answer. Which kind of sonnet is that?",
+    "correct_understanding": "It is a Petrarchan (Italian) sonnet, with an octave and a sestet.",
+    "answer_terms": [
+      "petrarchan",
+      "italian"
+    ]
+  },
+  {
+    "id": "bt-lit-103",
+    "subject": "literature",
+    "topic": "unseen_poetry",
+    "student_message": "In line 9 of the sonnet the poet suddenly says 'But now...' and the mood changes completely. Is there a name for that shift?",
+    "correct_understanding": "It is the volta, the turn in thought or argument in a sonnet.",
+    "answer_terms": [
+      "volta"
+    ]
+  },
+  {
+    "id": "bt-lit-104",
+    "subject": "literature",
+    "topic": "unseen_poetry",
+    "student_message": "'The bulldozers came at dawn; / the mango tree fell first, / then the school, then my grandmother's grave; / now they call it progress.' What is the speaker's attitude to 'progress'?",
+    "correct_understanding": "The speaker is bitter and critical (ironic), seeing 'progress' as destruction of community and heritage.",
+    "answer_terms": [
+      "bitter",
+      "critical",
+      "sarcastic",
+      "ironic"
+    ]
+  },
+  {
+    "id": "bt-lit-105",
+    "subject": "literature",
+    "topic": "unseen_poetry",
+    "student_message": "'I have carried brides and coffins, / yam and cement, / and still they kick my tyres.' Who or what is the speaker in this unseen poem?",
+    "correct_understanding": "The speaker is a vehicle, such as a lorry or bus, personified.",
+    "answer_terms": [
+      "lorry",
+      "truck",
+      "bus",
+      "vehicle"
+    ]
+  },
+  {
+    "id": "bt-lit-106",
+    "subject": "literature",
+    "topic": "unseen_poetry",
+    "student_message": "'The lantern gutters. Outside, a dog howls once, / then stops. Something walks on the zinc roof.' Describe the mood of these lines.",
+    "correct_understanding": "The mood is eerie and tense, creating fear and suspense.",
+    "answer_terms": [
+      "eerie",
+      "suspense",
+      "fear",
+      "foreboding"
+    ]
+  },
+  {
+    "id": "bt-lit-107",
+    "subject": "literature",
+    "topic": "unseen_poetry",
+    "student_message": "The short poem is just a mother pouring out her joy at holding her newborn for the first time, no story, only feeling. What type of poem is that called?",
+    "correct_understanding": "It is a lyric poem, a short poem expressing personal emotion.",
+    "answer_terms": [
+      "lyric",
+      "lyrical"
+    ]
+  },
+  {
+    "id": "bt-lit-108",
+    "subject": "literature",
+    "topic": "unseen_poetry",
+    "student_message": "In the exam the words of the poem were arranged on the page in the shape of a palm tree. Na wa o. What do we call that kind of poem?",
+    "correct_understanding": "It is a concrete (shape or pattern) poem, where the visual layout reflects the subject.",
+    "answer_terms": [
+      "concrete",
+      "shape poem",
+      "pattern poem"
+    ]
+  },
+  {
+    "id": "bt-lit-109",
+    "subject": "literature",
+    "topic": "unseen_poetry",
+    "student_message": "'Honourable, your convoy is so long / we watched it pass from breakfast to lunch; / your speech on hunger was so moving / we ate it for dinner.' What's the tone?",
+    "correct_understanding": "The tone is satirical and mocking, ridiculing the politician's extravagance and empty words.",
+    "answer_terms": [
+      "satirical",
+      "satire",
+      "mocking",
+      "sarcastic"
+    ]
+  },
+  {
+    "id": "bt-lit-110",
+    "subject": "literature",
+    "topic": "unseen_poetry",
+    "student_message": "'Little one, do not cry when the lights go off; / the dark is only the day closing its eyes.' What is the speaker's tone towards the person addressed?",
+    "correct_understanding": "The speaker gently and lovingly reassures a child; the tone is comforting and soothing.",
+    "answer_terms": [
+      "reassuring",
+      "comforting",
+      "soothing",
+      "gentle"
+    ]
+  },
+  {
+    "id": "bt-lit-111",
+    "subject": "literature",
+    "topic": "unseen_poetry",
+    "student_message": "'They call me \"small madam\" in the house, / but I wake before the cock to fetch water / for the real madam's children.' Who is speaking in this poem?",
+    "correct_understanding": "The speaker is a young house-help (domestic servant) working for a family.",
+    "answer_terms": [
+      "housemaid",
+      "house help",
+      "house-help",
+      "maid"
+    ]
+  },
+  {
+    "id": "bt-lit-112",
+    "subject": "literature",
+    "topic": "unseen_poetry",
+    "student_message": "Stanza 1 describes the city at night, bright and full of parties; stanza 2 shows the same city at dawn, beggars sleeping under the bridge. What is the main technique in the structure?",
+    "correct_understanding": "The poem is built on contrast (juxtaposition) between wealth and poverty.",
+    "answer_terms": [
+      "contrast",
+      "juxtaposition",
+      "juxtaposes",
+      "juxtaposed"
+    ]
+  },
+  {
+    "id": "bt-lit-113",
+    "subject": "literature",
+    "topic": "unseen_prose",
+    "student_message": "Passage: 'The road to Ikot had not been repaired since the last government, nor the one before it, nor, the villagers joked, since the Portuguese passed by.' What is the writer's tone?",
+    "correct_understanding": "The tone is humorous and sarcastic/satirical, mocking government neglect.",
+    "answer_terms": [
+      "sarcastic",
+      "satirical",
+      "mocking",
+      "humorous"
+    ]
+  },
+  {
+    "id": "bt-lit-114",
+    "subject": "literature",
+    "topic": "unseen_prose",
+    "student_message": "The passage describes in detail the colours, smells and noise of Kurmi market, but nothing actually happens in it. What type of passage is this?",
+    "correct_understanding": "It is a descriptive passage.",
+    "answer_terms": [
+      "descriptive"
+    ]
+  },
+  {
+    "id": "bt-lit-115",
+    "subject": "literature",
+    "topic": "unseen_prose",
+    "student_message": "The passage says students must not be allowed phones in school and gives three reasons with examples. Which type of writing is that?",
+    "correct_understanding": "It is argumentative (persuasive) writing.",
+    "answer_terms": [
+      "argumentative",
+      "persuasive"
+    ]
+  },
+  {
+    "id": "bt-lit-116",
+    "subject": "literature",
+    "topic": "unseen_prose",
+    "student_message": "'Bisi did not know that Tunde had already sold the land, and Tunde did not know that Bisi had already forgiven him.' From this sentence, what kind of narrator is telling the passage?",
+    "correct_understanding": "It is an omniscient third-person narrator, who knows what both characters do not know.",
+    "answer_terms": [
+      "omniscient"
+    ]
+  },
+  {
+    "id": "bt-lit-117",
+    "subject": "literature",
+    "topic": "unseen_prose",
+    "student_message": "'The new manager strutted into the office.' Why did the writer choose 'strutted' instead of just 'walked'? What does it show about him?",
+    "correct_understanding": "'Strutted' suggests the manager is arrogant, proud and self-important.",
+    "answer_terms": [
+      "arrogant",
+      "arrogance",
+      "proud",
+      "self-important"
+    ]
+  },
+  {
+    "id": "bt-lit-118",
+    "subject": "literature",
+    "topic": "unseen_prose",
+    "student_message": "'Rain drummed on the roof. The baby slept. Mama hummed over the pot of egusi.' What atmosphere does the writer create here?",
+    "correct_understanding": "The atmosphere is calm, cosy and contented (tranquil).",
+    "answer_terms": [
+      "calm",
+      "serene",
+      "tranquil",
+      "contented"
+    ]
+  },
+  {
+    "id": "bt-lit-119",
+    "subject": "literature",
+    "topic": "unseen_prose",
+    "student_message": "'The so-called experts arrived in air-conditioned jeeps to tell farmers how to farm land they had never touched.' What is the writer's attitude to the experts?",
+    "correct_understanding": "The writer is contemptuous and scornful, showing the experts as ignorant and out of touch.",
+    "answer_terms": [
+      "contempt",
+      "scornful",
+      "scorn",
+      "disapproving"
+    ]
+  },
+  {
+    "id": "bt-lit-120",
+    "subject": "literature",
+    "topic": "unseen_prose",
+    "student_message": "'Mama Chidi gave the last of the rice to the neighbour's children and told her own, \"We will eat tomorrow.\"' What quality of Mama Chidi does this reveal?",
+    "correct_understanding": "It reveals that she is selfless and generous, willing to sacrifice for others.",
+    "answer_terms": [
+      "selfless",
+      "generous",
+      "self-sacrificing",
+      "sacrifice"
+    ]
+  },
+  {
+    "id": "bt-lit-121",
+    "subject": "literature",
+    "topic": "unseen_prose",
+    "student_message": "In the passage the writer says 'Lagos was a magnet with teeth.' What two ideas about the city is the writer combining in that one image?",
+    "correct_understanding": "The image shows the city both attracts people and harms or devours them: alluring but dangerous.",
+    "answer_terms": [
+      "attract",
+      "harm",
+      "danger"
+    ]
+  },
+  {
+    "id": "bt-lit-122",
+    "subject": "literature",
+    "topic": "unseen_prose",
+    "student_message": "'Papa said the men in the car were his friends from work, so I waved at them, even though Mama was crying and Papa got in the back with his hands behind him.' What has really happened?",
+    "correct_understanding": "The father has been arrested; the child narrator does not understand what the reader sees.",
+    "answer_terms": [
+      "arrested",
+      "arrest",
+      "handcuffed",
+      "police"
+    ]
+  },
+  {
+    "id": "bt-lit-123",
+    "subject": "literature",
+    "topic": "unseen_prose",
+    "student_message": "First paragraph: she is excited for her first day at university. Last paragraph: 'I sat on my bed and finally understood why Mama had cried at the motor park.' How does the feeling change?",
+    "correct_understanding": "The feeling shifts from excitement to homesickness and loneliness.",
+    "answer_terms": [
+      "homesick",
+      "homesickness",
+      "loneliness",
+      "lonely"
+    ]
+  },
+  {
+    "id": "bt-lit-124",
+    "subject": "literature",
+    "topic": "unseen_prose",
+    "student_message": "'The sharp scent of pepper being ground, the sizzle of oil, the thick sweetness of ripe agbalumo.' The question says name the types of imagery. Abeg which ones?",
+    "correct_understanding": "The passage uses olfactory (smell), auditory (sound) and gustatory (taste) imagery.",
+    "answer_terms": [
+      "olfactory",
+      "auditory",
+      "gustatory"
+    ]
+  },
+  {
+    "id": "bt-lit-125",
+    "subject": "literature",
+    "topic": "unseen_prose",
+    "student_message": "'The sign said \"Ministry of Works\". Inside, the lift had been broken for four years.' What device is the writer using with these two sentences?",
+    "correct_understanding": "The writer uses irony: a ministry meant to fix things cannot fix its own lift, criticising inefficiency.",
+    "answer_terms": [
+      "irony",
+      "ironic"
+    ]
+  },
+  {
+    "id": "bt-lit-126",
+    "subject": "literature",
+    "topic": "unseen_prose",
+    "student_message": "'She wore her only pair of shoes to the interview, carrying them in a nylon bag until she reached the gate.' What can we infer about her situation?",
+    "correct_understanding": "We can infer that she is poor and protective of her few possessions, yet determined to look presentable.",
+    "answer_terms": [
+      "poor",
+      "poverty"
+    ]
+  },
+  {
+    "id": "bt-lit-127",
+    "subject": "literature",
+    "topic": "unseen_prose",
+    "student_message": "'I was, of course, the cleverest boy in Form Two, as I reminded everyone daily.' What is the narrator's tone about himself? I wrote 'proud' and teacher marked it wrong.",
+    "correct_understanding": "The tone is self-mocking (self-deprecating) humour: the adult narrator laughs at his younger boastful self.",
+    "answer_terms": [
+      "self-mocking",
+      "self-deprecating",
+      "self-deprecation",
+      "humorous"
+    ]
+  },
+  {
+    "id": "bt-lit-128",
+    "subject": "literature",
+    "topic": "theme",
+    "student_message": "In the novel, a girl's parents pull her out of school to marry a rich old man, and she runs away to continue her studies. Which theme is the writer exploring?",
+    "correct_understanding": "The novel explores forced/early marriage and the right of the girl child to education.",
+    "answer_terms": [
+      "forced marriage",
+      "girl-child education",
+      "child marriage",
+      "early marriage"
+    ]
+  },
+  {
+    "id": "bt-lit-129",
+    "subject": "literature",
+    "topic": "theme",
+    "student_message": "An Igbo man and a Hausa woman fall in love but both families refuse, then riots separate them for good. What theme should I write about?",
+    "correct_understanding": "The theme is ethnic prejudice/tribalism destroying love and unity.",
+    "answer_terms": [
+      "tribalism",
+      "ethnic",
+      "prejudice"
+    ]
+  },
+  {
+    "id": "bt-lit-130",
+    "subject": "literature",
+    "topic": "theme",
+    "student_message": "The poem mourns the grandfather's farm being sold to build an estate - the iroko cut down, the shrine bulldozed. What is the main theme?",
+    "correct_understanding": "The theme is the loss of tradition and nature to modernisation/urbanisation.",
+    "answer_terms": [
+      "modernisation",
+      "modernization",
+      "urbanisation",
+      "urbanization"
+    ]
+  },
+  {
+    "id": "bt-lit-131",
+    "subject": "literature",
+    "topic": "theme",
+    "student_message": "In the play the father gives all his inheritance to his sons, but it is his daughter who nurses him when he falls sick. Which theme does that bring out?",
+    "correct_understanding": "It brings out gender discrimination and the undervalued worth of the girl child/daughters.",
+    "answer_terms": [
+      "gender",
+      "discrimination",
+      "girl child"
+    ]
+  },
+  {
+    "id": "bt-lit-132",
+    "subject": "literature",
+    "topic": "theme",
+    "student_message": "The novel is set when soldiers have seized power; journalists disappear and a teacher is jailed for writing a poem. What theme is being developed?",
+    "correct_understanding": "The theme is political oppression and abuse of power under dictatorship.",
+    "answer_terms": [
+      "oppression",
+      "dictatorship",
+      "tyranny",
+      "abuse of power"
+    ]
+  },
+  {
+    "id": "bt-lit-133",
+    "subject": "literature",
+    "topic": "theme",
+    "student_message": "The rich man throws parties while his factory workers go unpaid for months, and at the end the workers burn the factory. Wetin be the theme here?",
+    "correct_understanding": "The theme is exploitation of workers and social injustice, leading to revolt.",
+    "answer_terms": [
+      "exploitation",
+      "social injustice",
+      "class conflict",
+      "oppression of workers"
+    ]
+  },
+  {
+    "id": "bt-lit-134",
+    "subject": "literature",
+    "topic": "theme",
+    "student_message": "Two friends: one becomes a 419 fraudster and lives large, the other stays a poor, honest mechanic. At the end the fraudster is jailed. What lesson or theme is this?",
+    "correct_understanding": "The theme is that crime does not pay; honesty is better than the get-rich-quick mentality.",
+    "answer_terms": [
+      "get-rich-quick",
+      "quick wealth",
+      "crime does not pay",
+      "honesty"
+    ]
+  },
+  {
+    "id": "bt-lit-135",
+    "subject": "literature",
+    "topic": "theme",
+    "student_message": "The main character spends all her savings on herbalists and prophets trying to get a child, while her husband's family mocks her. What is the central theme?",
+    "correct_understanding": "The theme is childlessness/infertility and the social pressure placed on women.",
+    "answer_terms": [
+      "childlessness",
+      "barrenness",
+      "infertility"
+    ]
+  },
+  {
+    "id": "bt-lit-136",
+    "subject": "literature",
+    "topic": "theme",
+    "student_message": "The poem is about a mother who sells kola at the motor park every day so her son can finish university; he graduates but she dies before the ceremony. Theme?",
+    "correct_understanding": "The theme is parental (maternal) sacrifice.",
+    "answer_terms": [
+      "sacrifice",
+      "sacrificial"
+    ]
+  },
+  {
+    "id": "bt-lit-137",
+    "subject": "literature",
+    "topic": "theme",
+    "student_message": "In the play the villagers keep drinking from the dirty stream even though the clinic warns them, and many children die of cholera. What theme is the playwright raising?",
+    "correct_understanding": "The theme is ignorance and superstition and their deadly consequences.",
+    "answer_terms": [
+      "ignorance",
+      "superstition"
+    ]
+  },
+  {
+    "id": "bt-lit-138",
+    "subject": "literature",
+    "topic": "theme",
+    "student_message": "The orphan boy is mistreated by his aunt for years, but a teacher believes in him and he becomes a doctor. What's the theme? Don't just say 'education'.",
+    "correct_understanding": "The theme is resilience and perseverance in the face of hardship.",
+    "answer_terms": [
+      "resilience",
+      "perseverance",
+      "determination"
+    ]
+  },
+  {
+    "id": "bt-lit-139",
+    "subject": "literature",
+    "topic": "theme",
+    "student_message": "The poem talks about dead fish, black creeks and fishermen with no work, while the company's helicopters fly overhead. What theme is the poet dealing with?",
+    "correct_understanding": "The theme is environmental degradation (oil pollution) and exploitation of the oil-producing communities.",
+    "answer_terms": [
+      "environmental degradation",
+      "pollution",
+      "environmental"
+    ]
+  },
+  {
+    "id": "bt-lit-140",
+    "subject": "literature",
+    "topic": "theme",
+    "student_message": "A woman leaves her abusive husband, starts a small business, and becomes the richest trader in town. What theme does her story show?",
+    "correct_understanding": "Her story shows female empowerment and independence.",
+    "answer_terms": [
+      "empowerment",
+      "independence",
+      "feminism",
+      "feminist"
+    ]
+  },
+  {
+    "id": "bt-lit-141",
+    "subject": "literature",
+    "topic": "theme",
+    "student_message": "The novel is about the civil war, and at the end the narrator says 'We had all lost, even the winners.' What is the writer saying about war?",
+    "correct_understanding": "The writer presents the futility of war: nobody truly wins.",
+    "answer_terms": [
+      "futility"
+    ]
+  },
+  {
+    "id": "bt-lit-142",
+    "subject": "literature",
+    "topic": "theme",
+    "student_message": "All through the play, the king's most trusted friend secretly plots with the enemy and finally opens the city gates for them. What theme is that?",
+    "correct_understanding": "The theme is betrayal (treachery) by those closest to us.",
+    "answer_terms": [
+      "betrayal",
+      "betray",
+      "treachery"
+    ]
+  },
+  {
+    "id": "bt-lit-143",
+    "subject": "literature",
+    "topic": "characterisation",
+    "student_message": "The author tells us straight out: 'Chief Adio was a greedy and cruel man.' Which method of characterisation is that?",
+    "correct_understanding": "It is direct (explicit) characterisation, where the narrator states the trait.",
+    "answer_terms": [
+      "direct characterisation",
+      "direct characterization",
+      "direct method",
+      "explicit"
+    ]
+  },
+  {
+    "id": "bt-lit-144",
+    "subject": "literature",
+    "topic": "characterisation",
+    "student_message": "What is the term for the main character the story centres on - like Amaka, whose journey we follow from start to finish?",
+    "correct_understanding": "She is the protagonist.",
+    "answer_terms": [
+      "protagonist"
+    ]
+  },
+  {
+    "id": "bt-lit-145",
+    "subject": "literature",
+    "topic": "characterisation",
+    "student_message": "The uncle tries in every chapter to stop Amaka from going to university. What is his role in the novel called?",
+    "correct_understanding": "He is the antagonist, the character who opposes the protagonist.",
+    "answer_terms": [
+      "antagonist"
+    ]
+  },
+  {
+    "id": "bt-lit-146",
+    "subject": "literature",
+    "topic": "characterisation",
+    "student_message": "The general is noble and respected, but his pride leads to his downfall and death, and we pity him at the end. What type of character is he?",
+    "correct_understanding": "He is a tragic hero.",
+    "answer_terms": [
+      "tragic hero"
+    ]
+  },
+  {
+    "id": "bt-lit-147",
+    "subject": "literature",
+    "topic": "characterisation",
+    "student_message": "The main character is lazy, he lies, he steals from his boss, yet we still follow him and kind of root for him. What do you call this type of protagonist?",
+    "correct_understanding": "He is an anti-hero, a protagonist lacking conventional heroic qualities.",
+    "answer_terms": [
+      "anti-hero",
+      "antihero"
+    ]
+  },
+  {
+    "id": "bt-lit-148",
+    "subject": "literature",
+    "topic": "characterisation",
+    "student_message": "The queen tells all her secret fears only to her old maid, and through their talks we learn what the queen really thinks. What is the maid's function called?",
+    "correct_understanding": "The maid is the queen's confidante, a trusted character through whom another's thoughts are revealed.",
+    "answer_terms": [
+      "confidant",
+      "confidante"
+    ]
+  },
+  {
+    "id": "bt-lit-149",
+    "subject": "literature",
+    "topic": "characterisation",
+    "student_message": "The greedy landlord is called 'Mr Chop-All' and the gossip is 'Mama Amebo'. Is there a technical term for names that reveal a character's nature?",
+    "correct_understanding": "These are charactonyms (telling or aptronymic names).",
+    "answer_terms": [
+      "charactonym",
+      "telling name",
+      "aptronym"
+    ]
+  },
+  {
+    "id": "bt-lit-150",
+    "subject": "literature",
+    "topic": "characterisation",
+    "student_message": "We learn about the headmaster mostly from what teachers and students whisper about him before he ever appears in the novel. What method of characterisation is that?",
+    "correct_understanding": "It is indirect characterisation through other characters' comments and opinions.",
+    "answer_terms": [
+      "indirect",
+      "what others say",
+      "others' comments"
+    ]
+  },
+  {
+    "id": "bt-lit-151",
+    "subject": "literature",
+    "topic": "characterisation",
+    "student_message": "The wise old man who guides the young hero appears in so many stories - the hermit, the babalawo, the old teacher. What do we call such universal character types?",
+    "correct_understanding": "They are archetypes; this one is the mentor archetype.",
+    "answer_terms": [
+      "archetype",
+      "archetypal",
+      "mentor"
+    ]
+  },
+  {
+    "id": "bt-lit-152",
+    "subject": "literature",
+    "topic": "characterisation",
+    "student_message": "The stranger arrives in the village in chapter 1 and causes everything - the quarrels, the marriage, the fire - but he himself never changes and leaves at the end. What kind of character is he?",
+    "correct_understanding": "He is a catalyst character: he triggers change in others without changing himself.",
+    "answer_terms": [
+      "catalyst"
+    ]
+  },
+  {
+    "id": "bt-lit-153",
+    "subject": "literature",
+    "topic": "characterisation",
+    "student_message": "When the bus breaks down, Ifeoma climbs out, borrows a spanner and fixes it while the men are still arguing. What trait does this show?",
+    "correct_understanding": "It shows she is resourceful, practical and capable.",
+    "answer_terms": [
+      "resourceful",
+      "resourcefulness",
+      "practical",
+      "capable"
+    ]
+  },
+  {
+    "id": "bt-lit-154",
+    "subject": "literature",
+    "topic": "characterisation",
+    "student_message": "Every time Baba Lamidi loses money he says it is his wife, the government or witches, never himself. How do I describe his character in one or two words?",
+    "correct_understanding": "He refuses to take responsibility for his failures; he is irresponsible and self-deceiving.",
+    "answer_terms": [
+      "responsibility",
+      "irresponsible",
+      "accountability",
+      "self-deceiving"
+    ]
+  },
+  {
+    "id": "bt-lit-155",
+    "subject": "literature",
+    "topic": "characterisation",
+    "student_message": "The pastor preaches against alcohol every Sunday but on Monday he is at the beer parlour. What one word describes his character?",
+    "correct_understanding": "He is a hypocrite.",
+    "answer_terms": [
+      "hypocrite",
+      "hypocritical",
+      "hypocrisy"
+    ]
+  },
+  {
+    "id": "bt-lit-156",
+    "subject": "literature",
+    "topic": "characterisation",
+    "student_message": "The wife keeps pushing her husband to poison the old chief so he can become the next Oba, and she mocks him when he hesitates. What is her dominant trait?",
+    "correct_understanding": "Her dominant trait is ruthless ambition.",
+    "answer_terms": [
+      "ambition",
+      "ambitious"
+    ]
+  },
+  {
+    "id": "bt-lit-157",
+    "subject": "literature",
+    "topic": "characterisation",
+    "student_message": "At the end, the proud father hugs the daughter he disowned and says 'I was the blind one.' What is this sudden moment of realisation called?",
+    "correct_understanding": "It is an epiphany (anagnorisis), a sudden moment of insight or recognition.",
+    "answer_terms": [
+      "epiphany",
+      "anagnorisis",
+      "recognition"
+    ]
+  },
+  {
+    "id": "bt-lit-158",
+    "subject": "literature",
+    "topic": "characterisation",
+    "student_message": "The stingy trader in chapter 1 ends the novel building a free school for the village. My teacher says he is a ___ character. Fill the blank for me.",
+    "correct_understanding": "He is a dynamic (developing) character, one who changes significantly.",
+    "answer_terms": [
+      "dynamic",
+      "developing"
+    ]
+  },
+  {
+    "id": "bt-lit-159",
+    "subject": "literature",
+    "topic": "setting_and_context",
+    "student_message": "The novel mentions Biafra, ration queues, kwashiorkor and refugees in Owerri. What historical period is the setting?",
+    "correct_understanding": "It is set during the Nigerian Civil War (1967-1970).",
+    "answer_terms": [
+      "civil war",
+      "1967"
+    ]
+  },
+  {
+    "id": "bt-lit-160",
+    "subject": "literature",
+    "topic": "setting_and_context",
+    "student_message": "The story has a District Officer, a mission school, and men forced to pay hut tax. When is it set, and why does it matter?",
+    "correct_understanding": "It is set in the colonial era, and the setting shapes the conflict between colonial authority and the people.",
+    "answer_terms": [
+      "colonial",
+      "colonialism"
+    ]
+  },
+  {
+    "id": "bt-lit-161",
+    "subject": "literature",
+    "topic": "setting_and_context",
+    "student_message": "Characters in the novel queue for 'essential commodities' and keep complaining about SAP and the naira losing value. What is the context?",
+    "correct_understanding": "The context is the economic hardship of the 1980s Structural Adjustment Programme era.",
+    "answer_terms": [
+      "structural adjustment",
+      "economic hardship",
+      "1980s"
+    ]
+  },
+  {
+    "id": "bt-lit-162",
+    "subject": "literature",
+    "topic": "setting_and_context",
+    "student_message": "All the young characters are trying to 'japa' and the story is full of visa interviews at the embassy. What social context is the novel reflecting?",
+    "correct_understanding": "It reflects mass emigration (brain drain) of young Nigerians seeking opportunities abroad.",
+    "answer_terms": [
+      "emigration",
+      "migration",
+      "brain drain"
+    ]
+  },
+  {
+    "id": "bt-lit-163",
+    "subject": "literature",
+    "topic": "setting_and_context",
+    "student_message": "The family house in the novel is crumbling - leaking roof, cracked walls - at the same time the family is falling apart. What is the setting doing there?",
+    "correct_understanding": "The setting mirrors (symbolises) the family's decline.",
+    "answer_terms": [
+      "mirror",
+      "reflects",
+      "symbol"
+    ]
+  },
+  {
+    "id": "bt-lit-164",
+    "subject": "literature",
+    "topic": "setting_and_context",
+    "student_message": "The story is set in a boarding school where seniors punish juniors brutally and nobody reports anything. What social issue does the setting expose?",
+    "correct_understanding": "The setting exposes bullying and the abuse of power in institutions.",
+    "answer_terms": [
+      "bullying",
+      "abuse of power"
+    ]
+  },
+  {
+    "id": "bt-lit-165",
+    "subject": "literature",
+    "topic": "setting_and_context",
+    "student_message": "Most of the novel happens inside a prison in Lagos. Why might the writer choose such a setting? Wetin e mean?",
+    "correct_understanding": "The prison setting emphasises confinement and loss of freedom, and the injustice of the system.",
+    "answer_terms": [
+      "confinement",
+      "imprisonment",
+      "loss of freedom",
+      "trapped"
+    ]
+  },
+  {
+    "id": "bt-lit-166",
+    "subject": "literature",
+    "topic": "setting_and_context",
+    "student_message": "The poem mentions creeks, gas flares, canoes and oil-slick water. Which region is the setting?",
+    "correct_understanding": "The setting is the Niger Delta.",
+    "answer_terms": [
+      "niger delta",
+      "delta"
+    ]
+  },
+  {
+    "id": "bt-lit-167",
+    "subject": "literature",
+    "topic": "setting_and_context",
+    "student_message": "The novel describes harmattan dust, the emir's palace and the Durbar on horseback. Which part of the country is it set in?",
+    "correct_understanding": "It is set in Northern Nigeria.",
+    "answer_terms": [
+      "northern nigeria",
+      "northern",
+      "hausa-fulani"
+    ]
+  },
+  {
+    "id": "bt-lit-168",
+    "subject": "literature",
+    "topic": "setting_and_context",
+    "student_message": "The poem keeps mentioning June 12 and 'the votes they stole from us'. What historical context is behind it?",
+    "correct_understanding": "The context is the annulment of the 1993 presidential election.",
+    "answer_terms": [
+      "1993",
+      "annulment",
+      "annulled"
+    ]
+  },
+  {
+    "id": "bt-lit-169",
+    "subject": "literature",
+    "topic": "setting_and_context",
+    "student_message": "The novel has no white men at all; characters wrestle, consult oracles and trade with cowries. When is it set?",
+    "correct_understanding": "It is set in pre-colonial times.",
+    "answer_terms": [
+      "pre-colonial",
+      "precolonial",
+      "before colonial"
+    ]
+  },
+  {
+    "id": "bt-lit-170",
+    "subject": "literature",
+    "topic": "setting_and_context",
+    "student_message": "The poem talks about passbooks, 'whites only' benches and the Soweto township. What is the context of the poem?",
+    "correct_understanding": "The context is apartheid South Africa.",
+    "answer_terms": [
+      "apartheid"
+    ]
+  },
+  {
+    "id": "bt-lit-171",
+    "subject": "literature",
+    "topic": "setting_and_context",
+    "student_message": "The poem speaks of chains at Badagry, big ships and people exchanged for mirrors and gin. What is the historical background?",
+    "correct_understanding": "The background is the transatlantic slave trade.",
+    "answer_terms": [
+      "slave trade",
+      "slavery",
+      "enslaved"
+    ]
+  },
+  {
+    "id": "bt-lit-172",
+    "subject": "literature",
+    "topic": "setting_and_context",
+    "student_message": "The novel opens with flag-raising celebrations in 1960, then ten years later the same characters are complaining bitterly about corrupt politicians. What context or mood is the writer capturing?",
+    "correct_understanding": "The writer captures post-independence disillusionment.",
+    "answer_terms": [
+      "disillusionment",
+      "disillusioned"
+    ]
+  },
+  {
+    "id": "bt-lit-173",
+    "subject": "literature",
+    "topic": "setting_and_context",
+    "student_message": "Why does the writer set the robbery scene during a total blackout when NEPA takes light? It's annoying, I can't picture anything.",
+    "correct_understanding": "The blackout creates suspense and tension and allows concealment, matching the danger of the scene.",
+    "answer_terms": [
+      "suspense",
+      "concealment",
+      "tension"
+    ]
+  },
+  {
+    "id": "bt-lit-174",
+    "subject": "literature",
+    "topic": "setting_and_context",
+    "student_message": "The story is set when everyone is locked indoors, wearing masks, markets shut and the hospital full. What is the context of this story?",
+    "correct_understanding": "The context is the COVID-19 pandemic and lockdown.",
+    "answer_terms": [
+      "covid",
+      "pandemic",
+      "coronavirus"
+    ]
+  }
+]

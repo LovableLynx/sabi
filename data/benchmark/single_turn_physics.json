@@ -1,0 +1,2062 @@
+[
+  {
+    "id": "bt-phy-001",
+    "subject": "physics",
+    "topic": "kinematics",
+    "student_message": "A bus starts from rest at the motor park and accelerates uniformly at 1.5 m/s^2 for 8 s. How far does it travel in that time?",
+    "correct_understanding": "s = 48 m",
+    "answer_terms": [
+      "48 m",
+      "48m",
+      "= 48"
+    ]
+  },
+  {
+    "id": "bt-phy-002",
+    "subject": "physics",
+    "topic": "kinematics",
+    "student_message": "Abeg, a stone is thrown straight up at 25 m/s. How high e go reach before e start to come down? Take g = 10 m/s^2.",
+    "correct_understanding": "maximum height h = 31.25 m",
+    "answer_terms": [
+      "31.25",
+      "31.3 m",
+      "31.2 m"
+    ]
+  },
+  {
+    "id": "bt-phy-003",
+    "subject": "physics",
+    "topic": "kinematics",
+    "student_message": "A car moving at 30 m/s brakes uniformly and comes to rest after covering 75 m. Calculate the deceleration of the car.",
+    "correct_understanding": "a = -6 m/s^2 (deceleration of 6 m/s^2)",
+    "answer_terms": [
+      "6 m/s",
+      "6m/s",
+      "-6 m",
+      "= -6"
+    ]
+  },
+  {
+    "id": "bt-phy-004",
+    "subject": "physics",
+    "topic": "kinematics",
+    "student_message": "A ball rolls off the edge of a table 1.8 m high with a horizontal speed of 3.5 m/s. How far from the foot of the table does it land? (g = 10 m/s^2)",
+    "correct_understanding": "horizontal distance x = 2.1 m",
+    "answer_terms": [
+      "2.1 m",
+      "2.1m",
+      "= 2.1"
+    ]
+  },
+  {
+    "id": "bt-phy-005",
+    "subject": "physics",
+    "topic": "kinematics",
+    "student_message": "Our train's speed went from 72 km/h to 108 km/h in 25 s. Find the acceleration in m/s^2. I no sabi how to handle the km/h part at all.",
+    "correct_understanding": "a = 0.4 m/s^2",
+    "answer_terms": [
+      "0.4 m/s",
+      "0.4m/s",
+      "= 0.4"
+    ]
+  },
+  {
+    "id": "bt-phy-006",
+    "subject": "physics",
+    "topic": "kinematics",
+    "student_message": "A sprinter at inter-house sports covers 200 m in 25 s. What is her average speed?",
+    "correct_understanding": "average speed = 8 m/s",
+    "answer_terms": [
+      "8 m/s",
+      "8m/s",
+      "8.0 m/s"
+    ]
+  },
+  {
+    "id": "bt-phy-007",
+    "subject": "physics",
+    "topic": "kinematics",
+    "student_message": "A stone is released from rest from a bridge and takes 2.4 s to reach the river below. How fast is it moving just before it hits the water? Use g = 10 m/s^2.",
+    "correct_understanding": "v = 24 m/s",
+    "answer_terms": [
+      "24 m/s",
+      "24m/s",
+      "= 24"
+    ]
+  },
+  {
+    "id": "bt-phy-008",
+    "subject": "physics",
+    "topic": "kinematics",
+    "student_message": "A footballer kicks a ball at 26 m/s at 30° above the horizontal on a flat field. What is the time of flight? (g = 10 m/s^2)",
+    "correct_understanding": "time of flight T = 2.6 s",
+    "answer_terms": [
+      "2.6 s",
+      "2.6s",
+      "= 2.6"
+    ]
+  },
+  {
+    "id": "bt-phy-009",
+    "subject": "physics",
+    "topic": "kinematics",
+    "student_message": "This projectile question don tire me. A ball is projected at 40 m/s at 45° to the horizontal. Find the horizontal range. g = 10 m/s^2.",
+    "correct_understanding": "range R = 160 m",
+    "answer_terms": [
+      "160 m",
+      "160m",
+      "= 160"
+    ]
+  },
+  {
+    "id": "bt-phy-010",
+    "subject": "physics",
+    "topic": "kinematics",
+    "student_message": "An okada moving at 10 m/s accelerates uniformly at 3 m/s^2. What is its velocity after it has covered 50 m?",
+    "correct_understanding": "v = 20 m/s",
+    "answer_terms": [
+      "20 m/s",
+      "20m/s",
+      "= 20"
+    ]
+  },
+  {
+    "id": "bt-phy-011",
+    "subject": "physics",
+    "topic": "kinematics",
+    "student_message": "A car accelerates from rest to 15 m/s in 6 s, keeps that speed for 10 s, then slows uniformly to rest in 4 s. What total distance did it cover? Please show me how to think about it.",
+    "correct_understanding": "total distance = 225 m",
+    "answer_terms": [
+      "225 m",
+      "225m",
+      "= 225"
+    ]
+  },
+  {
+    "id": "bt-phy-012",
+    "subject": "physics",
+    "topic": "kinematics",
+    "student_message": "If I throw a ball straight up, what is its acceleration at the very top of its path? My friend insists it is zero because the ball stops for a moment.",
+    "correct_understanding": "The acceleration is still g = 10 m/s^2 (about 9.8 m/s^2) directed downward; only the velocity is momentarily zero.",
+    "answer_terms": [
+      "10 m/s^2",
+      "9.8 m/s^2",
+      "still g"
+    ]
+  },
+  {
+    "id": "bt-phy-013",
+    "subject": "physics",
+    "topic": "kinematics",
+    "student_message": "On a displacement-time graph, what does the slope (gradient) tell me? My teacher drew one on the board and I just copied it without understanding.",
+    "correct_understanding": "The gradient of a displacement-time graph gives the velocity.",
+    "answer_terms": [
+      "velocity"
+    ]
+  },
+  {
+    "id": "bt-phy-014",
+    "subject": "physics",
+    "topic": "kinematics",
+    "student_message": "If you drop a heavy stone and a light stone from the same height at the same moment, ignoring air resistance, which one go land first?",
+    "correct_understanding": "Both land at the same time, because both fall with the same acceleration g.",
+    "answer_terms": [
+      "same time",
+      "same instant",
+      "simultaneously"
+    ]
+  },
+  {
+    "id": "bt-phy-015",
+    "subject": "physics",
+    "topic": "kinematics",
+    "student_message": "What does the area under an acceleration-time graph represent? Is it distance?",
+    "correct_understanding": "The area under an acceleration-time graph gives the change in velocity, not distance.",
+    "answer_terms": [
+      "change in velocity"
+    ]
+  },
+  {
+    "id": "bt-phy-016",
+    "subject": "physics",
+    "topic": "mechanics",
+    "student_message": "A 1200 kg car accelerates uniformly from 5 m/s to 25 m/s in 8 s. What is the net force acting on it?",
+    "correct_understanding": "F = 3000 N",
+    "answer_terms": [
+      "3000 N",
+      "3000N",
+      "3 000 N",
+      "3 kN"
+    ]
+  },
+  {
+    "id": "bt-phy-017",
+    "subject": "physics",
+    "topic": "mechanics",
+    "student_message": "How much work is done against gravity when a 45 kg bag of rice is lifted vertically through 4 m? Take g = 10 m/s^2.",
+    "correct_understanding": "W = 1800 J",
+    "answer_terms": [
+      "1800 J",
+      "1800J",
+      "1 800 J",
+      "1.8 kJ"
+    ]
+  },
+  {
+    "id": "bt-phy-018",
+    "subject": "physics",
+    "topic": "mechanics",
+    "student_message": "A boy of mass 40 kg runs up a staircase of vertical height 6 m in 12 s. What power does he develop? g = 10 m/s^2",
+    "correct_understanding": "P = 200 W",
+    "answer_terms": [
+      "200 W",
+      "200W",
+      "= 200"
+    ]
+  },
+  {
+    "id": "bt-phy-019",
+    "subject": "physics",
+    "topic": "mechanics",
+    "student_message": "A bullet of mass 20 g leaves a gun of mass 4 kg at 300 m/s. Find the recoil velocity of the gun. I've been on this one for an hour.",
+    "correct_understanding": "recoil velocity = 1.5 m/s (backwards)",
+    "answer_terms": [
+      "1.5 m/s",
+      "1.5m/s",
+      "-1.5"
+    ]
+  },
+  {
+    "id": "bt-phy-020",
+    "subject": "physics",
+    "topic": "mechanics",
+    "student_message": "What is the pressure due to water alone at a depth of 12 m in a lagoon? Density of water is 1000 kg/m^3 and g = 10 m/s^2.",
+    "correct_understanding": "P = 120000 Pa",
+    "answer_terms": [
+      "120000",
+      "120 000",
+      "1.2*10^5",
+      "120 kPa"
+    ]
+  },
+  {
+    "id": "bt-phy-021",
+    "subject": "physics",
+    "topic": "mechanics",
+    "student_message": "An 8 kg box rests on a rough horizontal floor. The coefficient of static friction is 0.3. What horizontal force go just make am start to move? g = 10 m/s^2",
+    "correct_understanding": "limiting friction F = 24 N",
+    "answer_terms": [
+      "24 N",
+      "24N",
+      "= 24"
+    ]
+  },
+  {
+    "id": "bt-phy-022",
+    "subject": "physics",
+    "topic": "mechanics",
+    "student_message": "A rope pulls a box 5 m along the ground with a force of 60 N, and the rope makes 60° with the horizontal. How much work is done by the pull?",
+    "correct_understanding": "W = 150 J",
+    "answer_terms": [
+      "150 J",
+      "150J",
+      "= 150"
+    ]
+  },
+  {
+    "id": "bt-phy-023",
+    "subject": "physics",
+    "topic": "mechanics",
+    "student_message": "A 0.4 kg football moving at 15 m/s hits a wall and bounces straight back at 20 m/s. What is the magnitude of the change in momentum?",
+    "correct_understanding": "Δp = 14 kg m/s",
+    "answer_terms": [
+      "14 kg",
+      "14 N s",
+      "14 Ns",
+      "= 14"
+    ]
+  },
+  {
+    "id": "bt-phy-024",
+    "subject": "physics",
+    "topic": "mechanics",
+    "student_message": "A piece of metal weighs 30 N in air and 26 N when completely immersed in water. Find the relative density of the metal.",
+    "correct_understanding": "relative density = 7.5",
+    "answer_terms": [
+      "7.5"
+    ]
+  },
+  {
+    "id": "bt-phy-025",
+    "subject": "physics",
+    "topic": "mechanics",
+    "student_message": "A uniform metre rule is balanced at its 50 cm mark. A 3 N weight hangs at the 20 cm mark. Where on the rule must a 2 N weight hang to restore balance?",
+    "correct_understanding": "position = 95 cm mark (45 cm from the pivot)",
+    "answer_terms": [
+      "95 cm",
+      "95cm",
+      "45 cm"
+    ]
+  },
+  {
+    "id": "bt-phy-026",
+    "subject": "physics",
+    "topic": "mechanics",
+    "student_message": "A spring of force constant 200 N/m is stretched by 0.15 m. How much elastic potential energy is stored in it?",
+    "correct_understanding": "E = 2.25 J",
+    "answer_terms": [
+      "2.25 J",
+      "2.25J",
+      "= 2.25"
+    ]
+  },
+  {
+    "id": "bt-phy-027",
+    "subject": "physics",
+    "topic": "mechanics",
+    "student_message": "Calculate the kinetic energy of a 3000 kg lorry travelling at 12 m/s.",
+    "correct_understanding": "KE = 216000 J",
+    "answer_terms": [
+      "216000",
+      "216 000",
+      "2.16*10^5",
+      "216 kJ"
+    ]
+  },
+  {
+    "id": "bt-phy-028",
+    "subject": "physics",
+    "topic": "mechanics",
+    "student_message": "Why do passengers in a danfo jerk forward when the driver brakes suddenly? Nobody pushed them now.",
+    "correct_understanding": "Inertia (Newton's first law): the passengers' bodies tend to keep moving forward when the bus stops.",
+    "answer_terms": [
+      "inertia",
+      "first law"
+    ]
+  },
+  {
+    "id": "bt-phy-029",
+    "subject": "physics",
+    "topic": "mechanics",
+    "student_message": "Why does a dane gun jerk backwards on the hunter's shoulder when he fires it? Which principle is behind that one?",
+    "correct_understanding": "Conservation of linear momentum: the forward momentum of the shot equals the backward momentum of the gun.",
+    "answer_terms": [
+      "conservation of momentum",
+      "conservation of linear momentum",
+      "momentum is conserved"
+    ]
+  },
+  {
+    "id": "bt-phy-030",
+    "subject": "physics",
+    "topic": "mechanics",
+    "student_message": "When a raindrop falls through air, at some point it stops speeding up and falls at a steady speed. What do we call that steady speed?",
+    "correct_understanding": "Terminal velocity (air resistance equals weight, so net force is zero).",
+    "answer_terms": [
+      "terminal velocity",
+      "terminal speed"
+    ]
+  },
+  {
+    "id": "bt-phy-031",
+    "subject": "physics",
+    "topic": "simple_machines",
+    "student_message": "An inclined plane of length 8 m is used to raise loads through a height of 2.5 m. What is its velocity ratio?",
+    "correct_understanding": "VR = 3.2",
+    "answer_terms": [
+      "3.2"
+    ]
+  },
+  {
+    "id": "bt-phy-032",
+    "subject": "physics",
+    "topic": "simple_machines",
+    "student_message": "A machine of velocity ratio 6 requires an effort of 150 N to lift a load of 720 N. What is its efficiency?",
+    "correct_understanding": "efficiency = 80 %",
+    "answer_terms": [
+      "80%",
+      "80 %",
+      "80 percent"
+    ]
+  },
+  {
+    "id": "bt-phy-033",
+    "subject": "physics",
+    "topic": "simple_machines",
+    "student_message": "Na wa o. A screw jack has a pitch of 0.4 cm and its handle is 28 cm long. What is the velocity ratio? Take π = 22/7.",
+    "correct_understanding": "VR = 440",
+    "answer_terms": [
+      "440"
+    ]
+  },
+  {
+    "id": "bt-phy-034",
+    "subject": "physics",
+    "topic": "simple_machines",
+    "student_message": "A wheel and axle has a wheel of diameter 60 cm and an axle of diameter 12 cm. An effort of 40 N lifts a load of 170 N. Find the efficiency.",
+    "correct_understanding": "efficiency = 85 %",
+    "answer_terms": [
+      "85%",
+      "85 %",
+      "85 percent"
+    ]
+  },
+  {
+    "id": "bt-phy-035",
+    "subject": "physics",
+    "topic": "simple_machines",
+    "student_message": "A block and tackle has 3 pulleys in the upper block and 2 in the lower block. It lifts a 900 N load with an effort of 250 N. What is its efficiency?",
+    "correct_understanding": "efficiency = 72 %",
+    "answer_terms": [
+      "72%",
+      "72 %",
+      "72 percent"
+    ]
+  },
+  {
+    "id": "bt-phy-036",
+    "subject": "physics",
+    "topic": "simple_machines",
+    "student_message": "A driving gear with 20 teeth turns at 90 revolutions per minute and meshes with a driven gear of 60 teeth. How fast does the driven gear turn?",
+    "correct_understanding": "speed of driven gear = 30 rpm",
+    "answer_terms": [
+      "30 rpm",
+      "30 rev",
+      "30 revolutions"
+    ]
+  },
+  {
+    "id": "bt-phy-037",
+    "subject": "physics",
+    "topic": "simple_machines",
+    "student_message": "When I use a bottle opener, the cap is 1.5 cm from the pivot and my hand is 12 cm from the pivot. If the cap needs 56 N to come off, what effort must I apply?",
+    "correct_understanding": "effort = 7 N",
+    "answer_terms": [
+      "7 N",
+      "7N",
+      "7.0 N"
+    ]
+  },
+  {
+    "id": "bt-phy-038",
+    "subject": "physics",
+    "topic": "simple_machines",
+    "student_message": "A machine is 75% efficient. If 2400 J of work is put into it, how much useful work does it give out?",
+    "correct_understanding": "useful work output = 1800 J",
+    "answer_terms": [
+      "1800 J",
+      "1800J",
+      "1 800 J",
+      "1.8 kJ"
+    ]
+  },
+  {
+    "id": "bt-phy-039",
+    "subject": "physics",
+    "topic": "simple_machines",
+    "student_message": "A pulley system has a velocity ratio of 4 and an efficiency of 60%. What effort is needed to raise a load of 480 N? Abeg I need this before prep ends.",
+    "correct_understanding": "effort = 200 N",
+    "answer_terms": [
+      "200 N",
+      "200N",
+      "= 200"
+    ]
+  },
+  {
+    "id": "bt-phy-040",
+    "subject": "physics",
+    "topic": "simple_machines",
+    "student_message": "A load of 400 N is lifted through 0.5 m while the effort of 100 N moves through 2.5 m. How much work is wasted in the machine?",
+    "correct_understanding": "work wasted = 50 J",
+    "answer_terms": [
+      "50 J",
+      "50J",
+      "= 50"
+    ]
+  },
+  {
+    "id": "bt-phy-041",
+    "subject": "physics",
+    "topic": "simple_machines",
+    "student_message": "A hydraulic press has a small piston of area 0.002 m^2 and a large piston of area 0.5 m^2. If 40 N is applied on the small piston, what force acts on the large one?",
+    "correct_understanding": "F = 10000 N",
+    "answer_terms": [
+      "10000",
+      "10 000",
+      "10^4",
+      "10 kN"
+    ]
+  },
+  {
+    "id": "bt-phy-042",
+    "subject": "physics",
+    "topic": "simple_machines",
+    "student_message": "Mama uses a pair of tongs to pick meat from the pot. Which class of lever is that?",
+    "correct_understanding": "Third-class lever (effort between the fulcrum at the hinge and the load at the tips).",
+    "answer_terms": [
+      "third class",
+      "third-class",
+      "class 3"
+    ]
+  },
+  {
+    "id": "bt-phy-043",
+    "subject": "physics",
+    "topic": "simple_machines",
+    "student_message": "In a pair of scissors used to cut cloth, where is the fulcrum, and which class of lever is it?",
+    "correct_understanding": "The fulcrum is the pivot screw/rivet joining the blades; scissors are a first-class lever.",
+    "answer_terms": [
+      "first class",
+      "first-class",
+      "the screw",
+      "the rivet"
+    ]
+  },
+  {
+    "id": "bt-phy-044",
+    "subject": "physics",
+    "topic": "simple_machines",
+    "student_message": "What happens to the efficiency of a machine if you oil its moving parts? My brother says nothing changes.",
+    "correct_understanding": "The efficiency increases, because lubrication reduces friction so less work is wasted.",
+    "answer_terms": [
+      "efficiency increases",
+      "efficiency goes up",
+      "reduces friction",
+      "less friction"
+    ]
+  },
+  {
+    "id": "bt-phy-045",
+    "subject": "physics",
+    "topic": "current_electricity",
+    "student_message": "A 5 Ω resistor and a 20 Ω resistor are in parallel, and the pair is connected in series with a 3.5 Ω resistor. What is the total resistance?",
+    "correct_understanding": "R_total = 7.5 Ω",
+    "answer_terms": [
+      "7.5 Ω",
+      "7.5Ω",
+      "7.5 ohm"
+    ]
+  },
+  {
+    "id": "bt-phy-046",
+    "subject": "physics",
+    "topic": "current_electricity",
+    "student_message": "A cell of e.m.f. 3 V and internal resistance 0.5 Ω is connected to a 2 Ω resistor. What are the 'lost volts' inside the cell?",
+    "correct_understanding": "lost volts = 0.6 V",
+    "answer_terms": [
+      "0.6 V",
+      "0.6V",
+      "0.60 V"
+    ]
+  },
+  {
+    "id": "bt-phy-047",
+    "subject": "physics",
+    "topic": "current_electricity",
+    "student_message": "My dad's 2.5 kW air conditioner runs 8 hours a day for 30 days. If electricity costs ₦225 per kWh, how much is the bill for the AC alone?",
+    "correct_understanding": "cost of 600 kWh = ₦135,000",
+    "answer_terms": [
+      "135000",
+      "135,000",
+      "135 000"
+    ]
+  },
+  {
+    "id": "bt-phy-048",
+    "subject": "physics",
+    "topic": "current_electricity",
+    "student_message": "A steady current of 0.25 A flows through a torchlight bulb for 4 minutes. How much charge passes through it?",
+    "correct_understanding": "Q = 60 C",
+    "answer_terms": [
+      "60 C",
+      "60C",
+      "= 60"
+    ]
+  },
+  {
+    "id": "bt-phy-049",
+    "subject": "physics",
+    "topic": "current_electricity",
+    "student_message": "A nichrome wire is 2 m long with cross-sectional area 0.5 mm^2. The resistivity of nichrome is 1.1*10^-6 Ω m. Find its resistance.",
+    "correct_understanding": "R = 4.4 Ω",
+    "answer_terms": [
+      "4.4 Ω",
+      "4.4Ω",
+      "4.4 ohm"
+    ]
+  },
+  {
+    "id": "bt-phy-050",
+    "subject": "physics",
+    "topic": "current_electricity",
+    "student_message": "A 2 kW water heater works on a 240 V supply. What current does it draw?",
+    "correct_understanding": "I = 8.33 A",
+    "answer_terms": [
+      "8.33",
+      "8.3 A",
+      "8.3A"
+    ]
+  },
+  {
+    "id": "bt-phy-051",
+    "subject": "physics",
+    "topic": "current_electricity",
+    "student_message": "A 6 Ω and a 9 Ω resistor are connected in series across a 30 V supply. What is the potential difference across the 9 Ω resistor? Please don't just say it splits equally.",
+    "correct_understanding": "V_9 = 18 V",
+    "answer_terms": [
+      "18 V",
+      "18V",
+      "= 18"
+    ]
+  },
+  {
+    "id": "bt-phy-052",
+    "subject": "physics",
+    "topic": "current_electricity",
+    "student_message": "A lamp is marked 240 V, 60 W. What is the resistance of its filament when it is working normally?",
+    "correct_understanding": "R = 960 Ω",
+    "answer_terms": [
+      "960"
+    ]
+  },
+  {
+    "id": "bt-phy-053",
+    "subject": "physics",
+    "topic": "current_electricity",
+    "student_message": "How much heat is produced in a 50 Ω resistor carrying 2 A for 5 minutes?",
+    "correct_understanding": "H = 60000 J",
+    "answer_terms": [
+      "60000",
+      "60 000",
+      "6*10^4",
+      "60 kJ"
+    ]
+  },
+  {
+    "id": "bt-phy-054",
+    "subject": "physics",
+    "topic": "current_electricity",
+    "student_message": "In copper electrolysis, the electrochemical equivalent of copper is 3.3*10^-7 kg/C. What mass of copper is deposited when 1.5 A flows for 1 hour?",
+    "correct_understanding": "m = 1.78*10^-3 kg (about 1.78 g)",
+    "answer_terms": [
+      "1.78",
+      "0.00178"
+    ]
+  },
+  {
+    "id": "bt-phy-055",
+    "subject": "physics",
+    "topic": "current_electricity",
+    "student_message": "A car battery of e.m.f. 9 V has internal resistance 0.4 Ω. If a mechanic accidentally short-circuits its terminals with a spanner, what current flows?",
+    "correct_understanding": "I = 22.5 A",
+    "answer_terms": [
+      "22.5"
+    ]
+  },
+  {
+    "id": "bt-phy-056",
+    "subject": "physics",
+    "topic": "current_electricity",
+    "student_message": "Two identical cells, each of e.m.f. 1.5 V and internal resistance 0.6 Ω, are connected in parallel across a 2.7 Ω resistor. What current flows in the resistor?",
+    "correct_understanding": "I = 0.5 A",
+    "answer_terms": [
+      "0.5 A",
+      "0.5A",
+      "0.50 A"
+    ]
+  },
+  {
+    "id": "bt-phy-057",
+    "subject": "physics",
+    "topic": "current_electricity",
+    "student_message": "Why are the sockets and bulbs in our house wired in parallel and not in series? Series looks simpler to me.",
+    "correct_understanding": "In parallel each appliance gets the full mains voltage and can be switched on or off independently; one failing does not cut off the others.",
+    "answer_terms": [
+      "full voltage",
+      "same voltage",
+      "full mains voltage",
+      "independently"
+    ]
+  },
+  {
+    "id": "bt-phy-058",
+    "subject": "physics",
+    "topic": "current_electricity",
+    "student_message": "In a three-pin plug, which wire should the fuse be connected to? I wan wire my extension box correctly.",
+    "correct_understanding": "The fuse must be in the live wire.",
+    "answer_terms": [
+      "live"
+    ]
+  },
+  {
+    "id": "bt-phy-059",
+    "subject": "physics",
+    "topic": "current_electricity",
+    "student_message": "What is the name of the component whose resistance falls as its temperature rises? It's used in fire alarms.",
+    "correct_understanding": "A thermistor (negative temperature coefficient).",
+    "answer_terms": [
+      "thermistor"
+    ]
+  },
+  {
+    "id": "bt-phy-060",
+    "subject": "physics",
+    "topic": "electromagnetism",
+    "student_message": "A transformer for a phone charger steps 240 V down to 12 V. The primary coil has 1200 turns. How many turns does the secondary need?",
+    "correct_understanding": "N_s = 60 turns",
+    "answer_terms": [
+      "60 turns",
+      "60 turn",
+      "= 60"
+    ]
+  },
+  {
+    "id": "bt-phy-061",
+    "subject": "physics",
+    "topic": "electromagnetism",
+    "student_message": "A transformer is 90% efficient. Its input power is 500 W and its secondary voltage is 25 V. What is the secondary current?",
+    "correct_understanding": "I_s = 18 A",
+    "answer_terms": [
+      "18 A",
+      "18A",
+      "= 18"
+    ]
+  },
+  {
+    "id": "bt-phy-062",
+    "subject": "physics",
+    "topic": "electromagnetism",
+    "student_message": "A 0.25 m wire carrying 6 A lies in a uniform magnetic field of 0.8 T, making an angle of 30° with the field. What force acts on the wire?",
+    "correct_understanding": "F = 0.6 N",
+    "answer_terms": [
+      "0.6 N",
+      "0.6N",
+      "0.60 N"
+    ]
+  },
+  {
+    "id": "bt-phy-063",
+    "subject": "physics",
+    "topic": "electromagnetism",
+    "student_message": "A flat coil of area 0.04 m^2 is placed perpendicular to a uniform field of 0.5 T. What is the magnetic flux through it?",
+    "correct_understanding": "Φ = 0.02 Wb",
+    "answer_terms": [
+      "0.02 Wb",
+      "0.02Wb",
+      "2*10^-2"
+    ]
+  },
+  {
+    "id": "bt-phy-064",
+    "subject": "physics",
+    "topic": "electromagnetism",
+    "student_message": "The flux through a coil of 200 turns falls from 0.05 Wb to 0.01 Wb in 0.2 s. What is the average induced e.m.f.? I keep forgetting where the number of turns enters.",
+    "correct_understanding": "E = 40 V",
+    "answer_terms": [
+      "40 V",
+      "40V",
+      "= 40"
+    ]
+  },
+  {
+    "id": "bt-phy-065",
+    "subject": "physics",
+    "topic": "electromagnetism",
+    "student_message": "An electron (charge 1.6*10^-19 C) moves at 2*10^6 m/s at right angles to a magnetic field of 0.5 T. What is the magnitude of the force on it?",
+    "correct_understanding": "F = 1.6*10^-13 N",
+    "answer_terms": [
+      "1.6*10^-13",
+      "1.6 × 10^-13",
+      "1.6e-13"
+    ]
+  },
+  {
+    "id": "bt-phy-066",
+    "subject": "physics",
+    "topic": "electromagnetism",
+    "student_message": "A power station sends 100 kW at 20 kV through cables of total resistance 8 Ω. How much power is lost as heat in the cables?",
+    "correct_understanding": "P_loss = 200 W",
+    "answer_terms": [
+      "200 W",
+      "200W",
+      "= 200"
+    ]
+  },
+  {
+    "id": "bt-phy-067",
+    "subject": "physics",
+    "topic": "electromagnetism",
+    "student_message": "An a.c. generator coil has 100 turns, area 0.02 m^2, and rotates at 50 rad/s in a field of 0.3 T. What is the peak e.m.f.?",
+    "correct_understanding": "E_0 = 30 V",
+    "answer_terms": [
+      "30 V",
+      "30V",
+      "= 30"
+    ]
+  },
+  {
+    "id": "bt-phy-068",
+    "subject": "physics",
+    "topic": "electromagnetism",
+    "student_message": "NEPA supply is 220 V r.m.s. What is the peak voltage? Is it not the same 220?",
+    "correct_understanding": "V_0 = 311 V",
+    "answer_terms": [
+      "311"
+    ]
+  },
+  {
+    "id": "bt-phy-069",
+    "subject": "physics",
+    "topic": "electromagnetism",
+    "student_message": "Find the inductive reactance of a 0.2 H inductor connected to a 50 Hz a.c. supply.",
+    "correct_understanding": "X_L = 62.8 Ω",
+    "answer_terms": [
+      "62.8",
+      "20π",
+      "20*π"
+    ]
+  },
+  {
+    "id": "bt-phy-070",
+    "subject": "physics",
+    "topic": "electromagnetism",
+    "student_message": "A moving-coil galvanometer of resistance 20 Ω gives full-scale deflection at 5 mA. What shunt resistance converts it into an ammeter reading up to 1 A?",
+    "correct_understanding": "R_s = 0.1005 Ω (about 0.1 Ω)",
+    "answer_terms": [
+      "0.1005",
+      "0.10 Ω",
+      "0.1 Ω"
+    ]
+  },
+  {
+    "id": "bt-phy-071",
+    "subject": "physics",
+    "topic": "electromagnetism",
+    "student_message": "What exactly does the split-ring commutator do in a d.c. motor? I just memorised the name.",
+    "correct_understanding": "It reverses the direction of current in the coil every half turn so the coil keeps rotating in the same direction.",
+    "answer_terms": [
+      "reverses the current",
+      "reverses the direction",
+      "every half turn",
+      "every half-turn"
+    ]
+  },
+  {
+    "id": "bt-phy-072",
+    "subject": "physics",
+    "topic": "electromagnetism",
+    "student_message": "Why is the iron core of a transformer laminated instead of being one solid block?",
+    "correct_understanding": "Lamination reduces eddy currents and the energy lost as heat in the core.",
+    "answer_terms": [
+      "eddy"
+    ]
+  },
+  {
+    "id": "bt-phy-073",
+    "subject": "physics",
+    "topic": "electromagnetism",
+    "student_message": "Why do we use soft iron and not steel for the core of an electromagnet in a scrapyard crane?",
+    "correct_understanding": "Soft iron is easily magnetised and loses its magnetism quickly when the current is switched off (low retentivity); steel retains magnetism.",
+    "answer_terms": [
+      "demagnetise",
+      "demagnetize",
+      "loses its magnetism",
+      "retentivity"
+    ]
+  },
+  {
+    "id": "bt-phy-074",
+    "subject": "physics",
+    "topic": "electrostatics",
+    "student_message": "Two point charges of +4 μC and -6 μC are 0.2 m apart in air. What is the magnitude of the force between them? (k = 9*10^9 N m^2/C^2)",
+    "correct_understanding": "F = 5.4 N (attractive)",
+    "answer_terms": [
+      "5.4"
+    ]
+  },
+  {
+    "id": "bt-phy-075",
+    "subject": "physics",
+    "topic": "electrostatics",
+    "student_message": "Two parallel plates 0.02 m apart have a p.d. of 500 V between them. What is the electric field strength between the plates?",
+    "correct_understanding": "E = 25000 V/m",
+    "answer_terms": [
+      "25000",
+      "25 000",
+      "2.5*10^4",
+      "25 kV/m"
+    ]
+  },
+  {
+    "id": "bt-phy-076",
+    "subject": "physics",
+    "topic": "electrostatics",
+    "student_message": "How much work is done in moving a charge of 3 μC through a potential difference of 200 V?",
+    "correct_understanding": "W = 6*10^-4 J",
+    "answer_terms": [
+      "6*10^-4",
+      "6.0*10^-4",
+      "0.0006",
+      "6 × 10^-4"
+    ]
+  },
+  {
+    "id": "bt-phy-077",
+    "subject": "physics",
+    "topic": "electrostatics",
+    "student_message": "A parallel-plate capacitor has plates of area 0.01 m^2 separated by 1 mm of air. Find its capacitance (ε_0 = 8.85*10^-12 F/m).",
+    "correct_understanding": "C = 8.85*10^-11 F",
+    "answer_terms": [
+      "8.85*10^-11",
+      "88.5 pF",
+      "8.85 × 10^-11"
+    ]
+  },
+  {
+    "id": "bt-phy-078",
+    "subject": "physics",
+    "topic": "electrostatics",
+    "student_message": "Capacitors of 2 μF, 3 μF and 6 μF are connected in series. What is the effective capacitance? Abeg no add them straight.",
+    "correct_understanding": "C = 1 μF",
+    "answer_terms": [
+      "1 μF",
+      "1μF",
+      "1.0 μF"
+    ]
+  },
+  {
+    "id": "bt-phy-079",
+    "subject": "physics",
+    "topic": "electrostatics",
+    "student_message": "A 50 μF capacitor in a radio is charged to 80 V. How much energy does it store?",
+    "correct_understanding": "W = 0.16 J",
+    "answer_terms": [
+      "0.16 J",
+      "0.16J",
+      "0.16"
+    ]
+  },
+  {
+    "id": "bt-phy-080",
+    "subject": "physics",
+    "topic": "electrostatics",
+    "student_message": "What is the electric potential at a point 0.3 m from a point charge of 5 nC? (k = 9*10^9 N m^2/C^2)",
+    "correct_understanding": "V = 150 V",
+    "answer_terms": [
+      "150 V",
+      "150V",
+      "= 150"
+    ]
+  },
+  {
+    "id": "bt-phy-081",
+    "subject": "physics",
+    "topic": "electrostatics",
+    "student_message": "An oil drop of mass 3.2*10^-15 kg is held stationary between two plates where the electric field is 2*10^4 N/C. What charge does it carry? (g = 10 m/s^2)",
+    "correct_understanding": "q = 1.6*10^-18 C",
+    "answer_terms": [
+      "1.6*10^-18",
+      "1.6 × 10^-18",
+      "1.6e-18"
+    ]
+  },
+  {
+    "id": "bt-phy-082",
+    "subject": "physics",
+    "topic": "electrostatics",
+    "student_message": "Two charges repel each other with a force of 12 N. If each charge is doubled and their separation is tripled, what will the new force be? I'm confused with the squares.",
+    "correct_understanding": "F = 5.33 N",
+    "answer_terms": [
+      "5.33",
+      "16/3"
+    ]
+  },
+  {
+    "id": "bt-phy-083",
+    "subject": "physics",
+    "topic": "electrostatics",
+    "student_message": "A 10 μF capacitor charged to 12 V is disconnected and joined across an uncharged 20 μF capacitor. What is the common voltage across them?",
+    "correct_understanding": "V = 4 V",
+    "answer_terms": [
+      "4 V",
+      "4V",
+      "4.0 V"
+    ]
+  },
+  {
+    "id": "bt-phy-084",
+    "subject": "physics",
+    "topic": "electrostatics",
+    "student_message": "An air-filled parallel-plate capacitor has capacitance 5 μF. A dielectric of relative permittivity 4 is slid in to fill the gap completely. What is the new capacitance?",
+    "correct_understanding": "C = 20 μF",
+    "answer_terms": [
+      "20 μF",
+      "20μF",
+      "20 microfarad"
+    ]
+  },
+  {
+    "id": "bt-phy-085",
+    "subject": "physics",
+    "topic": "electrostatics",
+    "student_message": "If I charge a hollow metal ball, where does the charge sit? Can I find some charge inside the cavity?",
+    "correct_understanding": "All the charge resides on the outer surface; there is no charge (and no field) inside the cavity.",
+    "answer_terms": [
+      "outer surface",
+      "outside surface",
+      "external surface"
+    ]
+  },
+  {
+    "id": "bt-phy-086",
+    "subject": "physics",
+    "topic": "electrostatics",
+    "student_message": "What is the SI unit of electric field intensity? I wrote coulomb in the test and got zero.",
+    "correct_understanding": "N/C (newton per coulomb), equivalent to V/m.",
+    "answer_terms": [
+      "N/C",
+      "V/m",
+      "newton per coulomb",
+      "volt per metre"
+    ]
+  },
+  {
+    "id": "bt-phy-087",
+    "subject": "physics",
+    "topic": "electrostatics",
+    "student_message": "Why do electric field lines never cross each other? My teacher just said 'they don't' and moved on.",
+    "correct_understanding": "At any point the field has only one direction; crossing lines would mean two directions at the same point.",
+    "answer_terms": [
+      "one direction",
+      "two directions"
+    ]
+  },
+  {
+    "id": "bt-phy-088",
+    "subject": "physics",
+    "topic": "optics",
+    "student_message": "An object is placed 18 cm in front of a concave mirror of focal length 12 cm. Where is the image formed?",
+    "correct_understanding": "v = 36 cm (real, in front of the mirror)",
+    "answer_terms": [
+      "36 cm",
+      "36cm",
+      "= 36"
+    ]
+  },
+  {
+    "id": "bt-phy-089",
+    "subject": "physics",
+    "topic": "optics",
+    "student_message": "A convex driving mirror has a focal length of 20 cm. A car is 30 cm from it (just for the exercise). Find the image distance using the real-is-positive convention.",
+    "correct_understanding": "v = -12 cm (virtual, behind the mirror)",
+    "answer_terms": [
+      "12 cm",
+      "12cm",
+      "-12"
+    ]
+  },
+  {
+    "id": "bt-phy-090",
+    "subject": "physics",
+    "topic": "optics",
+    "student_message": "An object is placed 5 cm from a converging lens of focal length 8 cm. Where is the image and is it real or virtual?",
+    "correct_understanding": "v = -13.3 cm (virtual, on the same side as the object)",
+    "answer_terms": [
+      "13.3",
+      "40/3"
+    ]
+  },
+  {
+    "id": "bt-phy-091",
+    "subject": "physics",
+    "topic": "optics",
+    "student_message": "Two plane mirrors are inclined to each other at 45°. How many images of a candle placed between them will be seen?",
+    "correct_understanding": "number of images = 7 images",
+    "answer_terms": [
+      "7 images",
+      "seven images",
+      "7 image"
+    ]
+  },
+  {
+    "id": "bt-phy-092",
+    "subject": "physics",
+    "topic": "optics",
+    "student_message": "Glass has a refractive index of 1.6. If the speed of light in air is 3*10^8 m/s, what is its speed in the glass?",
+    "correct_understanding": "v = 1.875*10^8 m/s",
+    "answer_terms": [
+      "1.875",
+      "1.88*10^8",
+      "1.9*10^8"
+    ]
+  },
+  {
+    "id": "bt-phy-093",
+    "subject": "physics",
+    "topic": "optics",
+    "student_message": "A swimming pool is 2.4 m deep. If the refractive index of water is 4/3, how deep does the pool appear when viewed from directly above?",
+    "correct_understanding": "apparent depth = 1.8 m",
+    "answer_terms": [
+      "1.8 m",
+      "1.8m",
+      "1.80 m"
+    ]
+  },
+  {
+    "id": "bt-phy-094",
+    "subject": "physics",
+    "topic": "optics",
+    "student_message": "The critical angle for a certain glass is 42°. What is its refractive index? Just tell me the formula abeg.",
+    "correct_understanding": "n = 1.49",
+    "answer_terms": [
+      "1.49",
+      "≈ 1.5",
+      "= 1.5"
+    ]
+  },
+  {
+    "id": "bt-phy-095",
+    "subject": "physics",
+    "topic": "optics",
+    "student_message": "A ray of light in air strikes a glass surface (n = 1.5) at an angle of incidence of 40°. What is the angle of refraction?",
+    "correct_understanding": "r = 25.4 °",
+    "answer_terms": [
+      "25.4",
+      "25.37",
+      "25°"
+    ]
+  },
+  {
+    "id": "bt-phy-096",
+    "subject": "physics",
+    "topic": "optics",
+    "student_message": "My uncle's glasses are labelled -2.5 D. What is the focal length of the lens and what type of lens is it?",
+    "correct_understanding": "f = -0.4 m (diverging (concave) lens)",
+    "answer_terms": [
+      "0.4 m",
+      "40 cm",
+      "-0.4"
+    ]
+  },
+  {
+    "id": "bt-phy-097",
+    "subject": "physics",
+    "topic": "optics",
+    "student_message": "In the lab, a nail 4 cm high is set upright 30 cm in front of a convex lens whose focal length is 20 cm. What height will its image on the screen be?",
+    "correct_understanding": "image height = 8 cm",
+    "answer_terms": [
+      "8 cm",
+      "8cm",
+      "8.0 cm"
+    ]
+  },
+  {
+    "id": "bt-phy-098",
+    "subject": "physics",
+    "topic": "optics",
+    "student_message": "A girl stands 3 m in front of a plane mirror on the wardrobe. How far is she from her image?",
+    "correct_understanding": "distance = 6 m",
+    "answer_terms": [
+      "6 m",
+      "6m",
+      "6.0 m"
+    ]
+  },
+  {
+    "id": "bt-phy-099",
+    "subject": "physics",
+    "topic": "optics",
+    "student_message": "An equilateral glass prism (refracting angle 60°) gives a minimum deviation of 40°. Calculate the refractive index of the glass.",
+    "correct_understanding": "n = 1.53",
+    "answer_terms": [
+      "1.53"
+    ]
+  },
+  {
+    "id": "bt-phy-100",
+    "subject": "physics",
+    "topic": "optics",
+    "student_message": "On a hot afternoon on the expressway I see what looks like water on the road far ahead, but when we reach there it's dry. Wetin cause am?",
+    "correct_understanding": "A mirage, caused by refraction and total internal reflection of light in the hot, less dense air layer near the road.",
+    "answer_terms": [
+      "mirage",
+      "total internal reflection"
+    ]
+  },
+  {
+    "id": "bt-phy-101",
+    "subject": "physics",
+    "topic": "optics",
+    "student_message": "My grandma can see far things clearly but struggles to read her Bible up close. What kind of lens should her glasses have?",
+    "correct_understanding": "She is long-sighted (hypermetropia); she needs a converging (convex) lens.",
+    "answer_terms": [
+      "converging",
+      "convex"
+    ]
+  },
+  {
+    "id": "bt-phy-102",
+    "subject": "physics",
+    "topic": "optics",
+    "student_message": "Why is the sky blue during the day? Is it reflecting the sea?",
+    "correct_understanding": "Scattering: air molecules scatter short-wavelength blue light much more than red light.",
+    "answer_terms": [
+      "scattering",
+      "scattered",
+      "scatters"
+    ]
+  },
+  {
+    "id": "bt-phy-103",
+    "subject": "physics",
+    "topic": "waves",
+    "student_message": "An FM radio station broadcasts at 95.1 MHz. What is the wavelength of its waves? (speed of radio waves = 3*10^8 m/s)",
+    "correct_understanding": "λ = 3.15 m",
+    "answer_terms": [
+      "3.15",
+      "3.2 m"
+    ]
+  },
+  {
+    "id": "bt-phy-104",
+    "subject": "physics",
+    "topic": "waves",
+    "student_message": "A wave has a period of 0.025 s and a wavelength of 0.8 m. How fast is it travelling?",
+    "correct_understanding": "v = 32 m/s",
+    "answer_terms": [
+      "32 m/s",
+      "32m/s",
+      "= 32"
+    ]
+  },
+  {
+    "id": "bt-phy-105",
+    "subject": "physics",
+    "topic": "waves",
+    "student_message": "A guitar string 0.6 m long vibrates in its fundamental mode. The wave speed on the string is 240 m/s. What is the frequency?",
+    "correct_understanding": "f = 200 Hz",
+    "answer_terms": [
+      "200 Hz",
+      "200Hz",
+      "= 200"
+    ]
+  },
+  {
+    "id": "bt-phy-106",
+    "subject": "physics",
+    "topic": "waves",
+    "student_message": "In a resonance tube experiment with a 500 Hz tuning fork, the first resonance occurs at an air column of 0.17 m. Ignoring end correction, what is the speed of sound?",
+    "correct_understanding": "v = 340 m/s",
+    "answer_terms": [
+      "340 m/s",
+      "340m/s",
+      "= 340"
+    ]
+  },
+  {
+    "id": "bt-phy-107",
+    "subject": "physics",
+    "topic": "waves",
+    "student_message": "Two tuning forks of frequencies 256 Hz and 260 Hz are sounded together. What beat frequency will be heard?",
+    "correct_understanding": "beat frequency = 4 Hz",
+    "answer_terms": [
+      "4 Hz",
+      "4Hz",
+      "4 beats"
+    ]
+  },
+  {
+    "id": "bt-phy-108",
+    "subject": "physics",
+    "topic": "waves",
+    "student_message": "A fishing ship sends a sonar pulse to the seabed and receives the echo 1.2 s later. Sound travels at 1500 m/s in sea water. How deep is the sea there?",
+    "correct_understanding": "depth = 900 m",
+    "answer_terms": [
+      "900 m",
+      "900m",
+      "= 900"
+    ]
+  },
+  {
+    "id": "bt-phy-109",
+    "subject": "physics",
+    "topic": "waves",
+    "student_message": "An open pipe is 0.85 m long and the speed of sound is 340 m/s. What is the frequency of its second harmonic?",
+    "correct_understanding": "f_2 = 400 Hz",
+    "answer_terms": [
+      "400 Hz",
+      "400Hz",
+      "= 400"
+    ]
+  },
+  {
+    "id": "bt-phy-110",
+    "subject": "physics",
+    "topic": "waves",
+    "student_message": "A string gives a note of 300 Hz when its tension is 40 N. If the tension is increased to 90 N, what will the new frequency be?",
+    "correct_understanding": "f = 450 Hz",
+    "answer_terms": [
+      "450 Hz",
+      "450Hz",
+      "= 450"
+    ]
+  },
+  {
+    "id": "bt-phy-111",
+    "subject": "physics",
+    "topic": "waves",
+    "student_message": "During a storm I counted 4.5 s between seeing the lightning and hearing the thunder. If sound travels at 330 m/s, how far away was the lightning?",
+    "correct_understanding": "distance = 1485 m",
+    "answer_terms": [
+      "1485",
+      "1.485 km",
+      "1.49 km"
+    ]
+  },
+  {
+    "id": "bt-phy-112",
+    "subject": "physics",
+    "topic": "waves",
+    "student_message": "A progressive wave is given by y = 0.05*sin(20*π*t - 4*π*x), with x in metres and t in seconds. What is the speed of the wave? I don't understand these equations at all.",
+    "correct_understanding": "v = 5 m/s",
+    "answer_terms": [
+      "5 m/s",
+      "5m/s",
+      "5.0 m/s"
+    ]
+  },
+  {
+    "id": "bt-phy-113",
+    "subject": "physics",
+    "topic": "waves",
+    "student_message": "In a sound wave, the distance between a compression and the next rarefaction is 0.4 m. If the frequency is 400 Hz, what is the speed of the wave?",
+    "correct_understanding": "v = 320 m/s",
+    "answer_terms": [
+      "320 m/s",
+      "320m/s",
+      "= 320"
+    ]
+  },
+  {
+    "id": "bt-phy-114",
+    "subject": "physics",
+    "topic": "waves",
+    "student_message": "When light goes from air into water, which property of the wave stays the same? Speed, wavelength or something else?",
+    "correct_understanding": "The frequency stays the same; speed and wavelength both change.",
+    "answer_terms": [
+      "frequency"
+    ]
+  },
+  {
+    "id": "bt-phy-115",
+    "subject": "physics",
+    "topic": "waves",
+    "student_message": "Which part of the electromagnetic spectrum does our TV remote control use?",
+    "correct_understanding": "Infrared radiation.",
+    "answer_terms": [
+      "infrared",
+      "infra-red"
+    ]
+  },
+  {
+    "id": "bt-phy-116",
+    "subject": "physics",
+    "topic": "waves",
+    "student_message": "Can sound travel through outer space? In the films we hear explosions in space.",
+    "correct_understanding": "No. Sound is a mechanical wave and needs a material medium; it cannot travel through a vacuum.",
+    "answer_terms": [
+      "needs a medium",
+      "requires a medium",
+      "material medium",
+      "cannot travel"
+    ]
+  },
+  {
+    "id": "bt-phy-117",
+    "subject": "physics",
+    "topic": "waves",
+    "student_message": "What decides how loud a sound is? Is it the pitch?",
+    "correct_understanding": "Loudness depends on the amplitude of the wave (pitch depends on frequency).",
+    "answer_terms": [
+      "amplitude"
+    ]
+  },
+  {
+    "id": "bt-phy-118",
+    "subject": "physics",
+    "topic": "thermal_physics",
+    "student_message": "How much heat is needed to change 0.5 kg of boiling water at 100°C completely into steam at 100°C? (specific latent heat of vaporisation = 2.26*10^6 J/kg)",
+    "correct_understanding": "Q = 1.13*10^6 J",
+    "answer_terms": [
+      "1.13*10^6",
+      "1130000",
+      "1 130 000",
+      "1.13 × 10^6"
+    ]
+  },
+  {
+    "id": "bt-phy-119",
+    "subject": "physics",
+    "topic": "thermal_physics",
+    "student_message": "A 0.3 kg copper block at 150°C is dropped into 0.5 kg of water at 25°C. Specific heat capacities: copper 400 J/(kg*K), water 4200 J/(kg*K). Ignoring the container, what is the final temperature?",
+    "correct_understanding": "final temperature = 31.8 °C",
+    "answer_terms": [
+      "31.8",
+      "31.76"
+    ]
+  },
+  {
+    "id": "bt-phy-120",
+    "subject": "physics",
+    "topic": "thermal_physics",
+    "student_message": "A 1500 W electric kettle heats 1.2 kg of water from 30°C to 100°C. How long does it take if no heat is lost? (c = 4200 J/(kg*K))",
+    "correct_understanding": "t = 235 s (about 3.9 minutes)",
+    "answer_terms": [
+      "235",
+      "3.92 min",
+      "3.9 min"
+    ]
+  },
+  {
+    "id": "bt-phy-121",
+    "subject": "physics",
+    "topic": "thermal_physics",
+    "student_message": "A steel bridge is 400 m long. The linear expansivity of steel is 1.2*10^-5 K^-1. By how much does it expand when the temperature rises by 25 K?",
+    "correct_understanding": "ΔL = 0.12 m",
+    "answer_terms": [
+      "0.12 m",
+      "0.12m",
+      "12 cm"
+    ]
+  },
+  {
+    "id": "bt-phy-122",
+    "subject": "physics",
+    "topic": "thermal_physics",
+    "student_message": "A brass plate has area 0.5 m^2. The linear expansivity of brass is 1.9*10^-5 K^-1. What is the increase in its area when heated through 100 K?",
+    "correct_understanding": "ΔA = 0.0019 m^2",
+    "answer_terms": [
+      "0.0019",
+      "1.9*10^-3",
+      "0.5019"
+    ]
+  },
+  {
+    "id": "bt-phy-123",
+    "subject": "physics",
+    "topic": "thermal_physics",
+    "student_message": "A gas occupies 4 L at 120 kPa. It is compressed at constant temperature until the pressure is 160 kPa. What is its new volume?",
+    "correct_understanding": "V_2 = 3 L",
+    "answer_terms": [
+      "3 L",
+      "3L",
+      "3.0 L"
+    ]
+  },
+  {
+    "id": "bt-phy-124",
+    "subject": "physics",
+    "topic": "thermal_physics",
+    "student_message": "A sealed gas cylinder is at 100 kPa and 15°C. It is heated at constant volume to 87°C. What is the new pressure? I always forget whether to use kelvin.",
+    "correct_understanding": "P_2 = 125 kPa",
+    "answer_terms": [
+      "125 kPa",
+      "125kPa",
+      "= 125"
+    ]
+  },
+  {
+    "id": "bt-phy-125",
+    "subject": "physics",
+    "topic": "thermal_physics",
+    "student_message": "How much heat is needed to turn 0.05 kg of ice at -10°C into water at 0°C? (c_ice = 2100 J/(kg*K), latent heat of fusion = 3.36*10^5 J/kg)",
+    "correct_understanding": "Q = 17850 J",
+    "answer_terms": [
+      "17850",
+      "17 850",
+      "1.785*10^4",
+      "17.85 kJ"
+    ]
+  },
+  {
+    "id": "bt-phy-126",
+    "subject": "physics",
+    "topic": "thermal_physics",
+    "student_message": "A 500 W immersion heater placed in melting ice for 4 minutes melts 0.36 kg of ice. Assuming no heat loss, calculate the specific latent heat of fusion of ice.",
+    "correct_understanding": "L = 3.33*10^5 J/kg",
+    "answer_terms": [
+      "3.33*10^5",
+      "333333",
+      "333 333",
+      "3.3*10^5"
+    ]
+  },
+  {
+    "id": "bt-phy-127",
+    "subject": "physics",
+    "topic": "thermal_physics",
+    "student_message": "A faulty thermometer reads 5 at the ice point and 95 at the steam point. What is the actual temperature when it reads 41?",
+    "correct_understanding": "θ = 40 °C",
+    "answer_terms": [
+      "40°C",
+      "40 °C",
+      "40 degrees"
+    ]
+  },
+  {
+    "id": "bt-phy-128",
+    "subject": "physics",
+    "topic": "thermal_physics",
+    "student_message": "A platinum resistance thermometer has resistance 4 Ω at 0°C and 5.6 Ω at 100°C. When placed in a liquid its resistance is 4.8 Ω. What is the temperature of the liquid?",
+    "correct_understanding": "θ = 50 °C",
+    "answer_terms": [
+      "50°C",
+      "50 °C",
+      "50 degrees"
+    ]
+  },
+  {
+    "id": "bt-phy-129",
+    "subject": "physics",
+    "topic": "thermal_physics",
+    "student_message": "A gas has volume 600 cm^3 at 27°C and 75 cmHg. What will its volume be at s.t.p. (0°C and 76 cmHg)? I don't know which law to use with everything changing.",
+    "correct_understanding": "V = 539 cm^3",
+    "answer_terms": [
+      "539",
+      "538.8"
+    ]
+  },
+  {
+    "id": "bt-phy-130",
+    "subject": "physics",
+    "topic": "thermal_physics",
+    "student_message": "Why is the inside of a vacuum flask silvered? Is it just for fine looking?",
+    "correct_understanding": "The silvered surfaces reflect radiant heat, reducing heat transfer by radiation.",
+    "answer_terms": [
+      "radiation",
+      "reflect"
+    ]
+  },
+  {
+    "id": "bt-phy-131",
+    "subject": "physics",
+    "topic": "thermal_physics",
+    "student_message": "My cousin in Jos says water boils there below 100°C. How is that possible?",
+    "correct_understanding": "At high altitude the atmospheric pressure is lower, so water boils at a lower temperature.",
+    "answer_terms": [
+      "lower pressure",
+      "low pressure",
+      "pressure is lower",
+      "lower atmospheric"
+    ]
+  },
+  {
+    "id": "bt-phy-132",
+    "subject": "physics",
+    "topic": "thermal_physics",
+    "student_message": "At what temperature is water densest? I read that ice floats because of something odd about water.",
+    "correct_understanding": "Water has its maximum density at 4°C (anomalous expansion).",
+    "answer_terms": [
+      "4°C",
+      "4 °C",
+      "4 degrees"
+    ]
+  },
+  {
+    "id": "bt-phy-133",
+    "subject": "physics",
+    "topic": "nuclear_physics",
+    "student_message": "A radioactive isotope has a half-life of 8 days. What fraction of the original sample remains after 32 days?",
+    "correct_understanding": "fraction remaining = 1/16 = 0.0625",
+    "answer_terms": [
+      "1/16",
+      "0.0625",
+      "6.25%"
+    ]
+  },
+  {
+    "id": "bt-phy-134",
+    "subject": "physics",
+    "topic": "nuclear_physics",
+    "student_message": "The count rate of a radioactive source falls from 640 to 40 counts per minute in 12 hours. What is the half-life? Abeg I don confuse.",
+    "correct_understanding": "half-life = 3 hours",
+    "answer_terms": [
+      "3 h",
+      "3 hours",
+      "3hours"
+    ]
+  },
+  {
+    "id": "bt-phy-135",
+    "subject": "physics",
+    "topic": "nuclear_physics",
+    "student_message": "Uranium-238 (atomic number 92) emits one alpha particle. What are the mass number and atomic number of the new nucleus?",
+    "correct_understanding": "Mass number 234, atomic number 90 (thorium-234).",
+    "answer_terms": [
+      "234",
+      "thorium"
+    ]
+  },
+  {
+    "id": "bt-phy-136",
+    "subject": "physics",
+    "topic": "nuclear_physics",
+    "student_message": "Carbon-14 (atomic number 6) undergoes beta-minus decay. What element is formed?",
+    "correct_understanding": "Nitrogen-14 (atomic number 7).",
+    "answer_terms": [
+      "nitrogen",
+      "Z = 7",
+      "atomic number 7"
+    ]
+  },
+  {
+    "id": "bt-phy-137",
+    "subject": "physics",
+    "topic": "nuclear_physics",
+    "student_message": "In a nuclear reaction the mass defect is 0.003 u. If 1 u is equivalent to 931 MeV, how much energy is released?",
+    "correct_understanding": "E = 2.79 MeV",
+    "answer_terms": [
+      "2.79"
+    ]
+  },
+  {
+    "id": "bt-phy-138",
+    "subject": "physics",
+    "topic": "nuclear_physics",
+    "student_message": "If 2 g of matter were completely converted into energy, how much energy would be released? (c = 3*10^8 m/s)",
+    "correct_understanding": "E = 1.8*10^14 J",
+    "answer_terms": [
+      "1.8*10^14",
+      "1.8 × 10^14",
+      "1.8e14"
+    ]
+  },
+  {
+    "id": "bt-phy-139",
+    "subject": "physics",
+    "topic": "nuclear_physics",
+    "student_message": "What is the energy of a photon of frequency 5*10^14 Hz? (h = 6.6*10^-34 J s)",
+    "correct_understanding": "E = 3.3*10^-19 J",
+    "answer_terms": [
+      "3.3*10^-19",
+      "3.3 × 10^-19",
+      "3.3e-19"
+    ]
+  },
+  {
+    "id": "bt-phy-140",
+    "subject": "physics",
+    "topic": "nuclear_physics",
+    "student_message": "Light of photon energy 3.5 eV falls on a metal whose work function is 2.0 eV. What is the maximum kinetic energy of the emitted photoelectrons?",
+    "correct_understanding": "KE_max = 1.5 eV",
+    "answer_terms": [
+      "1.5 eV",
+      "1.5eV",
+      "1.50 eV"
+    ]
+  },
+  {
+    "id": "bt-phy-141",
+    "subject": "physics",
+    "topic": "nuclear_physics",
+    "student_message": "A sample of 120 g of a radioactive substance has a half-life of 6 years. How much of it has DECAYED (not remaining) after 18 years?",
+    "correct_understanding": "mass decayed = 105 g",
+    "answer_terms": [
+      "105 g",
+      "105g",
+      "= 105"
+    ]
+  },
+  {
+    "id": "bt-phy-142",
+    "subject": "physics",
+    "topic": "nuclear_physics",
+    "student_message": "A radioactive nuclide has a half-life of 693 s. What is its decay constant?",
+    "correct_understanding": "λ = 0.001 s^-1",
+    "answer_terms": [
+      "0.001",
+      "1*10^-3",
+      "10^-3"
+    ]
+  },
+  {
+    "id": "bt-phy-143",
+    "subject": "physics",
+    "topic": "nuclear_physics",
+    "student_message": "Thorium-232 (Z = 90) decays through a series to lead-208 (Z = 82). How many alpha and beta particles are emitted altogether?",
+    "correct_understanding": "6 alpha particles and 4 beta particles.",
+    "answer_terms": [
+      "6 alpha",
+      "4 beta",
+      "six alpha",
+      "four beta"
+    ]
+  },
+  {
+    "id": "bt-phy-144",
+    "subject": "physics",
+    "topic": "nuclear_physics",
+    "student_message": "Which type of radiation can be stopped by just a sheet of paper?",
+    "correct_understanding": "Alpha radiation.",
+    "answer_terms": [
+      "alpha",
+      "α"
+    ]
+  },
+  {
+    "id": "bt-phy-145",
+    "subject": "physics",
+    "topic": "nuclear_physics",
+    "student_message": "What is the name of the nuclear process in the sun where light nuclei like hydrogen join together to release energy?",
+    "correct_understanding": "Nuclear fusion.",
+    "answer_terms": [
+      "fusion"
+    ]
+  },
+  {
+    "id": "bt-phy-146",
+    "subject": "physics",
+    "topic": "nuclear_physics",
+    "student_message": "Which radiation is not deflected at all when it passes through an electric or magnetic field?",
+    "correct_understanding": "Gamma radiation (it carries no charge).",
+    "answer_terms": [
+      "gamma",
+      "γ"
+    ]
+  },
+  {
+    "id": "bt-phy-147",
+    "subject": "physics",
+    "topic": "circular_motion",
+    "student_message": "A grinding wheel turns at 450 revolutions per minute. What is its angular velocity in rad/s?",
+    "correct_understanding": "ω = 47.1 rad/s",
+    "answer_terms": [
+      "47.1",
+      "15π",
+      "15*π"
+    ]
+  },
+  {
+    "id": "bt-phy-148",
+    "subject": "physics",
+    "topic": "circular_motion",
+    "student_message": "A 900 kg car goes round an unbanked bend of radius 50 m at 15 m/s. What frictional force is needed to keep it on the bend?",
+    "correct_understanding": "F = 4050 N",
+    "answer_terms": [
+      "4050",
+      "4 050",
+      "4.05*10^3",
+      "4.05 kN"
+    ]
+  },
+  {
+    "id": "bt-phy-149",
+    "subject": "physics",
+    "topic": "circular_motion",
+    "student_message": "A point on the rim of a wheel of radius 0.3 m moves with angular velocity 20 rad/s. What is its centripetal acceleration?",
+    "correct_understanding": "a = 120 m/s^2",
+    "answer_terms": [
+      "120 m/s",
+      "120m/s",
+      "= 120"
+    ]
+  },
+  {
+    "id": "bt-phy-150",
+    "subject": "physics",
+    "topic": "circular_motion",
+    "student_message": "What is the maximum speed at which a car can go round a flat bend of radius 40 m if the coefficient of friction between tyres and road is 0.4? (g = 10 m/s^2)",
+    "correct_understanding": "v_max = 12.6 m/s",
+    "answer_terms": [
+      "12.6",
+      "12.65",
+      "4√10"
+    ]
+  },
+  {
+    "id": "bt-phy-151",
+    "subject": "physics",
+    "topic": "circular_motion",
+    "student_message": "A 0.5 kg stone on a 0.8 m string is whirled in a vertical circle. At the lowest point its speed is 6 m/s. What is the tension in the string there? (g = 10 m/s^2)",
+    "correct_understanding": "T = 27.5 N",
+    "answer_terms": [
+      "27.5"
+    ]
+  },
+  {
+    "id": "bt-phy-152",
+    "subject": "physics",
+    "topic": "circular_motion",
+    "student_message": "The tip of a ceiling fan blade is 0.6 m from the centre and the fan makes one revolution every 0.25 s. What is the linear speed of the tip?",
+    "correct_understanding": "v = 15.1 m/s",
+    "answer_terms": [
+      "15.1",
+      "15.08",
+      "4.8π"
+    ]
+  },
+  {
+    "id": "bt-phy-153",
+    "subject": "physics",
+    "topic": "circular_motion",
+    "student_message": "A bicycle wheel turns through 5 complete revolutions. What is its angular displacement in radians?",
+    "correct_understanding": "θ = 31.4 rad",
+    "answer_terms": [
+      "31.4",
+      "10π",
+      "10*π"
+    ]
+  },
+  {
+    "id": "bt-phy-154",
+    "subject": "physics",
+    "topic": "circular_motion",
+    "student_message": "At what angle should a road of radius 80 m be banked so that a car at 20 m/s needs no friction to go round? (g = 10 m/s^2)",
+    "correct_understanding": "θ = 26.6 °",
+    "answer_terms": [
+      "26.6",
+      "26.57",
+      "27°"
+    ]
+  },
+  {
+    "id": "bt-phy-155",
+    "subject": "physics",
+    "topic": "circular_motion",
+    "student_message": "A 2 kg object moves in a circle of radius 1.5 m under a centripetal force of 48 N. What is its speed? Abeg show me how to rearrange.",
+    "correct_understanding": "v = 6 m/s",
+    "answer_terms": [
+      "6 m/s",
+      "6m/s",
+      "6.0 m/s"
+    ]
+  },
+  {
+    "id": "bt-phy-156",
+    "subject": "physics",
+    "topic": "circular_motion",
+    "student_message": "The Earth turns once on its axis every 24 hours. What is its angular velocity in rad/s?",
+    "correct_understanding": "ω = 7.27*10^-5 rad/s",
+    "answer_terms": [
+      "7.27*10^-5",
+      "7.3*10^-5",
+      "7.27 × 10^-5",
+      "7.3 × 10^-5"
+    ]
+  },
+  {
+    "id": "bt-phy-157",
+    "subject": "physics",
+    "topic": "circular_motion",
+    "student_message": "A car moves round a circular track of radius 70 m at a constant 22 m/s. How long does one lap take? (π = 22/7)",
+    "correct_understanding": "T = 20 s",
+    "answer_terms": [
+      "20 s",
+      "20s",
+      "20 seconds"
+    ]
+  },
+  {
+    "id": "bt-phy-158",
+    "subject": "physics",
+    "topic": "circular_motion",
+    "student_message": "For a body moving in a circle at constant speed, which direction does its acceleration point?",
+    "correct_understanding": "Towards the centre of the circle (centripetal acceleration).",
+    "answer_terms": [
+      "towards the centre",
+      "toward the centre",
+      "towards the center",
+      "toward the center"
+    ]
+  },
+  {
+    "id": "bt-phy-159",
+    "subject": "physics",
+    "topic": "circular_motion",
+    "student_message": "Does the centripetal force do any work on a stone whirled in a horizontal circle at steady speed? E don confuse me.",
+    "correct_understanding": "No work is done, because the force is always perpendicular to the direction of motion.",
+    "answer_terms": [
+      "no work",
+      "zero work",
+      "work done is zero"
+    ]
+  },
+  {
+    "id": "bt-phy-160",
+    "subject": "physics",
+    "topic": "circular_motion",
+    "student_message": "Why do engineers bank the road at sharp bends on highways instead of leaving it flat?",
+    "correct_understanding": "On a banked road the horizontal component of the normal reaction supplies the centripetal force, so cars rely less on friction.",
+    "answer_terms": [
+      "horizontal component",
+      "normal reaction",
+      "component of the normal"
+    ]
+  },
+  {
+    "id": "bt-phy-161",
+    "subject": "physics",
+    "topic": "shm",
+    "student_message": "A simple pendulum of length 0.4 m is taken to the Moon where g = 1.6 m/s^2. What is its period there?",
+    "correct_understanding": "T = 3.14 s",
+    "answer_terms": [
+      "3.14 s",
+      "3.14s",
+      "π s",
+      "= π"
+    ]
+  },
+  {
+    "id": "bt-phy-162",
+    "subject": "physics",
+    "topic": "shm",
+    "student_message": "A 0.2 kg mass on a spring of force constant 80 N/m oscillates freely. What is its frequency?",
+    "correct_understanding": "f = 3.18 Hz",
+    "answer_terms": [
+      "3.18",
+      "3.2 Hz"
+    ]
+  },
+  {
+    "id": "bt-phy-163",
+    "subject": "physics",
+    "topic": "shm",
+    "student_message": "What length should a simple pendulum have so that its period is exactly 2 s? Take g = 10 m/s^2.",
+    "correct_understanding": "l = 1.01 m",
+    "answer_terms": [
+      "1.01",
+      "1.013"
+    ]
+  },
+  {
+    "id": "bt-phy-164",
+    "subject": "physics",
+    "topic": "shm",
+    "student_message": "A body performs SHM with amplitude 0.08 m and period 0.4 s. What is its maximum acceleration?",
+    "correct_understanding": "a_max = 19.7 m/s^2",
+    "answer_terms": [
+      "19.7",
+      "19.74",
+      "2π^2"
+    ]
+  },
+  {
+    "id": "bt-phy-165",
+    "subject": "physics",
+    "topic": "shm",
+    "student_message": "A particle moves according to x = 0.03*cos(50*t), with x in metres. What is its speed when the displacement is 0.018 m?",
+    "correct_understanding": "v = 1.2 m/s",
+    "answer_terms": [
+      "1.2 m/s",
+      "1.2m/s",
+      "1.20 m/s"
+    ]
+  },
+  {
+    "id": "bt-phy-166",
+    "subject": "physics",
+    "topic": "shm",
+    "student_message": "A 0.5 kg mass oscillates in SHM with angular frequency 4 rad/s and amplitude 0.1 m. What is its total energy?",
+    "correct_understanding": "E = 0.04 J",
+    "answer_terms": [
+      "0.04 J",
+      "0.04J",
+      "0.040 J"
+    ]
+  },
+  {
+    "id": "bt-phy-167",
+    "subject": "physics",
+    "topic": "shm",
+    "student_message": "A spring stretches 5 cm when a 0.25 kg mass is hung on it. If the mass is pulled down and released, what is the period of oscillation? (g = 10 m/s^2)",
+    "correct_understanding": "T = 0.444 s",
+    "answer_terms": [
+      "0.444",
+      "0.44 s",
+      "0.44s"
+    ]
+  },
+  {
+    "id": "bt-phy-168",
+    "subject": "physics",
+    "topic": "shm",
+    "student_message": "A pendulum bob makes 30 complete oscillations in 48 s. What is its frequency?",
+    "correct_understanding": "f = 0.625 Hz",
+    "answer_terms": [
+      "0.625"
+    ]
+  },
+  {
+    "id": "bt-phy-169",
+    "subject": "physics",
+    "topic": "shm",
+    "student_message": "Two identical springs, each of force constant 100 N/m, are joined end to end (in series) and a 1 kg mass hangs from them. What is the period of oscillation?",
+    "correct_understanding": "T = 0.889 s",
+    "answer_terms": [
+      "0.889",
+      "0.89 s",
+      "0.888"
+    ]
+  },
+  {
+    "id": "bt-phy-170",
+    "subject": "physics",
+    "topic": "shm",
+    "student_message": "A pendulum of length 0.81 m has period 1.8 s. If the length is changed to 1.44 m at the same place, what is the new period?",
+    "correct_understanding": "T = 2.4 s",
+    "answer_terms": [
+      "2.4 s",
+      "2.4s",
+      "2.40 s"
+    ]
+  },
+  {
+    "id": "bt-phy-171",
+    "subject": "physics",
+    "topic": "shm",
+    "student_message": "A 0.4 kg mass oscillates in SHM with amplitude 0.05 m and frequency 5 Hz. What is its maximum kinetic energy? This one is giving me headache.",
+    "correct_understanding": "KE_max = 0.493 J",
+    "answer_terms": [
+      "0.49 J",
+      "0.493",
+      "0.494"
+    ]
+  },
+  {
+    "id": "bt-phy-172",
+    "subject": "physics",
+    "topic": "shm",
+    "student_message": "At which position in simple harmonic motion is the potential energy greatest?",
+    "correct_understanding": "At the extreme positions (maximum displacement, x = ±A), where the body momentarily stops.",
+    "answer_terms": [
+      "extreme",
+      "maximum displacement",
+      "amplitude",
+      "end points"
+    ]
+  },
+  {
+    "id": "bt-phy-173",
+    "subject": "physics",
+    "topic": "shm",
+    "student_message": "What is the phase difference between the displacement and the velocity of a body in SHM?",
+    "correct_understanding": "90° (π/2 rad); velocity leads displacement by a quarter cycle.",
+    "answer_terms": [
+      "90°",
+      "π/2",
+      "90 degrees",
+      "quarter"
+    ]
+  },
+  {
+    "id": "bt-phy-174",
+    "subject": "physics",
+    "topic": "shm",
+    "student_message": "Why do soldiers break step when marching across a bridge? Marching in step looks neater.",
+    "correct_understanding": "To avoid resonance: periodic footsteps at the bridge's natural frequency could build up large, damaging oscillations.",
+    "answer_terms": [
+      "resonance",
+      "resonate"
+    ]
+  }
+]

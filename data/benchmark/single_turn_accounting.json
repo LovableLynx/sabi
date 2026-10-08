@@ -1,0 +1,2101 @@
+[
+  {
+    "id": "bt-acc-001",
+    "subject": "accounting",
+    "topic": "double_entry",
+    "student_message": "Abeg, we paid ₦18,400 for the shop's fire insurance by cheque. Which account get debit and which one get credit?",
+    "correct_understanding": "Debit Insurance account, Credit Bank account",
+    "answer_terms": [
+      "debit insurance",
+      "dr insurance",
+      "insurance account is debited",
+      "insurance account should be debited"
+    ]
+  },
+  {
+    "id": "bt-acc-002",
+    "subject": "accounting",
+    "topic": "double_entry",
+    "student_message": "Our firm bought a photocopier for office use on credit from Zenith Office Supplies, value ₦265,000. Please which two accounts are affected and how?",
+    "correct_understanding": "Debit Office Equipment account, Credit Zenith Office Supplies account",
+    "answer_terms": [
+      "debit office equipment",
+      "dr office equipment",
+      "office equipment account is debited",
+      "credit zenith"
+    ]
+  },
+  {
+    "id": "bt-acc-003",
+    "subject": "accounting",
+    "topic": "double_entry",
+    "student_message": "An agent paid us ₦9,600 cash as commission for connecting him to a buyer. How should this be entered in the ledger?",
+    "correct_understanding": "Debit Cash account, Credit Commission Received account",
+    "answer_terms": [
+      "credit commission received",
+      "cr commission received",
+      "commission received account is credited",
+      "debit cash"
+    ]
+  },
+  {
+    "id": "bt-acc-004",
+    "subject": "accounting",
+    "topic": "double_entry",
+    "student_message": "We sent back goods worth ₦13,750 to Okoro Ventures because they were the wrong size. We had bought them on credit. What is the double entry?",
+    "correct_understanding": "Debit Okoro Ventures account, Credit Returns Outwards account",
+    "answer_terms": [
+      "debit okoro",
+      "dr okoro",
+      "credit returns outwards",
+      "cr returns outwards"
+    ]
+  },
+  {
+    "id": "bt-acc-005",
+    "subject": "accounting",
+    "topic": "double_entry",
+    "student_message": "The business repaid ₦150,000 of its bank loan from the current account today. I'm stuck — which side does the loan go?",
+    "correct_understanding": "Debit Loan account, Credit Bank account",
+    "answer_terms": [
+      "debit loan",
+      "dr loan",
+      "loan account is debited",
+      "debit the loan"
+    ]
+  },
+  {
+    "id": "bt-acc-006",
+    "subject": "accounting",
+    "topic": "double_entry",
+    "student_message": "My oga paid the shop's electricity bill of ₦11,200 from his own personal savings, not from the business money. How do we record it in the business books?",
+    "correct_understanding": "Debit Electricity account, Credit Capital account",
+    "answer_terms": [
+      "credit capital",
+      "cr capital",
+      "capital account is credited",
+      "credit the capital"
+    ]
+  },
+  {
+    "id": "bt-acc-007",
+    "subject": "accounting",
+    "topic": "double_entry",
+    "student_message": "The owner transferred ₦35,000 from the business bank account to pay his daughter's school fees. Which accounts do I use?",
+    "correct_understanding": "Debit Drawings account, Credit Bank account",
+    "answer_terms": [
+      "debit drawings",
+      "dr drawings",
+      "drawings account is debited",
+      "debit the drawings"
+    ]
+  },
+  {
+    "id": "bt-acc-008",
+    "subject": "accounting",
+    "topic": "double_entry",
+    "student_message": "A tenant using the back room of our shop paid ₦60,000 rent to us by cheque. Is it rent we pay? How do I post it?",
+    "correct_understanding": "Debit Bank account, Credit Rent Received account",
+    "answer_terms": [
+      "credit rent received",
+      "cr rent received",
+      "rent received account is credited",
+      "credit rent receivable"
+    ]
+  },
+  {
+    "id": "bt-acc-009",
+    "subject": "accounting",
+    "topic": "double_entry",
+    "student_message": "Bisi owes us ₦24,000. She paid by cheque and we gave her 2.5% cash discount. What amount enters the bank column of the cash book?",
+    "correct_understanding": "The amount entered in the bank column is ₦23,400",
+    "answer_terms": [
+      "23,400",
+      "23400",
+      "₦23,400"
+    ]
+  },
+  {
+    "id": "bt-acc-010",
+    "subject": "accounting",
+    "topic": "double_entry",
+    "student_message": "Please balance Adamu's account for me, I keep getting it wrong:\n| Date | Account | Debit (₦) | Credit (₦) |\n|------|---------|-----------|------------|\n| 2 May | Sales | 32,500 | |\n| 11 May | Sales | 18,000 | |\n| 19 May | Bank | | 20,000 |\n| 24 May | Returns inwards | | 1,250 |\nWhat is the balance c/d?",
+    "correct_understanding": "The balance c/d on Adamu's account is ₦29,250 (debit balance b/d)",
+    "answer_terms": [
+      "29,250",
+      "29250",
+      "₦29,250"
+    ]
+  },
+  {
+    "id": "bt-acc-011",
+    "subject": "accounting",
+    "topic": "double_entry",
+    "student_message": "Cash account: opening balance ₦14,200, cash sales ₦38,650, paid rent ₦12,000, paid wages ₦9,800, owner took ₦5,000 for himself. What will the cash balance be at month end?",
+    "correct_understanding": "The closing cash balance is ₦26,050",
+    "answer_terms": [
+      "26,050",
+      "26050",
+      "₦26,050"
+    ]
+  },
+  {
+    "id": "bt-acc-012",
+    "subject": "accounting",
+    "topic": "double_entry",
+    "student_message": "We bought goods for resale on credit from Mallam Sani worth ₦56,000. Which account is debited and which credited?",
+    "correct_understanding": "Debit Purchases account, Credit Mallam Sani account",
+    "answer_terms": [
+      "debit purchases",
+      "dr purchases",
+      "purchases account is debited",
+      "credit mallam sani"
+    ]
+  },
+  {
+    "id": "bt-acc-013",
+    "subject": "accounting",
+    "topic": "double_entry",
+    "student_message": "We paid ₦4,800 cash to a lorry driver to deliver goods we sold to a customer in Kano. Which expense account takes the debit?",
+    "correct_understanding": "Debit Carriage Outwards account, Credit Cash account",
+    "answer_terms": [
+      "carriage outwards",
+      "carriage out",
+      "debit carriage outwards"
+    ]
+  },
+  {
+    "id": "bt-acc-014",
+    "subject": "accounting",
+    "topic": "double_entry",
+    "student_message": "At year end, staff wages of ₦8,500 for the last week have not been paid. My teacher wants an adjusting entry. I don't even know where to start o.",
+    "correct_understanding": "Debit Wages account (expense) and Credit Accrued Wages (a liability)",
+    "answer_terms": [
+      "debit wages",
+      "dr wages",
+      "credit accrued wages",
+      "wages accrued account is credited"
+    ]
+  },
+  {
+    "id": "bt-acc-015",
+    "subject": "accounting",
+    "topic": "double_entry",
+    "student_message": "Femi, a debtor, paid his ₦19,500 debt directly into our bank account through transfer. Which personal account entry is made?",
+    "correct_understanding": "Debit Bank account, Credit Femi's account",
+    "answer_terms": [
+      "credit femi",
+      "cr femi",
+      "femi's account is credited",
+      "femi account is credited"
+    ]
+  },
+  {
+    "id": "bt-acc-016",
+    "subject": "accounting",
+    "topic": "final_accounts",
+    "student_message": "Opening stock ₦46,300, purchases ₦318,000, carriage inwards ₦7,450, returns outwards ₦5,200, closing stock ₦52,900. Find cost of goods sold.",
+    "correct_understanding": "Cost of goods sold is ₦313,650",
+    "answer_terms": [
+      "313,650",
+      "313650",
+      "₦313,650"
+    ]
+  },
+  {
+    "id": "bt-acc-017",
+    "subject": "accounting",
+    "topic": "final_accounts",
+    "student_message": "Trading account question: sales ₦684,000, returns inwards ₦12,600, opening stock ₦58,000, purchases ₦401,500, closing stock ₦63,200. What is the gross profit? I've tried three times.",
+    "correct_understanding": "Gross profit is ₦275,100",
+    "answer_terms": [
+      "275,100",
+      "275100",
+      "₦275,100"
+    ]
+  },
+  {
+    "id": "bt-acc-018",
+    "subject": "accounting",
+    "topic": "final_accounts",
+    "student_message": "Gross profit ₦213,400, discount received ₦3,150, rent ₦48,000, salaries ₦72,600, carriage outwards ₦6,900, depreciation ₦15,000. Net profit na how much?",
+    "correct_understanding": "Net profit is ₦74,050",
+    "answer_terms": [
+      "74,050",
+      "74050",
+      "₦74,050"
+    ]
+  },
+  {
+    "id": "bt-acc-019",
+    "subject": "accounting",
+    "topic": "final_accounts",
+    "student_message": "We paid ₦54,000 rent during the year, but at year end ₦9,000 rent for December is still owing to the landlord. What rent figure goes to the profit and loss account?",
+    "correct_understanding": "The rent charged to profit and loss is ₦63,000",
+    "answer_terms": [
+      "63,000",
+      "63000",
+      "₦63,000"
+    ]
+  },
+  {
+    "id": "bt-acc-020",
+    "subject": "accounting",
+    "topic": "final_accounts",
+    "student_message": "On 1 January we paid ₦31,200 insurance covering 15 months. Our year ends 31 December. How much insurance expense should this year carry?",
+    "correct_understanding": "This year's insurance expense is ₦24,960",
+    "answer_terms": [
+      "24,960",
+      "24960",
+      "₦24,960"
+    ]
+  },
+  {
+    "id": "bt-acc-021",
+    "subject": "accounting",
+    "topic": "final_accounts",
+    "student_message": "Debtors are ₦248,000 before adjustments. ₦8,000 is a bad debt to write off, then we need a 5% provision for doubtful debts on the remaining debtors. What is the provision?",
+    "correct_understanding": "The provision for doubtful debts is ₦12,000",
+    "answer_terms": [
+      "12,000",
+      "12000",
+      "₦12,000"
+    ]
+  },
+  {
+    "id": "bt-acc-022",
+    "subject": "accounting",
+    "topic": "final_accounts",
+    "student_message": "Existing provision for doubtful debts is ₦6,400. This year debtors are ₦215,000 and the provision should be 4%. How much is charged to profit and loss this year?",
+    "correct_understanding": "The increase in provision charged to profit and loss is ₦2,200",
+    "answer_terms": [
+      "2,200",
+      "2200",
+      "₦2,200"
+    ]
+  },
+  {
+    "id": "bt-acc-023",
+    "subject": "accounting",
+    "topic": "final_accounts",
+    "student_message": "Capital at start of year ₦420,000, net profit ₦96,750, drawings ₦38,400, and the owner added ₦25,000 extra capital. What is closing capital in the balance sheet?",
+    "correct_understanding": "Closing capital is ₦503,350",
+    "answer_terms": [
+      "503,350",
+      "503350",
+      "₦503,350"
+    ]
+  },
+  {
+    "id": "bt-acc-024",
+    "subject": "accounting",
+    "topic": "final_accounts",
+    "student_message": "Balance sheet items: stock ₦87,500, debtors ₦64,300, bank ₦22,150, prepaid rent ₦3,000, creditors ₦71,800, accrued wages ₦4,650. Calculate working capital please.",
+    "correct_understanding": "Working capital is ₦100,500",
+    "answer_terms": [
+      "100,500",
+      "100500",
+      "₦100,500"
+    ]
+  },
+  {
+    "id": "bt-acc-025",
+    "subject": "accounting",
+    "topic": "final_accounts",
+    "student_message": "Current assets ₦157,500 and current liabilities ₦90,000. Wetin be the current ratio?",
+    "correct_understanding": "The current ratio is 1.75:1",
+    "answer_terms": [
+      "1.75",
+      "1.75:1"
+    ]
+  },
+  {
+    "id": "bt-acc-026",
+    "subject": "accounting",
+    "topic": "final_accounts",
+    "student_message": "Sales were ₦360,000 and gross profit ₦81,000. What is the gross profit percentage on sales?",
+    "correct_understanding": "Gross profit margin is 22.5%",
+    "answer_terms": [
+      "22.5%",
+      "22.5 percent",
+      "22.5"
+    ]
+  },
+  {
+    "id": "bt-acc-027",
+    "subject": "accounting",
+    "topic": "final_accounts",
+    "student_message": "Where exactly do drawings appear in a sole trader's balance sheet? I put them under current liabilities.",
+    "correct_understanding": "Drawings are deducted from capital in the capital section of the balance sheet",
+    "answer_terms": [
+      "deducted from capital",
+      "subtracted from capital",
+      "less drawings",
+      "deduct it from capital"
+    ]
+  },
+  {
+    "id": "bt-acc-028",
+    "subject": "accounting",
+    "topic": "final_accounts",
+    "student_message": "Our shop took a loan from Bank of Industry that is repayable in five years' time. In the balance sheet, where does it go?",
+    "correct_understanding": "It is a non-current (long-term) liability",
+    "answer_terms": [
+      "non-current liability",
+      "long-term liability",
+      "long term liability",
+      "not a current liability"
+    ]
+  },
+  {
+    "id": "bt-acc-029",
+    "subject": "accounting",
+    "topic": "final_accounts",
+    "student_message": "Gross profit was ₦92,000. Expenses: wages ₦41,500, rent ₦38,200, electricity ₦19,750. So what's the final result? Profit or what?",
+    "correct_understanding": "Net loss is ₦7,450",
+    "answer_terms": [
+      "7,450",
+      "7450",
+      "₦7,450"
+    ]
+  },
+  {
+    "id": "bt-acc-030",
+    "subject": "accounting",
+    "topic": "final_accounts",
+    "student_message": "We owe ₦6,300 for electricity used in December which will be paid in January. Under which heading do I show it in the balance sheet?",
+    "correct_understanding": "Accrued electricity is shown under current liabilities",
+    "answer_terms": [
+      "current liability",
+      "current liabilities"
+    ]
+  },
+  {
+    "id": "bt-acc-031",
+    "subject": "accounting",
+    "topic": "depreciation",
+    "student_message": "A bus cost ₦875,000, expected to be scrapped for ₦95,000 after 6 years. Straight line method — what's the yearly depreciation?",
+    "correct_understanding": "Annual depreciation is ₦130,000",
+    "answer_terms": [
+      "130,000",
+      "130000",
+      "₦130,000"
+    ]
+  },
+  {
+    "id": "bt-acc-032",
+    "subject": "accounting",
+    "topic": "depreciation",
+    "student_message": "Equipment costing ₦1,250,000 is depreciated at 20% per annum on the reducing balance. What is the depreciation charge for year 3?",
+    "correct_understanding": "Year 3 depreciation is ₦160,000",
+    "answer_terms": [
+      "160,000",
+      "160000",
+      "₦160,000"
+    ]
+  },
+  {
+    "id": "bt-acc-033",
+    "subject": "accounting",
+    "topic": "depreciation",
+    "student_message": "We bought a freezer for ₦360,000 on 1 April. Depreciation is 12.5% p.a. straight line, time-apportioned, and our year ends 31 December. Depreciation for the first year?",
+    "correct_understanding": "First-year depreciation is ₦33,750",
+    "answer_terms": [
+      "33,750",
+      "33750",
+      "₦33,750"
+    ]
+  },
+  {
+    "id": "bt-acc-034",
+    "subject": "accounting",
+    "topic": "depreciation",
+    "student_message": "Cost ₦540,000, residual value ₦60,000, useful life 8 years, straight line. What's the accumulated depreciation at the end of year 4?",
+    "correct_understanding": "Accumulated depreciation after 4 years is ₦240,000",
+    "answer_terms": [
+      "240,000",
+      "240000",
+      "₦240,000"
+    ]
+  },
+  {
+    "id": "bt-acc-035",
+    "subject": "accounting",
+    "topic": "depreciation",
+    "student_message": "Machine cost ₦450,000, accumulated depreciation ₦270,000. It was sold for ₦162,500. Is it profit or loss on disposal, and how much?",
+    "correct_understanding": "Loss on disposal is ₦17,500",
+    "answer_terms": [
+      "17,500",
+      "17500",
+      "₦17,500"
+    ]
+  },
+  {
+    "id": "bt-acc-036",
+    "subject": "accounting",
+    "topic": "depreciation",
+    "student_message": "A truck bought 1 Jan 2022 for ₦720,000, depreciated 20% straight line per year (full years). Sold on 31 Dec 2024 for ₦310,000. Profit or loss on disposal?",
+    "correct_understanding": "Profit on disposal is ₦22,000",
+    "answer_terms": [
+      "22,000",
+      "22000",
+      "₦22,000"
+    ]
+  },
+  {
+    "id": "bt-acc-037",
+    "subject": "accounting",
+    "topic": "depreciation",
+    "student_message": "An asset cost ₦600,000 with no scrap value and the straight-line charge is ₦75,000 every year. What percentage rate is being used?",
+    "correct_understanding": "The rate is 12.5% per annum",
+    "answer_terms": [
+      "12.5%",
+      "12.5 percent",
+      "12.5"
+    ]
+  },
+  {
+    "id": "bt-acc-038",
+    "subject": "accounting",
+    "topic": "depreciation",
+    "student_message": "Grinding machine ₦380,000, 30% reducing balance. Abeg how much is the depreciation in the second year?",
+    "correct_understanding": "Second-year depreciation is ₦79,800",
+    "answer_terms": [
+      "79,800",
+      "79800",
+      "₦79,800"
+    ]
+  },
+  {
+    "id": "bt-acc-039",
+    "subject": "accounting",
+    "topic": "depreciation",
+    "student_message": "What is the double entry to record this year's depreciation on the delivery van, if we keep a provision account? Na which account get credit?",
+    "correct_understanding": "Debit Profit and Loss (depreciation expense), Credit Provision for Depreciation account",
+    "answer_terms": [
+      "credit provision for depreciation",
+      "cr provision for depreciation",
+      "provision for depreciation account is credited",
+      "credit accumulated depreciation"
+    ]
+  },
+  {
+    "id": "bt-acc-040",
+    "subject": "accounting",
+    "topic": "depreciation",
+    "student_message": "My teacher say one depreciation method dey give the same charge every year, the other one dey reduce yearly. Which one gives the same amount?",
+    "correct_understanding": "The straight line (fixed instalment) method gives the same charge each year",
+    "answer_terms": [
+      "straight line",
+      "straight-line",
+      "fixed instalment"
+    ]
+  },
+  {
+    "id": "bt-acc-041",
+    "subject": "accounting",
+    "topic": "depreciation",
+    "student_message": "Generator cost ₦185,000, depreciated at 10% on cost each year. What is its net book value after 3 years?",
+    "correct_understanding": "Net book value after 3 years is ₦129,500",
+    "answer_terms": [
+      "129,500",
+      "129500",
+      "₦129,500"
+    ]
+  },
+  {
+    "id": "bt-acc-042",
+    "subject": "accounting",
+    "topic": "depreciation",
+    "student_message": "Loose tools valued at ₦48,000 at start of year. We bought more tools for ₦15,500. At year end the tools were revalued at ₦51,200. Depreciation for the year using revaluation method?",
+    "correct_understanding": "Depreciation for the year is ₦12,300",
+    "answer_terms": [
+      "12,300",
+      "12300",
+      "₦12,300"
+    ]
+  },
+  {
+    "id": "bt-acc-043",
+    "subject": "accounting",
+    "topic": "depreciation",
+    "student_message": "A printing machine cost ₦2,400,000, residual value ₦200,000, expected to run 50,000 machine hours. It ran 7,300 hours this year. Machine hour method depreciation?",
+    "correct_understanding": "This year's depreciation is ₦321,200",
+    "answer_terms": [
+      "321,200",
+      "321200",
+      "₦321,200"
+    ]
+  },
+  {
+    "id": "bt-acc-044",
+    "subject": "accounting",
+    "topic": "depreciation",
+    "student_message": "We're selling the old motor van that cost ₦540,000. To remove its cost from the books, what's the first entry with the disposal account?",
+    "correct_understanding": "Debit Disposal account, Credit Motor Van account with the cost",
+    "answer_terms": [
+      "debit disposal",
+      "dr disposal",
+      "disposal account is debited",
+      "credit motor van"
+    ]
+  },
+  {
+    "id": "bt-acc-045",
+    "subject": "accounting",
+    "topic": "depreciation",
+    "student_message": "A machine depreciated at 40% reducing balance has a book value of ₦288,000 after two full years. How much did it originally cost?",
+    "correct_understanding": "The original cost is ₦800,000",
+    "answer_terms": [
+      "800,000",
+      "800000",
+      "₦800,000"
+    ]
+  },
+  {
+    "id": "bt-acc-046",
+    "subject": "accounting",
+    "topic": "bank_reconciliation",
+    "student_message": "Cash book debit balance ₦63,400. The bank statement shows bank charges ₦1,850, a standing order for ₦12,000, and a credit transfer from a customer of ₦17,300. What is the updated cash book balance?",
+    "correct_understanding": "The adjusted cash book balance is ₦66,850",
+    "answer_terms": [
+      "66,850",
+      "66850",
+      "₦66,850"
+    ]
+  },
+  {
+    "id": "bt-acc-047",
+    "subject": "accounting",
+    "topic": "bank_reconciliation",
+    "student_message": "Updated cash book shows ₦92,500. Unpresented cheques are ₦14,700 and ₦8,250. A lodgement of ₦21,000 has not been credited by the bank. What should the bank statement balance be?",
+    "correct_understanding": "The bank statement balance is ₦94,450",
+    "answer_terms": [
+      "94,450",
+      "94450",
+      "₦94,450"
+    ]
+  },
+  {
+    "id": "bt-acc-048",
+    "subject": "accounting",
+    "topic": "bank_reconciliation",
+    "student_message": "Bank statement balance is ₦128,300 (favourable). Unpresented cheques total ₦36,450 and uncredited deposits ₦19,800. What balance should my cash book show?",
+    "correct_understanding": "The cash book balance is ₦111,650",
+    "answer_terms": [
+      "111,650",
+      "111650",
+      "₦111,650"
+    ]
+  },
+  {
+    "id": "bt-acc-049",
+    "subject": "accounting",
+    "topic": "bank_reconciliation",
+    "student_message": "Cash book shows an overdraft of ₦25,600. Unpresented cheque ₦9,400, uncredited lodgement ₦6,100. What overdraft will the bank statement show?",
+    "correct_understanding": "The bank statement overdraft is ₦22,300",
+    "answer_terms": [
+      "22,300",
+      "22300",
+      "₦22,300"
+    ]
+  },
+  {
+    "id": "bt-acc-050",
+    "subject": "accounting",
+    "topic": "bank_reconciliation",
+    "student_message": "Cash book balance ₦47,900. On the statement: a dishonoured cheque ₦8,600, dividend paid direct to bank ₦5,250, charges ₦720. Wetin be the corrected cash book balance?",
+    "correct_understanding": "The corrected cash book balance is ₦43,830",
+    "answer_terms": [
+      "43,830",
+      "43830",
+      "₦43,830"
+    ]
+  },
+  {
+    "id": "bt-acc-051",
+    "subject": "accounting",
+    "topic": "bank_reconciliation",
+    "student_message": "A cheque payment of ₦6,480 was entered in the cash book as ₦4,680. The cash book shows ₦39,200 debit balance. What is the corrected figure?",
+    "correct_understanding": "The corrected cash book balance is ₦37,400",
+    "answer_terms": [
+      "37,400",
+      "37400",
+      "₦37,400"
+    ]
+  },
+  {
+    "id": "bt-acc-052",
+    "subject": "accounting",
+    "topic": "bank_reconciliation",
+    "student_message": "If my bank reconciliation statement starts with the cash book balance, do I add or subtract the cheques we've issued that the bank hasn't paid yet?",
+    "correct_understanding": "Unpresented cheques are added to the cash book balance",
+    "answer_terms": [
+      "add the unpresented",
+      "added to the cash book balance",
+      "add them to the cash book",
+      "they are added"
+    ]
+  },
+  {
+    "id": "bt-acc-053",
+    "subject": "accounting",
+    "topic": "bank_reconciliation",
+    "student_message": "From this list — unpresented cheque, bank charges, uncredited lodgement, standing order — which ones do I use to update the cash book itself?",
+    "correct_understanding": "Only the bank charges and the standing order are entered in the cash book",
+    "answer_terms": [
+      "bank charges and standing order",
+      "bank charges and the standing order",
+      "standing order and bank charges",
+      "standing order and the bank charges"
+    ]
+  },
+  {
+    "id": "bt-acc-054",
+    "subject": "accounting",
+    "topic": "bank_reconciliation",
+    "student_message": "Bank statement shows ₦76,540. Unpresented cheques ₦12,300 and ₦4,075, uncredited lodgement ₦18,900. The bank also wrongly debited our account with another customer's cheque of ₦2,500. What is the correct cash book balance?",
+    "correct_understanding": "The correct cash book balance is ₦81,565",
+    "answer_terms": [
+      "81,565",
+      "81565",
+      "₦81,565"
+    ]
+  },
+  {
+    "id": "bt-acc-055",
+    "subject": "accounting",
+    "topic": "bank_reconciliation",
+    "student_message": "Cash book balance ₦33,610. The statement shows a direct debit for electricity ₦9,750 and interest received ₦1,380 not in the cash book. What is the adjusted balance?",
+    "correct_understanding": "The adjusted cash book balance is ₦25,240",
+    "answer_terms": [
+      "25,240",
+      "25240",
+      "₦25,240"
+    ]
+  },
+  {
+    "id": "bt-acc-056",
+    "subject": "accounting",
+    "topic": "bank_reconciliation",
+    "student_message": "My cash book debit balance is ₦58,300 but I discovered the receipts side was overcast by ₦2,000. What is the correct balance?",
+    "correct_understanding": "The correct cash book balance is ₦56,300",
+    "answer_terms": [
+      "56,300",
+      "56300",
+      "₦56,300"
+    ]
+  },
+  {
+    "id": "bt-acc-057",
+    "subject": "accounting",
+    "topic": "bank_reconciliation",
+    "student_message": "Adjusted cash book ₦40,250, bank statement ₦52,750. Only difference: uncredited lodgement of ₦3,100 and some unpresented cheques. What is the total of the unpresented cheques?",
+    "correct_understanding": "Total unpresented cheques is ₦15,600",
+    "answer_terms": [
+      "15,600",
+      "15600",
+      "₦15,600"
+    ]
+  },
+  {
+    "id": "bt-acc-058",
+    "subject": "accounting",
+    "topic": "bank_reconciliation",
+    "student_message": "My cashbook dey show debit ₦71,900, statement show ₦69,150. Na only one bank charge cause the difference. How much be the charge?",
+    "correct_understanding": "The bank charge is ₦2,750",
+    "answer_terms": [
+      "2,750",
+      "2750",
+      "₦2,750"
+    ]
+  },
+  {
+    "id": "bt-acc-059",
+    "subject": "accounting",
+    "topic": "bank_reconciliation",
+    "student_message": "When the cash book (bank column) shows a debit balance, does it mean we have money in the bank or we are overdrawn?",
+    "correct_understanding": "A debit balance in the cash book means the business has money in the bank (favourable balance)",
+    "answer_terms": [
+      "favourable",
+      "not overdrawn",
+      "positive balance",
+      "cash at bank"
+    ]
+  },
+  {
+    "id": "bt-acc-060",
+    "subject": "accounting",
+    "topic": "bank_reconciliation",
+    "student_message": "Bank received a credit transfer of ₦23,800 from our customer Uche but it's not in my cash book. Which side of the cash book do I put it?",
+    "correct_understanding": "Enter it on the debit side of the cash book (bank column) and credit Uche",
+    "answer_terms": [
+      "debit side",
+      "debit the cash book",
+      "debit bank",
+      "dr bank"
+    ]
+  },
+  {
+    "id": "bt-acc-061",
+    "subject": "accounting",
+    "topic": "trial_balance",
+    "student_message": "Cash paid for a new shop generator, ₦285,000, was debited to the Repairs account. The trial balance still agrees. What type of error is this?",
+    "correct_understanding": "It is an error of principle",
+    "answer_terms": [
+      "error of principle"
+    ]
+  },
+  {
+    "id": "bt-acc-062",
+    "subject": "accounting",
+    "topic": "trial_balance",
+    "student_message": "₦17,600 received from Ngozi Eze was credited to Ngozi Okafor's account by mistake. Both are customers. What do we call this error?",
+    "correct_understanding": "It is an error of commission",
+    "answer_terms": [
+      "error of commission"
+    ]
+  },
+  {
+    "id": "bt-acc-063",
+    "subject": "accounting",
+    "topic": "trial_balance",
+    "student_message": "A sales invoice of ₦9,450 was entered in the sales day book as ₦9,540 and posted like that to both accounts. Which class of error is this one?",
+    "correct_understanding": "It is an error of original entry",
+    "answer_terms": [
+      "error of original entry",
+      "original entry"
+    ]
+  },
+  {
+    "id": "bt-acc-064",
+    "subject": "accounting",
+    "topic": "trial_balance",
+    "student_message": "The sales account was overcast by ₦3,000 and the wages account was also overcast by ₦3,000. TB balances. What name do we give this kind of error?",
+    "correct_understanding": "It is a compensating error",
+    "answer_terms": [
+      "compensating error",
+      "compensating errors"
+    ]
+  },
+  {
+    "id": "bt-acc-065",
+    "subject": "accounting",
+    "topic": "trial_balance",
+    "student_message": "My trial balance debit side totals ₦486,300 and credit side ₦492,150. How much goes into the suspense account, and on which side?",
+    "correct_understanding": "The suspense account balance is ₦5,850 on the debit side",
+    "answer_terms": [
+      "5,850",
+      "5850",
+      "₦5,850"
+    ]
+  },
+  {
+    "id": "bt-acc-066",
+    "subject": "accounting",
+    "topic": "trial_balance",
+    "student_message": "The sales day book was undercast by ₦4,200 and I opened a suspense account for the difference. What journal entry corrects it?",
+    "correct_understanding": "Debit Suspense account, Credit Sales account",
+    "answer_terms": [
+      "debit suspense",
+      "dr suspense",
+      "credit sales",
+      "cr sales"
+    ]
+  },
+  {
+    "id": "bt-acc-067",
+    "subject": "accounting",
+    "topic": "trial_balance",
+    "student_message": "Trial balance items: purchases ₦312,000, equipment ₦220,000, debtors ₦73,500, cash ₦41,700, rent ₦24,000, wages ₦52,000, drawings ₦18,000, sales ₦465,000, creditors ₦58,200. Capital is missing. What must capital be?",
+    "correct_understanding": "Capital is ₦218,000",
+    "answer_terms": [
+      "218,000",
+      "218000",
+      "₦218,000"
+    ]
+  },
+  {
+    "id": "bt-acc-068",
+    "subject": "accounting",
+    "topic": "trial_balance",
+    "student_message": "Find the missing Bank (debit) figure:\n| Date | Account | Debit (₦) | Credit (₦) |\n|------|---------|-----------|------------|\n| 31 Dec | Capital | | 350,000 |\n| 31 Dec | Furniture | 145,000 | |\n| 31 Dec | Stock | 62,800 | |\n| 31 Dec | Sales | | 287,400 |\n| 31 Dec | Purchases | 196,300 | |\n| 31 Dec | Creditors | | 41,900 |",
+    "correct_understanding": "The bank balance is ₦275,200",
+    "answer_terms": [
+      "275,200",
+      "275200",
+      "₦275,200"
+    ]
+  },
+  {
+    "id": "bt-acc-069",
+    "subject": "accounting",
+    "topic": "trial_balance",
+    "student_message": "In the trial balance, discount received go where — debit or credit? I always confuse am with discount allowed.",
+    "correct_understanding": "Discount received is shown on the credit side",
+    "answer_terms": [
+      "credit side",
+      "credit column"
+    ]
+  },
+  {
+    "id": "bt-acc-070",
+    "subject": "accounting",
+    "topic": "trial_balance",
+    "student_message": "Drawings of ₦45,000 — I'm listing my trial balance. Which column does it belong to?",
+    "correct_understanding": "Drawings go in the debit column",
+    "answer_terms": [
+      "debit column",
+      "debit side"
+    ]
+  },
+  {
+    "id": "bt-acc-071",
+    "subject": "accounting",
+    "topic": "trial_balance",
+    "student_message": "Rent paid of ₦6,750 was entered in the cash book but never posted to the rent account. When I draw up the trial balance, which total will be bigger?",
+    "correct_understanding": "The credit total will be bigger than the debit total",
+    "answer_terms": [
+      "credit side will be bigger",
+      "credit total will be",
+      "credit side is bigger",
+      "credit side will be higher"
+    ]
+  },
+  {
+    "id": "bt-acc-072",
+    "subject": "accounting",
+    "topic": "trial_balance",
+    "student_message": "A debtor's balance of ₦37,860 was copied into the trial balance as ₦38,760. By how much will the debit side be overstated?",
+    "correct_understanding": "The debit side overstatement is ₦900",
+    "answer_terms": [
+      "900",
+      "₦900"
+    ]
+  },
+  {
+    "id": "bt-acc-073",
+    "subject": "accounting",
+    "topic": "trial_balance",
+    "student_message": "The only errors were: (a) wages paid ₦5,300 credited in the cash book but not posted to the wages account; (b) sales account undercast by ₦2,150. What was the original suspense balance and its side?",
+    "correct_understanding": "The original suspense balance (debit side) is ₦3,150",
+    "answer_terms": [
+      "3,150",
+      "3150",
+      "₦3,150"
+    ]
+  },
+  {
+    "id": "bt-acc-074",
+    "subject": "accounting",
+    "topic": "trial_balance",
+    "student_message": "A credit purchase of goods from Danjuma for ₦14,900 was completely left out of the books. What is the journal entry to correct it?",
+    "correct_understanding": "Debit Purchases account, Credit Danjuma's account",
+    "answer_terms": [
+      "debit purchases",
+      "dr purchases",
+      "credit danjuma",
+      "cr danjuma"
+    ]
+  },
+  {
+    "id": "bt-acc-075",
+    "subject": "accounting",
+    "topic": "trial_balance",
+    "student_message": "My trial balance shows debit total ₦316,050 and credit total ₦321,150. The only error: discount allowed of ₦2,550 was put on the credit side instead of the debit side. What will the corrected totals be?",
+    "correct_understanding": "Each corrected trial balance total is ₦318,600",
+    "answer_terms": [
+      "318,600",
+      "318600",
+      "₦318,600"
+    ]
+  },
+  {
+    "id": "bt-acc-076",
+    "subject": "accounting",
+    "topic": "stock_valuation",
+    "student_message": "Purchases: January 400 units at ₦250, March 300 units at ₦280, June 500 units at ₦310. We sold 850 units. Using FIFO, what is the value of closing stock?",
+    "correct_understanding": "FIFO closing stock is ₦108,500",
+    "answer_terms": [
+      "108,500",
+      "108500",
+      "₦108,500"
+    ]
+  },
+  {
+    "id": "bt-acc-077",
+    "subject": "accounting",
+    "topic": "stock_valuation",
+    "student_message": "1 Feb bought 120 cartons at ₦1,800 each; 9 Feb bought 200 cartons at ₦1,950; 20 Feb sold 260 cartons. Under FIFO, what is the cost of the cartons sold?",
+    "correct_understanding": "FIFO cost of goods sold is ₦489,000",
+    "answer_terms": [
+      "489,000",
+      "489000",
+      "₦489,000"
+    ]
+  },
+  {
+    "id": "bt-acc-078",
+    "subject": "accounting",
+    "topic": "stock_valuation",
+    "student_message": "We bought 200 units at ₦450, 300 at ₦500 and 500 at ₦520 during the period. 340 units are left. Using simple periodic weighted average cost for the whole period, value the closing stock.",
+    "correct_understanding": "Closing stock at weighted average is ₦170,000",
+    "answer_terms": [
+      "170,000",
+      "170000",
+      "₦170,000"
+    ]
+  },
+  {
+    "id": "bt-acc-079",
+    "subject": "accounting",
+    "topic": "stock_valuation",
+    "student_message": "Opening stock 100 units at ₦600. Bought 300 at ₦680, then sold 250, then bought 200 at ₦700. Using perpetual (continuous) weighted average, what is closing stock value?",
+    "correct_understanding": "Closing stock under perpetual AVCO is ₦239,000",
+    "answer_terms": [
+      "239,000",
+      "239000",
+      "₦239,000"
+    ]
+  },
+  {
+    "id": "bt-acc-080",
+    "subject": "accounting",
+    "topic": "stock_valuation",
+    "student_message": "Periodic LIFO question: we bought 150 bags at ₦2,000 then 250 bags at ₦2,400. We sold 300 bags in the period. No opening stock. Closing stock value?",
+    "correct_understanding": "Periodic LIFO closing stock is ₦200,000",
+    "answer_terms": [
+      "200,000",
+      "200000",
+      "₦200,000"
+    ]
+  },
+  {
+    "id": "bt-acc-081",
+    "subject": "accounting",
+    "topic": "stock_valuation",
+    "student_message": "An item in stock cost ₦84,000. It can be sold for ₦79,500 but selling costs will be ₦6,300. At what value should it be in closing stock?",
+    "correct_understanding": "The closing stock value (net realisable value) is ₦73,200",
+    "answer_terms": [
+      "73,200",
+      "73200",
+      "₦73,200"
+    ]
+  },
+  {
+    "id": "bt-acc-082",
+    "subject": "accounting",
+    "topic": "stock_valuation",
+    "student_message": "Three groups of stock: A cost ₦26,000 NRV ₦31,500; B cost ₦18,400 NRV ₦15,900; C cost ₦42,700 NRV ₦44,000. Valuing item by item, what's total closing stock?",
+    "correct_understanding": "Total closing stock is ₦84,600",
+    "answer_terms": [
+      "84,600",
+      "84600",
+      "₦84,600"
+    ]
+  },
+  {
+    "id": "bt-acc-083",
+    "subject": "accounting",
+    "topic": "stock_valuation",
+    "student_message": "What's the general rule for valuing closing stock in the final accounts? Just the rule, I'll understand later.",
+    "correct_understanding": "Stock is valued at the lower of cost and net realisable value",
+    "answer_terms": [
+      "lower of cost and net realisable value",
+      "lower of cost and nrv",
+      "lower of cost or net realisable value",
+      "lower of cost"
+    ]
+  },
+  {
+    "id": "bt-acc-084",
+    "subject": "accounting",
+    "topic": "stock_valuation",
+    "student_message": "Year ended 31 December but the stock count happened on 3 January: ₦186,400. Between 1 and 3 January, goods costing ₦12,750 were sold and goods costing ₦9,300 were received. What was stock at 31 December?",
+    "correct_understanding": "Stock at 31 December is ₦189,850",
+    "answer_terms": [
+      "189,850",
+      "189850",
+      "₦189,850"
+    ]
+  },
+  {
+    "id": "bt-acc-085",
+    "subject": "accounting",
+    "topic": "stock_valuation",
+    "student_message": "Our closing stock of ₦154,000 excludes goods sent to a customer on sale or return, priced at ₦18,000 (mark-up 20% on cost). Customer hasn't accepted yet. Correct closing stock?",
+    "correct_understanding": "Correct closing stock is ₦169,000",
+    "answer_terms": [
+      "169,000",
+      "169000",
+      "₦169,000"
+    ]
+  },
+  {
+    "id": "bt-acc-086",
+    "subject": "accounting",
+    "topic": "stock_valuation",
+    "student_message": "I buy 60 bags of cement at ₦9,500 each, later 80 bags at ₦10,200 each. I sell 100 bags. Using FIFO, closing stock value na how much?",
+    "correct_understanding": "FIFO closing stock is ₦408,000",
+    "answer_terms": [
+      "408,000",
+      "408000",
+      "₦408,000"
+    ]
+  },
+  {
+    "id": "bt-acc-087",
+    "subject": "accounting",
+    "topic": "stock_valuation",
+    "student_message": "When prices dey rise, which stock method gives a higher closing stock figure: first-in-first-out or last-in-first-out?",
+    "correct_understanding": "FIFO gives the higher closing stock when prices are rising",
+    "answer_terms": [
+      "fifo gives",
+      "fifo will give",
+      "first-in-first-out gives",
+      "fifo gives a higher"
+    ]
+  },
+  {
+    "id": "bt-acc-088",
+    "subject": "accounting",
+    "topic": "stock_valuation",
+    "student_message": "Closing stock was overstated by ₦14,600 and the net profit reported was ₦97,300. What is the correct net profit?",
+    "correct_understanding": "Correct net profit is ₦82,700",
+    "answer_terms": [
+      "82,700",
+      "82700",
+      "₦82,700"
+    ]
+  },
+  {
+    "id": "bt-acc-089",
+    "subject": "accounting",
+    "topic": "stock_valuation",
+    "student_message": "Opening stock was understated by ₦8,450 and reported net profit is ₦66,200. What should net profit really be?",
+    "correct_understanding": "Correct net profit is ₦57,750",
+    "answer_terms": [
+      "57,750",
+      "57750",
+      "₦57,750"
+    ]
+  },
+  {
+    "id": "bt-acc-090",
+    "subject": "accounting",
+    "topic": "stock_valuation",
+    "student_message": "Physical count gave closing stock of ₦212,000, but goods costing ₦27,850 bought on 29 December are still in transit and ownership already passed to us. Correct closing stock?",
+    "correct_understanding": "Correct closing stock is ₦239,850",
+    "answer_terms": [
+      "239,850",
+      "239850",
+      "₦239,850"
+    ]
+  },
+  {
+    "id": "bt-acc-091",
+    "subject": "accounting",
+    "topic": "partnership_accounts",
+    "student_message": "Ada and Ben: net profit ₦360,000. Interest on capital 10% — Ada's capital ₦400,000, Ben's ₦250,000. Ben gets a salary of ₦48,000. Remaining profit shared 3:2 (Ada:Ben). What is Ada's share of the residual profit?",
+    "correct_understanding": "Ada's share of residual profit is ₦148,200",
+    "answer_terms": [
+      "148,200",
+      "148200",
+      "₦148,200"
+    ]
+  },
+  {
+    "id": "bt-acc-092",
+    "subject": "accounting",
+    "topic": "partnership_accounts",
+    "student_message": "Interest on drawings is charged at a flat 5% on total drawings for the year. Musa drew ₦84,600. How much interest on drawings is charged to him?",
+    "correct_understanding": "Musa's interest on drawings is ₦4,230",
+    "answer_terms": [
+      "4,230",
+      "4230",
+      "₦4,230"
+    ]
+  },
+  {
+    "id": "bt-acc-093",
+    "subject": "accounting",
+    "topic": "partnership_accounts",
+    "student_message": "Partner Tolu's current account had a DEBIT balance of ₦7,800 at start. Then: salary ₦36,000, interest on capital ₦9,400, profit share ₦71,250, drawings ₦58,000, interest on drawings ₦2,900. Closing balance?",
+    "correct_understanding": "Tolu's closing current account balance (credit) is ₦47,950",
+    "answer_terms": [
+      "47,950",
+      "47950",
+      "₦47,950"
+    ]
+  },
+  {
+    "id": "bt-acc-094",
+    "subject": "accounting",
+    "topic": "partnership_accounts",
+    "student_message": "Kola, Lami and Musa share residual profit 2:2:1. Residual profit after all appropriations is ₦187,500. How much goes to Musa?",
+    "correct_understanding": "Musa's share is ₦37,500",
+    "answer_terms": [
+      "37,500",
+      "37500",
+      "₦37,500"
+    ]
+  },
+  {
+    "id": "bt-acc-095",
+    "subject": "accounting",
+    "topic": "partnership_accounts",
+    "student_message": "Goodwill is valued at two years' purchase of average profits of the last three years: ₦150,000, ₦168,000 and ₦186,000. What is goodwill?",
+    "correct_understanding": "Goodwill is ₦336,000",
+    "answer_terms": [
+      "336,000",
+      "336000",
+      "₦336,000"
+    ]
+  },
+  {
+    "id": "bt-acc-096",
+    "subject": "accounting",
+    "topic": "partnership_accounts",
+    "student_message": "Goodwill of the firm is valued at ₦240,000. Yemi is admitted for a one-quarter share and pays his share of goodwill in cash. How much does he bring for goodwill?",
+    "correct_understanding": "Yemi's goodwill payment is ₦60,000",
+    "answer_terms": [
+      "60,000",
+      "60000",
+      "₦60,000"
+    ]
+  },
+  {
+    "id": "bt-acc-097",
+    "subject": "accounting",
+    "topic": "partnership_accounts",
+    "student_message": "On admitting a new partner, land is revalued up by ₦120,000, stock reduced by ₦18,000 and a ₦7,500 provision for doubtful debts is created. The two old partners share equally. Each one's share of revaluation?",
+    "correct_understanding": "Each old partner's share of the revaluation profit is ₦47,250",
+    "answer_terms": [
+      "47,250",
+      "47250",
+      "₦47,250"
+    ]
+  },
+  {
+    "id": "bt-acc-098",
+    "subject": "accounting",
+    "topic": "partnership_accounts",
+    "student_message": "A and B share profits 3:2. C is admitted for 1/5 share, taken from A and B in their old ratio. What is the new profit-sharing ratio A:B:C?",
+    "correct_understanding": "The new ratio is 12:8:5",
+    "answer_terms": [
+      "12:8:5",
+      "12/25",
+      "12 : 8 : 5"
+    ]
+  },
+  {
+    "id": "bt-acc-099",
+    "subject": "accounting",
+    "topic": "partnership_accounts",
+    "student_message": "Interest on capital for partner Ifeoma — what is the double entry? Which account gets debited?",
+    "correct_understanding": "Debit Profit and Loss Appropriation account, Credit Ifeoma's Current account",
+    "answer_terms": [
+      "debit appropriation",
+      "dr appropriation",
+      "debit the profit and loss appropriation",
+      "appropriation account is debited"
+    ]
+  },
+  {
+    "id": "bt-acc-100",
+    "subject": "accounting",
+    "topic": "partnership_accounts",
+    "student_message": "Partner Nnamdi lent the firm ₦200,000. There is no partnership agreement at all. How much interest is he entitled to per year on this loan?",
+    "correct_understanding": "Annual interest on the partner's loan (5% under the Partnership Act) is ₦10,000",
+    "answer_terms": [
+      "10,000",
+      "10000",
+      "₦10,000"
+    ]
+  },
+  {
+    "id": "bt-acc-101",
+    "subject": "accounting",
+    "topic": "partnership_accounts",
+    "student_message": "On dissolution, assets with book value ₦520,000 realised ₦463,000 and realisation expenses were ₦9,400. Two partners share equally. How much does each partner bear on realisation?",
+    "correct_understanding": "Each partner's share of the realisation loss is ₦33,200",
+    "answer_terms": [
+      "33,200",
+      "33200",
+      "₦33,200"
+    ]
+  },
+  {
+    "id": "bt-acc-102",
+    "subject": "accounting",
+    "topic": "partnership_accounts",
+    "student_message": "Ade, Bimpe and Ope share profits 2:1:1. Ope is guaranteed a minimum of ₦50,000 and any shortfall is borne equally by Ade and Bimpe. Residual profit is ₦132,000. What is Bimpe's final share?",
+    "correct_understanding": "Bimpe's final share is ₦24,500",
+    "answer_terms": [
+      "24,500",
+      "24500",
+      "₦24,500"
+    ]
+  },
+  {
+    "id": "bt-acc-103",
+    "subject": "accounting",
+    "topic": "partnership_accounts",
+    "student_message": "Retiring partner Gbenga: capital ₦180,000, current account credit ₦23,600, his share of goodwill ₦45,000, share of revaluation profit ₦11,250. Total amount due to him?",
+    "correct_understanding": "Total amount due to Gbenga is ₦259,850",
+    "answer_terms": [
+      "259,850",
+      "259850",
+      "₦259,850"
+    ]
+  },
+  {
+    "id": "bt-acc-104",
+    "subject": "accounting",
+    "topic": "partnership_accounts",
+    "student_message": "Halima's capital was ₦300,000 on 1 January and she added ₦100,000 on 1 July. Interest on capital is 8% per annum, year ends 31 December. Her interest on capital?",
+    "correct_understanding": "Halima's interest on capital is ₦28,000",
+    "answer_terms": [
+      "28,000",
+      "28000",
+      "₦28,000"
+    ]
+  },
+  {
+    "id": "bt-acc-105",
+    "subject": "accounting",
+    "topic": "manufacturing_accounts",
+    "student_message": "Raw materials: opening ₦34,500, purchases ₦276,800, carriage on raw materials ₦5,600, returns ₦3,900, closing ₦41,200. Find cost of raw materials consumed.",
+    "correct_understanding": "Cost of raw materials consumed is ₦271,800",
+    "answer_terms": [
+      "271,800",
+      "271800",
+      "₦271,800"
+    ]
+  },
+  {
+    "id": "bt-acc-106",
+    "subject": "accounting",
+    "topic": "manufacturing_accounts",
+    "student_message": "Raw materials consumed ₦318,000, direct wages ₦194,500, royalties on production ₦12,000. What is the prime cost?",
+    "correct_understanding": "Prime cost is ₦524,500",
+    "answer_terms": [
+      "524,500",
+      "524500",
+      "₦524,500"
+    ]
+  },
+  {
+    "id": "bt-acc-107",
+    "subject": "accounting",
+    "topic": "manufacturing_accounts",
+    "student_message": "Prime cost ₦612,000. Factory overheads: indirect wages ₦46,300, factory rent ₦38,000, depreciation of plant ₦27,500, power ₦19,850. Opening WIP ₦22,400, closing WIP ₦31,750. Cost of production?",
+    "correct_understanding": "Cost of production is ₦734,300",
+    "answer_terms": [
+      "734,300",
+      "734300",
+      "₦734,300"
+    ]
+  },
+  {
+    "id": "bt-acc-108",
+    "subject": "accounting",
+    "topic": "manufacturing_accounts",
+    "student_message": "Rent of ₦96,000 is to be shared 3/4 to factory and 1/4 to office. How much rent enters the manufacturing account?",
+    "correct_understanding": "Factory rent is ₦72,000",
+    "answer_terms": [
+      "72,000",
+      "72000",
+      "₦72,000"
+    ]
+  },
+  {
+    "id": "bt-acc-109",
+    "subject": "accounting",
+    "topic": "manufacturing_accounts",
+    "student_message": "Goods are transferred to the trading account at cost of production plus 20%. Cost of production is ₦465,000. What's the manufacturing profit?",
+    "correct_understanding": "Manufacturing profit is ₦93,000",
+    "answer_terms": [
+      "93,000",
+      "93000",
+      "₦93,000"
+    ]
+  },
+  {
+    "id": "bt-acc-110",
+    "subject": "accounting",
+    "topic": "manufacturing_accounts",
+    "student_message": "Our factory's cost of production for the year was ₦1,386,000 and we produced 4,200 units. What is the production cost per unit?",
+    "correct_understanding": "Cost per unit is ₦330",
+    "answer_terms": [
+      "330",
+      "₦330"
+    ]
+  },
+  {
+    "id": "bt-acc-111",
+    "subject": "accounting",
+    "topic": "manufacturing_accounts",
+    "student_message": "Royalties paid to the patent owner for each unit we make — is it a factory overhead or what? Where do I place it?",
+    "correct_understanding": "Royalties per unit are a direct expense, part of prime cost",
+    "answer_terms": [
+      "direct expense",
+      "prime cost"
+    ]
+  },
+  {
+    "id": "bt-acc-112",
+    "subject": "accounting",
+    "topic": "manufacturing_accounts",
+    "student_message": "Carriage paid to bring raw materials into the factory — where does it go in the manufacturing account?",
+    "correct_understanding": "It is added to the cost of raw materials purchased",
+    "answer_terms": [
+      "added to the cost of raw materials",
+      "add it to raw materials",
+      "raw materials purchases",
+      "purchases of raw materials"
+    ]
+  },
+  {
+    "id": "bt-acc-113",
+    "subject": "accounting",
+    "topic": "manufacturing_accounts",
+    "student_message": "The salesmen's salaries — I put them in the manufacturing account under overheads. Is that right? Where should they go?",
+    "correct_understanding": "Salesmen's salaries are a selling expense in the profit and loss account, not the manufacturing account",
+    "answer_terms": [
+      "profit and loss",
+      "p&l",
+      "income statement",
+      "selling expense"
+    ]
+  },
+  {
+    "id": "bt-acc-114",
+    "subject": "accounting",
+    "topic": "manufacturing_accounts",
+    "student_message": "Sales ₦1,020,000, opening finished goods ₦58,000, cost of production transferred ₦690,500, closing finished goods ₦64,700. What is the gross profit?",
+    "correct_understanding": "Gross profit is ₦336,200",
+    "answer_terms": [
+      "336,200",
+      "336200",
+      "₦336,200"
+    ]
+  },
+  {
+    "id": "bt-acc-115",
+    "subject": "accounting",
+    "topic": "manufacturing_accounts",
+    "student_message": "Raw materials consumed was ₦198,000. Opening raw materials stock ₦27,000, closing ₦33,500. How much raw materials did we purchase?",
+    "correct_understanding": "Raw materials purchased is ₦204,500",
+    "answer_terms": [
+      "204,500",
+      "204500",
+      "₦204,500"
+    ]
+  },
+  {
+    "id": "bt-acc-116",
+    "subject": "accounting",
+    "topic": "manufacturing_accounts",
+    "student_message": "Factory overheads wahala: indirect materials ₦14,250, foreman's salary ₦60,000, factory insurance ₦8,400, depreciation of factory machine ₦22,000, office salaries ₦45,000. Total factory overheads?",
+    "correct_understanding": "Total factory overheads is ₦104,650",
+    "answer_terms": [
+      "104,650",
+      "104650",
+      "₦104,650"
+    ]
+  },
+  {
+    "id": "bt-acc-117",
+    "subject": "accounting",
+    "topic": "manufacturing_accounts",
+    "student_message": "Total factory wages were ₦380,000; 70% is direct labour and the rest is indirect. How much direct labour goes into prime cost?",
+    "correct_understanding": "Direct labour is ₦266,000",
+    "answer_terms": [
+      "266,000",
+      "266000",
+      "₦266,000"
+    ]
+  },
+  {
+    "id": "bt-acc-118",
+    "subject": "accounting",
+    "topic": "manufacturing_accounts",
+    "student_message": "In the manufacturing account, wetin be work-in-progress exactly? I no understand am.",
+    "correct_understanding": "Work-in-progress is partly finished goods still in production at the date",
+    "answer_terms": [
+      "partly finished",
+      "partially finished",
+      "half-finished",
+      "not yet completed"
+    ]
+  },
+  {
+    "id": "bt-acc-119",
+    "subject": "accounting",
+    "topic": "nonprofit_accounts",
+    "student_message": "Club subscriptions received in cash ₦148,000. At start: arrears ₦9,500, in advance ₦6,000. At end: arrears ₦12,250, in advance ₦4,800. Subscriptions for the income and expenditure account?",
+    "correct_understanding": "Subscriptions income is ₦151,950",
+    "answer_terms": [
+      "151,950",
+      "151950",
+      "₦151,950"
+    ]
+  },
+  {
+    "id": "bt-acc-120",
+    "subject": "accounting",
+    "topic": "nonprofit_accounts",
+    "student_message": "Drama club: bank at start ₦26,400. Receipts: subscriptions ₦96,500, tickets ₦38,000, donation ₦20,000. Payments: hall hire ₦42,000, refreshments ₦27,600, chairs ₦54,500. Closing bank in receipts and payments account?",
+    "correct_understanding": "The closing bank balance is ₦56,800",
+    "answer_terms": [
+      "56,800",
+      "56800",
+      "₦56,800"
+    ]
+  },
+  {
+    "id": "bt-acc-121",
+    "subject": "accounting",
+    "topic": "nonprofit_accounts",
+    "student_message": "Recreation club at start of year: furniture ₦135,000, bar stock ₦16,800, cash ₦23,450, subscriptions in arrears ₦5,000, subscriptions in advance ₦3,500, accrued electricity ₦2,750. Find the opening accumulated fund.",
+    "correct_understanding": "The opening accumulated fund is ₦174,000",
+    "answer_terms": [
+      "174,000",
+      "174000",
+      "₦174,000"
+    ]
+  },
+  {
+    "id": "bt-acc-122",
+    "subject": "accounting",
+    "topic": "nonprofit_accounts",
+    "student_message": "Bar trading: bar takings ₦263,000, opening bar stock ₦21,400, bar purchases ₦168,500, closing bar stock ₦18,900, barman's wages ₦24,000. Profit on the bar?",
+    "correct_understanding": "Bar profit is ₦68,000",
+    "answer_terms": [
+      "68,000",
+      "68000",
+      "₦68,000"
+    ]
+  },
+  {
+    "id": "bt-acc-123",
+    "subject": "accounting",
+    "topic": "nonprofit_accounts",
+    "student_message": "The association paid ₦37,800 for electricity. ₦3,200 was owing at start of year and ₦4,650 owing at end. Electricity for the income and expenditure account?",
+    "correct_understanding": "Electricity expense is ₦39,250",
+    "answer_terms": [
+      "39,250",
+      "39250",
+      "₦39,250"
+    ]
+  },
+  {
+    "id": "bt-acc-124",
+    "subject": "accounting",
+    "topic": "nonprofit_accounts",
+    "student_message": "Income: subscriptions ₦184,500, bar profit ₦47,250, donations ₦30,000. Expenditure: rent ₦60,000, wages ₦72,000, depreciation ₦18,500, sundries ₦9,850. Surplus or deficit?",
+    "correct_understanding": "Surplus (excess of income over expenditure) is ₦101,400",
+    "answer_terms": [
+      "101,400",
+      "101400",
+      "₦101,400"
+    ]
+  },
+  {
+    "id": "bt-acc-125",
+    "subject": "accounting",
+    "topic": "nonprofit_accounts",
+    "student_message": "What do we call the club account that is just a summary of all cash and bank money received and paid out for the year?",
+    "correct_understanding": "It is the receipts and payments account",
+    "answer_terms": [
+      "receipts and payments"
+    ]
+  },
+  {
+    "id": "bt-acc-126",
+    "subject": "accounting",
+    "topic": "nonprofit_accounts",
+    "student_message": "Subscriptions owed by members at year end — where do I show them in the club's balance sheet?",
+    "correct_understanding": "Subscriptions in arrears are a current asset in the balance sheet",
+    "answer_terms": [
+      "current asset",
+      "an asset",
+      "debtor"
+    ]
+  },
+  {
+    "id": "bt-acc-127",
+    "subject": "accounting",
+    "topic": "nonprofit_accounts",
+    "student_message": "Women's cooperative: accumulated fund at start ₦312,000. This year expenditure exceeded income by ₦27,500. What is the closing accumulated fund?",
+    "correct_understanding": "The closing accumulated fund is ₦284,500",
+    "answer_terms": [
+      "284,500",
+      "284500",
+      "₦284,500"
+    ]
+  },
+  {
+    "id": "bt-acc-128",
+    "subject": "accounting",
+    "topic": "nonprofit_accounts",
+    "student_message": "Our club has 120 members, each paying ₦2,500 yearly. For this year 104 paid, a few paid next year's too, and the rest are owing. Subscription income for this year?",
+    "correct_understanding": "Subscription income for the year is ₦300,000",
+    "answer_terms": [
+      "300,000",
+      "300000",
+      "₦300,000"
+    ]
+  },
+  {
+    "id": "bt-acc-129",
+    "subject": "accounting",
+    "topic": "nonprofit_accounts",
+    "student_message": "I&E shows subscriptions ₦210,000. Arrears: start ₦8,000, end ₦11,500. In advance: start ₦4,000, end ₦6,500. How much cash was actually received for subscriptions?",
+    "correct_understanding": "Cash received for subscriptions is ₦209,000",
+    "answer_terms": [
+      "209,000",
+      "209000",
+      "₦209,000"
+    ]
+  },
+  {
+    "id": "bt-acc-130",
+    "subject": "accounting",
+    "topic": "nonprofit_accounts",
+    "student_message": "Sports equipment was ₦84,000 at start of year; we bought more for ₦26,000; at year end it was valued at ₦97,300. Depreciation to charge in income and expenditure?",
+    "correct_understanding": "Depreciation on sports equipment is ₦12,700",
+    "answer_terms": [
+      "12,700",
+      "12700",
+      "₦12,700"
+    ]
+  },
+  {
+    "id": "bt-acc-131",
+    "subject": "accounting",
+    "topic": "nonprofit_accounts",
+    "student_message": "Our youth club's inter-house sports day sold tickets for ₦64,500 and spent ₦41,800 on medals and drinks. What net figure appears in the income and expenditure account?",
+    "correct_understanding": "Net income from the sports day is ₦22,700",
+    "answer_terms": [
+      "22,700",
+      "22700",
+      "₦22,700"
+    ]
+  },
+  {
+    "id": "bt-acc-132",
+    "subject": "accounting",
+    "topic": "nonprofit_accounts",
+    "student_message": "Club paid rent of ₦66,000 this year. Rent prepaid at start was ₦5,500 and prepaid at end ₦7,000. Rent expense for income and expenditure account?",
+    "correct_understanding": "Rent expense is ₦64,500",
+    "answer_terms": [
+      "64,500",
+      "64500",
+      "₦64,500"
+    ]
+  },
+  {
+    "id": "bt-acc-133",
+    "subject": "accounting",
+    "topic": "incomplete_records",
+    "student_message": "Mr Eze has no proper books. At 1 Jan: premises ₦650,000, motor van ₦280,000, stock ₦93,400, debtors ₦41,750, bank ₦18,600, creditors ₦57,300, loan ₦150,000. What was his capital?",
+    "correct_understanding": "Opening capital is ₦876,450",
+    "answer_terms": [
+      "876,450",
+      "876450",
+      "₦876,450"
+    ]
+  },
+  {
+    "id": "bt-acc-134",
+    "subject": "accounting",
+    "topic": "incomplete_records",
+    "student_message": "Capital at start ₦312,000, capital at end ₦401,500. Drawings ₦64,000 and fresh capital of ₦40,000 was introduced. What profit did the business make?",
+    "correct_understanding": "Net profit is ₦113,500",
+    "answer_terms": [
+      "113,500",
+      "113500",
+      "₦113,500"
+    ]
+  },
+  {
+    "id": "bt-acc-135",
+    "subject": "accounting",
+    "topic": "incomplete_records",
+    "student_message": "Cash and cheques received from debtors ₦386,000, discount allowed ₦7,400, opening debtors ₦52,300, closing debtors ₦61,900. Find credit sales.",
+    "correct_understanding": "Credit sales is ₦403,000",
+    "answer_terms": [
+      "403,000",
+      "403000",
+      "₦403,000"
+    ]
+  },
+  {
+    "id": "bt-acc-136",
+    "subject": "accounting",
+    "topic": "incomplete_records",
+    "student_message": "Paid to suppliers ₦271,500, discount received ₦4,800, creditors at start ₦38,700, at end ₦44,100. Credit purchases please.",
+    "correct_understanding": "Credit purchases is ₦281,700",
+    "answer_terms": [
+      "281,700",
+      "281700",
+      "₦281,700"
+    ]
+  },
+  {
+    "id": "bt-acc-137",
+    "subject": "accounting",
+    "topic": "incomplete_records",
+    "student_message": "Cost of sales is ₦264,000 and the trader marks up goods by one-third on cost. What were the sales?",
+    "correct_understanding": "Sales is ₦352,000",
+    "answer_terms": [
+      "352,000",
+      "352000",
+      "₦352,000"
+    ]
+  },
+  {
+    "id": "bt-acc-138",
+    "subject": "accounting",
+    "topic": "incomplete_records",
+    "student_message": "Sales are ₦455,000 and gross profit margin is 30% of sales. What's the cost of sales?",
+    "correct_understanding": "Cost of sales is ₦318,500",
+    "answer_terms": [
+      "318,500",
+      "318500",
+      "₦318,500"
+    ]
+  },
+  {
+    "id": "bt-acc-139",
+    "subject": "accounting",
+    "topic": "incomplete_records",
+    "student_message": "Flood destroyed stock in our Aba shop. Opening stock ₦74,000, purchases ₦312,500, sales ₦380,000, mark-up 25% on cost. Undamaged stock saved ₦9,700. Value of stock lost?",
+    "correct_understanding": "Stock lost in the flood is ₦72,800",
+    "answer_terms": [
+      "72,800",
+      "72800",
+      "₦72,800"
+    ]
+  },
+  {
+    "id": "bt-acc-140",
+    "subject": "accounting",
+    "topic": "incomplete_records",
+    "student_message": "Trader's cash: start ₦6,200, takings ₦418,000, paid suppliers ₦226,400, expenses ₦87,300, banked ₦75,000, cash at end ₦4,900. The rest he took for himself. How much drawings?",
+    "correct_understanding": "Cash drawings is ₦30,600",
+    "answer_terms": [
+      "30,600",
+      "30600",
+      "₦30,600"
+    ]
+  },
+  {
+    "id": "bt-acc-141",
+    "subject": "accounting",
+    "topic": "incomplete_records",
+    "student_message": "Cash sales ₦128,000. Received from debtors ₦214,600, opening debtors ₦26,000, closing debtors ₦31,750. What are the TOTAL sales for the year?",
+    "correct_understanding": "Total sales is ₦348,350",
+    "answer_terms": [
+      "348,350",
+      "348350",
+      "₦348,350"
+    ]
+  },
+  {
+    "id": "bt-acc-142",
+    "subject": "accounting",
+    "topic": "incomplete_records",
+    "student_message": "Wages paid during the year ₦186,000. Wages owing at start ₦7,500 and owing at end ₦9,200. What wages expense goes in profit and loss?",
+    "correct_understanding": "Wages expense is ₦187,700",
+    "answer_terms": [
+      "187,700",
+      "187700",
+      "₦187,700"
+    ]
+  },
+  {
+    "id": "bt-acc-143",
+    "subject": "accounting",
+    "topic": "incomplete_records",
+    "student_message": "Capital at start ₦245,000, capital at end ₦228,600, drawings ₦31,400. Capital went down so na loss abi? How much?",
+    "correct_understanding": "Net profit (not a loss) is ₦15,000",
+    "answer_terms": [
+      "15,000",
+      "15000",
+      "₦15,000"
+    ]
+  },
+  {
+    "id": "bt-acc-144",
+    "subject": "accounting",
+    "topic": "incomplete_records",
+    "student_message": "Reconstructed figures: sales ₦520,000, purchases ₦365,000, opening stock ₦48,000, closing stock ₦57,500. Gross profit?",
+    "correct_understanding": "Gross profit is ₦164,500",
+    "answer_terms": [
+      "164,500",
+      "164500",
+      "₦164,500"
+    ]
+  },
+  {
+    "id": "bt-acc-145",
+    "subject": "accounting",
+    "topic": "incomplete_records",
+    "student_message": "Sales ₦600,000 with gross margin of 25% on sales. Opening stock ₦66,000 and purchases ₦431,800. What must the closing stock be?",
+    "correct_understanding": "Closing stock is ₦47,800",
+    "answer_terms": [
+      "47,800",
+      "47800",
+      "₦47,800"
+    ]
+  },
+  {
+    "id": "bt-acc-146",
+    "subject": "accounting",
+    "topic": "incomplete_records",
+    "student_message": "When I dey use total creditors account to find credit purchases, discount received go which side?",
+    "correct_understanding": "Discount received goes on the debit side of the total creditors account",
+    "answer_terms": [
+      "debit side",
+      "dr side",
+      "debit of the total creditors"
+    ]
+  },
+  {
+    "id": "bt-acc-147",
+    "subject": "accounting",
+    "topic": "cash_flow",
+    "student_message": "Net profit ₦145,000, depreciation ₦32,500, stock increased ₦18,200, debtors decreased ₦9,600, creditors decreased ₦11,400. Net cash from operating activities?",
+    "correct_understanding": "Net cash from operating activities is ₦157,500",
+    "answer_terms": [
+      "157,500",
+      "157500",
+      "₦157,500"
+    ]
+  },
+  {
+    "id": "bt-acc-148",
+    "subject": "accounting",
+    "topic": "cash_flow",
+    "student_message": "During the year we bought land for ₦750,000 and sold old equipment for ₦63,500. What is the net cash used in investing activities?",
+    "correct_understanding": "Net cash used in investing activities is ₦686,500",
+    "answer_terms": [
+      "686,500",
+      "686500",
+      "₦686,500"
+    ]
+  },
+  {
+    "id": "bt-acc-149",
+    "subject": "accounting",
+    "topic": "cash_flow",
+    "student_message": "Loan received ₦300,000, capital introduced ₦150,000, drawings ₦87,000, loan repaid ₦45,000. Net cash from financing activities?",
+    "correct_understanding": "Net cash from financing activities is ₦318,000",
+    "answer_terms": [
+      "318,000",
+      "318000",
+      "₦318,000"
+    ]
+  },
+  {
+    "id": "bt-acc-150",
+    "subject": "accounting",
+    "topic": "cash_flow",
+    "student_message": "Opening cash ₦34,800. Operating inflow ₦126,450, investing outflow ₦210,000, financing inflow ₦95,000. What is closing cash?",
+    "correct_understanding": "Closing cash is ₦46,250",
+    "answer_terms": [
+      "46,250",
+      "46250",
+      "₦46,250"
+    ]
+  },
+  {
+    "id": "bt-acc-151",
+    "subject": "accounting",
+    "topic": "cash_flow",
+    "student_message": "Net profit ₦88,000 includes a ₦6,500 profit on sale of a vehicle. Depreciation was ₦21,000. Operating cash flow before working capital changes?",
+    "correct_understanding": "Operating cash flow before working capital changes is ₦102,500",
+    "answer_terms": [
+      "102,500",
+      "102500",
+      "₦102,500"
+    ]
+  },
+  {
+    "id": "bt-acc-152",
+    "subject": "accounting",
+    "topic": "cash_flow",
+    "student_message": "Net profit ₦64,000 after charging a loss on sale of equipment ₦4,250 and depreciation ₦18,750. No working capital changes. Operating cash flow?",
+    "correct_understanding": "Operating cash flow is ₦87,000",
+    "answer_terms": [
+      "87,000",
+      "87000",
+      "₦87,000"
+    ]
+  },
+  {
+    "id": "bt-acc-153",
+    "subject": "accounting",
+    "topic": "cash_flow",
+    "student_message": "Debtors increased this year. In the indirect method, do I add or minus the increase from profit?",
+    "correct_understanding": "An increase in debtors is deducted from profit",
+    "answer_terms": [
+      "deduct it",
+      "subtract it",
+      "deducted from",
+      "subtracted from"
+    ]
+  },
+  {
+    "id": "bt-acc-154",
+    "subject": "accounting",
+    "topic": "cash_flow",
+    "student_message": "Money from selling our old generator — which section of the cash flow statement? Operating, financing or the other one?",
+    "correct_understanding": "It goes under investing activities",
+    "answer_terms": [
+      "investing"
+    ]
+  },
+  {
+    "id": "bt-acc-155",
+    "subject": "accounting",
+    "topic": "cash_flow",
+    "student_message": "All sales are on credit: ₦840,000. Debtors were ₦72,000 at start and ₦86,500 at end. Direct method — how much cash did we receive from customers?",
+    "correct_understanding": "Cash received from customers is ₦825,500",
+    "answer_terms": [
+      "825,500",
+      "825500",
+      "₦825,500"
+    ]
+  },
+  {
+    "id": "bt-acc-156",
+    "subject": "accounting",
+    "topic": "cash_flow",
+    "student_message": "Purchases ₦512,000 (all on credit). Creditors start ₦48,300, end ₦41,900. Cash paid to suppliers?",
+    "correct_understanding": "Cash paid to suppliers is ₦518,400",
+    "answer_terms": [
+      "518,400",
+      "518400",
+      "₦518,400"
+    ]
+  },
+  {
+    "id": "bt-acc-157",
+    "subject": "accounting",
+    "topic": "cash_flow",
+    "student_message": "Fixed assets net book value: start ₦380,000, end ₦418,500. Bought new assets ₦125,000 and disposed of assets with NBV ₦22,000. How much depreciation was charged?",
+    "correct_understanding": "Depreciation for the year is ₦64,500",
+    "answer_terms": [
+      "64,500",
+      "64500",
+      "₦64,500"
+    ]
+  },
+  {
+    "id": "bt-acc-158",
+    "subject": "accounting",
+    "topic": "cash_flow",
+    "student_message": "Operating ₦213,700 inflow, investing ₦168,250 outflow, financing ₦27,950 outflow. Net increase or decrease in cash?",
+    "correct_understanding": "Net increase in cash is ₦17,500",
+    "answer_terms": [
+      "17,500",
+      "17500",
+      "₦17,500"
+    ]
+  },
+  {
+    "id": "bt-acc-159",
+    "subject": "accounting",
+    "topic": "cash_flow",
+    "student_message": "Wages paid to staff — which section of the cash flow statement does it belong? I'm not sure if it's financing.",
+    "correct_understanding": "Wages paid are part of operating activities",
+    "answer_terms": [
+      "operating"
+    ]
+  },
+  {
+    "id": "bt-acc-160",
+    "subject": "accounting",
+    "topic": "cash_flow",
+    "student_message": "Net profit ₦72,400, depreciation ₦15,600, prepayments increased ₦2,300, accruals increased ₦3,850, stock decreased ₦6,700. Find net cash from operations. Exam is tomorrow o!",
+    "correct_understanding": "Net cash from operating activities is ₦96,250",
+    "answer_terms": [
+      "96,250",
+      "96250",
+      "₦96,250"
+    ]
+  },
+  {
+    "id": "bt-acc-161",
+    "subject": "accounting",
+    "topic": "control_accounts",
+    "student_message": "Sales ledger control: balance b/d ₦68,400, credit sales ₦342,000, receipts ₦297,500, discount allowed ₦6,150, returns inwards ₦8,900, bad debts ₦4,200, dishonoured cheque ₦3,600. Closing balance?",
+    "correct_understanding": "Closing debit balance on the sales ledger control account is ₦97,250",
+    "answer_terms": [
+      "97,250",
+      "97250",
+      "₦97,250"
+    ]
+  },
+  {
+    "id": "bt-acc-162",
+    "subject": "accounting",
+    "topic": "control_accounts",
+    "student_message": "Purchases ledger control: balance b/d ₦54,300, credit purchases ₦286,000, payments ₦241,800, discount received ₦5,450, returns outwards ₦7,250, contra with sales ledger ₦3,800. Closing balance?",
+    "correct_understanding": "Closing credit balance on the purchases ledger control account is ₦82,000",
+    "answer_terms": [
+      "82,000",
+      "82000",
+      "₦82,000"
+    ]
+  },
+  {
+    "id": "bt-acc-163",
+    "subject": "accounting",
+    "topic": "control_accounts",
+    "student_message": "Discount allowed — which side of the sales ledger control account does it go?",
+    "correct_understanding": "Discount allowed is entered on the credit side of the sales ledger control account",
+    "answer_terms": [
+      "credit side",
+      "cr side",
+      "credit it"
+    ]
+  },
+  {
+    "id": "bt-acc-164",
+    "subject": "accounting",
+    "topic": "control_accounts",
+    "student_message": "Returns outwards in the purchases ledger control account — which side? Abeg I need it for my test.",
+    "correct_understanding": "Returns outwards go on the debit side of the purchases ledger control account",
+    "answer_terms": [
+      "debit side",
+      "dr side",
+      "debit it"
+    ]
+  },
+  {
+    "id": "bt-acc-165",
+    "subject": "accounting",
+    "topic": "control_accounts",
+    "student_message": "Sales ledger control account: balance b/d ₦41,000, cash received ₦228,000, discount allowed ₦3,500, returns ₦6,250, balance c/d ₦52,750. What were credit sales?",
+    "correct_understanding": "Credit sales is ₦249,500",
+    "answer_terms": [
+      "249,500",
+      "249500",
+      "₦249,500"
+    ]
+  },
+  {
+    "id": "bt-acc-166",
+    "subject": "accounting",
+    "topic": "control_accounts",
+    "student_message": "Purchases ledger control: b/d ₦33,600, credit purchases ₦197,400, discount received ₦2,850, closing balance ₦39,150. How much was paid to creditors?",
+    "correct_understanding": "Payments to creditors is ₦189,000",
+    "answer_terms": [
+      "189,000",
+      "189000",
+      "₦189,000"
+    ]
+  },
+  {
+    "id": "bt-acc-167",
+    "subject": "accounting",
+    "topic": "control_accounts",
+    "student_message": "The balance on the purchases ledger control account shows what, exactly? My friend says it is the cash we have.",
+    "correct_understanding": "It shows the total amount owed to credit suppliers (total creditors)",
+    "answer_terms": [
+      "total creditors",
+      "total amount owed to suppliers",
+      "trade payables",
+      "owed to suppliers"
+    ]
+  },
+  {
+    "id": "bt-acc-168",
+    "subject": "accounting",
+    "topic": "control_accounts",
+    "student_message": "Sales ledger control shows ₦86,300, but the sales day book total was undercast by ₦2,700 so the control is wrong. What is the corrected control account balance?",
+    "correct_understanding": "The corrected sales ledger control balance is ₦89,000",
+    "answer_terms": [
+      "89,000",
+      "89000",
+      "₦89,000"
+    ]
+  },
+  {
+    "id": "bt-acc-169",
+    "subject": "accounting",
+    "topic": "control_accounts",
+    "student_message": "SLCA: debit b/d ₦72,000, credit b/d ₦1,800, credit sales ₦265,000, receipts ₦241,500, discount allowed ₦4,300, returns inwards ₦3,950, credit balance c/d ₦2,400. Find the debit balance c/d.",
+    "correct_understanding": "The debit balance c/d is ₦87,850",
+    "answer_terms": [
+      "87,850",
+      "87850",
+      "₦87,850"
+    ]
+  },
+  {
+    "id": "bt-acc-170",
+    "subject": "accounting",
+    "topic": "control_accounts",
+    "student_message": "A customer overpaid and we refunded him by cheque. In the sales ledger control account, which side does the refund go?",
+    "correct_understanding": "The refund is entered on the debit side of the sales ledger control account",
+    "answer_terms": [
+      "debit side",
+      "dr side",
+      "debit it"
+    ]
+  },
+  {
+    "id": "bt-acc-171",
+    "subject": "accounting",
+    "topic": "control_accounts",
+    "student_message": "Purchases ledger control account: balance b/d ₦27,500, paid ₦312,000, discount received ₦6,750, returns outwards ₦4,900, balance c/d ₦36,250. Find credit purchases.",
+    "correct_understanding": "Credit purchases is ₦332,400",
+    "answer_terms": [
+      "332,400",
+      "332400",
+      "₦332,400"
+    ]
+  },
+  {
+    "id": "bt-acc-172",
+    "subject": "accounting",
+    "topic": "control_accounts",
+    "student_message": "Sales ledger control: opening ₦58,000, credit sales ₦190,000, cash received ₦172,400, and ₦6,300 set off against the purchases ledger. What is the closing balance?",
+    "correct_understanding": "The closing balance is ₦69,300",
+    "answer_terms": [
+      "69,300",
+      "69300",
+      "₦69,300"
+    ]
+  },
+  {
+    "id": "bt-acc-173",
+    "subject": "accounting",
+    "topic": "control_accounts",
+    "student_message": "My textbook calls the sales ledger control account by another name too. What's the other name?",
+    "correct_understanding": "It is also called the total debtors account (a total account)",
+    "answer_terms": [
+      "total debtors",
+      "total account",
+      "total accounts"
+    ]
+  },
+  {
+    "id": "bt-acc-174",
+    "subject": "accounting",
+    "topic": "control_accounts",
+    "student_message": "Purchases this month: credit purchases ₦145,000 and cash purchases ₦22,000. PLCA balance b/d ₦18,400, payments to creditors ₦129,850. What is the closing PLCA balance?",
+    "correct_understanding": "The closing purchases ledger control balance is ₦33,550",
+    "answer_terms": [
+      "33,550",
+      "33550",
+      "₦33,550"
+    ]
+  }
+]
