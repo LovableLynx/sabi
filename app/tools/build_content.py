@@ -1,6 +1,7 @@
 """
 Build app/content/game.json from the lesson files in data/game/ plus the
-authored Socratic tutor turns in the dialogue dataset.
+authored Socratic tutor turns in the dialogue dataset (WAEC/JAMB track), or
+each lesson's own "guided" steps (BECE and Common Entrance pilot tracks).
 
 The tutor turns power Offline Guided mode: when no model server is running,
 the lesson chat replays Sabi's authored guiding steps for that problem, so
@@ -51,6 +52,29 @@ def main() -> int:
                     continue
                 guided[src["id"]] = [t["text"] for t in src["turns"] if t["role"] == "tutor"]
         subjects[subject] = {"units": game["units"]}
+
+    # Pilot tracks (BECE, Common Entrance): lessons carry their own guided
+    # steps instead of pointing at a dataset dialogue.
+    for pilot_file in sorted((ROOT / "data" / "game").glob("*_challenges.json")):
+        pilot = json.loads(pilot_file.read_text(encoding="utf-8"))
+        if "track" not in pilot:
+            continue
+        for subject, data in pilot["subjects"].items():
+            for unit in data["units"]:
+                for lesson in unit["lessons"]:
+                    lid = lesson["id"]
+                    if lid in seen_ids:
+                        errors.append(f"duplicate lesson id {lid}")
+                    seen_ids.add(lid)
+                    if len(lesson.get("options", [])) != 4 or not 0 <= lesson.get("answer_index", -1) <= 3:
+                        errors.append(f"{lid}: needs 4 options and answer_index 0-3")
+                    steps = lesson.pop("guided", None)
+                    if not steps:
+                        errors.append(f"{lid}: pilot lessons need guided steps")
+                        continue
+                    lesson["source_id"] = lid
+                    guided[lid] = steps
+            subjects[subject] = {"units": data["units"]}
 
     if errors:
         print("Content build FAILED:")

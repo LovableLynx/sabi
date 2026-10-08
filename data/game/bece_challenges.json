@@ -1,0 +1,311 @@
+{
+  "track": "bece",
+  "subjects": {
+    "bece-english": {
+      "units": [
+        {
+          "id": "bece-eng-u1",
+          "title": "Grammar for Market Day",
+          "topic": "english-grammar",
+          "emoji": "📝",
+          "lessons": [
+            {
+              "id": "bece-eng-u1-l1",
+              "question": "In the sentence 'Ada walked quickly to the market', what part of speech is the word 'quickly'?",
+              "options": [
+                "Adjective",
+                "Adverb",
+                "Verb",
+                "Noun"
+              ],
+              "answer_index": 1,
+              "explanation": "'Quickly' tells us how Ada walked, so it describes the verb 'walked'. Words that describe verbs are adverbs.",
+              "hint": "Ask yourself: is 'quickly' describing a person or thing, or describing an action?",
+              "guided": [
+                "Imagine you are at the bus stop and someone says the danfo 'moved slowly'. Is 'slowly' telling us about the bus itself, or about how it moved?",
+                "Now look at our sentence. Which word is the action Ada did? And which word tells us the manner in which she did it?",
+                "Remember the rule: words describing nouns are adjectives, but words describing verbs (how, when, where) belong to a different group. Many of them end in '-ly'. Which group fits?"
+              ]
+            },
+            {
+              "id": "bece-eng-u1-l2",
+              "question": "Choose the correct word to fill the gap: Each of the boys ______ a cutlass for Labour Day.",
+              "options": [
+                "have",
+                "are having",
+                "has",
+                "were having"
+              ],
+              "answer_index": 2,
+              "explanation": "'Each' is the real subject and it is singular, so it takes a singular verb. 'Of the boys' does not change that.",
+              "hint": "Find the real subject. Is it 'boys', or the word before 'of'?",
+              "guided": [
+                "Picture your class prefect saying: 'Each student will bring one broom.' Is the prefect talking about the students as a group, or about every single student one by one?",
+                "In our sentence, 'of the boys' is only extra information. Cover it with your finger. What word is left as the subject?",
+                "A singular subject needs a singular verb, just like 'He ___ a book' or 'She ___ a pen'. Read each option with 'Each' alone and pick the one that sounds right for one person."
+              ]
+            },
+            {
+              "id": "bece-eng-u1-l3",
+              "question": "Choose the word OPPOSITE in meaning to the underlined word: Alhaji is very GENEROUS to the poor in his street.",
+              "options": [
+                "kind",
+                "rich",
+                "humble",
+                "stingy"
+              ],
+              "answer_index": 3,
+              "explanation": "A generous person gives freely. The opposite is someone who does not like to give or share at all.",
+              "hint": "Opposite, not similar. Which word describes someone who hates to share?",
+              "guided": [
+                "Think of two people at a party. One shares jollof rice with everybody; the other hides his plate and shares with nobody. Which one is generous?",
+                "Now, the question wants the OPPOSITE. One of the options means almost the same thing as generous. Can you spot it and remove it?",
+                "Being rich or humble is not about sharing at all. Look for the word that describes the person who hides his plate."
+              ]
+            },
+            {
+              "id": "bece-eng-u1-l4",
+              "question": "Choose the correct option: By the time NEPA restored the light, we ______ our homework.",
+              "options": [
+                "had finished",
+                "have finished",
+                "finish",
+                "will finish"
+              ],
+              "answer_index": 0,
+              "explanation": "Two actions happened in the past, and the homework was done first. The earlier past action uses the past perfect tense.",
+              "hint": "'Restored' is already in the past. Did the homework end before or after that?",
+              "guided": [
+                "Imagine NEPA took light and you used a lantern to do your homework. When the light finally came back, was the homework already done or not yet started?",
+                "'Restored' is past tense. So we need a verb form that shows an action completed even EARLIER in the past. Which options are present or future? Remove them.",
+                "English uses 'had' + past participle for the action that happened first when two past actions are compared. Look for that pattern among the options."
+              ]
+            },
+            {
+              "id": "bece-eng-u1-l5",
+              "question": "Which of these sentences is correctly punctuated?",
+              "options": [
+                "Tundes' mother sells rice, beans and garri.",
+                "Tunde's mother sells, rice beans and garri.",
+                "Tunde's mother sells rice, beans and garri.",
+                "Tundes mother sells rice beans, and garri."
+              ],
+              "answer_index": 2,
+              "explanation": "One person (Tunde) owns 'mother', so we write Tunde's. Commas separate items in a list, not the verb from its object.",
+              "hint": "Check two things: the apostrophe for ONE owner, and where the list of foodstuff begins.",
+              "guided": [
+                "If your friend Ngozi owns a bag, do we write Ngozi's bag or Ngozis' bag? How many people own the mother in our sentence?",
+                "Remove any option where the apostrophe is missing or placed after the 's'. Which options are left?",
+                "In a list like 'yam, egg and bread', commas go between the items, never between the verb and the first item. Check where each comma falls in the remaining options."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "bece-science": {
+      "units": [
+        {
+          "id": "bece-sci-u1",
+          "title": "Science in Mama's Kitchen",
+          "topic": "basic-science",
+          "emoji": "🔬",
+          "lessons": [
+            {
+              "id": "bece-sci-u1-l1",
+              "question": "A block of ice left on a table at the market turns into water. What is this change called?",
+              "options": [
+                "Evaporation",
+                "Condensation",
+                "Freezing",
+                "Melting"
+              ],
+              "answer_index": 3,
+              "explanation": "Ice is a solid and water is a liquid. A change from solid to liquid caused by heat is called melting.",
+              "hint": "Which state does the ice start in, and which state does it end in?",
+              "guided": [
+                "Think of a cold zobo ice block a seller puts in her cooler. After some hours in the hot sun, what do you find at the bottom of the cooler?",
+                "So the ice went from solid to liquid. Evaporation is liquid to gas, and condensation is gas to liquid. Can you rule those out?",
+                "Freezing goes from liquid to solid, the opposite direction. Which remaining word names the change from solid to liquid?"
+              ]
+            },
+            {
+              "id": "bece-sci-u1-l2",
+              "question": "A torchlight battery stores energy before it is used. In what form is the energy stored in the battery?",
+              "options": [
+                "Light energy",
+                "Chemical energy",
+                "Sound energy",
+                "Kinetic energy"
+              ],
+              "answer_index": 1,
+              "explanation": "A battery contains chemicals that react to produce electricity. So the energy is stored as chemical energy until the torch is switched on.",
+              "hint": "The light only appears when you switch on. What is inside the battery before then?",
+              "guided": [
+                "When NEPA takes light, you grab your torch. Before you press the switch, is the battery giving out any light or sound?",
+                "So light is what the energy becomes AFTER switching on, not how it is stored. Kinetic energy is for moving things. Is the battery moving?",
+                "Food and firewood also store energy in the substances they are made of, which is released by reactions. Batteries work the same way. Which option names that type of stored energy?"
+              ]
+            },
+            {
+              "id": "bece-sci-u1-l3",
+              "question": "Which part of the blood helps the body to fight germs and diseases?",
+              "options": [
+                "White blood cells",
+                "Red blood cells",
+                "Platelets",
+                "Plasma"
+              ],
+              "answer_index": 0,
+              "explanation": "White blood cells attack and destroy germs, so they defend the body against infection.",
+              "hint": "Think of the jobs: carrying oxygen, clotting, carrying food, and fighting germs.",
+              "guided": [
+                "Think of your school: some students carry messages, some sweep, and the security man guards the gate. Blood also has parts with different jobs. Which job are we looking for?",
+                "Red blood cells carry oxygen, like messengers. Platelets help blood clot when you cut your finger. So neither of them is the guard. What is left?",
+                "Plasma is the liquid that carries dissolved food and the cells. The guard must be a type of cell. Which cell in the list have we not yet given a job?"
+              ]
+            },
+            {
+              "id": "bece-sci-u1-l4",
+              "question": "In a wheelbarrow, the wheel is the fulcrum and the load sits between the wheel and the handles. What class of lever is a wheelbarrow?",
+              "options": [
+                "First class",
+                "Third class",
+                "Second class",
+                "It is not a lever"
+              ],
+              "answer_index": 2,
+              "explanation": "When the load is between the fulcrum and the effort, the lever is a second-class lever, like a wheelbarrow or nutcracker.",
+              "hint": "Find what is in the MIDDLE: the fulcrum, the load or the effort?",
+              "guided": [
+                "Picture a labourer at a building site pushing sand in a wheelbarrow. Where is the turning point, where is the sand, and where do his hands lift?",
+                "Lever classes are named by what sits in the middle. If the fulcrum is in the middle (like a see-saw), that is one class. Here, what is in the middle?",
+                "Remember: fulcrum in the middle, load in the middle, or effort in the middle give the three classes in order 1, 2, 3. Match the wheelbarrow to that list."
+              ]
+            },
+            {
+              "id": "bece-sci-u1-l5",
+              "question": "Emeka pushes a cart of yams with a force of 50 N and moves it 6 m along the road. How much work does he do?",
+              "options": [
+                "56 J",
+                "44 J",
+                "8.3 J",
+                "300 J"
+              ],
+              "answer_index": 3,
+              "explanation": "Work done = force x distance = 50 N x 6 m = 300 J.",
+              "hint": "Work needs both the force and the distance. Should you add, subtract, divide or multiply them?",
+              "guided": [
+                "Pushing a cart one metre is hard work. Pushing it across the whole market is MORE work. So does more distance give you more or less work?",
+                "Pushing harder also means more work. So work grows when force grows AND when distance grows together. Which operation makes a number grow with both of them?",
+                "The formula is Work = Force x Distance, measured in joules (J). Put in Emeka's numbers and calculate carefully."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "bece-business": {
+      "units": [
+        {
+          "id": "bece-bus-u1",
+          "title": "Oga's Shop and Office",
+          "topic": "business-studies",
+          "emoji": "💼",
+          "lessons": [
+            {
+              "id": "bece-bus-u1-l1",
+              "question": "The school secretary needs 200 copies of a printed timetable quickly. Which office machine should she use?",
+              "options": [
+                "Stapler",
+                "Photocopier",
+                "Perforator",
+                "Franking machine"
+              ],
+              "answer_index": 1,
+              "explanation": "A photocopier makes many copies of a document quickly. A stapler joins papers, a perforator punches holes, and a franking machine stamps letters.",
+              "hint": "Which machine makes copies, not holes or stamps?",
+              "guided": [
+                "Think of the business centre near your school where people go before exams. What do they usually go there to do with their documents?",
+                "A stapler joins sheets together, and a perforator punches holes for files. Do either of these make new copies?",
+                "A franking machine prints postage marks on envelopes. Which remaining machine reproduces a page many times?"
+              ]
+            },
+            {
+              "id": "bece-bus-u1-l2",
+              "question": "A trader buys tomatoes in Kano and sells them in Lagos. What type of trade is this?",
+              "options": [
+                "Home trade",
+                "Foreign trade",
+                "Entrepot trade",
+                "Barter"
+              ],
+              "answer_index": 0,
+              "explanation": "Kano and Lagos are both in Nigeria, so buying and selling between them is home (domestic) trade.",
+              "hint": "Did the tomatoes ever leave Nigeria?",
+              "guided": [
+                "Tomato lorries travel from the North to Mile 12 market in Lagos every day. Did those lorries cross into another country?",
+                "Foreign trade is between two countries, and entrepot trade is importing goods only to re-export them. Do either fit a journey inside Nigeria?",
+                "Barter means swapping goods without money, but our trader buys and sells. Which remaining option describes trade within one country?"
+              ]
+            },
+            {
+              "id": "bece-bus-u1-l3",
+              "question": "Mama Bisi bought tinned tomatoes that had expired, and her family fell sick after eating them. Which consumer right was mainly violated?",
+              "options": [
+                "Right to choose",
+                "Right to be heard",
+                "Right to education",
+                "Right to safety"
+              ],
+              "answer_index": 3,
+              "explanation": "Consumers have the right to be protected from goods that can harm their health. Selling expired food breaks that right.",
+              "hint": "What happened to the family's health? Which right protects that?",
+              "guided": [
+                "Imagine an okada rider sells you a helmet that breaks the first time it falls. What should that helmet have done for you?",
+                "In Mama Bisi's case, she was free to choose what to buy, so choice was not the problem. What was the actual harm to her family?",
+                "Each consumer right protects something: freedom to pick, a voice to complain, knowledge, or protection from harm. Which one matches people falling sick?"
+              ]
+            },
+            {
+              "id": "bece-bus-u1-l4",
+              "question": "In a cash book, on which side is money RECEIVED by the business recorded?",
+              "options": [
+                "Debit side",
+                "Credit side",
+                "Both sides",
+                "Folio column"
+              ],
+              "answer_index": 0,
+              "explanation": "The rule is 'debit what comes in, credit what goes out'. Cash received comes in, so it goes on the debit (left) side.",
+              "hint": "Remember the rule: what comes in goes on one side, what goes out on the other.",
+              "guided": [
+                "Think of an Esusu collector with a notebook. When members bring money, he writes it on one side; when he pays someone out, he writes on the other. Why keep them apart?",
+                "In bookkeeping, the left side of the cash book is for money coming IN and the right side is for money going OUT. Is a receipt coming in or going out?",
+                "Each side of the cash book has its own name, and you met both names in class. Remember which side money coming IN goes to — what is that side called?"
+              ]
+            },
+            {
+              "id": "bece-bus-u1-l5",
+              "question": "Chidi's shop started the day with ₦5,000 cash. He received ₦3,500 from sales and paid ₦2,000 for transport. What is his cash balance at the end of the day?",
+              "options": [
+                "₦8,500",
+                "₦10,500",
+                "₦6,500",
+                "₦3,500"
+              ],
+              "answer_index": 2,
+              "explanation": "Balance = opening cash + money received - money paid = 5,000 + 3,500 - 2,000 = ₦6,500.",
+              "hint": "Add what came in, then take away what went out.",
+              "guided": [
+                "Imagine your mum gives you some money for the market. Someone then pays you back what they owed, and you spend some on a keke ride. Does the keke fare increase or reduce what is in your pocket?",
+                "So the opening cash and the sales money both come IN, and the transport money goes OUT. Which numbers do you add, and which do you subtract?",
+                "Use: Closing balance = Opening cash + Receipts - Payments. Put in Chidi's three figures and work it out step by step."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

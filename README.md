@@ -43,6 +43,11 @@ The third point is the main design decision. **Khanmigo**, the best-known tutor 
 Students use Sabi through **Sabi Arena**, a learning game built around Nigerian school life:
 
 - **The danfo route.** Each subject is a bus route. Every lesson is a bus stop with one real WAEC-style question. There are 90 stops in total, in 6 units per subject, and finishing a stop moves the danfo to the next one.
+- **Three exam tracks.** The main track is **SS · WAEC/JAMB**, which is what the model was fine-tuned and benchmarked on. Two smaller **pilot** tracks cover younger learners:
+  - **JSS · BECE:** English Studies, Basic Science, Business Studies. These lead on to Literature, Physics and Accounting, so Sabi can follow a student from JSS3 to WAEC.
+  - **Primary · Common Entrance:** Mathematics, English, Basic Science.
+
+  Each pilot track has 15 lessons. Each pilot lesson has its own guided steps, so the track works offline. The tutor has not been benchmarked at these levels, and the app says so.
 - **Ask Sabi in any lesson.** The fine-tuned tutor helps the student reason it out without giving the answer away. The answer is then locked in as multiple choice and marked exactly, so marking never relies on the AI.
 - **XP that rewards working it out yourself:**
   - +20 for a correct first try.
@@ -69,7 +74,7 @@ Gamified WAEC/JAMB practice already exists: [PassGo](https://passgoapp.carrd.co/
 1. **It teaches instead of marking.** The others test what a student already knows. Sabi's fine-tuned tutor guides students to the answer, with Nigerian analogies, and stops holding back once they are stuck (the escalation behaviour).
 2. **The points reward thinking.** XP is highest for solving a problem yourself, so the game encourages the same behaviour the tutor is trained for.
 3. **Schools compete as schools.** We found no existing WAEC/JAMB app with school-vs-school rankings. This is the hook for selling to schools and state education boards.
-4. **It works on weak data connections.** All 90 lessons load as a single 116 KB file. With no server reachable, lessons switch to **Offline Guided mode**, which replays Sabi's authored Socratic steps from the training data.
+4. **It works on weak data connections.** All 120 lessons (90 WAEC/JAMB, 15 BECE, 15 Common Entrance) load as a single 143 KB file. With no server reachable, lessons switch to **Offline Guided mode**, which replays Sabi's authored Socratic steps from the training data.
 
 ### Built so each feature works alone
 
@@ -244,7 +249,7 @@ python app/tools/build_content.py
 ## Repository layout
 
 ```
-data/               600 dialogues + schema; data/game/ = 90 Sabi Arena lessons
+data/               600 dialogues + schema; data/game/ = 120 Sabi Arena lessons (WAEC/JAMB + BECE and Common Entrance pilots)
 ml/src/             validate, build split, fine-tune
 ml/eval/            transcript generation, Groq judge, benchmark scoring, report
 ml/smoketest/       mock server for testing the eval pipeline without a GPU

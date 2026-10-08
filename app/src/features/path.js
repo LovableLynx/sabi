@@ -5,19 +5,47 @@
 import { answer, ask, emit, provide } from "../core/bus.js";
 import { loadContent } from "../core/content.js";
 import { h, clear } from "../core/dom.js";
-import { SUBJECTS } from "../core/nigeria.js";
+import { SUBJECTS, TRACKS } from "../core/nigeria.js";
 import { load, save } from "../core/storage.js";
 
-let subject = load("subject", "physics");
+let subject = SUBJECTS[load("subject", "physics")] ? load("subject", "physics") : "physics";
+
+function subjectsIn(track, content) {
+  return Object.entries(SUBJECTS).filter(([key, s]) => s.track === track && content.subjects[key]);
+}
 
 function render(container, content) {
   clear(container);
   const tracking = ask("stats", null, null) !== null;
   const isDone = (id) => ask("lessonDone", id, false);
+  if (!content.subjects[subject]) subject = Object.keys(content.subjects)[0]; // saved subject not in this build
+  const track = SUBJECTS[subject]?.track || "waec";
+
+  // Only offer tracks that have lessons in this build of the content.
+  const tracks = Object.entries(TRACKS).filter(([key]) => subjectsIn(key, content).length);
+  if (tracks.length > 1) {
+    container.appendChild(
+      h("div", { class: "track-switch", role: "tablist" },
+        tracks.map(([key, t]) =>
+          h("button", {
+            class: "track" + (key === track ? " active" : ""),
+            role: "tab",
+            onclick: () => {
+              if (key === track) return;
+              subject = subjectsIn(key, content)[0][0];
+              save("subject", subject);
+              emit("ui:tap");
+              render(container, content);
+            },
+          }, t.label, t.pilot ? h("span", { class: "pilot-tag" }, "PILOT") : null)
+        )
+      )
+    );
+  }
 
   container.appendChild(
     h("div", { class: "subject-switch" },
-      Object.entries(SUBJECTS).map(([key, s]) =>
+      subjectsIn(track, content).map(([key, s]) =>
         h("button", {
           class: "subject-card" + (key === subject ? " active" : ""),
           style: `--subject:${s.color}`,
@@ -30,6 +58,12 @@ function render(container, content) {
       )
     )
   );
+  if (TRACKS[track].pilot) {
+    container.appendChild(
+      h("p", { class: "pilot-note" },
+        `🧪 ${TRACKS[track].short} is a pilot track. Sabi's tutor was trained on WAEC/JAMB, so it may be less sharp here — tell us what you think!`)
+    );
+  }
 
   const data = content.subjects[subject];
   if (!data) {

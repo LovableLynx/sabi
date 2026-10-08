@@ -211,6 +211,23 @@ button { font-family: inherit; }
 .lb-empty { padding: 16px; text-align: center; }
 
 /* ---------- learn: subjects + danfo route ---------- */
+.track-switch {
+  display: flex; gap: 6px; overflow-x: auto; margin-bottom: 10px; padding-bottom: 2px; scrollbar-width: none;
+}
+.track {
+  flex-shrink: 0; display: flex; align-items: center; gap: 6px;
+  font-weight: 900; font-size: 0.82rem; padding: 8px 12px; border-radius: 999px;
+  border: 2px solid var(--line); background: var(--card); color: var(--ink); cursor: pointer;
+}
+.track.active { background: var(--green); border-color: var(--green); color: #fff; }
+.pilot-tag {
+  font-size: 0.58rem; letter-spacing: 0.08em; padding: 1px 5px; border-radius: 4px;
+  background: var(--danfo); color: #1a1a1a;
+}
+.pilot-note {
+  font-size: 0.82rem; font-weight: 700; background: #fffbea; border: 2px dashed var(--danfo);
+  border-radius: 14px; padding: 8px 12px; margin: 0 0 12px;
+}
 .subject-switch { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 14px; }
 .subject-card {
   display: flex; flex-direction: column; align-items: center; gap: 2px;
