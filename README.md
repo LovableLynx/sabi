@@ -158,7 +158,28 @@ Each record includes the student's misconception, the tutor technique for each t
 
 ## Evaluation
 
-The 120 held-out dialogues are replayed with the authored student turns as a scripted student. Both models write every tutor turn, using greedy decoding. A separate, larger model (`openai/gpt-oss-120b`) labels each tutor turn **without being told which model wrote it**.
+Sabi is compared with base N-ATLAS on **642 held-out examples** in two complementary benchmarks. Both models use the same weights, prompt and greedy decoding; the only difference is that Sabi's LoRA adapter is switched on.
+
+| Benchmark | Examples | What it tests | How it is scored |
+|---|---|---|---|
+| **A. Single-turn** | **522** new WAEC-style questions (174 per subject), written for evaluation only and checked against the training data for overlap | Does the tutor's *first reply* hand over the answer, or guide? | Deterministic, with no AI judge: an exact answer-key match, a question-mark check, and a Nigerian-reference word list. Includes a paired McNemar significance test |
+| **B. Multi-turn** | **120** held-out dialogues (40 per subject, never trained on) | Over a whole conversation, does the tutor withhold, escalate when the student is stuck, and get the student to the right understanding? | A blind LLM judge (`openai/gpt-oss-120b`) labels every tutor turn |
+
+### Benchmark A: single-turn (522 questions)
+
+Each question has an `answer_terms` key listing the final value or named concept. A reply that contains one of those terms has **leaked** the answer. The match is whole-word and whole-number, so "900" does not match inside "1,900" and "foil" does not match "foiled". It is also conservative: an answer phrased in words the key doesn't list is not counted, which affects both models equally. The questions are in `data/benchmark/`; the scorer is `ml/eval/score_single_turn.py`.
+
+| Metric | Base N-ATLAS | Sabi | Δ |
+|---|---|---|---|
+| Gives the answer away in its first reply (lower is better) | – | – | – |
+| Asks the student a guiding question | – | – | – |
+| Brings in a Nigerian everyday reference | – | – | – |
+
+> **Pending:** filled in from `ml/outputs/single_turn_report.md` once the GPU run finishes.
+
+### Benchmark B: multi-turn (120 dialogues)
+
+The 120 held-out dialogues are replayed with the authored student turns as a scripted student. Both models write every tutor turn. A separate, larger model (`openai/gpt-oss-120b`) labels each tutor turn **without being told which model wrote it**.
 
 | Metric | What it measures |
 |---|---|
@@ -169,9 +190,9 @@ The 120 held-out dialogues are replayed with the authored student turns as a scr
 
 Withholding and outcome must be read together. A tutor that withholds but never gets the student there is just stubborn. A tutor that gets there without withholding is just handing out answers.
 
-### Results
+#### Results
 
-> **Pending:** the benchmark is being run. This table will be filled in from `ml/outputs/comparison_report.md`.
+> **Pending:** judging is in progress. This table will be filled in from `ml/outputs/comparison_report.md`.
 
 | Metric | Base N-ATLAS | Sabi | Δ |
 |---|---|---|---|
@@ -223,6 +244,13 @@ os.environ["GROQ_API_KEY"] = s.get_secret("GROQ_API_KEY")
 !python ml/eval/compare_results.py ml/outputs/results_base.json ml/outputs/results_finetuned.json --out ml/outputs/comparison_report.md
 ```
 
+**Or run the benchmarks from a laptop, without opening Kaggle.** This uses the Kaggle API (`~/.kaggle/kaggle.json`). Put the trained adapter in `ml/outputs/lora_run_1/final_adapter/`, and put the keys alone in the gitignored files `ml/.hf_token` and `ml/.groq_key`. Then:
+```bash
+python ml/kaggle/run_job.py single_turn   # Benchmark A on a Kaggle T4, then scored with no AI judge
+python ml/kaggle/run_job.py judge         # Benchmark B judging; rerun to resume after Groq's daily limit
+```
+Kaggle's saved notebook secrets aren't available to runs started through the API. So each job carries its keys in a temporary **private** Kaggle dataset, and the runner deletes that dataset when the job ends. Results land in `ml/outputs/`.
+
 **Test the pipeline without a GPU** (uses mock models):
 ```bash
 python ml/smoketest/run_smoketest.py
@@ -249,13 +277,17 @@ python app/tools/build_content.py
 ## Repository layout
 
 ```
-data/               600 dialogues + schema; data/game/ = 120 Sabi Arena lessons (WAEC/JAMB + BECE and Common Entrance pilots)
+data/               600 training dialogues + schema
+data/benchmark/     522 held-out single-turn benchmark questions
+data/game/          120 Sabi Arena lessons (WAEC/JAMB + BECE and Common Entrance pilots)
 ml/src/             validate, build split, fine-tune
-ml/eval/            transcript generation, Groq judge, benchmark scoring, report
+ml/eval/            transcript + single-turn generation, Groq judge, deterministic scorer, reports
 ml/smoketest/       mock server for testing the eval pipeline without a GPU
 ml/configs/         LoRA hyperparameters
+ml/kaggle/          run GPU / long jobs on Kaggle from a laptop via the Kaggle API
+ml/serve/           model + game server, Kaggle live-demo launcher
 app/                Sabi Arena game: route, lessons, Ask Sabi, leaderboard (app/tools/ builds content)
-docs/               N-ATLAS model notes, positioning vs. prior work
+docs/               N-ATLAS model notes, positioning vs. prior work, team profile
 ```
 
 ---
