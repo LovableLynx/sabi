@@ -101,7 +101,7 @@ function onboardingScreen(container, params = {}) {
         h("summary", {}, "What does Sabi keep about me?"),
         h("p", {}, "On this phone or computer: your nickname, avatar, state, school and game progress."),
         h("p", {}, "Only if you tick the box above, your nickname, avatar, state, school and XP are sent to the Sabi leaderboard, where other players can see them. Nothing else is sent, and we never ask for your real name, phone number, email or location."),
-        h("p", {}, "What you type to Sabi in chat goes to the Sabi server to get a reply and is not saved to your profile."),
+        h("p", {}, "What you type to Sabi in chat goes to the Sabi server (it runs on cloud computers) to get a reply, and is not saved to your profile. Never type your real name, address or phone number in chat."),
         h("p", {}, "You can delete everything at any time under Me → Delete my data.")
       ),
       error,

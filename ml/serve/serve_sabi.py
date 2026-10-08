@@ -41,12 +41,53 @@ from contextlib import nullcontext
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
+mimetypes.add_type("font/woff2", ".woff2")
+mimetypes.add_type("text/javascript", ".js")
+
 ROOT = Path(__file__).resolve().parents[2]
 APP_DIR = ROOT / "app"
 sys.path.insert(0, str(ROOT / "ml" / "src"))
 from build_dataset import SYSTEM_PROMPT  # noqa: E402  same prompt the model was trained with
 
 MAX_HISTORY_MESSAGES = 16  # keep prompts well inside N-ATLAS's 8k context
+
+
+# ---------------------------------------------------------------------------
+# Child-safety guard. Sabi's users are school children and the tutor model has
+# no safety filter of its own, so every chat is checked on the way in and the
+# way out. Patterns are deliberately narrow (first-person self-harm, explicit
+# sexual requests, making weapons/drugs) so that normal school work, e.g.
+# discussing a character's suicide in Things Fall Apart, still works.
+# ---------------------------------------------------------------------------
+SELF_HARM = re.compile(
+    r"\b(kill(ing)? my ?self|end(ing)? my (own )?life|"
+    r"i('m| am)? (want|wanna|wan|plan|planning|going|gonna|go) (to )?(commit suicide|die)|"
+    r"i don'?t want to (live|be alive)|hurt(ing)? my ?self|cut(ting)? my ?self)\b",
+    re.I,
+)
+OFF_LIMITS = re.compile(
+    r"\b(porn\w*|nudes?|naked (pic|photo|video)s?|sex (video|chat|tape)|send me your (pic|photo|picture)s?|"
+    r"(make|build|making|building) (a |an )?(bomb(?! calorimeter)|gun|explosive|weapon)s?|"
+    r"(make|cook|making|cooking|buy|buying) (codeine|meth|cocaine|tramadol|weed|skunk|colorado))\b",
+    re.I,
+)
+SELF_HARM_REPLY = (
+    "I'm really sorry you're feeling this way, and I'm glad you said something. You don't have to "
+    "handle this alone. Please talk to a parent, a teacher, or another adult you trust today. "
+    "If you are in danger right now, call 112, Nigeria's emergency number. Your life matters."
+)
+OFF_LIMITS_REPLY = (
+    "I can't help with that. I'm here for school work: Literature, Physics, Accounting, and BECE and "
+    "Common Entrance subjects. What topic are you studying today?"
+)
+
+
+def safety_reply(text: str) -> str | None:
+    if SELF_HARM.search(text):
+        return SELF_HARM_REPLY
+    if OFF_LIMITS.search(text):
+        return OFF_LIMITS_REPLY
+    return None
 
 NIGERIAN_STATES = {
     "Abia", "Adamawa", "Akwa Ibom", "Anambra", "Bauchi", "Bayelsa", "Benue", "Borno",
@@ -185,6 +226,7 @@ class Leaderboard:
     anti-cheat."""
 
     MAX_PLAYERS_RETURNED = 1000
+    MAX_PLAYERS_STORED = 20_000  # stops fake sign-ups from filling the disk
     XP_BURST = 200          # allowed jump with no time elapsed
     XP_PER_MINUTE = 120     # far above what real play earns (~35 XP per lesson)
 
@@ -252,6 +294,8 @@ class Leaderboard:
                     raise ValueError("xp rose faster than real play allows")
             elif player["xp"] > self.XP_BURST * 5:
                 raise ValueError("new players start from a realistic score")
+            elif len(self.players) >= self.MAX_PLAYERS_STORED:
+                raise ValueError("the leaderboard is full right now")
             self.players[player["id"]] = player
             self._save()
         return {"pid": self.pid(player["id"]), "xp": player["xp"]}
@@ -282,8 +326,8 @@ SECURITY_HEADERS = {
     "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
 }
 PAGE_CSP = (
-    "default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; "
-    "font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; "
+    "default-src 'self'; script-src 'self'; style-src 'self'; "
+    "font-src 'self'; img-src 'self' data:; connect-src 'self'; "
     "object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'"
 )
 
@@ -415,6 +459,15 @@ def make_handler(tutor, lock: threading.Lock, board: Leaderboard, limiter: RateL
                 return
 
             start = time.time()
+            guarded = safety_reply(messages[-1]["content"])
+            if guarded:
+                print("safety guard: blocked a chat message", file=sys.stderr, flush=True)
+                result = {"reply": guarded, "safety": True}
+                if which == "both":
+                    result["base_reply"] = guarded
+                result["seconds"] = 0.0
+                self._json(result)
+                return
             try:
                 with lock:  # one generation at a time on the single GPU
                     result = {}
@@ -427,6 +480,11 @@ def make_handler(tutor, lock: threading.Lock, board: Leaderboard, limiter: RateL
                 print(f"generation failed: {e!r}", file=sys.stderr, flush=True)
                 self._json({"error": "Sabi couldn't answer just now, please try again"}, status=500)
                 return
+            for key in ("reply", "base_reply"):
+                if key in result and safety_reply(result[key]):
+                    print("safety guard: replaced an unsafe model reply", file=sys.stderr, flush=True)
+                    result[key] = OFF_LIMITS_REPLY
+                    result["safety"] = True
             result["seconds"] = round(time.time() - start, 1)
             self._json(result)
 

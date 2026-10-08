@@ -299,6 +299,8 @@ Sabi Arena is used by school children, so it collects as little as possible and 
 - **No real names, phone numbers, emails or locations are collected.** Students choose a nickname and are told not to use their real name. The server rejects nicknames containing links, @handles, phone numbers or common slurs.
 - **Nothing leaves the device without permission.** A student only appears on the leaderboards after ticking *"I'm 18 or older, or a parent or teacher has said yes"*, in line with the consent rules for children in the Nigeria Data Protection Act 2023. Until then, progress stays on the device.
 - **Players can delete their data.** *Delete my data* wipes the device copy and removes the player from the server.
+- **A child-safety guard checks every chat in and out.** A student who writes about wanting to hurt themselves gets a caring reply pointing to a trusted adult and 112, Nigeria's emergency number. Requests for sexual content, weapons or drugs are redirected to school work. Normal Literature questions, for example about a character's death, are not blocked.
+- **Nothing is loaded from third parties.** The font is self-hosted, so students' IP addresses don't go to Google, and the app works offline. Crafted `?api=` links pointing at other servers are ignored.
 - **The leaderboard can't be used to take over accounts.** Each device keeps a secret ID; the board only publishes a one-way hash of it.
 - **Abuse limits:**
   - per-visitor rate limits (6 chats a minute)
@@ -311,7 +313,7 @@ Sabi Arena is used by school children, so it collects as little as possible and 
 - **Server and keys:**
   - the server listens on `127.0.0.1` by default
   - API keys live only in gitignored files or platform secret stores
-  - 38 automated security checks cover all of the above
+  - 46 automated security checks cover all of the above
 
 ---
 

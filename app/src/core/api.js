@@ -6,7 +6,25 @@
 // uses offline guided mode and an on-device leaderboard.
 
 const params = new URLSearchParams(location.search);
-export const API_BASE = (params.get("api") || "").replace(/\/$/, "");
+
+// Only our own servers may be used: the demo's Cloudflare tunnel or this
+// machine. Otherwise a crafted link (?api=https://evil.example) could feed
+// students fake tutor replies or collect what they type.
+function trustedApi(raw) {
+  if (!raw) return "";
+  try {
+    const url = new URL(raw);
+    const local = ["localhost", "127.0.0.1"].includes(url.hostname);
+    const tunnel = url.protocol === "https:" && url.hostname.endsWith(".trycloudflare.com");
+    if (local || tunnel) return url.origin;
+  } catch {
+    /* not a URL */
+  }
+  console.warn("[sabi] ignoring untrusted ?api= value:", raw);
+  return "";
+}
+
+export const API_BASE = trustedApi(params.get("api"));
 const STATIC_HOST = /github\.io$/.test(location.hostname) && !params.get("api");
 
 async function request(path, { method = "GET", body, timeout = 8000 } = {}) {

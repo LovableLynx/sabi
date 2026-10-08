@@ -35,9 +35,13 @@ We **never ask for** real names, phone numbers, emails, dates of birth or locati
 | Reading server files through the web server | Paths are resolved and must stay inside `app/`. `app/tools/` is not served. Traversal attempts return 404. | `do_GET` |
 | Leaking internals in error messages | Model errors are logged on the server only; the browser gets a generic message. The server version banner is hidden. | `do_POST` |
 | Eavesdropping on public Wi-Fi | The live demo is only reachable through the Cloudflare tunnel's HTTPS. The server sends `Strict-Transport-Security` on tunnel requests, so browsers refuse to fall back to HTTP. There are no logins, passwords or cookies to steal. | `_headers` |
+| A child in distress, or a student steering the tutor to unsafe topics | A child-safety guard checks every chat **before** the model sees it and every reply **after**. First-person self-harm ("I want to kill myself", "I wan commit suicide") gets a caring reply pointing to a trusted adult and **112**, Nigeria's emergency number. Explicit sexual requests and requests to make weapons or drugs are redirected to school work. Patterns are first-person and narrow, so school work such as *why did Okonkwo commit suicide?* still works. | `safety_reply` |
+| A crafted link (`?api=https://evil.example`) pointing the app at a hostile server | The app only accepts its own tunnel (`https://*.trycloudflare.com`) or this machine. Anything else is ignored, and the server's CSP (`connect-src 'self'`) blocks it too. | `app/src/core/api.js` |
+| Students' IP addresses sent to Google, and the app breaking offline | The Nunito font is self-hosted (SIL OFL licence, `app/fonts/OFL.txt`). The page loads nothing from any third party, and this is tested. | `app/styles.css` |
+| Fake sign-ups filling the server's disk | The leaderboard stores at most 20,000 players | `MAX_PLAYERS_STORED` |
 | The server reachable from the local network | Binds to `127.0.0.1` by default. The tunnel connects locally. | `--host` |
 
-All of these are covered by an automated security suite of 38 checks. It covers id privacy, takeover attempts, XP limits, the nickname filter, size limits, deletion, headers, path traversal, rate limits, loopback binding, the app running under CSP, consent gating and XSS rendering.
+All of these are covered by an automated security suite of 46 checks. It covers id privacy, takeover attempts, XP limits, the nickname filter, size limits, deletion, headers, path traversal, rate limits, loopback binding, the child-safety guard, the `?api=` allowlist, having no third-party requests, the app running under CSP, consent gating and XSS rendering.
 
 ## Secrets
 
@@ -45,6 +49,19 @@ All of these are covered by an automated security suite of 38 checks. It covers 
 - **No tokens in clone URLs.** A URL like `https://TOKEN@github.com/...` is saved by git in `.git/config`, and Kaggle saves `/kaggle/working` (including `.git/`) as notebook output. An early run did exactly this; that GitHub token has to be revoked. The repository is public, so cloning needs no token at all.
 - **Kaggle jobs started from a laptop** (`ml/kaggle/run_job.py`) can't read notebook secrets. They carry the one key each job needs in a temporary **private** Kaggle dataset. The job keeps keys in memory and never writes them to `/kaggle/working`, and the runner deletes the dataset when the job ends.
 - **The live demo link** (a Cloudflare quick tunnel) is public but random and temporary. Share it only with testers, and stop the Kaggle session when you finish.
+
+## Third parties
+
+These services see Sabi data while it is in use:
+
+| Service | What it sees | When |
+|---|---|---|
+| **Kaggle (Google)** | The model server, its logs, chats in flight, and the leaderboard file | While the live demo or a benchmark runs on a Kaggle GPU |
+| **Cloudflare** | Encrypted traffic to the demo link | While the live demo tunnel is open |
+| **Groq** | Benchmark transcripts: scripted student turns and model replies, with no student data | Only during benchmark judging |
+| **Hugging Face** | Downloads of the N-ATLaS weights | Only when a model server starts |
+
+Real students' chats never go to Groq. The app itself loads nothing from any third party.
 
 ## Checklist items that don't apply
 
@@ -58,3 +75,6 @@ All of these are covered by an automated security suite of 38 checks. It covers 
 - **Content moderation is basic.** Nickname filtering is a short list. The tutor model has no separate safety filter on its replies. It is trained to stay on WAEC/JAMB topics, but a student could try to steer it elsewhere. Supervise class use, and review the server logs.
 - **The leaderboard is a single JSON file** on the server with no backups or encryption at rest. It is fine for pilots, not for scale.
 - **Dependencies are not pinned to exact versions** (`ml/requirements.txt`). Pin them before any production deployment.
+- **The child-safety guard is pattern-based.** It catches clear first-person distress and obvious unsafe requests, not every possible phrasing. It supports supervision; it doesn't replace it. A production version should add a proper moderation model and a referral route agreed with schools.
+- **The demo tunnel binary is downloaded unverified.** `ml/serve/kaggle_launch.py` fetches the latest `cloudflared` from GitHub without checking a checksum. Pin a version and verify its SHA-256 before using it outside demos.
+- **The Kaggle API key** (`~/.kaggle/kaggle.json`) on the development laptop has full control of the Kaggle account. Regenerate it after the competition, and never commit it (it is gitignored).
