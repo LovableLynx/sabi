@@ -17,6 +17,7 @@ ml/outputs/split_manifest.json
 
 # Local secrets
 ml/.groq_key
+ml/.hf_token
 .env
 
 # Node (in case app tooling is added later)
