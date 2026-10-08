@@ -46,7 +46,7 @@ What this team has built and shipped for this submission:
 - **Data:** 600 multi-turn Socratic tutoring dialogues across Literature, Physics and Financial Accounting, with an automated validator for schema, notation, ledger format and answer leaks.
 - **Model:** a QLoRA fine-tune of N-ATLAS (Llama-3 8B). Loss is computed on tutor turns only. Trained on a free Kaggle T4 in about 45 minutes; training loss fell from 2.14 to 0.84 without signs of memorisation.
 - **Evaluation:** a 120-dialogue held-out benchmark comparing base and fine-tuned N-ATLAS, scored by a separate blind judge model (gpt-oss-120b). Partial results: the fine-tuned model withheld the answer 96.2% of the time, against 40.0% for base N-ATLAS. _[Replace with final numbers once all 240 judgements are done.]_
-- **Product:** Sabi Arena, a web game that needs no install, with a live model server, offline guided mode, and School / State / National leaderboards. It is tested end to end (49 automated browser checks), including running each feature with the others disabled.
+- **Product:** Sabi Arena, a web game that needs no install, with a live model server, offline guided mode, and School / State / National leaderboards. It is tested end to end (87 automated browser and security checks), including running each feature with the others disabled.
 - **Prior relevant experience:** _[Add each member's relevant background: courses, past projects, hackathons, teaching experience.]_
 
 ---

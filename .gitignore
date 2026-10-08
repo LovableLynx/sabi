@@ -4,21 +4,15 @@ __pycache__/
 .venv/
 venv/
 
-# ML training outputs (large, regenerable — don't commit model weights/checkpoints)
-ml/outputs/*.jsonl
-ml/outputs/lora_run_*/
-ml/outputs/*.safetensors
-ml/outputs/*.bin
-ml/outputs/results_*.json
-ml/outputs/smoketest_results_*.json
-ml/outputs/comparison_report.md
-ml/outputs/smoketest_comparison_report.md
-ml/outputs/split_manifest.json
+# ML outputs: models, transcripts, results, leaderboard (player data). Never commit.
+ml/outputs/
 
 # Local secrets
 ml/.groq_key
 ml/.hf_token
 .env
+*.pem
+kaggle.json
 
 # Node (in case app tooling is added later)
 node_modules/

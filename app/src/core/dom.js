@@ -7,6 +7,14 @@ export function h(tag, attrs = {}, ...children) {
     if (value == null || value === false) continue;
     if (key.startsWith("on") && typeof value === "function") el.addEventListener(key.slice(2), value);
     else if (key === "class") el.className = value;
+    else if (key === "style") {
+      // Set through the CSSOM, which the Content-Security-Policy allows
+      // (inline style="" attributes would be blocked).
+      for (const decl of String(value).split(";")) {
+        const i = decl.indexOf(":");
+        if (i > 0) el.style.setProperty(decl.slice(0, i).trim(), decl.slice(i + 1).trim());
+      }
+    }
     else if (key === "html") el.innerHTML = value; // only for trusted, built-in markup (SVG)
     else el.setAttribute(key, value === true ? "" : value);
   }

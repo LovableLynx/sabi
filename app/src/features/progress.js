@@ -6,7 +6,7 @@
 // If this module fails to load, lessons still play: canPlay falls back to
 // true and no XP is shown.
 
-import { answer, emit } from "../core/bus.js";
+import { answer, emit, on } from "../core/bus.js";
 import { load, save } from "../core/storage.js";
 
 export const RANKS = [
@@ -175,6 +175,15 @@ function loseHeart() {
 }
 
 export function init() {
+  // "Delete my data" wipes progress too, then starts fresh.
+  on("data:delete", () => {
+    Object.assign(state, {
+      xp: 0, streak: { count: 0, lastDay: null }, hearts: { count: MAX_HEARTS, updatedAt: Date.now() },
+      badges: [], lessons: {}, noHintSolves: 0, chatted: false,
+    });
+    persist();
+    emit("xp:changed", { xp: 0, gained: 0, rank: rankFor(0) });
+  });
   refillHearts();
   setInterval(refillHearts, 60 * 1000);
 

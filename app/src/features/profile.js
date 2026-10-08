@@ -7,6 +7,7 @@ import { AVATARS, STATES } from "../core/nigeria.js";
 import { load, save } from "../core/storage.js";
 
 let profile = load("profile", null);
+let deleteArmed = false; // "Delete my data" needs two taps
 
 function newId() {
   try {
@@ -20,6 +21,20 @@ function clean(text, max) {
   return String(text || "").replace(/\s+/g, " ").trim().slice(0, max);
 }
 
+// Mirrors the server's checks so students get instant, friendly feedback.
+// The server (serve_sabi.py) is still the authority.
+const BLOCKED = ["fuck", "shit", "bitch", "pussy", "nigga", "nigger", "slut", "whore", "bastard",
+  "ashawo", "olodo", "mumu", "werey", "yeye", "sex", "porn", "admin", "nitda", "moderator"];
+
+function nameProblem(value) {
+  const lowered = value.toLowerCase();
+  const squashed = lowered.replace(/[^a-z0-9]/g, "");
+  if (/https?:|www\.|\.(com|ng|net|org)\b|@/.test(lowered)) return "links and @handles aren't allowed";
+  if ((value.match(/\d/g) || []).length >= 7) return "phone numbers aren't allowed";
+  if (BLOCKED.some((w) => squashed.includes(w))) return "please choose a friendlier name";
+  return null;
+}
+
 function onboardingScreen(container, params = {}) {
   const editing = !!profile;
   let avatar = profile?.avatar || AVATARS[0];
@@ -30,6 +45,7 @@ function onboardingScreen(container, params = {}) {
     STATES.map((s) => h("option", { value: s, selected: profile?.state === s }, s))
   );
   const school = h("input", { class: "field", maxlength: 60, placeholder: "e.g. Kings College, Lagos", value: profile?.school || "" });
+  const consent = h("input", { type: "checkbox", checked: !!profile?.consent });
   const error = h("p", { class: "form-error" });
 
   const avatarRow = h("div", { class: "avatar-row" },
@@ -55,7 +71,12 @@ function onboardingScreen(container, params = {}) {
     if (nick.length < 2) return (error.textContent = "Nickname must be at least 2 letters.");
     if (!stateSel.value) return (error.textContent = "Pick your state — it counts for the State leaderboard.");
     if (sch.length < 2) return (error.textContent = "Type your school name — it counts for the School leaderboard.");
-    profile = { id: profile?.id || newId(), nickname: nick, avatar, state: stateSel.value, school: sch, createdAt: profile?.createdAt || Date.now() };
+    const problem = nameProblem(nick) || nameProblem(sch);
+    if (problem) return (error.textContent = `Hmm — ${problem}.`);
+    profile = {
+      id: profile?.id || newId(), nickname: nick, avatar, state: stateSel.value, school: sch,
+      consent: consent.checked, createdAt: profile?.createdAt || Date.now(),
+    };
     save("profile", profile);
     emit("profile:changed", profile);
     emit("nav", { screen: editing ? "profile" : "learn" });
@@ -69,8 +90,20 @@ function onboardingScreen(container, params = {}) {
       ),
       h("label", { class: "label" }, "Pick your avatar"), avatarRow,
       h("label", { class: "label" }, "Nickname", nickname),
+      h("p", { class: "field-hint" }, "🛡️ Use a nickname — not your real name, phone number or address."),
       h("label", { class: "label" }, "State", stateSel),
       h("label", { class: "label" }, "School", school),
+      h("label", { class: "consent" }, consent,
+        h("span", {}, "Show me on the School, State and Nigeria leaderboards. ",
+          h("strong", {}, "I'm 18 or older, or a parent or teacher has said yes."))
+      ),
+      h("details", { class: "privacy" },
+        h("summary", {}, "What does Sabi keep about me?"),
+        h("p", {}, "On this phone or computer: your nickname, avatar, state, school and game progress."),
+        h("p", {}, "Only if you tick the box above, your nickname, avatar, state, school and XP are sent to the Sabi leaderboard, where other players can see them. Nothing else is sent, and we never ask for your real name, phone number, email or location."),
+        h("p", {}, "What you type to Sabi in chat goes to the Sabi server to get a reply and is not saved to your profile."),
+        h("p", {}, "You can delete everything at any time under Me → Delete my data.")
+      ),
       error,
       h("button", { class: "btn btn-primary btn-block", type: "submit" }, editing ? "Save" : "Oya, let's go!"),
       !editing && h("button", { class: "btn btn-ghost btn-block", type: "button", onclick: () => emit("nav", { screen: "learn" }) }, "Skip for now (no leaderboard)")
@@ -134,6 +167,34 @@ function profileScreen(container) {
       )
     );
   }
+
+  container.appendChild(
+    h("div", { class: "card" },
+      h("h3", {}, "Privacy"),
+      h("p", { class: "muted small" }, profile.consent
+        ? "🌍 You appear on the leaderboards with your nickname, avatar, state, school and XP."
+        : "🔒 Private: your scores stay on this device. Turn on sharing under Edit (with a parent's or teacher's OK)."),
+      h("button", {
+        class: "btn btn-danger btn-small",
+        onclick: () => {
+          if (!deleteArmed) {
+            deleteArmed = true;
+            emit("toast", { text: "Tap again to delete all your Sabi data on this device and the leaderboard.", kind: "bad" });
+            setTimeout(() => (deleteArmed = false), 4000);
+            return;
+          }
+          deleteArmed = false;
+          emit("data:delete", { id: profile.id });
+          profile = null;
+          save("profile", null);
+          save("seenOnboarding", false);
+          emit("profile:changed", null);
+          emit("toast", { text: "Your Sabi data has been deleted.", kind: "good" });
+          emit("nav", { screen: "onboarding" });
+        },
+      }, "Delete my data")
+    )
+  );
 
   const badges = ask("badges", null, null);
   if (badges) {

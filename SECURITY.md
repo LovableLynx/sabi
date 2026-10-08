@@ -1,0 +1,53 @@
+# Security and privacy
+
+Sabi Arena is a learning game for Nigerian secondary and primary school students, many of them under 18. This document records what we protect, how, and what is not yet protected.
+
+**Reporting a problem:** please email the maintainers listed in [docs/team_profile.md](docs/team_profile.md) rather than opening a public issue.
+
+## What we hold, and where
+
+| Data | Where it lives | Who can see it |
+|---|---|---|
+| Nickname, avatar, state, school, XP, lesson progress | The student's own browser (`localStorage`) | Only that device |
+| Nickname, avatar, state, school, XP | The Sabi server's `ml/outputs/leaderboard.json`, **only if the student ticks the permission box** | Everyone who opens the leaderboard |
+| A random secret device ID | Browser, plus the server (as a lookup key) | Never shown or published |
+| Chat messages to the tutor | Sent to the Sabi server to generate a reply, then dropped (not stored with the profile) | The server operator, through server logs |
+
+We **never ask for** real names, phone numbers, emails, dates of birth or locations more precise than a state.
+
+## Children's data (Nigeria Data Protection Act 2023)
+
+- **Consent before sharing.** Nothing leaves the device until the student ticks: *"I'm 18 or older, or a parent or teacher has said yes."* Without that, the leaderboard shows a "Private" notice and scores stay local.
+- **Data minimisation.** Students are told to use a nickname, not their real name. The server rejects nicknames and school names containing links, @handles, phone numbers (7 or more digits) or common slurs, and the app runs the same checks.
+- **Right to erasure.** *Me → Delete my data* removes the player from the server (`POST /api/delete`) and wipes the device copy.
+- **Supervised pilots.** Run student testing sessions with a teacher present and parental permission, and record the consent outside the app.
+
+## Threats and mitigations
+
+| Threat | Mitigation | Where |
+|---|---|---|
+| Taking over another player's leaderboard entry | The board publishes only `pid = sha256(secret_id)[:16]`. Updates need the secret ID, which is at least 16 characters and random. | `serve_sabi.py` `Leaderboard` |
+| Fake scores ("1,000,000 XP") | New players start at 1,000 XP or less. XP may rise by at most 200 plus 120 per minute, far above real play (about 35 per lesson). | `Leaderboard.upsert` |
+| Flooding the GPU or the leaderboard | Per-visitor rate limits: 6 chats, 30 score writes and 60 board reads per minute. Behind the Cloudflare tunnel the real visitor IP comes from `CF-Connecting-IP`, trusted only on loopback requests. | `RateLimiter` |
+| Oversized or malformed requests | Body caps (64 KB chat, 4 KB score), at most 2,000 characters per chat message and 16 messages of history, JSON object required, strict type checks | `do_POST` |
+| Cross-site scripting through nicknames or model output | All text is inserted with `textContent` and never parsed as HTML. The only `innerHTML` is a built-in SVG constant. A strict CSP blocks inline scripts and styles. | `app/src/core/dom.js`, `PAGE_CSP` |
+| Clickjacking and content sniffing | `X-Frame-Options: DENY`, `frame-ancestors 'none'`, `X-Content-Type-Options: nosniff`, `Referrer-Policy: no-referrer` | `SECURITY_HEADERS` |
+| Reading server files through the web server | Paths are resolved and must stay inside `app/`. `app/tools/` is not served. Traversal attempts return 404. | `do_GET` |
+| Leaking internals in error messages | Model errors are logged on the server only; the browser gets a generic message. The server version banner is hidden. | `do_POST` |
+| The server reachable from the local network | Binds to `127.0.0.1` by default. The tunnel connects locally. | `--host` |
+
+All of these are covered by an automated security suite of 38 checks. It covers id privacy, takeover attempts, XP limits, the nickname filter, size limits, deletion, headers, path traversal, rate limits, loopback binding, the app running under CSP, consent gating and XSS rendering.
+
+## Secrets
+
+- **API keys never go into the repository.** `ml/.hf_token`, `ml/.groq_key`, `.env`, `kaggle.json` and the whole of `ml/outputs/` are gitignored. The full git history has been scanned and contains no keys.
+- **No tokens in clone URLs.** A URL like `https://TOKEN@github.com/...` is saved by git in `.git/config`, and Kaggle saves `/kaggle/working` (including `.git/`) as notebook output. An early run did exactly this; that GitHub token has to be revoked. The repository is public, so cloning needs no token at all.
+- **Kaggle jobs started from a laptop** (`ml/kaggle/run_job.py`) can't read notebook secrets. They carry the one key each job needs in a temporary **private** Kaggle dataset. The job keeps keys in memory and never writes them to `/kaggle/working`, and the runner deletes the dataset when the job ends.
+- **The live demo link** (a Cloudflare quick tunnel) is public but random and temporary. Share it only with testers, and stop the Kaggle session when you finish.
+
+## Known limitations (not yet protected)
+
+- **There are no accounts or authentication.** XP is reported by the client and only sanity-checked, so a determined user could still inflate a score within the allowed rate. Real competitions or prizes would need server-side lesson verification.
+- **Content moderation is basic.** Nickname filtering is a short list. The tutor model has no separate safety filter on its replies. It is trained to stay on WAEC/JAMB topics, but a student could try to steer it elsewhere. Supervise class use, and review the server logs.
+- **The leaderboard is a single JSON file** on the server with no backups or encryption at rest. It is fine for pilots, not for scale.
+- **Dependencies are not pinned to exact versions** (`ml/requirements.txt`). Pin them before any production deployment.

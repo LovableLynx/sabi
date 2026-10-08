@@ -54,3 +54,7 @@ export function submitScore(entry) {
 export function fetchLeaderboard() {
   return request("/api/leaderboard");
 }
+
+export function deleteScore(id) {
+  return request("/api/delete", { method: "POST", body: { id } });
+}

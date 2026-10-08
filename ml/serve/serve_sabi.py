@@ -7,8 +7,14 @@ gives a working live demo.
     POST /api/chat      -> {"messages": [{"role": "user"|"assistant", "content": ...}],
                             "model": "sabi" | "base" | "both"}
                         <- {"reply": "...", "base_reply": "..." (when model == "both")}
-    GET  /api/leaderboard -> {"players": [{id, nickname, avatar, state, school, xp}, ...]}
-    POST /api/score     -> {id, nickname, avatar, state, school, xp}  (upsert one player)
+    GET  /api/leaderboard -> {"players": [{pid, nickname, avatar, state, school, xp}, ...]}
+    POST /api/score     -> {id, nickname, avatar, state, school, xp} <- {pid}  (upsert)
+    POST /api/delete    -> {id}  (remove this player's data)
+
+Security: the secret player id is never published (only pid = sha256(id)[:16]);
+per-client rate limits; request and message size caps; nickname filter; XP
+may only rise at a realistic pace; CSP and other security headers; binds to
+127.0.0.1 by default. See SECURITY.md.
 
 "sabi" = N-ATLAS with the fine-tuned LoRA adapter switched on.
 "base" = the same weights with the adapter switched off (original N-ATLAS).
@@ -24,8 +30,10 @@ Run WITHOUT a GPU to test the app end to end with canned replies:
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import mimetypes
+import re
 import sys
 import threading
 import time
@@ -123,12 +131,62 @@ class ModelTutor:
         return self.tokenizer.decode(out[0, enc["input_ids"].shape[1]:], skip_special_tokens=True).strip()
 
 
+class RateLimiter:
+    """Sliding-window limit per client per action, so one visitor of the
+    public demo link can't monopolise the GPU or spam the leaderboard."""
+
+    def __init__(self, limits: dict[str, tuple[int, float]]):
+        self.limits = limits  # action -> (max requests, window seconds)
+        self.hits: dict[tuple[str, str], list[float]] = {}
+        self.lock = threading.Lock()
+
+    def allow(self, action: str, client: str) -> bool:
+        limit, window = self.limits[action]
+        now = time.time()
+        with self.lock:
+            recent = [t for t in self.hits.get((action, client), []) if now - t < window]
+            if len(recent) >= limit:
+                self.hits[(action, client)] = recent
+                return False
+            recent.append(now)
+            self.hits[(action, client)] = recent
+            if len(self.hits) > 10_000:  # forget idle clients
+                self.hits = {k: v for k, v in self.hits.items() if v and now - v[-1] < 3600}
+            return True
+
+
+# Kept deliberately small: blocks the obvious, not a full moderation system.
+BLOCKED_NAME_PARTS = {
+    "fuck", "shit", "bitch", "pussy", "nigga", "nigger", "slut", "whore", "bastard",
+    "ashawo", "olodo", "mumu", "werey", "yeye", "sex", "porn", "admin", "nitda", "moderator",
+}
+
+
+def unsafe_name(value: str) -> str | None:
+    lowered = value.lower()
+    squashed = "".join(c for c in lowered if c.isalnum())
+    if re.search(r"https?:|www\.|\.(com|ng|net|org)\b|@", lowered):
+        return "links and @handles aren't allowed"
+    if sum(c.isdigit() for c in value) >= 7:
+        return "phone numbers aren't allowed"
+    if any(part in squashed for part in BLOCKED_NAME_PARTS):
+        return "please choose a friendlier name"
+    return None
+
+
 class Leaderboard:
-    """Players and XP in a JSON file. One record per player id; the newest
-    submission wins. There is no anti-cheat — fine for a demo or a
-    supervised class trial, not for a prize competition."""
+    """Players and XP in a JSON file.
+
+    Each device sends a SECRET id that never leaves the device except in its
+    own score updates; the board only ever publishes pid = sha256(id)[:16].
+    So reading the leaderboard never gives anyone what they'd need to
+    overwrite another player. XP is client-reported; the server only lets it
+    rise at a realistic pace, which stops "1,000,000 XP" but is not full
+    anti-cheat."""
 
     MAX_PLAYERS_RETURNED = 1000
+    XP_BURST = 200          # allowed jump with no time elapsed
+    XP_PER_MINUTE = 120     # far above what real play earns (~35 XP per lesson)
 
     def __init__(self, path: Path):
         self.path = path
@@ -141,16 +199,32 @@ class Leaderboard:
                 print(f"Warning: could not read {path}; starting an empty leaderboard", flush=True)
 
     @staticmethod
-    def validate(raw: dict) -> dict:
+    def pid(player_id: str) -> str:
+        return hashlib.sha256(player_id.encode("utf-8")).hexdigest()[:16]
+
+    @staticmethod
+    def check_id(raw: dict) -> str:
+        player_id = str(raw.get("id", ""))
+        if not 16 <= len(player_id) <= 64 or not all(c.isalnum() or c == "-" for c in player_id):
+            raise ValueError("invalid id")
+        return player_id
+
+    def validate(self, raw: dict) -> dict:
         def text(key: str, lo: int, hi: int) -> str:
             value = " ".join(str(raw.get(key, "")).split())
             if not lo <= len(value) <= hi:
                 raise ValueError(f"{key} must be {lo}-{hi} characters")
+            if any(ord(c) < 32 for c in value):
+                raise ValueError(f"{key} contains invalid characters")
             return value
 
-        player_id = text("id", 8, 64)
-        if not all(c.isalnum() or c == "-" for c in player_id):
-            raise ValueError("invalid id")
+        player_id = self.check_id(raw)
+        nickname = text("nickname", 2, 20)
+        school = text("school", 2, 60)
+        for label, value in (("nickname", nickname), ("school", school)):
+            problem = unsafe_name(value)
+            if problem:
+                raise ValueError(f"{label}: {problem}")
         state = text("state", 2, 40)
         if state not in NIGERIAN_STATES:
             raise ValueError("unknown state")
@@ -158,49 +232,108 @@ class Leaderboard:
         if not isinstance(xp, int) or isinstance(xp, bool) or not 0 <= xp <= 1_000_000:
             raise ValueError("xp must be a whole number 0-1,000,000")
         return {
-            "id": player_id,
-            "nickname": text("nickname", 2, 20),
-            "avatar": text("avatar", 1, 8),
-            "state": state,
-            "school": text("school", 2, 60),
-            "xp": xp,
-            "updated": int(time.time()),
+            "id": player_id, "nickname": nickname, "avatar": text("avatar", 1, 8),
+            "state": state, "school": school, "xp": xp, "updated": time.time(),
         }
+
+    def _save(self) -> None:
+        tmp = self.path.with_suffix(".tmp")
+        tmp.write_text(json.dumps(list(self.players.values()), ensure_ascii=False), encoding="utf-8")
+        tmp.replace(self.path)  # atomic, so a crash never leaves a half-written file
 
     def upsert(self, raw: dict) -> dict:
         player = self.validate(raw)
         with self.lock:
+            old = self.players.get(player["id"])
+            if old:
+                minutes = max(0.0, (player["updated"] - old["updated"]) / 60)
+                allowed = old["xp"] + self.XP_BURST + int(self.XP_PER_MINUTE * minutes)
+                if player["xp"] > allowed:
+                    raise ValueError("xp rose faster than real play allows")
+            elif player["xp"] > self.XP_BURST * 5:
+                raise ValueError("new players start from a realistic score")
             self.players[player["id"]] = player
-            tmp = self.path.with_suffix(".tmp")
-            tmp.write_text(json.dumps(list(self.players.values()), ensure_ascii=False), encoding="utf-8")
-            tmp.replace(self.path)  # atomic, so a crash never leaves a half-written file
-        return player
+            self._save()
+        return {"pid": self.pid(player["id"]), "xp": player["xp"]}
+
+    def delete(self, raw: dict) -> bool:
+        player_id = self.check_id(raw)
+        with self.lock:
+            existed = self.players.pop(player_id, None) is not None
+            if existed:
+                self._save()
+        return existed
 
     def top(self) -> list[dict]:
         with self.lock:
             ranked = sorted(self.players.values(), key=lambda p: (-p["xp"], p["nickname"].lower()))
-        return [{k: p[k] for k in ("id", "nickname", "avatar", "state", "school", "xp")} for p in ranked[: self.MAX_PLAYERS_RETURNED]]
+        return [
+            {"pid": self.pid(p["id"]), **{k: p[k] for k in ("nickname", "avatar", "state", "school", "xp")}}
+            for p in ranked[: self.MAX_PLAYERS_RETURNED]
+        ]
 
 
-def make_handler(tutor, lock: threading.Lock, board: Leaderboard):
+MAX_BODY = {"/api/chat": 64 * 1024, "/api/score": 4096, "/api/delete": 1024}
+MAX_MESSAGE_CHARS = 2000
+SECURITY_HEADERS = {
+    "X-Content-Type-Options": "nosniff",
+    "Referrer-Policy": "no-referrer",
+    "X-Frame-Options": "DENY",
+    "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
+}
+PAGE_CSP = (
+    "default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; "
+    "font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; "
+    "object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'"
+)
+
+
+def make_handler(tutor, lock: threading.Lock, board: Leaderboard, limiter: RateLimiter):
     class Handler(BaseHTTPRequestHandler):
+        server_version = "Sabi"
+        sys_version = ""
+
         def log_message(self, fmt, *args):
             sys.stderr.write(f"[{self.log_date_time_string()}] {fmt % args}\n")
+
+        def client(self) -> str:
+            # Behind the Cloudflare tunnel every request arrives from 127.0.0.1;
+            # only then is the CF-Connecting-IP header trustworthy.
+            ip = self.client_address[0]
+            if ip in ("127.0.0.1", "::1") and self.headers.get("CF-Connecting-IP"):
+                return self.headers["CF-Connecting-IP"].strip()
+            return ip
+
+        def _headers(self, extra: dict | None = None) -> None:
+            for k, v in {**SECURITY_HEADERS, **(extra or {})}.items():
+                self.send_header(k, v)
 
         def _json(self, payload: dict, status: int = 200) -> None:
             body = json.dumps(payload, ensure_ascii=False).encode("utf-8")
             self.send_response(status)
             self.send_header("Content-Type", "application/json; charset=utf-8")
             self.send_header("Content-Length", str(len(body)))
+            self.send_header("Cache-Control", "no-store")
             self.send_header("Access-Control-Allow-Origin", "*")
+            self._headers()
             self.end_headers()
             self.wfile.write(body)
+
+        def _body(self, path: str) -> dict:
+            length = int(self.headers.get("Content-Length") or 0)
+            if length <= 0 or length > MAX_BODY[path]:
+                raise ValueError("request too large or empty")
+            data = json.loads(self.rfile.read(length))
+            if not isinstance(data, dict):
+                raise ValueError("expected a JSON object")
+            return data
 
         def do_OPTIONS(self):
             self.send_response(204)
             self.send_header("Access-Control-Allow-Origin", "*")
             self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
             self.send_header("Access-Control-Allow-Headers", "Content-Type")
+            self.send_header("Access-Control-Max-Age", "600")
             self.end_headers()
 
         def do_GET(self):
@@ -209,49 +342,68 @@ def make_handler(tutor, lock: threading.Lock, board: Leaderboard):
                 self._json({"status": "ok", "mode": tutor.mode, "model": tutor.info, "leaderboard": True})
                 return
             if path == "/api/leaderboard":
+                if not limiter.allow("read", self.client()):
+                    self._json({"error": "too many requests, slow down"}, status=429)
+                    return
                 self._json({"players": board.top()})
                 return
+            app_root = APP_DIR.resolve()
             rel = "index.html" if path in ("", "/") else path.lstrip("/")
             target = (APP_DIR / rel).resolve()
-            if APP_DIR.resolve() not in target.parents or not target.is_file():
+            if app_root not in target.parents or not target.is_file() or "tools" in target.relative_to(app_root).parts:
                 self._json({"error": "not found"}, status=404)
                 return
             body = target.read_bytes()
             self.send_response(200)
             self.send_header("Content-Type", mimetypes.guess_type(target.name)[0] or "application/octet-stream")
             self.send_header("Content-Length", str(len(body)))
+            self._headers({"Content-Security-Policy": PAGE_CSP} if target.suffix == ".html" else None)
             self.end_headers()
             self.wfile.write(body)
 
         def do_POST(self):
             path = self.path.split("?", 1)[0]
-            if path == "/api/score":
-                try:
-                    length = int(self.headers.get("Content-Length", 0))
-                    if length > 4096:
-                        raise ValueError("request too large")
-                    player = board.upsert(json.loads(self.rfile.read(length)))
-                except (ValueError, TypeError, AttributeError) as e:
-                    self._json({"error": f"invalid score: {e}"}, status=400)
-                    return
-                self._json({"ok": True, "player": player})
-                return
-            if path != "/api/chat":
+            if path not in MAX_BODY:
                 self._json({"error": "not found"}, status=404)
                 return
+            action = {"/api/chat": "chat", "/api/score": "score", "/api/delete": "score"}[path]
+            if not limiter.allow(action, self.client()):
+                self._json({"error": "too many requests, slow down"}, status=429)
+                return
             try:
-                payload = json.loads(self.rfile.read(int(self.headers.get("Content-Length", 0))))
+                payload = self._body(path)
+            except (ValueError, TypeError):
+                self._json({"error": "invalid request"}, status=400)
+                return
+
+            if path == "/api/score":
+                try:
+                    self._json({"ok": True, **board.upsert(payload)})
+                except (ValueError, TypeError, AttributeError) as e:
+                    self._json({"error": f"invalid score: {e}"}, status=400)
+                return
+            if path == "/api/delete":
+                try:
+                    self._json({"ok": True, "deleted": board.delete(payload)})
+                except ValueError as e:
+                    self._json({"error": str(e)}, status=400)
+                return
+
+            try:
                 messages = [
                     {"role": m["role"], "content": str(m["content"])}
                     for m in payload.get("messages", [])
-                    if m.get("role") in ("user", "assistant")
+                    if isinstance(m, dict) and m.get("role") in ("user", "assistant")
                 ][-MAX_HISTORY_MESSAGES:]
                 which = payload.get("model", "sabi")
-            except (ValueError, KeyError, TypeError):
+            except (KeyError, TypeError, AttributeError):
                 self._json({"error": "invalid request"}, status=400)
                 return
             if not messages or messages[-1]["role"] != "user":
                 self._json({"error": "last message must be from the user"}, status=400)
+                return
+            if any(len(m["content"]) > MAX_MESSAGE_CHARS for m in messages):
+                self._json({"error": f"messages are limited to {MAX_MESSAGE_CHARS} characters"}, status=400)
                 return
             if which not in ("sabi", "base", "both"):
                 self._json({"error": "model must be sabi, base or both"}, status=400)
@@ -266,8 +418,9 @@ def make_handler(tutor, lock: threading.Lock, board: Leaderboard):
                     if which in ("base", "both"):
                         key = "base_reply" if which == "both" else "reply"
                         result[key] = tutor.reply(messages, use_adapter=False)
-            except Exception as e:  # surface model errors to the UI instead of a dropped connection
-                self._json({"error": f"generation failed: {e}"}, status=500)
+            except Exception as e:  # log details server-side; don't leak internals to the browser
+                print(f"generation failed: {e!r}", file=sys.stderr, flush=True)
+                self._json({"error": "Sabi couldn't answer just now, please try again"}, status=500)
                 return
             result["seconds"] = round(time.time() - start, 1)
             self._json(result)
@@ -279,7 +432,8 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Serve the Sabi app + chat API")
     parser.add_argument("--adapter", default="ml/outputs/lora_run_1/final_adapter")
     parser.add_argument("--base-model", default="NCAIR1/N-ATLaS")
-    parser.add_argument("--host", default="0.0.0.0")
+    parser.add_argument("--host", default="127.0.0.1",
+                        help="127.0.0.1 = only this machine (the tunnel connects locally); 0.0.0.0 exposes it on the network")
     parser.add_argument("--port", type=int, default=8000)
     parser.add_argument("--max-new-tokens", type=int, default=300)
     parser.add_argument("--mock", action="store_true", help="canned replies, no GPU/model needed")
@@ -301,8 +455,9 @@ def main() -> None:
         board_path = ROOT / board_path
     board_path.parent.mkdir(parents=True, exist_ok=True)
     board = Leaderboard(board_path)
+    limiter = RateLimiter({"chat": (6, 60), "score": (30, 60), "read": (60, 60)})
 
-    server = ThreadingHTTPServer((args.host, args.port), make_handler(tutor, threading.Lock(), board))
+    server = ThreadingHTTPServer((args.host, args.port), make_handler(tutor, threading.Lock(), board, limiter))
     print(f"Serving Sabi ({tutor.mode}: {tutor.info}) on http://{args.host}:{args.port}", flush=True)
     try:
         server.serve_forever()

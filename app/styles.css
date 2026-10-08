@@ -129,6 +129,16 @@ button { font-family: inherit; }
 .label { display: block; font-weight: 800; font-size: 0.85rem; margin: 12px 0 4px; }
 .label .field { margin-top: 4px; }
 .form-error { color: var(--red); font-weight: 700; min-height: 1.2em; }
+.field-hint { font-size: 0.78rem; font-weight: 700; color: var(--muted); margin: 4px 0 0; }
+.consent {
+  display: flex; gap: 10px; align-items: flex-start; margin-top: 14px; padding: 10px 12px;
+  border: 2px solid var(--line); border-radius: 14px; font-size: 0.85rem; font-weight: 600; cursor: pointer;
+}
+.consent input { width: 20px; height: 20px; flex-shrink: 0; margin-top: 2px; accent-color: var(--green); }
+.privacy { margin-top: 10px; font-size: 0.82rem; }
+.privacy summary { font-weight: 800; color: var(--green-dark); cursor: pointer; }
+.privacy p { color: var(--muted); }
+.btn-danger { background: var(--red-soft); color: #8a2c2f; border: 2px solid var(--red); margin-top: 8px; }
 
 /* ---------- onboarding / profile ---------- */
 .onboarding-hero {

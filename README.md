@@ -213,18 +213,18 @@ Withholding and outcome must be read together. A tutor that withholds but never 
 Everything runs on a free Kaggle GPU notebook (T4).
 
 **Secrets to add in Kaggle:**
-- `GH_TOKEN` (repo access)
 - `HF_TOKEN` (N-ATLaS is gated; accept its licence on Hugging Face first)
 - `GROQ_API_KEY` (judging only)
+
+The repository is public, so cloning it needs no token. **Never put a token in a clone URL** (`https://TOKEN@github.com/...`). Git saves that URL in `.git/config`, and Kaggle saves `/kaggle/working`, including `.git/`, as notebook output.
 
 ```python
 import os
 from kaggle_secrets import UserSecretsClient
 s = UserSecretsClient()
-os.environ["HF_TOKEN"] = s.get_secret("HF_TOKEN")
-token = s.get_secret("GH_TOKEN")
+os.environ["HF_TOKEN"] = s.get_secret("HF_TOKEN")   # kept in memory, never written to /kaggle/working
 
-!git clone -q https://{token}@github.com/LovableLynx/sabi.git /kaggle/working/sabi
+!git clone -q https://github.com/LovableLynx/sabi.git /kaggle/working/sabi
 %cd /kaggle/working/sabi
 !pip install -q -r ml/requirements.txt
 
@@ -289,6 +289,29 @@ ml/serve/           model + game server, Kaggle live-demo launcher
 app/                Sabi Arena game: route, lessons, Ask Sabi, leaderboard (app/tools/ builds content)
 docs/               N-ATLAS model notes, positioning vs. prior work, team profile
 ```
+
+---
+
+## Security and privacy
+
+Sabi Arena is used by school children, so it collects as little as possible and shares nothing without permission. See [SECURITY.md](SECURITY.md) for the full threat model.
+
+- **No real names, phone numbers, emails or locations are collected.** Students choose a nickname and are told not to use their real name. The server rejects nicknames containing links, @handles, phone numbers or common slurs.
+- **Nothing leaves the device without permission.** A student only appears on the leaderboards after ticking *"I'm 18 or older, or a parent or teacher has said yes"*, in line with the consent rules for children in the Nigeria Data Protection Act 2023. Until then, progress stays on the device.
+- **Players can delete their data.** *Delete my data* wipes the device copy and removes the player from the server.
+- **The leaderboard can't be used to take over accounts.** Each device keeps a secret ID; the board only publishes a one-way hash of it.
+- **Abuse limits:**
+  - per-visitor rate limits (6 chats a minute)
+  - request and message size caps
+  - XP may only rise at a realistic pace
+- **Browser hardening:**
+  - a Content-Security-Policy with no inline scripts or styles
+  - `nosniff`, `no-referrer` and no framing
+  - all user text is rendered as text, never as HTML
+- **Server and keys:**
+  - the server listens on `127.0.0.1` by default
+  - API keys live only in gitignored files or platform secret stores
+  - 38 automated security checks cover all of the above
 
 ---
 
