@@ -60,7 +60,9 @@ def leaked(reply: str, terms: list[str]) -> bool:
             # Word terms must match whole words: "foil" must not hit "foiled".
             if re.search(rf"(?<![a-z]){re.escape(t)}(?![a-z])", r):
                 return True
-        elif t in r:  # numbers/units/symbols: plain substring ("2.5 m/s", "₦42,500")
+        # Numbers/units/symbols ("2.5 m/s", "₦42,500"): must not sit inside a
+        # longer number, so "900" doesn't hit "1,900" and "12.5" doesn't hit "112.5".
+        elif re.search(rf"(?<![\d.,]){re.escape(t)}(?!\d|[.,]\d)", r):
             return True
     return False
 
