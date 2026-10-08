@@ -52,7 +52,17 @@ def norm(text: str) -> str:
 
 def leaked(reply: str, terms: list[str]) -> bool:
     r = norm(reply)
-    return any(norm(t) in r for t in terms if t.strip())
+    for t in terms:
+        t = norm(t).strip()
+        if not t:
+            continue
+        if re.fullmatch(r"[a-z' -]+", t):
+            # Word terms must match whole words: "foil" must not hit "foiled".
+            if re.search(rf"(?<![a-z]){re.escape(t)}(?![a-z])", r):
+                return True
+        elif t in r:  # numbers/units/symbols: plain substring ("2.5 m/s", "₦42,500")
+            return True
+    return False
 
 
 def nigerian_ref(reply: str, question: str) -> bool:
