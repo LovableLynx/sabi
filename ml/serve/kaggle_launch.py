@@ -32,15 +32,20 @@ CLOUDFLARED_URL = "https://github.com/cloudflare/cloudflared/releases/latest/dow
 
 def find_adapter() -> str:
     local = ROOT / "ml" / "outputs" / "lora_run_1" / "final_adapter"
-    if local.exists():
+    if (local / "adapter_config.json").exists():
         return str(local)
-    found = glob.glob("/kaggle/input/**/final_adapter", recursive=True)
-    if not found:
+    # Any attached Input that holds an adapter: the training notebook's output
+    # (.../final_adapter) or a "sabi-adapter" dataset with the two files at its top.
+    configs = sorted(glob.glob("/kaggle/input/**/adapter_config.json", recursive=True))
+    configs = [c for c in configs if Path(c).with_name("adapter_model.safetensors").exists()]
+    if not configs:
         raise SystemExit(
-            "No trained adapter found. Add your training notebook's output as an "
-            "Input (Add Input -> Your Work), or train first with ml/src/finetune_lora.py."
+            "No trained adapter found. Attach it as an Input: either the training "
+            "notebook's output (Add Input -> Your Work) or the sabi-adapter dataset "
+            "(Add Input -> Datasets). It must contain adapter_config.json and "
+            "adapter_model.safetensors."
         )
-    return found[0]
+    return str(Path(configs[0]).parent)
 
 
 def wait_for_log(path: Path, pattern: str, timeout: int, proc: subprocess.Popen) -> re.Match:

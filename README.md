@@ -49,7 +49,7 @@ Leave this terminal window open. When it prints `Serving Sabi (mock ...)`, open 
 | XP, fuel ⛽, ranks, streaks and badges | ✅ |
 | School / State / Nigeria leaderboards (tick the permission box on your profile to appear) | ✅ |
 | Offline guided hints inside lessons | ✅ |
-| **Ask Sabi** chat | ⚠️ Canned test replies only. The real fine-tuned model needs a GPU, so use the live demo link the team lead runs on Kaggle. |
+| **Ask Sabi** chat | ⚠️ Canned test replies only. The real fine-tuned model needs a GPU; see [Live demo with the real model](#live-demo-with-the-real-model-kaggle-gpu) below. |
 
 ### Try it on a phone (same Wi-Fi)
 
@@ -76,6 +76,74 @@ Only do this on a Wi-Fi network you trust, and stop the server when you're done.
 - Have a teacher present, and get parents' permission first.
 - Tell students to use a **nickname**, never their real name or phone number.
 - The leaderboard data is saved in `ml/outputs/leaderboard.json` on the laptop running the server. To clear it, stop the server and delete that file.
+
+## Live demo with the real model (Kaggle GPU)
+
+This runs the **fine-tuned N-ATLAS** behind the game, so *Ask Sabi* gives real tutor replies, and gives you a temporary public link to open on any laptop or phone. It's what to use for the demo video and for student sessions with the real AI.
+
+### One-time setup
+
+| You need | How to get it |
+|---|---|
+| A Kaggle account with GPU access | Sign up at kaggle.com, then verify your phone number under **Settings → Phone verification**. GPU options stay greyed out until you do. |
+| Access to N-ATLaS on Hugging Face | Log in at huggingface.co, open [NCAIR1/N-ATLaS](https://huggingface.co/NCAIR1/N-ATLaS) and accept its licence. Approval can take a while, so do this early. |
+| A Hugging Face **read** token | huggingface.co/settings/tokens → **Create new token** → type **Read** |
+| The trained Sabi adapter | Ask the team lead to share the private **`sabi-adapter`** Kaggle dataset with your Kaggle username. It contains `adapter_model.safetensors` and `adapter_config.json`. |
+| A GitHub read token, **only while the repo is private** | github.com/settings/personal-access-tokens → **Fine-grained token** → Repository access: **only `sabi`** → Permissions: **Contents: Read-only**. Delete it once the repo is public. |
+
+### Start the demo
+
+1. On Kaggle, click **Create → New Notebook**.
+2. In the right sidebar, set these:
+   - **Session options → Accelerator:** **GPU T4 x2**
+   - **Session options → Internet:** **On**
+   - **Add Input → Datasets:** search for **`sabi-adapter`** and add it
+   - **Add-ons → Secrets:** add **`HF_TOKEN`** (your Hugging Face token) and, while the repo is private, **`GH_READ_TOKEN`**. Tick both for this notebook.
+3. Paste this into one cell and run it:
+
+```python
+import os, base64
+from kaggle_secrets import UserSecretsClient
+s = UserSecretsClient()
+os.environ["HF_TOKEN"] = s.get_secret("HF_TOKEN")   # kept in memory only
+
+# While the repo is private: send the token as a one-off header. Unlike a token
+# inside the URL, this is never saved to .git/config or the notebook output.
+gh = s.get_secret("GH_READ_TOKEN")
+auth = base64.b64encode(f"x-access-token:{gh}".encode()).decode()
+!git -c http.extraHeader="Authorization: Basic {auth}" clone -q https://github.com/LovableLynx/sabi.git /kaggle/working/sabi
+# Once the repo is public, use this line instead of the three above:
+# !git clone -q https://github.com/LovableLynx/sabi.git /kaggle/working/sabi
+
+%cd /kaggle/working/sabi
+!pip install -q -r ml/requirements.txt
+%run ml/serve/kaggle_launch.py
+```
+
+4. Wait **3–5 minutes**: the model downloads (about 16 GB) and loads. When it's ready, it prints:
+   ```
+     Sabi live demo:  https://something-random.trycloudflare.com
+   ```
+5. Open that link. The badge on **Ask Sabi** should say **"Live · fine-tuned N-ATLAS"**.
+
+### While it's running
+
+- **Keep the Kaggle tab open.** The demo stops when the session stops.
+- **Replies take 10–40 seconds** on a T4, and about twice that with **Compare with base N-ATLAS** turned on. For the video, cut the waiting.
+- Each visitor can send **6 chat messages a minute**. This protects the GPU from being flooded.
+- **The link works for anyone who has it**, but it's random and dies with the session. Share it only with testers and never post it publicly.
+- **The leaderboard starts empty every session**, and its data is deleted when the session ends.
+- **When you're done:** click **⋯ → Stop Session**. A running session uses up your weekly GPU hours (about 30 hours).
+
+### Troubleshooting
+
+| Message | Fix |
+|---|---|
+| `GatedRepoError` / `401` for N-ATLaS | Your Hugging Face account hasn't been approved for N-ATLaS yet, or the `HF_TOKEN` secret isn't ticked for this notebook |
+| `No trained adapter found` | The `sabi-adapter` dataset isn't added as an Input |
+| `Repository not found` / `403` while cloning | The `GH_READ_TOKEN` secret is missing or not ticked, or the token doesn't include the `sabi` repo |
+| `CUDA out of memory` | Choose **GPU T4 x2**, not a single T4, then restart the session |
+| GPU option greyed out | Verify your phone number on Kaggle |
 
 ### Rules for teammates
 
@@ -325,11 +393,7 @@ Kaggle's saved notebook secrets aren't available to runs started through the API
 python ml/smoketest/run_smoketest.py
 ```
 
-**Live demo on Kaggle.** Use an interactive GPU session, with the training notebook's output added as an Input so the adapter is available:
-```python
-%run ml/serve/kaggle_launch.py
-```
-This loads N-ATLaS with the Sabi adapter and serves the chat app. It also opens a free Cloudflare tunnel and prints a public `https://…trycloudflare.com` link. The app's **Compare with base N-ATLAS** toggle shows the original model's reply next to Sabi's.
+**Live demo on Kaggle:** see [Live demo with the real model](#live-demo-with-the-real-model-kaggle-gpu) near the top of this README.
 
 **Run Sabi Arena locally without a GPU.** The tutor gives canned replies, and the leaderboard is real and stored in `ml/outputs/leaderboard.json`:
 ```bash
