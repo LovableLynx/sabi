@@ -16,6 +16,75 @@ Submitted to the **National AI Innovation Challenge 2026** (NITDA / NCAIR / ONDI
 
 ---
 
+## Quick start: run Sabi Arena on your laptop
+
+This needs no GPU, no API keys and no `pip install`, only Python.
+
+**1. Get the latest code**
+```bash
+git clone https://github.com/LovableLynx/sabi.git   # first time only
+cd sabi
+git pull                                            # every time after that
+```
+
+**2. Check you have Python 3.10 or newer**
+```bash
+python --version
+```
+If it's missing or too old, install it from [python.org](https://www.python.org/downloads/). On Windows, tick **"Add Python to PATH"** during install. On a Mac, use `python3` wherever this guide says `python`.
+
+**3. Start the game**
+```bash
+python ml/serve/serve_sabi.py --mock --port 8765
+```
+Leave this terminal window open. When it prints `Serving Sabi (mock ...)`, open **http://localhost:8765** in Chrome.
+
+**4. Stop it:** press **Ctrl + C** in the terminal.
+
+### What works in this test mode
+
+| Feature | Works? |
+|---|---|
+| All 120 lessons: WAEC/JAMB, plus the BECE and Common Entrance pilot tracks | ✅ |
+| XP, fuel ⛽, ranks, streaks and badges | ✅ |
+| School / State / Nigeria leaderboards (tick the permission box on your profile to appear) | ✅ |
+| Offline guided hints inside lessons | ✅ |
+| **Ask Sabi** chat | ⚠️ Canned test replies only. The real fine-tuned model needs a GPU, so use the live demo link the team lead runs on Kaggle. |
+
+### Try it on a phone (same Wi-Fi)
+
+1. Start it with `--host 0.0.0.0` added:
+   ```bash
+   python ml/serve/serve_sabi.py --mock --port 8765 --host 0.0.0.0
+   ```
+2. Find your laptop's IP address. Run `ipconfig` on Windows (look for "IPv4 Address") or `ifconfig` on Mac.
+3. On the phone, open `http://YOUR-LAPTOP-IP:8765`.
+
+Only do this on a Wi-Fi network you trust, and stop the server when you're done.
+
+### If something goes wrong
+
+| Problem | Fix |
+|---|---|
+| `python` is not recognised | Reinstall Python and tick "Add Python to PATH", or try `py` (Windows) or `python3` (Mac) |
+| `Address already in use` | Another program is using port 8765. Use another port, e.g. `--port 8800`, and open `http://localhost:8800` |
+| The page is blank or looks old | Press **Ctrl + Shift + R** to hard-refresh |
+| Lessons say "Couldn't load lessons" | Run `git pull` again, then restart the server |
+
+### Before testing with students
+
+- Have a teacher present, and get parents' permission first.
+- Tell students to use a **nickname**, never their real name or phone number.
+- The leaderboard data is saved in `ml/outputs/leaderboard.json` on the laptop running the server. To clear it, stop the server and delete that file.
+
+### Rules for teammates
+
+- **Never commit keys or tokens.** Files like `ml/.hf_token` and `ml/.groq_key` are git-ignored; keep it that way.
+- Run `git pull` before you start work, so you don't overwrite someone else's changes.
+- Training and benchmarks need a GPU and API keys. Those steps are under [Reproducing](#reproducing) below.
+
+---
+
 ## How Sabi tutors
 
 When a student asks a question, Sabi:
