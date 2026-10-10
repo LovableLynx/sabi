@@ -161,7 +161,7 @@ Vercel can't run the AI model itself: an 8B model needs a GPU, and Vercel has no
 **Deploy (one time, about 5 minutes):**
 1. Sign in at [vercel.com](https://vercel.com) with GitHub.
 2. Click **Add New → Project**, then **import `LovableLynx/sabi`**. Vercel can read private repos once you allow it.
-3. Leave **Framework Preset: Other**, and don't change the build settings. `vercel.json` already tells Vercel to serve the `app/` folder with no build step, and adds the security headers.
+3. Leave **Framework Preset: Other**, and don't change the build settings. Then open **Settings → Build and Deployment**, set **Root Directory** to **`app`**, and save. `app/vercel.json` adds the security headers.
 4. Click **Deploy**. You get a link like `https://sabi-xxxx.vercel.app`.
 5. From then on, every `git push` to `main` redeploys automatically.
 
