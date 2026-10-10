@@ -710,7 +710,7 @@ def make_handler(tutor, lock: threading.Lock, board: Leaderboard, limiter: RateL
                 return
 
             start = time.time()
-            blocked = chat_block(messages[-1]["content"])
+            blocked = chat_block(arith_coach.strip_subject(messages[-1]["content"]))
             if blocked:
                 # Insults and keyboard-mashing are answered here; the GPU is never used.
                 reply = CHAT_BLOCK_REPLIES[blocked]
@@ -749,6 +749,8 @@ def make_handler(tutor, lock: threading.Lock, board: Leaderboard, limiter: RateL
                 self._json({"error": "Sabi couldn't answer just now, please try again"}, status=500)
                 return
             for key in ("reply", "base_reply"):
+                if key in result and result[key][:1].islower():
+                    result[key] = result[key][0].upper() + result[key][1:]  # tidy: start with a capital
                 if key in result and safety_reply(result[key]):
                     print("safety guard: replaced an unsafe model reply", file=sys.stderr, flush=True)
                     result[key] = OFF_LIMITS_REPLY

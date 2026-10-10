@@ -19,6 +19,24 @@ const state = {
 };
 let ledgerRows = [{ date: "", account: "", debit: "", credit: "" }];
 
+// Shown when a first message is too short to be a question ("they", "ok").
+const EXAMPLES = {
+  literature: "What is the difference between a simile and a metaphor?",
+  physics: "How do I find the acceleration of a car that stops?",
+  accounting: "Which account do I debit when I buy goods for cash?",
+  "bece-english": "What is an adverb?",
+  "bece-science": "Why does ice melt in the sun?",
+  "bece-business": "What is the difference between a debtor and a creditor?",
+  "ncee-maths": "How do I find the LCM of 4 and 6?",
+  "ncee-english": "What is the plural of 'child'?",
+  "ncee-science": "Why do plants need sunlight?",
+};
+
+function tooVague(text) {
+  const t = text.trim();
+  return t.split(/\s+/).length < 3 && !/[?\d]/.test(t);
+}
+
 const PHYSICS_SYMBOLS = ["^2", "^", "√", "Δ", "θ", "ω", "μ", "→", "vec()", "/", "*"];
 
 function ledgerToMarkdown(rows) {
@@ -111,19 +129,29 @@ function render(container, status) {
     const hist = (state.history[subject] ||= []);
     hist.push({ role: "student", text });
     const blocked = checkChat(text);
-    if (blocked) {
-      // Answered here: insults and keyboard-mashing never reach the tutor.
-      hist.push({ role: "tutor", text: CHAT_REPLIES[blocked] });
-      if (isAutoRead()) speak(CHAT_REPLIES[blocked]);
+    const first = !hist.some((m) => m.role === "tutor" && !m.local);
+    const local = blocked ? CHAT_REPLIES[blocked]
+      : first && tooVague(text)
+        ? `Tell me a bit more 🙂. What would you like to know in ${SUBJECTS[subject].label}? For example: "${EXAMPLES[subject] || "Explain this topic to me"}"`
+        : null;
+    if (local) {
+      // Answered here: insults, keyboard-mashing and one-word openers never reach the tutor.
+      hist.push({ role: "tutor", text: local, local: true });
+      if (isAutoRead()) speak(local);
       render(container, status);
       return;
     }
     state.pending = true;
     render(container, status);
     try {
+      // Local nudges are left out, and the first question says which subject
+      // is open, so Sabi doesn't have to guess the topic.
       const msgs = hist
-        .filter((m) => m.role === "student" || m.role === "tutor")
+        .filter((m) => (m.role === "student" || m.role === "tutor") && !m.local)
+        .filter((m, i, all) => !(m.role === "student" && all[i + 1]?.role === "student"))
         .map((m) => ({ role: m.role === "student" ? "user" : "assistant", content: m.text }));
+      const s = SUBJECTS[subject];
+      msgs[0] = { ...msgs[0], content: `Subject: ${s.label} (${TRACKS[s.track].short})\n\n${msgs[0].content}` };
       const data = await chat(msgs, state.compare ? "both" : "sabi", {
         onWaking: () => { state.waking = true; if (container.isConnected) render(container, status); },
       });

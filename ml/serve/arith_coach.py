@@ -177,9 +177,17 @@ def tip(step: Step) -> str:
     return ""
 
 
+def strip_subject(text: str) -> str:
+    """Drop the 'Subject: Physics (WAEC/JAMB)' line Ask Sabi puts before a first question."""
+    if text.startswith("Subject:") and "\n\n" in text:
+        return text.split("\n\n", 1)[1]
+    return text
+
+
 def reply(messages: list[dict]) -> str | None:
     """Coach reply for a bare-arithmetic conversation, else None (use the model)."""
-    users = [m["content"] for m in messages if m["role"] == "user"]
+    # Ask Sabi prefixes the first message with "Subject: ..." and a blank line; look past it.
+    users = [strip_subject(m["content"]) for m in messages if m["role"] == "user"]
     # The topic is the latest message that is a bare sum ("5^6"); earlier chat
     # is ignored. Lesson questions ("Question: ...") are never bare sums.
     start = next((i for i in range(len(users) - 1, -1, -1) if parse(users[i]) is not None), None)
