@@ -503,3 +503,6 @@ button { font-family: inherit; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* Keep the registration form fully readable: no mascot over it. */
+body[data-screen="onboarding"] .mascot-slot { display: none; }

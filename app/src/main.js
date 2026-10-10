@@ -63,6 +63,7 @@ function paintNav() {
 
 function showScreen({ screen, params = {} }) {
   current = { screen, params };
+  document.body.dataset.screen = screen; // lets CSS adjust per screen (e.g. hide the mascot on forms)
   clear(screenEl);
   window.scrollTo(0, 0);
   const render = lookup("screen:" + screen);
