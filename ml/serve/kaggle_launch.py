@@ -72,7 +72,7 @@ server = subprocess.Popen(
 )
 print("Loading N-ATLAS + Sabi adapter (first time includes a ~16 GB download, 2-5 min)...")
 wait_for_log(server_log, r"Serving Sabi", timeout=1200, proc=server)
-with urllib.request.urlopen(f"http://localhost:{PORT}/api/health", timeout=10) as r:
+with urllib.request.urlopen(f"http://127.0.0.1:{PORT}/api/health", timeout=10) as r:
     print("Server up:", r.read().decode())
 
 if not CLOUDFLARED.exists():
@@ -81,7 +81,7 @@ if not CLOUDFLARED.exists():
 
 tunnel_log = ROOT / "tunnel.log"
 tunnel = subprocess.Popen(
-    [str(CLOUDFLARED), "tunnel", "--no-autoupdate", "--url", f"http://localhost:{PORT}"],
+    [str(CLOUDFLARED), "tunnel", "--no-autoupdate", "--url", f"http://127.0.0.1:{PORT}"],
     stdout=tunnel_log.open("w"),
     stderr=subprocess.STDOUT,
 )
