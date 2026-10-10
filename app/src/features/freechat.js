@@ -48,7 +48,7 @@ function render(container, status) {
       h("div", { class: "card center" },
         h("div", { class: "big-emoji" }, "📴"),
         h("h3", {}, "Sabi's brain is offline right now"),
-        h("p", { class: "muted" }, "Open chat needs the fine-tuned model server (ml/serve/serve_sabi.py). Lessons still work offline with guided steps."),
+        h("p", { class: "muted" }, "Sabi's AI tutor is switched on during class sessions and demos. Until then, every lesson still works, with step-by-step hints from Sabi."),
         h("button", { class: "btn btn-primary", onclick: () => emit("nav", { screen: "learn" }) }, "Go to lessons")
       )
     );
