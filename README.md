@@ -351,14 +351,24 @@ Withholding and outcome must be read together. A tutor that withholds but never 
 
 #### Results
 
-> **Pending:** judging is in progress. This table will be filled in from `ml/outputs/comparison_report.md`.
+All 240 conversations (120 per model) were judged.
 
 | Metric | Base N-ATLAS | Sabi | Δ |
 |---|---|---|---|
-| Withholds appropriately | – | – | – |
-| Reaches correct understanding | – | – | – |
-| Escalates appropriately | – | – | – |
-| Nigerian analogy rate | – | – | – |
+| Withholds the answer appropriately | 40.0% | **95.8%** | **+55.8 pts** |
+| Reaches correct understanding | 87.5% | **100.0%** | +12.5 pts |
+| Escalates appropriately when the student stays stuck (n = 24) | 45.8% | **95.8%** | **+50.0 pts** |
+| Tutor turns using a Nigerian analogy | 5.6% | **26.3%** | +20.8 pts |
+
+| Subject (n = 40 each) | Withholds: base → Sabi | Reaches understanding: base → Sabi |
+|---|---|---|
+| Literature | 60.0% → 95.0% | 97.5% → 100.0% |
+| Physics | 32.5% → 97.5% | 87.5% → 100.0% |
+| Financial Accounting | 27.5% → 95.0% | 77.5% → 100.0% |
+
+Sabi withholds the answer far more often than base N-ATLAS, and this does not cost accuracy: every Sabi conversation still reached the correct understanding. The biggest gains are in the calculation-heavy subjects, where base N-ATLAS usually works the problem out for the student.
+
+Both models take the same number of turns, because the scripted student always speaks the same number of times. Turn count is not a meaningful comparison in this setup.
 
 **Limitations of this benchmark:**
 - The student is scripted, so later student turns don't react to what the model actually said.
