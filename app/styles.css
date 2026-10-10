@@ -372,6 +372,8 @@ button { font-family: inherit; }
 }
 .stop-num { font-size: 1.4rem; line-height: 1.2; }
 .stop-sub { font-size: 0.7rem; font-weight: 800; }
+.fuel-note { background: var(--red-soft); border: 2px solid var(--red); border-radius: 14px; padding: 10px 12px; font-weight: 700; margin: 0 0 12px; }
+.fuel-timer { font-size: 0.72rem; opacity: 0.8; }
 .stop-tasks { font-size: 0.62rem; font-weight: 800; opacity: 0.8; }
 .stop.done { background: var(--green); color: #fff; border-color: var(--green-dark); box-shadow: 0 5px 0 var(--green-dark); }
 .stop.done .stop-tag { background: var(--green-dark); color: #d9f1e3; }

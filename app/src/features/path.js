@@ -99,6 +99,15 @@ function render(container, content) {
     );
   }
 
+  const stats = ask("stats", null, null);
+  if (stats && stats.hearts === 0) {
+    const mins = Math.max(1, Math.ceil(stats.nextHeartIn / 60000));
+    container.appendChild(
+      h("p", { class: "fuel-note" },
+        `⛽ Out of fuel. 1 fuel comes back every ${stats.refillMinutes || 20} minutes (next in about ${mins} min). Replay a finished stop to refuel faster.`)
+    );
+  }
+
   const data = content.subjects[subject];
   if (!data) {
     container.appendChild(h("div", { class: "card center muted" }, "Lessons for this subject are coming soon."));

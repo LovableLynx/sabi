@@ -22,7 +22,7 @@ function outOfFuel(container) {
     h("div", { class: "card center out-of-fuel" },
       h("div", { class: "big-emoji" }, "⛽"),
       h("h2", {}, "Your danfo don run out of fuel!"),
-      h("p", { class: "muted" }, mins ? `1 fuel refills in about ${mins} min.` : "Fuel refills with time."),
+      h("p", {}, `Fuel comes back by itself: 1 every 20 minutes.${mins ? ` Your next fuel arrives in about ${mins} min.` : ""}`),
       h("p", { class: "muted" }, "Practise a stop you've already finished to earn fuel back, or ask Sabi anything in the meantime."),
       h("div", { class: "btn-row" },
         h("button", { class: "btn btn-primary", onclick: () => emit("nav", { screen: "learn" }) }, "Back to route"),
@@ -47,6 +47,7 @@ function render(container, content, lesson) {
   const total = tasks.length;
   const passMark = Math.ceil(total * PASS_SHARE);
   const round = { index: 0, results: [], hintsUsed: 0, chatTurns: 0, liveAi: false };
+  const replay = ask("lessonDone", lesson.id, false); // practising a finished stop never strands you
   let mode = "checking"; // model | mock | offline
 
   const modeLabels = [];
@@ -282,7 +283,7 @@ function render(container, content, lesson) {
       }
       // Two misses: the task is lost and costs 1 fuel.
       const fuelLeft = ask("loseHeart", null, null);
-      if (fuelLeft === 0 && round.index + 1 < total) {
+      if (fuelLeft === 0 && round.index + 1 < total && !replay) {
         s.done = true;
         round.results[round.index] = "missed";
         paintOptions();
@@ -298,7 +299,7 @@ function render(container, content, lesson) {
         );
         return;
       }
-      emit("toast", { text: "That one cost 1 ⛽", kind: "bad" });
+      emit("toast", { text: "That one cost 1 ⛽. Fuel comes back by itself, 1 every 20 minutes.", kind: "bad" });
       endTask("missed");
     }
 
@@ -379,7 +380,9 @@ function stripPraise(step) {
 
 
 function screen(container, params = {}) {
-  if (!ask("canPlay", null, true)) {
+  // With no fuel, new stops wait, but finished stops can still be replayed:
+  // that is how students earn fuel back.
+  if (!ask("canPlay", null, true) && !ask("lessonDone", params.id, false)) {
     outOfFuel(container);
     return;
   }

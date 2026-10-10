@@ -29,6 +29,28 @@ app.append(topbar, screenEl, nav, toasts, mascotSlot);
 const loaded = new Set();
 let current = { screen: "learn", params: {} };
 
+// Fuel: shows a countdown when not full, and explains itself when tapped.
+function fuelChip(stats) {
+  const full = stats.hearts >= stats.maxHearts;
+  const mins = Math.max(1, Math.ceil(stats.nextHeartIn / 60000));
+  const every = stats.refillMinutes || 20;
+  const explain = full
+    ? `⛽ Fuel: your tank is full (${stats.maxHearts} of ${stats.maxHearts}). Missing a task twice uses 1 fuel. Used fuel comes back on its own, 1 every ${every} minutes.`
+    : `⛽ Fuel: ${stats.hearts} of ${stats.maxHearts}. 1 fuel comes back every ${every} minutes (next in about ${mins} min). Replaying a stop you've finished also gives 1 back.`;
+  return h("button", {
+    class: "chip chip-btn fuel" + (stats.hearts === 0 ? " empty" : ""),
+    title: explain,
+    "aria-label": explain,
+    onclick: () => emit("toast", { text: explain, kind: "info" }),
+  }, `⛽ ${stats.hearts}`, full ? null : h("span", { class: "fuel-timer" }, ` · ${mins}m`));
+}
+
+// Keep the fuel countdown fresh while the tank is refilling.
+setInterval(() => {
+  const st = ask("stats", null, null);
+  if (st && st.hearts < st.maxHearts) paintTopbar();
+}, 30 * 1000);
+
 function paintTopbar() {
   clear(topbar);
   topbar.appendChild(h("div", { class: "brand" }, h("span", { class: "brand-mark" }, "S"), h("span", {}, "Sabi Arena")));
@@ -42,7 +64,7 @@ function paintTopbar() {
         "aria-label": `${stats.streak} day streak`,
         onclick: () => emit("nav", { screen: "profile" }),
       }, `🔥 ${stats.streak} ${stats.streak === 1 ? "day" : "days"}`),
-      h("span", { class: "chip" + (stats.hearts === 0 ? " empty" : ""), title: "Fuel" }, `⛽ ${stats.hearts}`),
+      fuelChip(stats),
       h("span", { class: "chip", title: `${stats.rank.name} · ${stats.xp} XP` }, `${stats.rank.icon} ${stats.xp}`)
     );
   }

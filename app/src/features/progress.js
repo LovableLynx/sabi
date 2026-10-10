@@ -81,6 +81,7 @@ function refillHearts() {
     h.updatedAt += gained * HEART_REFILL_MS;
     persist();
     emit("hearts:changed", h.count);
+    emit("toast", { text: h.count >= MAX_HEARTS ? "⛽ Your tank is full again! Let's go." : `⛽ +${gained} fuel! You now have ${h.count} of ${MAX_HEARTS}.`, kind: "good" });
   }
 }
 
@@ -207,6 +208,7 @@ export function init() {
       hearts: state.hearts.count,
       maxHearts: MAX_HEARTS,
       nextHeartIn,
+      refillMinutes: HEART_REFILL_MS / 60000,
       lessonsDone: Object.keys(state.lessons).length,
     };
   });
