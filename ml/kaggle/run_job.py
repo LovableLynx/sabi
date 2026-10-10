@@ -106,6 +106,7 @@ def username() -> str:
 
 
 def build_dataset_dir(job: str, spec: dict, tmp: Path) -> None:
+    tmp.mkdir(parents=True, exist_ok=True)
     secrets = {}
     for env_name, rel in spec["secrets"].items():
         path = ROOT / rel
@@ -198,8 +199,8 @@ def main() -> int:
     with tempfile.TemporaryDirectory() as d:
         tmp = Path(d)
         build_dataset_dir(args.job, spec, tmp / "dataset")
-        exists = "403" not in kaggle("datasets", "status", dataset, check=False) and \
-                 "404" not in kaggle("datasets", "status", dataset, check=False)
+        listing = kaggle("datasets", "list", "--mine", "--csv", check=False)
+        exists = any(line.split(",")[0].strip() == dataset for line in listing.splitlines())
         if exists:
             print(kaggle("datasets", "version", "-p", str(tmp / "dataset"), "-m", "job inputs", "-q").strip())
         else:
