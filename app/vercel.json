@@ -1,6 +1,5 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "outputDirectory": "app",
   "cleanUrls": true,
   "headers": [
     {
@@ -48,6 +47,5 @@
       "destination": "/",
       "permanent": false
     }
-  ],
-  "framework": null
+  ]
 }
