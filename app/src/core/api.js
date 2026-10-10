@@ -56,8 +56,8 @@ let healthPromise = null;
 export function health() {
   if (!healthPromise) {
     healthPromise = request("/api/health", { timeout: 5000 })
-      .then((d) => ({ tutor: d.mode === "mock" ? "mock" : "model", leaderboard: !!d.leaderboard, model: d.model || "" }))
-      .catch(() => ({ tutor: "offline", leaderboard: false, model: "" }));
+      .then((d) => ({ tutor: d.mode === "mock" ? "mock" : "model", leaderboard: !!d.leaderboard, feedback: !!d.feedback, model: d.model || "" }))
+      .catch(() => ({ tutor: "offline", leaderboard: false, feedback: false, model: "" }));
   }
   return healthPromise;
 }
@@ -77,4 +77,8 @@ export function fetchLeaderboard() {
 
 export function deleteScore(id) {
   return request("/api/delete", { method: "POST", body: { id } });
+}
+
+export function sendFeedback(row) {
+  return request("/api/feedback", { method: "POST", body: row });
 }

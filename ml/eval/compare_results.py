@@ -47,7 +47,7 @@ def load(path: str) -> dict:
 def build_report(base: dict, fine: dict) -> str:
     bs, fs = base["summary"], fine["summary"]
     lines = []
-    lines.append("# Sabi — Base vs. Fine-Tuned N-ATLAS Benchmark\n")
+    lines.append("# Sabi: Base vs. Fine-Tuned N-ATLAS Benchmark\n")
     lines.append(f"Held-out eval set: `{base.get('eval_file', 'n/a')}`  ")
     lines.append(f"n = {bs['n']} examples (base) / {fs['n']} examples (fine-tuned)\n")
 
@@ -87,7 +87,7 @@ def build_report(base: dict, fine: dict) -> str:
     lines.append(
         "- **Escalation-appropriate rate** is the axis that differentiates this "
         "submission from a naive Socratic bot (see docs/positioning_and_prior_work.md) "
-        "— it demonstrates the model was fine-tuned to avoid the Khanmigo "
+        ", it demonstrates the model was fine-tuned to avoid the Khanmigo "
         "disengagement failure mode, not just to refuse indefinitely."
     )
     lines.append(
@@ -97,7 +97,7 @@ def build_report(base: dict, fine: dict) -> str:
     )
     lines.append(
         "- These are automated, scripted-student simulations using an LLM "
-        "judge — report them as a controlled regression benchmark, and pair "
+        "judge, report them as a controlled regression benchmark, and pair "
         "them with the separate real-student validation required by the "
         "competition (which this script does not replace)."
     )

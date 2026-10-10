@@ -277,7 +277,7 @@ def main() -> int:
             try:
                 verdicts = judge_one(api_key, args.judge_model, rec)
             except DailyLimitReached as e:
-                print(f"\n{e}. Progress is saved — rerun this script later to continue.")
+                print(f"\n{e}. Progress is saved, rerun this script later to continue.")
                 stopped_early = True
                 break
             except RuntimeError as e:

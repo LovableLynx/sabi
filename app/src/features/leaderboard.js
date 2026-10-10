@@ -24,6 +24,12 @@ function schoolKey(name) {
 
 // What this player looks like on the board. Deliberately excludes the
 // secret profile id so it can never end up in the page or on screen.
+// Players count as schoolmates only when the school was picked from the
+// official list (the server re-checks this); unverified names stay separate.
+function sameSchool(a, b) {
+  return a.verified !== false && b.verified !== false && a.state === b.state && schoolKey(a.school) === schoolKey(b.school);
+}
+
 function me() {
   const profile = ask("profile", null, null);
   if (!profile) return null;
@@ -31,6 +37,7 @@ function me() {
   return {
     pid: myPid || "me", nickname: profile.nickname, avatar: profile.avatar,
     state: profile.state, school: profile.school, xp: stats ? stats.xp : 0, shared: !!profile.consent,
+    verified: profile.schoolVerified !== false,
   };
 }
 
@@ -52,8 +59,8 @@ function positions() {
     nationalSize: all.length,
     state: rankIn(all.filter((p) => p.state === mine.state)),
     stateSize: all.filter((p) => p.state === mine.state).length,
-    school: rankIn(all.filter((p) => schoolKey(p.school) === schoolKey(mine.school))),
-    schoolSize: all.filter((p) => schoolKey(p.school) === schoolKey(mine.school)).length,
+    school: rankIn(all.filter((p) => sameSchool(p, mine))),
+    schoolSize: all.filter((p) => sameSchool(p, mine)).length,
   };
 }
 
@@ -67,8 +74,8 @@ function titles() {
   else if (pos.national <= 100 && pos.nationalSize >= 100) t.push("🇳🇬 Nigeria Top 100");
   if (pos.state === 1 && pos.stateSize > 1) t.push(`🥇 No.1 in ${mine.state}`);
   else if (pos.state <= 10 && pos.stateSize >= 10) t.push(`🏅 Top 10 · ${mine.state}`);
-  if (pos.school === 1 && pos.schoolSize > 1) t.push(`🏆 No.1 in ${mine.school}`);
-  else if (pos.school <= 3 && pos.schoolSize >= 3) t.push(`🎖️ Top 3 · ${mine.school}`);
+  if (mine.verified && pos.school === 1 && pos.schoolSize > 1) t.push(`🏆 No.1 in ${mine.school}`);
+  else if (mine.verified && pos.school <= 3 && pos.schoolSize >= 3) t.push(`🎖️ Top 3 · ${mine.school}`);
   return t;
 }
 
@@ -131,7 +138,7 @@ function playerRow(p, i, minePid) {
     h("span", { class: "lb-avatar" }, p.avatar || "🙂"),
     h("span", { class: "lb-name" },
       h("strong", {}, p.nickname + (p.pid === minePid ? " (you)" : "")),
-      h("span", { class: "muted small" }, `${p.school} · ${p.state}`)
+      h("span", { class: "muted small" }, `${p.school}${p.verified === false ? " (unverified)" : ""} · ${p.state}`)
     ),
     h("span", { class: "lb-xp" }, `${p.xp} XP`)
   );
@@ -158,7 +165,7 @@ function renderBoard(container) {
       h("h2", {}, "🏆 Leaderboard"),
       mine && pos
         ? h("div", { class: "lb-standing" },
-            h("div", {}, h("strong", {}, `#${pos.school}`), h("span", {}, "in school")),
+            h("div", {}, h("strong", {}, mine.verified ? `#${pos.school}` : "-"), h("span", {}, mine.verified ? "in school" : "school unverified")),
             h("div", {}, h("strong", {}, `#${pos.state}`), h("span", {}, `in ${mine.state}`)),
             h("div", {}, h("strong", {}, `#${pos.national}`), h("span", {}, "in Nigeria"))
           )
@@ -190,8 +197,12 @@ function renderBoard(container) {
   const all = players();
   const list = h("ol", { class: "lb-list" });
   let rows = [];
-  if (tab === "school") {
-    rows = mine ? all.filter((p) => schoolKey(p.school) === schoolKey(mine.school)).slice(0, 50).map((p, i) => playerRow(p, i, mine.pid)) : [];
+  if (tab === "school" && mine && !mine.verified) {
+    list.appendChild(h("li", { class: "lb-empty muted" },
+      `"${mine.school}" isn't on our school list yet, so school rankings are off for now. ` +
+      "You still count for your state and for Nigeria. Ask your teacher to get your school added."));
+  } else if (tab === "school") {
+    rows = mine ? all.filter((p) => sameSchool(p, mine)).slice(0, 50).map((p, i) => playerRow(p, i, mine.pid)) : [];
   } else if (tab === "state") {
     rows = mine ? all.filter((p) => p.state === mine.state).slice(0, 50).map((p, i) => playerRow(p, i, mine.pid)) : [];
   } else if (tab === "national") {
@@ -200,10 +211,10 @@ function renderBoard(container) {
     rows = aggregate((p) => p.state, (p) => p.state).map((g, i) =>
       groupRow(g, i, mine?.state, (x) => `${x.count} player${x.count === 1 ? "" : "s"}`));
   } else {
-    rows = aggregate((p) => schoolKey(p.school), (p) => p.school).slice(0, 50).map((g, i) =>
-      groupRow(g, i, mine ? schoolKey(mine.school) : null, (x) => `${x.state} · ${x.count} player${x.count === 1 ? "" : "s"}`));
+    rows = aggregate((p) => (p.verified === false ? null : `${p.state}|${schoolKey(p.school)}`), (p) => p.school).slice(0, 50).map((g, i) =>
+      groupRow(g, i, mine && mine.verified ? `${mine.state}|${schoolKey(mine.school)}` : null, (x) => `${x.state} · ${x.count} player${x.count === 1 ? "" : "s"}`));
   }
-  if (!rows.length) list.appendChild(h("li", { class: "lb-empty muted" }, mine ? "No players here yet — be the first!" : "Create a profile to see this board."));
+  if (!rows.length && !list.children.length) list.appendChild(h("li", { class: "lb-empty muted" }, mine ? "No players here yet. Be the first!" : "Create a profile to see this board."));
   rows.forEach((r) => list.appendChild(r));
   container.appendChild(h("div", { class: "card" }, list));
 }

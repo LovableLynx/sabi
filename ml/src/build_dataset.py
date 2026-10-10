@@ -12,7 +12,7 @@ Outputs (ml/outputs/):
 
 Split strategy: stratified per-subject, per-escalated-flag, so the eval set
 has proportional representation of escalation examples in each subject
-(escalation behavior is a distinct axis we benchmark — see benchmark.py).
+(escalation behavior is a distinct axis we benchmark, see benchmark.py).
 """
 from __future__ import annotations
 
@@ -104,7 +104,7 @@ def main() -> None:
 
     for subject, examples in all_examples.items():
         if not examples:
-            print(f"WARNING: no examples found for subject '{subject}' — skipping.")
+            print(f"WARNING: no examples found for subject '{subject}', skipping.")
             continue
         train, held_out = stratified_split(examples, EVAL_FRACTION, rng)
 
@@ -118,7 +118,7 @@ def main() -> None:
         train_records.extend(example_to_chat(e) for e in train)
         # Eval records keep the FULL original example (not just chat format)
         # because the benchmark harness needs correct_understanding,
-        # frustration_threshold, escalated, etc. — not just the message list.
+        # frustration_threshold, escalated, etc., not just the message list.
         eval_records.extend(held_out)
 
     write_jsonl(OUT_DIR / "train.jsonl", train_records)

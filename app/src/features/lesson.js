@@ -8,7 +8,8 @@
 import { answer, ask, emit, provide } from "../core/bus.js";
 import { chat, health } from "../core/api.js";
 import { loadContent } from "../core/content.js";
-import { h, clear, richText } from "../core/dom.js";
+import { h, clear, richText, tidyDashes } from "../core/dom.js";
+import { CHAT_REPLIES, checkChat } from "../core/validate.js";
 import { SUBJECTS } from "../core/nigeria.js";
 
 const LETTERS = ["A", "B", "C", "D"];
@@ -54,7 +55,7 @@ function render(container, content, lesson) {
         emit("ui:tap");
         paintOptions();
       },
-    }, h("span", { class: "option-letter" }, LETTERS[i]), h("span", {}, opt))
+    }, h("span", { class: "option-letter" }, LETTERS[i]), h("span", {}, tidyDashes(opt)))
   );
 
   function paintOptions() {
@@ -78,7 +79,7 @@ function render(container, content, lesson) {
     if (s.finished) return;
     if (s.hintsUsed === 0) {
       hintBox.hidden = false;
-      hintBox.textContent = "💡 " + lesson.hint;
+      hintBox.textContent = "💡 " + tidyDashes(lesson.hint);
     } else if (s.hintsUsed === 1) {
       const candidates = [0, 1, 2, 3].filter((i) => i !== lesson.answer_index && !s.wrong.has(i) && !s.eliminated.has(i));
       if (candidates.length) {
@@ -113,7 +114,7 @@ function render(container, content, lesson) {
       chatPanel.hidden = !chatPanel.hidden;
       if (!chatPanel.hidden) {
         if (!s.messages.length) {
-          s.messages.push({ role: "tutor", text: "I won't just give you the answer — but I'll help you find it. Tell me what you think, or where you're stuck." });
+          s.messages.push({ role: "tutor", text: "I won't just give you the answer, but I'll help you find it. Tell me what you think, or where you're stuck." });
           paintChat();
         }
         chatInput.focus();
@@ -152,32 +153,22 @@ function render(container, content, lesson) {
 
   // Offline mode can't read what the student typed, so it must not pretend to:
   // the authored steps were written as replies to a sensible student answer
-  // ("Good — so…", "Exactly."), so we strip that praise and present each step
+  // ("Good, so…", "Exactly."), so we strip that praise and present each step
   // as a numbered hint. Obvious gibberish gets a gentle nudge instead.
-  function looksLikeGibberish(text) {
-    const words = text.toLowerCase().match(/[a-z]+/g) || [];
-    if (!words.length) return !/\d/.test(text);
-    const rows = ["qwertyuiop", "asdfghjkl", "zxcvbnm"];
-    const keyboardRun = (w) => w.length >= 4 && rows.some((r) => r.includes(w) || r.split("").reverse().join("").includes(w));
-    const real = words.filter((w) => !keyboardRun(w) && (w.length <= 3 || (/[aeiou]/.test(w) && !/[^aeiou]{5,}/.test(w))));
-    return real.length / words.length < 0.5;
-  }
-
   function stripPraise(step) {
-    return step.replace(/^(good|great|yes|exactly|correct|that's (it|right)|right|nice|well done|perfect|ehen)\b[^.!?—–-]*[.!?—–-]+\s*/i, "");
+    return step.replace(/^(good|great|yes|exactly|correct|that's (it|right)|right|nice|well done|perfect|ehen)\b[^.!?\u2014\u2013-]*[.!?\u2014\u2013-]+\s*/i, "");
   }
 
   function guidedReply(studentText) {
-    if (looksLikeGibberish(studentText)) {
-      return "Hmm, I no understand that one 😅. Try telling me in your own words what the question is asking, or which part is confusing you.";
-    }
+    const blocked = checkChat(studentText);
+    if (blocked) return CHAT_REPLIES[blocked];
     const steps = content.guided[lesson.source_id] || [];
     if (s.guidedIndex < steps.length) {
       const n = s.guidedIndex + 1;
       const step = stripPraise(steps[s.guidedIndex++]);
       return `Hint ${n} of ${steps.length}: ${step.charAt(0).toUpperCase()}${step.slice(1)}`;
     }
-    return "That's all the hints I have for this one. You don reason am well — lock in your answer!";
+    return "That's all the hints I have for this one. You don reason am well. Lock in your answer!";
   }
 
   async function sendChat() {
@@ -189,7 +180,12 @@ function render(container, content, lesson) {
     s.pending = true;
     paintChat();
 
-    if (s.mode === "model" || s.mode === "mock") {
+    const blocked = checkChat(text);
+    if (blocked) {
+      // Never send insults or keyboard-mashing to the tutor: answer here, save the GPU.
+      await new Promise((r) => setTimeout(r, 300));
+      s.messages.push({ role: "tutor", text: CHAT_REPLIES[blocked] });
+    } else if (s.mode === "model" || s.mode === "mock") {
       const turns = s.messages.filter((m) => m.role === "student" || m.role === "tutor").slice(1); // drop the greeting
       const msgs = turns.map((m, i) => ({
         role: m.role === "student" ? "user" : "assistant",
@@ -227,17 +223,25 @@ function render(container, content, lesson) {
     sheet.className = "result-sheet " + (correct ? "good" : "bad");
     sheet.append(
       h("h3", {}, correct ? (firstTry ? "You don sabi! 🎉" : "You got there! 👏") : "Na the correct one be this 👇"),
-      h("p", {}, lesson.explanation),
+      h("p", {}, tidyDashes(lesson.explanation)),
       result
         ? h("ul", { class: "xp-list" },
             result.parts.map((p) => h("li", {}, h("span", {}, p.label), p.xp ? h("strong", {}, `+${p.xp} XP`) : null)),
             h("li", { class: "xp-total" }, h("span", {}, result.replay ? "Practice total" : "Total"), h("strong", {}, `+${result.gained} XP`))
           )
         : null,
+      feedbackSlot,
       h("button", { class: "btn btn-primary btn-block", onclick: () => emit("nav", { screen: "learn" }) }, "Continue")
     );
+    // The feedback feature (if loaded) fills feedbackSlot; nothing breaks without it.
+    emit("lesson:finished", {
+      slot: feedbackSlot,
+      lesson: lesson.id, subject: lesson.subject, correct, firstTry,
+      hints: s.hintsUsed, chatTurns: s.chatTurns, liveAi: s.mode === "model",
+    });
     sheet.scrollIntoView({ behavior: "smooth", block: "nearest" });
   }
+  const feedbackSlot = h("div", { class: "feedback-slot" });
 
   function check() {
     if (s.selected === null || s.finished) return;
@@ -265,7 +269,7 @@ function render(container, content, lesson) {
       s.finished = true;
       paintOptions();
     } else {
-      emit("toast", { text: "E no easy — one more try! (−1 ⛽)", kind: "bad" });
+      emit("toast", { text: "E no easy, one more try! (−1 ⛽)", kind: "bad" });
     }
   }
 

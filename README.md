@@ -169,6 +169,10 @@ Vercel can't run the AI model itself: an 8B model needs a GPU, and Vercel has no
 
 The page loads nothing from third parties. Its Content-Security-Policy only allows connections to itself and to `*.trycloudflare.com` tunnels, and the app also ignores any other `?api=` value.
 
+### Testing with real students
+
+See **[docs/pilot_protocol.md](docs/pilot_protocol.md)**. It covers the parent note, the session script, the observation sheet, and how to download the anonymous feedback before stopping Kaggle. Then run `python ml/eval/summarise_pilot.py` to turn the feedback into a validation report.
+
 ### Rules for teammates
 
 - **Never commit keys or tokens.** Files like `ml/.hf_token` and `ml/.groq_key` are git-ignored; keep it that way.
@@ -480,7 +484,9 @@ docs/               N-ATLAS model notes, positioning vs. prior work, team profil
 
 Sabi Arena is used by school children, so it collects as little as possible and shares nothing without permission. See [SECURITY.md](SECURITY.md) for the full threat model.
 
-- **No real names, phone numbers, emails or locations are collected.** Students choose a nickname and are told not to use their real name. The server rejects nicknames containing links, @handles, phone numbers or common slurs.
+- **Full names stay on the device.** Students enter their first and last name, but other players only ever see "Chidi O.". No phone numbers, emails or locations are collected.
+- **Every input is validated, in the app and again on the server.** Bad language (including tricks like `sh1t` and Pidgin insults), gibberish, keyboard-mashing and junk symbols are refused in names, school names and chat. Blocked chat messages are answered politely without reaching the AI. Real names like *Shittu* and school words like King Lear's *Fool* are not blocked.
+- **Schools come from a list.** A typed-in school shows as *unverified* and doesn't count in school rankings.
 - **Nothing leaves the device without permission.** A student only appears on the leaderboards after ticking *"I'm 18 or older, or a parent or teacher has said yes"*, in line with the consent rules for children in the Nigeria Data Protection Act 2023. Until then, progress stays on the device.
 - **Players can delete their data.** *Delete my data* wipes the device copy and removes the player from the server.
 - **A child-safety guard checks every chat in and out.** A student who writes about wanting to hurt themselves gets a caring reply pointing to a trusted adult and 112, Nigeria's emergency number. Requests for sexual content, weapons or drugs are redirected to school work. Normal Literature questions, for example about a character's death, are not blocked.
@@ -497,7 +503,7 @@ Sabi Arena is used by school children, so it collects as little as possible and 
 - **Server and keys:**
   - the server listens on `127.0.0.1` by default
   - API keys live only in gitignored files or platform secret stores
-  - 46 automated security checks cover all of the above
+  - 144 automated checks (game, class levels, security, validation, pilot feedback)
 
 ---
 

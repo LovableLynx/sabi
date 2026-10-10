@@ -10,7 +10,7 @@ import { answer, emit, on } from "../core/bus.js";
 import { load, save } from "../core/storage.js";
 
 export const RANKS = [
-  { name: "JJC", xp: 0, icon: "🌱", blurb: "Johnny Just Come — everybody start somewhere" },
+  { name: "JJC", xp: 0, icon: "🌱", blurb: "Johnny Just Come. Everybody start somewhere" },
   { name: "Learner", xp: 100, icon: "📗", blurb: "You don enter the matter" },
   { name: "Sharp", xp: 300, icon: "✏️", blurb: "Sharp guy, sharp babe" },
   { name: "Distinction", xp: 700, icon: "🎓", blurb: "A1 material" },

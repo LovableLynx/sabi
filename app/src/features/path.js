@@ -62,7 +62,7 @@ function render(container, content) {
             "aria-disabled": locked ? "true" : null,
             onclick: () => {
               if (locked) {
-                emit("toast", { text: `🔒 That's for another class. Your level is ${TRACKS[level].short} — change it under Me → Edit.`, kind: "info" });
+                emit("toast", { text: `🔒 That's for another class. Your level is ${TRACKS[level].short} . Change it under Me → Edit.`, kind: "info" });
                 return;
               }
               if (key === track) return;
@@ -95,7 +95,7 @@ function render(container, content) {
   if (TRACKS[track].pilot) {
     container.appendChild(
       h("p", { class: "pilot-note" },
-        `🧪 ${TRACKS[track].short} is a pilot track. Sabi's tutor was trained on WAEC/JAMB, so it may be less sharp here — tell us what you think!`)
+        `🧪 ${TRACKS[track].short} is a pilot track. Sabi's tutor was trained on WAEC/JAMB, so it may be less sharp here. Tell us what you think!`)
     );
   }
 

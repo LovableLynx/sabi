@@ -24,6 +24,18 @@ DATASETS = {
 }
 OUT = ROOT / "app" / "content" / "game.json"
 
+# Common chat words, Nigerian Pidgin and greetings that may be missing from
+# the lesson data.
+EXTRA_WORDS = """
+abeg wetin dey no sabi sef una wey abi oya don comot oga madam ehen ehn haba wahala chai kai jare nau na
+pikin wan go come fit make dem tori gist bros sis aunty uncle e o ah eh oh hmm hmmm ok okay okk pls plz please
+thanks thank thx yes yeah yea nope nah idk dunno hello hi hey good morning afternoon evening night sir ma
+explain help understand understood confused confusing stuck lost hard easy simple meaning mean means tell show
+why how what when where which who whose whom am is are was were be been being do does did done have has had
+can could would should will shall may might must not never again more less same different right wrong correct
+answer question formula solve solution step steps example hint try sure think thought know knew idea clue
+""".split()
+
 
 def main() -> int:
     errors: list[str] = []
@@ -81,6 +93,28 @@ def main() -> int:
         for e in errors:
             print("  -", e)
         return 1
+
+    # Vocabulary for the gibberish check: every word in our own dialogues,
+    # lessons and benchmark questions (English, Pidgin and subject terms),
+    # plus common chat words. A message whose words are all unknown (even
+    # allowing one typo) is treated as gibberish before the AI is asked.
+    import re
+    vocab: set[str] = set(EXTRA_WORDS)
+
+    def walk(x):
+        if isinstance(x, dict):
+            for v in x.values():
+                walk(v)
+        elif isinstance(x, list):
+            for v in x:
+                walk(v)
+        elif isinstance(x, str):
+            vocab.update(w for w in re.findall(r"[a-z]+", x.lower()) if len(w) >= 2)
+
+    for f in sorted((ROOT / "data").rglob("*.json")):
+        walk(json.loads(f.read_text(encoding="utf-8")))
+    (OUT.parent / "vocab.json").write_text(json.dumps(sorted(vocab), separators=(",", ":")), encoding="utf-8")
+    print(f"Wrote app/content/vocab.json: {len(vocab)} words")
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps({"version": 1, "subjects": subjects, "guided": guided}, ensure_ascii=False), encoding="utf-8")

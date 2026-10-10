@@ -2,8 +2,8 @@
 One-shot smoke test of the entire benchmark pipeline against the mock
 server: no GPU, no model download, no compute credits spent.
 
-This proves the plumbing works — HTTP contracts, JSON parsing, the 3-axis
-scoring logic, and report generation — before you point benchmark.py at a
+This proves the plumbing works, HTTP contracts, JSON parsing, the 3-axis
+scoring logic, and report generation, before you point benchmark.py at a
 real (expensive) N-ATLAS inference endpoint.
 
 Run:
@@ -53,7 +53,7 @@ def wait_for_server(proc: subprocess.Popen, timeout: float = 10.0) -> bool:
 
 def main() -> int:
     print("=== Sabi benchmark plumbing smoke test ===")
-    print("Using a mock inference/judge server — no GPU or real model involved.\n")
+    print("Using a mock inference/judge server, no GPU or real model involved.\n")
 
     # 0. Ensure we have a non-empty eval set to run against. If build_dataset
     #    hasn't been run, or produced 0 eval examples, bail with a clear message.
@@ -127,7 +127,7 @@ def main() -> int:
         print("3-axis scoring, and report generation all work correctly.")
         print(f"\nMock comparison report written to: {report_path}")
         print(
-            "\nThese numbers are meaningless (mock models, rule-based judge) — "
+            "\nThese numbers are meaningless (mock models, rule-based judge), "
             "do not use them in your submission. Once you have a real N-ATLAS "
             "inference endpoint (base and fine-tuned) and a real judge "
             "endpoint, rerun the same benchmark.py commands pointed at those."

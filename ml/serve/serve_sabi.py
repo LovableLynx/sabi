@@ -10,6 +10,7 @@ gives a working live demo.
     GET  /api/leaderboard -> {"players": [{pid, nickname, avatar, state, school, xp}, ...]}
     POST /api/score     -> {id, nickname, avatar, state, school, xp} <- {pid}  (upsert)
     POST /api/delete    -> {id}  (remove this player's data)
+    POST /api/feedback  -> anonymous pilot feedback for one finished lesson
 
 Security: the secret player id is never published (only pid = sha256(id)[:16]);
 per-client rate limits; request and message size caps; nickname filter; XP
@@ -20,7 +21,7 @@ may only rise at a realistic pace; CSP and other security headers; binds to
 "base" = the same weights with the adapter switched off (original N-ATLAS).
 "both" = both, for the side-by-side comparison view in the app.
 
-Run on a GPU (Kaggle) — see ml/serve/kaggle_launch.py for the one-cell
+Run on a GPU (Kaggle), see ml/serve/kaggle_launch.py for the one-cell
 launcher that also opens a public tunnel:
     python ml/serve/serve_sabi.py --adapter ml/outputs/lora_run_1/final_adapter
 
@@ -35,6 +36,7 @@ import json
 import mimetypes
 import re
 import sys
+import unicodedata
 import threading
 import time
 from contextlib import nullcontext
@@ -110,7 +112,7 @@ class MockTutor:
             return "[mock base N-ATLAS] Here is the answer directly: ..."
         turn = sum(1 for m in messages if m["role"] == "assistant") + 1
         return (
-            f"[mock Sabi, turn {turn}] Before I answer — think of an okada braking "
+            f"[mock Sabi, turn {turn}] Before I answer, think of an okada braking "
             f"at a checkpoint. What is its speed once it has fully stopped?"
         )
 
@@ -196,23 +198,158 @@ class RateLimiter:
             return True
 
 
-# Kept deliberately small: blocks the obvious, not a full moderation system.
-BLOCKED_NAME_PARTS = {
-    "fuck", "shit", "bitch", "pussy", "nigga", "nigger", "slut", "whore", "bastard",
-    "ashawo", "olodo", "mumu", "werey", "yeye", "sex", "porn", "admin", "nitda", "moderator",
-}
+# ---------------------------------------------------------------------------
+# Input validation. Same rules and word lists as app/src/core/validate.js
+# (keep them in sync); this copy is the authority, the app's copy only gives
+# students instant feedback.
+# ---------------------------------------------------------------------------
+BLOCK_ANYWHERE = [
+    "fuck", "fuk", "shit", "bitch", "pussy", "cunt", "nigger", "nigga", "asshole", "motherf",
+    "whore", "slut", "porn", "dickhead", "ashawo", "ashewo", "oloshi", "olosho",
+]
+ALLOW_TOKENS = ["shittu", "shitta", "scunthorpe"]  # real names containing a blocked string
+NAME_ONLY_WORDS = [  # whole words, names/schools only (King Lear's "Fool" etc. stay fine in chat)
+    "dick", "ass", "sex", "sexy", "nude", "nudes", "boobs", "damn", "idiot", "stupid", "fool", "bastard",
+    "mumu", "olodo", "werey", "mugu", "shege", "dan iska", "onye ara",
+]
+IMPERSONATE = {"admin", "moderator", "nitda", "ncair", "teacher", "official"}
+LEET = str.maketrans({"0": "o", "1": "i", "3": "e", "4": "a", "5": "s", "7": "t", "@": "a", "$": "s", "!": "i", "|": "i"})
+KEYBOARD_ROWS = ["qwertyuiop", "asdfghjkl", "zxcvbnm"]
+
+
+def _strip_marks(text: str) -> str:
+    return "".join(c for c in unicodedata.normalize("NFKD", text) if not unicodedata.combining(c))
+
+
+def normalize_text(text: str) -> str:
+    t = _strip_marks(str(text).lower()).translate(LEET)
+    t = re.sub(r"[^a-z ]+", "", t)
+    t = re.sub(r"(.)\1{2,}", r"\1\1", t)
+    return re.sub(r"\s+", " ", t).strip()
+
+
+def is_offensive(text: str, strict: bool = False) -> bool:
+    words = normalize_text(text)
+    for ok in ALLOW_TOKENS:
+        words = words.replace(ok, " ")
+    squashed = words.replace(" ", "")
+    single = re.sub(r"(.)\1+", r"\1", squashed)
+    if any(w in squashed or w in single for w in BLOCK_ANYWHERE):
+        return True
+    if not strict:
+        return False
+    padded = f" {words} "
+    return any(f" {w} " in padded for w in NAME_ONLY_WORDS)
+
+
+def _word_looks_real(w: str) -> bool:
+    if len(w) <= 3:
+        return True
+    if len(w) >= 4 and any(w in r or w in r[::-1] for r in KEYBOARD_ROWS):
+        return False
+    if not re.search(r"[aeiouy]", w) or re.search(r"[^aeiouy]{5,}", w) or re.search(r"(.)\1\1", w):
+        return False
+    return True
+
+
+def load_vocab() -> set[str]:
+    try:
+        return set(json.loads((APP_DIR / "content" / "vocab.json").read_text(encoding="utf-8")))
+    except (OSError, ValueError):
+        return set()
+
+
+VOCAB = load_vocab()
+_ALPHABET = "abcdefghijklmnopqrstuvwxyz"
+
+
+def _known(w: str) -> bool:
+    if w in VOCAB:
+        return True
+    if len(w) < 4:
+        return False
+    for i in range(len(w) + 1):
+        if i < len(w) and w[:i] + w[i + 1:] in VOCAB:
+            return True
+        if i < len(w) - 1 and w[:i] + w[i + 1] + w[i] + w[i + 2:] in VOCAB:
+            return True
+        for c in _ALPHABET:
+            if (i < len(w) and w[:i] + c + w[i + 1:] in VOCAB) or w[:i] + c + w[i:] in VOCAB:
+                return True
+    return False
+
+
+def is_gibberish(text: str, use_vocab: bool = True) -> bool:
+    raw = str(text)
+    words = re.findall(r"[a-z]+", _strip_marks(raw.lower()))
+    if not words:
+        return not re.search(r"\d", raw)
+    if re.search(r"\d", raw) and all(len(w) <= 3 for w in words):
+        return False
+    real = [w for w in words if _word_looks_real(w) and (not use_vocab or not VOCAB or len(w) <= 2 or _known(w))]
+    return len(real) / len(words) < 0.5
 
 
 def unsafe_name(value: str) -> str | None:
+    """Problems with a public display name ("Chidi O.") or school name."""
     lowered = value.lower()
-    squashed = "".join(c for c in lowered if c.isalnum())
     if re.search(r"https?:|www\.|\.(com|ng|net|org)\b|@", lowered):
         return "links and @handles aren't allowed"
     if sum(c.isdigit() for c in value) >= 7:
         return "phone numbers aren't allowed"
-    if any(part in squashed for part in BLOCKED_NAME_PARTS):
+    if is_offensive(value, strict=True):
         return "please choose a friendlier name"
+    if normalize_text(value) in IMPERSONATE:
+        return "that name can't be used"
     return None
+
+
+def check_display_name(value: str) -> str | None:
+    # The app sends "First L." (first name + last initial); allow that shape only.
+    first = value[:-3] if re.search(r" \w\.$", value) else value
+    if not first or not all(c.isalpha() or c in " '-" for c in first) or not first[0].isalpha():
+        return "names can only have letters, spaces, hyphens or apostrophes"
+    if not all(_word_looks_real(w) for w in normalize_text(first).split()):
+        return "that doesn't look like a real name"
+    if normalize_text(first) in IMPERSONATE:
+        return "that name can't be used"
+    return unsafe_name(value)
+
+
+def check_school_name(value: str) -> str | None:
+    if not all(c.isalnum() or c in " .,'&()/-" for c in value) or sum(c.isalpha() for c in value) < 3:
+        return "school names can only use letters, numbers and . , ' & ( ) / -"
+    if is_gibberish(value, use_vocab=False):  # school names are full of proper nouns
+        return "that doesn't look like a real school name"
+    return unsafe_name(value)
+
+
+CHAT_BLOCK_REPLIES = {
+    "offensive": "Abeg, let's keep it respectful 🙏. I'm here to help you study. Ask me about your question and we'll work it out together.",
+    "gibberish": "Hmm, I no understand that one 😅. Try telling me in your own words what the question is asking, or which part is confusing you.",
+}
+
+
+def chat_block(text: str) -> str | None:
+    if is_offensive(text):
+        return "offensive"
+    if is_gibberish(text):
+        return "gibberish"
+    return None
+
+
+def load_school_list() -> dict[str, set[str]]:
+    """Real schools per state (app/content/schools.json). A player's school
+    is 'verified' only if it matches this list; the client can't fake it."""
+    path = APP_DIR / "content" / "schools.json"
+    try:
+        states = json.loads(path.read_text(encoding="utf-8"))["states"]
+        return {st: {n.lower() for n in names} for st, names in states.items()}
+    except (OSError, ValueError, KeyError):
+        return {}
+
+
+SCHOOLS = load_school_list()
 
 
 class Leaderboard:
@@ -263,8 +400,7 @@ class Leaderboard:
         player_id = self.check_id(raw)
         nickname = text("nickname", 2, 20)
         school = text("school", 2, 60)
-        for label, value in (("nickname", nickname), ("school", school)):
-            problem = unsafe_name(value)
+        for label, problem in (("nickname", check_display_name(nickname)), ("school", check_school_name(school))):
             if problem:
                 raise ValueError(f"{label}: {problem}")
         state = text("state", 2, 40)
@@ -276,6 +412,7 @@ class Leaderboard:
         return {
             "id": player_id, "nickname": nickname, "avatar": text("avatar", 1, 8),
             "state": state, "school": school, "xp": xp, "updated": time.time(),
+            "verified": school.lower() in SCHOOLS.get(state, set()),
         }
 
     def _save(self) -> None:
@@ -312,12 +449,66 @@ class Leaderboard:
         with self.lock:
             ranked = sorted(self.players.values(), key=lambda p: (-p["xp"], p["nickname"].lower()))
         return [
-            {"pid": self.pid(p["id"]), **{k: p[k] for k in ("nickname", "avatar", "state", "school", "xp")}}
+            {"pid": self.pid(p["id"]), "verified": p.get("verified", False),
+             **{k: p[k] for k in ("nickname", "avatar", "state", "school", "xp")}}
             for p in ranked[: self.MAX_PLAYERS_RETURNED]
         ]
 
 
-MAX_BODY = {"/api/chat": 64 * 1024, "/api/score": 4096, "/api/delete": 1024}
+class Feedback:
+    """Anonymous pilot feedback: one JSON line per finished lesson.
+
+    No names, no device ids, no IP addresses are stored. Only the lesson
+    context, what the student did (hints, chat, correct) and two answers.
+    Optional comments are short, filtered for links/phone numbers/slurs."""
+
+    SUBJECTS = {
+        "literature", "physics", "accounting", "bece-english", "bece-science", "bece-business",
+        "ncee-maths", "ncee-english", "ncee-science",
+    }
+
+    def __init__(self, path: Path):
+        self.path = path
+        self.lock = threading.Lock()
+
+    def add(self, raw: dict) -> None:
+        def choice(key, allowed):
+            value = raw.get(key)
+            if value not in allowed:
+                raise ValueError(f"{key} must be one of {sorted(allowed, key=str)}")
+            return value
+
+        def count(key, hi):
+            value = raw.get(key, 0)
+            if not isinstance(value, int) or isinstance(value, bool) or not 0 <= value <= hi:
+                raise ValueError(f"{key} must be a whole number 0-{hi}")
+            return value
+
+        lesson = str(raw.get("lesson", ""))
+        if not 3 <= len(lesson) <= 40 or not all(c.isalnum() or c == "-" for c in lesson):
+            raise ValueError("invalid lesson")
+        comment = " ".join(str(raw.get("comment", "")).split())[:280]
+        if comment and unsafe_name(comment):
+            comment = "[removed]"
+        row = {
+            "t": int(time.time()),
+            "lesson": lesson,
+            "subject": choice("subject", self.SUBJECTS),
+            "level": choice("level", {"waec", "bece", "ncee", None}),
+            "helpful": choice("helpful", {1, 2, 3}),          # 1 = no, 2 = a bit, 3 = yes
+            "gave_answer": choice("gave_answer", {True, False, None}),
+            "correct": choice("correct", {True, False}),
+            "first_try": choice("first_try", {True, False}),
+            "hints": count("hints", 2),
+            "chat_turns": count("chat_turns", 50),
+            "live_ai": choice("live_ai", {True, False}),
+            "comment": comment,
+        }
+        with self.lock, self.path.open("a", encoding="utf-8") as f:
+            f.write(json.dumps(row, ensure_ascii=False) + "\n")
+
+
+MAX_BODY = {"/api/chat": 64 * 1024, "/api/score": 4096, "/api/delete": 1024, "/api/feedback": 2048}
 MAX_MESSAGE_CHARS = 2000
 SECURITY_HEADERS = {
     "X-Content-Type-Options": "nosniff",
@@ -332,7 +523,7 @@ PAGE_CSP = (
 )
 
 
-def make_handler(tutor, lock: threading.Lock, board: Leaderboard, limiter: RateLimiter):
+def make_handler(tutor, lock: threading.Lock, board: Leaderboard, limiter: RateLimiter, feedback: Feedback):
     class Handler(BaseHTTPRequestHandler):
         server_version = "Sabi"
         sys_version = ""
@@ -388,7 +579,7 @@ def make_handler(tutor, lock: threading.Lock, board: Leaderboard, limiter: RateL
         def do_GET(self):
             path = self.path.split("?", 1)[0]
             if path == "/api/health":
-                self._json({"status": "ok", "mode": tutor.mode, "model": tutor.info, "leaderboard": True})
+                self._json({"status": "ok", "mode": tutor.mode, "model": tutor.info, "leaderboard": True, "feedback": True})
                 return
             if path == "/api/leaderboard":
                 if not limiter.allow("read", self.client()):
@@ -415,7 +606,7 @@ def make_handler(tutor, lock: threading.Lock, board: Leaderboard, limiter: RateL
             if path not in MAX_BODY:
                 self._json({"error": "not found"}, status=404)
                 return
-            action = {"/api/chat": "chat", "/api/score": "score", "/api/delete": "score"}[path]
+            action = {"/api/chat": "chat", "/api/score": "score", "/api/delete": "score", "/api/feedback": "score"}[path]
             if not limiter.allow(action, self.client()):
                 self._json({"error": "too many requests, slow down"}, status=429)
                 return
@@ -430,6 +621,13 @@ def make_handler(tutor, lock: threading.Lock, board: Leaderboard, limiter: RateL
                     self._json({"ok": True, **board.upsert(payload)})
                 except (ValueError, TypeError, AttributeError) as e:
                     self._json({"error": f"invalid score: {e}"}, status=400)
+                return
+            if path == "/api/feedback":
+                try:
+                    feedback.add(payload)
+                    self._json({"ok": True})
+                except ValueError as e:
+                    self._json({"error": f"invalid feedback: {e}"}, status=400)
                 return
             if path == "/api/delete":
                 try:
@@ -459,6 +657,12 @@ def make_handler(tutor, lock: threading.Lock, board: Leaderboard, limiter: RateL
                 return
 
             start = time.time()
+            blocked = chat_block(messages[-1]["content"])
+            if blocked:
+                # Insults and keyboard-mashing are answered here; the GPU is never used.
+                reply = CHAT_BLOCK_REPLIES[blocked]
+                self._json({"reply": reply, **({"base_reply": reply} if which == "both" else {}), "blocked": blocked, "seconds": 0.0})
+                return
             guarded = safety_reply(messages[-1]["content"])
             if guarded:
                 print("safety guard: blocked a chat message", file=sys.stderr, flush=True)
@@ -519,8 +723,9 @@ def main() -> None:
     board_path.parent.mkdir(parents=True, exist_ok=True)
     board = Leaderboard(board_path)
     limiter = RateLimiter({"chat": (6, 60), "score": (30, 60), "read": (60, 60)})
+    feedback = Feedback(board_path.with_name("feedback.jsonl"))
 
-    server = ThreadingHTTPServer((args.host, args.port), make_handler(tutor, threading.Lock(), board, limiter))
+    server = ThreadingHTTPServer((args.host, args.port), make_handler(tutor, threading.Lock(), board, limiter, feedback))
     print(f"Serving Sabi ({tutor.mode}: {tutor.info}) on http://{args.host}:{args.port}", flush=True)
     try:
         server.serve_forever()

@@ -1,4 +1,4 @@
-/* Sabi Arena — Naija palette: flag green, danfo yellow, adire indigo. */
+/* Sabi Arena: Naija palette: flag green, danfo yellow, adire indigo. */
 
 /* Nunito, self-hosted (SIL Open Font License, see fonts/OFL.txt) so no request goes to Google and it works offline. */
 @font-face {
@@ -506,3 +506,17 @@ button { font-family: inherit; }
 
 /* Keep the registration form fully readable: no mascot over it. */
 body[data-screen="onboarding"] .mascot-slot { display: none; }
+
+.name-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.field-hint strong { color: var(--ink); }
+.not-listed { display: flex; gap: 8px; align-items: center; margin-top: 6px; font-size: 0.85rem; font-weight: 700; cursor: pointer; }
+.not-listed input { width: 18px; height: 18px; accent-color: var(--green); }
+.chip.streak { color: var(--muted); }
+.chip.streak.on { color: #b54708; border-color: #fdb022; background: #fffaeb; }
+
+.feedback-box { margin-top: 12px; padding: 12px; border-radius: 14px; background: rgba(255, 255, 255, 0.7); border: 2px dashed var(--line); }
+.feedback-q { font-weight: 800; font-size: 0.88rem; margin: 6px 0; }
+.feedback-row { display: flex; flex-wrap: wrap; gap: 6px; }
+.feedback-pick { font: inherit; font-weight: 700; font-size: 0.85rem; padding: 8px 12px; border-radius: 999px; border: 2px solid var(--line); background: #fff; cursor: pointer; color: var(--ink); }
+.feedback-pick.picked { border-color: var(--green); background: var(--green-soft); }
+.feedback-thanks { font-weight: 800; color: var(--green-dark); margin: 0; }

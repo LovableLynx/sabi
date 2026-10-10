@@ -2,7 +2,7 @@
 LoRA fine-tune N-ATLAS (NCAIR1/N-ATLaS, Llama-3 8B base) on the Sabi
 dialogue dataset.
 
-Requires (not installed by default — see ml/requirements.txt):
+Requires (not installed by default, see ml/requirements.txt):
     pip install -r ml/requirements.txt
 
 Run (after ml/src/build_dataset.py has produced ml/outputs/train.jsonl):
@@ -21,7 +21,7 @@ If you don't have local GPU access, this same script runs unmodified on:
 NOTE ON HARDWARE: this script cannot be executed on the Windows CPU-only
 environment this project was scaffolded in. Development happens here; the
 actual training run happens wherever your team has GPU access. That's normal
-for ML competition work — don't block on running this locally.
+for ML competition work, don't block on running this locally.
 """
 from __future__ import annotations
 
@@ -59,7 +59,7 @@ def main() -> None:
         print(
             f"WARNING: only {n_examples} training examples. Target is ~480 "
             f"(600 total minus ~20% held out for eval). Fine-tuning quality "
-            f"will suffer with too few examples — prioritise data authoring."
+            f"will suffer with too few examples, prioritise data authoring."
         )
 
     print(f"Base model: {cfg['model']['base_model']}")
@@ -71,7 +71,7 @@ def main() -> None:
           f"x grad_accum={cfg['training']['gradient_accumulation_steps']}")
 
     if args.dry_run:
-        print("\nDry run only — config and data validated, no training performed.")
+        print("\nDry run only, config and data validated, no training performed.")
         return
 
     # --- Actual training code (requires transformers/peft/bitsandbytes) ---
@@ -168,7 +168,7 @@ def main() -> None:
             f"Chat template is not prefix-stable for {len(set(prefix_mismatches))} "
             f"examples (e.g. {sorted(set(prefix_mismatches))[:5]}), so tutor-only "
             f"loss masking would mislabel tokens. Stopping rather than training "
-            f"on bad labels — report this so the masking can be adapted."
+            f"on bad labels, report this so the masking can be adapted."
         )
     dataset = dataset.filter(lambda ex: any(l != -100 for l in ex["labels"]))
     lengths = [len(x) for x in dataset["input_ids"]]

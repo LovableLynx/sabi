@@ -5,7 +5,7 @@ data/schema/dialogue_schema.md before they ever reach the fine-tuning script.
 Run:
     python ml/src/data_validate.py
 
-Exits non-zero with a full error report if anything is malformed — run this
+Exits non-zero with a full error report if anything is malformed, run this
 after every batch of new examples lands from a subject-owner, not just once
 at the end. Bad data caught here is cheap; bad data caught after a fine-tune
 run is a wasted GPU-hour.
@@ -47,7 +47,7 @@ VALID_TECHNIQUES = {
     "narrowing", "escalated_hint", "worked_example",
 }
 
-# Physics notation guardrails — flag likely-mangled equations early.
+# Physics notation guardrails, flag likely-mangled equations early.
 PHYSICS_BAD_PATTERNS = [
     (re.compile(r"\d[a-zA-Z]{2,}(?!\()"), "possible missing '*' between number and variables (e.g. use 2*a*s not 2as)"),
     (re.compile(r"[a-zA-Z]\d(?!\^| |,|\)|\.|$)"), "possible missing space/operator after a variable+digit"),
@@ -129,7 +129,7 @@ def validate_example(ex: dict, subject: str, seen_ids: set[str], report: Validat
         if ex.get("escalated") and len(tutor_turns_before_escalation) > threshold + 1:
             report.warn(
                 f"[{ex_id}] marked escalated but has {len(tutor_turns_before_escalation)} "
-                f"non-escalation tutor turns vs frustration_threshold={threshold} — check pacing"
+                f"non-escalation tutor turns vs frustration_threshold={threshold}, check pacing"
             )
 
     if ex.get("escalated"):
@@ -148,8 +148,8 @@ def validate_example(ex: dict, subject: str, seen_ids: set[str], report: Validat
 
 def answer_leak_check(ex: dict, turns: list[dict], report: ValidationReport) -> None:
     """Heuristic: warn if a non-final, non-escalation tutor turn looks like it
-    just states the answer outright. This is a heuristic, not proof — human
-    review still matters — but catches the most obvious accidental leaks."""
+    just states the answer outright. This is a heuristic, not proof, human
+    review still matters, but catches the most obvious accidental leaks."""
     correct = (ex.get("correct_understanding") or "").lower()
     if len(correct) < 12:
         return
@@ -162,7 +162,7 @@ def answer_leak_check(ex: dict, turns: list[dict], report: ValidationReport) -> 
         if key_phrase and key_phrase in t.get("text", "").lower():
             report.warn(
                 f"[{ex.get('id')}] turn {i} may be leaking the answer early "
-                f"(overlaps strongly with correct_understanding) — please review manually"
+                f"(overlaps strongly with correct_understanding), please review manually"
             )
 
 
@@ -173,7 +173,7 @@ def validate_physics_notation(ex: dict, turns: list[dict], report: ValidationRep
             continue
         for pattern, msg in PHYSICS_BAD_PATTERNS:
             if pattern.search(text):
-                report.warn(f"[{ex.get('id')}] turn {i}: {msg} — text: {text[:60]!r}")
+                report.warn(f"[{ex.get('id')}] turn {i}: {msg}, text: {text[:60]!r}")
 
 
 def validate_accounting_notation(ex: dict, turns: list[dict], report: ValidationReport) -> None:

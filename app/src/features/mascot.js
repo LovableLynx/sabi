@@ -1,4 +1,4 @@
-// Ijapa the tortoise — the clever trickster of Yoruba folktales — cheers the
+// Ijapa the tortoise, the clever trickster of Yoruba folktales, cheers the
 // student on. Renders into its own slot and reacts to game events. If it
 // fails, the game simply has no mascot.
 
@@ -25,7 +25,7 @@ export const IJAPA_SVG = `
 const LINES = {
   idle: ["Oya, let's learn something!", "Small small, you go sabi am.", "Which one we dey do today?"],
   correct: ["You don sabi! 🎉", "Correct! Na you be the main character.", "Ehen! See as you reason am!"],
-  wrong: ["E no easy — try again!", "No wahala, think am well.", "Almost! Look the options again."],
+  wrong: ["E no easy, try again!", "No wahala, think am well.", "Almost! Look the options again."],
   badge: ["New badge! You dey try!", "Badge unlocked! 🏅"],
   rankup: ["You don level up! 🚀", "New rank! Them go hear am for your street!"],
 };

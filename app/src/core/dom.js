@@ -32,9 +32,15 @@ export function clear(el) {
 
 // Render text that may contain a markdown ledger table (Accounting) as a
 // real <table>; everything else stays plain text with line breaks.
+// House style: no em dashes. The tutor model learned them from its training
+// data, so they're rewritten here for anything shown through richText().
+export function tidyDashes(text) {
+  return String(text).replace(/\s*\u2014\s*/g, ", ").replace(/,\s*,/g, ",").replace(/^,\s*/, "");
+}
+
 export function richText(text) {
   const wrap = h("div", { class: "rich" });
-  const lines = String(text).split("\n");
+  const lines = tidyDashes(text).split("\n");
   let i = 0;
   while (i < lines.length) {
     if (lines[i].trim().startsWith("|") && lines[i + 1] && /^\s*\|[\s:-]+\|/.test(lines[i + 1])) {

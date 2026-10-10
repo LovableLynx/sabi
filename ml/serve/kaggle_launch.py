@@ -12,7 +12,7 @@ cloning the repo and installing ml/requirements.txt:
 
 Use %run (not !python) so the server and tunnel stay attached to the
 notebook kernel. They stop when the Kaggle session stops. The link is
-public but random and temporary — fine for a demo, don't post it widely.
+public but random and temporary, fine for a demo, don't post it widely.
 """
 from __future__ import annotations
 
@@ -90,6 +90,6 @@ url = wait_for_log(tunnel_log, r"https://[a-z0-9-]+\.trycloudflare\.com", timeou
 print("\n" + "=" * 60)
 print(f"  Sabi live demo:  {url}")
 print("=" * 60)
-print("Open it on your laptop or phone. Keep this Kaggle tab open —")
+print("Open it on your laptop or phone. Keep this Kaggle tab open:")
 print("the demo stops when the notebook session stops.")
 print("Server log: server.log   Tunnel log: tunnel.log")

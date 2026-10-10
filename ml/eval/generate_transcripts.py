@@ -1,7 +1,6 @@
 """
 Generate tutor transcripts for the held-out eval set from BOTH base N-ATLAS
-and the fine-tuned Sabi adapter, on the GPU, in one pass. No API calls —
-judging is a separate step (judge_transcripts.py) so it can be resumed
+and the fine-tuned Sabi adapter, on the GPU, in one pass. No API calls, judging is a separate step (judge_transcripts.py) so it can be resumed
 across days without re-running the GPU work.
 
 The base model and the fine-tuned model share one 4-bit copy of N-ATLAS in
@@ -119,7 +118,7 @@ def main() -> None:
 
     for which in [m.strip() for m in args.models.split(",") if m.strip()]:
         if which not in ("finetuned", "base"):
-            raise SystemExit(f"Unknown model '{which}' — use finetuned and/or base")
+            raise SystemExit(f"Unknown model '{which}', use finetuned and/or base")
         use_adapter = which == "finetuned"
         print(f"\n=== Generating '{which}' transcripts for {len(examples)} dialogues ===")
         start = time.time()

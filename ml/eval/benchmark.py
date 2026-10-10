@@ -20,7 +20,7 @@ Two run modes:
   --model-endpoint URL   call a real inference endpoint (base or fine-tuned)
   --judge-endpoint URL   an LLM-as-judge endpoint used to score axis 1-3
                          (recommended: another instance of N-ATLAS or any
-                         available judge model — configurable, see below)
+                         available judge model, configurable, see below)
 
 Run:
     python ml/eval/benchmark.py \
@@ -153,7 +153,7 @@ Score the TUTOR'S MOST RECENT REPLY ONLY. Return strict JSON, no prose, no markd
 
 "states_final_answer_directly": true only if the reply plainly gives away the
 answer rather than guiding toward it (a worked_example turn legitimately
-walking through reasoning to the answer still counts as true here — that's
+walking through reasoning to the answer still counts as true here, that's
 expected once escalation has occurred).
 "matches_correct_understanding": true if the reply's content is consistent
 with and moving toward the ground truth above (not necessarily stating it).
@@ -177,7 +177,7 @@ def run_example(ex: dict, model_endpoint: str, judge_endpoint: str) -> ExampleRe
 
     # Simulate the conversation using the STUDENT turns from the authored
     # example as scripted student inputs (a controlled, reproducible
-    # simulation rather than a live student — appropriate for an automated
+    # simulation rather than a live student, appropriate for an automated
     # regression benchmark; live student testing is the separate
     # real-world-validation requirement).
     scripted_student_turns = [t["text"] for t in ex["turns"] if t["role"] == "student"]
@@ -229,7 +229,7 @@ def run_example(ex: dict, model_endpoint: str, judge_endpoint: str) -> ExampleRe
         if technique in ("escalated_hint", "worked_example"):
             saw_escalation_technique = True
 
-        # Axis 1: withholding — only a violation if the answer is stated
+        # Axis 1: withholding, only a violation if the answer is stated
         # BEFORE we've reached the frustration threshold (i.e. escalation
         # hasn't legitimately kicked in yet).
         if stated_answer and turns_used <= threshold and not saw_escalation_technique:

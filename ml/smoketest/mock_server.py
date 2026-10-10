@@ -2,7 +2,7 @@
 Mock inference + judge server for smoke-testing ml/eval/benchmark.py's
 plumbing WITHOUT any GPU, model download, or compute credits.
 
-This does not test whether a fine-tuned model is actually good — it only
+This does not test whether a fine-tuned model is actually good, it only
 proves the wiring is correct: request/response shapes match what
 benchmark.py sends and expects, JSON parsing survives real HTTP round-trips,
 scoring logic runs end-to-end, and compare_results.py produces a sane report.
@@ -47,7 +47,7 @@ PORT = 8800
 
 # Deliberately mediocre "base model": tends to just state the answer, rarely
 # uses cultural analogies, never escalates deliberately (it has no notion of
-# escalation — it just sometimes blurts the answer immediately).
+# escalation, it just sometimes blurts the answer immediately).
 BASE_REPLIES = [
     "The answer is that this uses personification, where the sun is given human qualities.",
     "You should use the formula v = u + a*t here. Substituting gives a = -5 m/s^2.",
@@ -60,12 +60,12 @@ BASE_REPLIES = [
 FT_TURN_COUNT: dict[str, int] = {}
 
 FT_PROBES = [
-    "Think about how a town crier repeats a warning at night — what does repeating something do to how urgent it feels?",
-    "Consider an okada braking to a stop — what is its speed the moment it has fully stopped?",
-    "Think of an Esusu contribution book — when money comes INTO the pool, which side does the secretary write it on?",
+    "Think about how a town crier repeats a warning at night, what does repeating something do to how urgent it feels?",
+    "Consider an okada braking to a stop, what is its speed the moment it has fully stopped?",
+    "Think of an Esusu contribution book, when money comes INTO the pool, which side does the secretary write it on?",
 ]
 
-FT_ESCALATED_HINT = "Let's narrow it down: think about it almost like the answer is right there, just one small step away — what happens right at that final moment?"
+FT_ESCALATED_HINT = "Let's narrow it down: think about it almost like the answer is right there, just one small step away, what happens right at that final moment?"
 
 FT_WORKED_EXAMPLE = "Okay, let's work through it together step by step to the answer: [worked reasoning leading to the correct result]."
 
@@ -89,7 +89,7 @@ def finetuned_model_reply(history: list[dict], session_key: str) -> str:
 
 
 def judge_reply(prompt: str) -> str:
-    """Very simple rule-based stand-in for an LLM judge — just pattern-matches
+    """Very simple rule-based stand-in for an LLM judge, just pattern-matches
     on the tutor's most recent line, extracted from the transcript embedded
     in the prompt. Good enough to exercise benchmark.py's parsing logic."""
     last_tutor_line = ""

@@ -1,15 +1,16 @@
-// Sabi Arena — app shell.
+// Sabi Arena: app shell.
 //
 // Each feature is loaded with its own dynamic import inside try/catch, so a
 // feature that fails to load (or throws while starting) is simply missing;
 // the shell and every other feature keep working. Features never import
-// each other — they talk through core/bus.js.
+// each other, they talk through core/bus.js.
 
 import { ask, emit, lookup, on } from "./core/bus.js";
 import { h, clear } from "./core/dom.js";
 import { load, save } from "./core/storage.js";
+import { loadVocab } from "./core/validate.js";
 
-const FEATURES = ["progress", "sound", "profile", "leaderboard", "path", "lesson", "freechat", "mascot"];
+const FEATURES = ["progress", "sound", "profile", "leaderboard", "path", "lesson", "freechat", "mascot", "feedback"];
 const NAV = [
   { screen: "learn", icon: "🚌", label: "Route" },
   { screen: "chat", icon: "💬", label: "Ask Sabi" },
@@ -35,7 +36,12 @@ function paintTopbar() {
   const chips = h("div", { class: "chips" });
   if (stats) {
     chips.append(
-      h("span", { class: "chip", title: "Day streak" }, `🌶️ ${stats.streak}`),
+      h("button", {
+        class: "chip chip-btn streak" + (stats.streak > 0 ? " on" : ""),
+        title: "Day streak: finish a lesson every day to keep it",
+        "aria-label": `${stats.streak} day streak`,
+        onclick: () => emit("nav", { screen: "profile" }),
+      }, `🔥 ${stats.streak} ${stats.streak === 1 ? "day" : "days"}`),
       h("span", { class: "chip" + (stats.hearts === 0 ? " empty" : ""), title: "Fuel" }, `⛽ ${stats.hearts}`),
       h("span", { class: "chip", title: `${stats.rank.name} · ${stats.xp} XP` }, `${stats.rank.icon} ${stats.xp}`)
     );
@@ -93,6 +99,7 @@ function toast(text, kind = "info") {
 }
 
 async function start() {
+  loadVocab(); // for the gibberish check; the app works without it
   for (const name of FEATURES) {
     try {
       const mod = await import(`./features/${name}.js`);
@@ -108,6 +115,9 @@ async function start() {
   on("toast", ({ text, kind } = {}) => text && toast(text, kind));
   on("badge:earned", (b) => b && toast(`${b.icon} Badge unlocked: ${b.name}`, "good"));
   on("rank:up", (r) => r && toast(`${r.icon} New rank: ${r.name}!`, "good"));
+  on("streak:changed", (n) => n && toast(n === 1
+    ? "🔥 Streak started! Finish a lesson tomorrow to make it 2 days."
+    : `🔥 ${n}-day streak! No dulling, come back tomorrow.`, "good"));
   for (const evt of ["xp:changed", "hearts:changed", "streak:changed", "sound:changed", "profile:changed"]) {
     on(evt, paintTopbar);
   }

@@ -7,6 +7,7 @@ import { answer, emit, provide } from "../core/bus.js";
 import { chat, health } from "../core/api.js";
 import { h, clear, richText } from "../core/dom.js";
 import { SUBJECTS } from "../core/nigeria.js";
+import { CHAT_REPLIES, checkChat } from "../core/validate.js";
 
 const state = {
   subject: "physics",
@@ -90,6 +91,13 @@ function render(container, status) {
     const subject = state.subject;
     const hist = state.history[subject];
     hist.push({ role: "student", text });
+    const blocked = checkChat(text);
+    if (blocked) {
+      // Answered here: insults and keyboard-mashing never reach the tutor.
+      hist.push({ role: "tutor", text: CHAT_REPLIES[blocked] });
+      render(container, status);
+      return;
+    }
     state.pending = true;
     render(container, status);
     try {
@@ -152,7 +160,7 @@ function render(container, status) {
     };
     paintRows();
     composer.append(
-      h("p", { class: "muted small" }, "Optional: enter ledger lines — they're sent as a proper Debit/Credit table."),
+      h("p", { class: "muted small" }, "Optional: enter ledger lines. They're sent as a proper Debit/Credit table."),
       rows,
       h("button", { class: "btn btn-ghost btn-small", onclick: () => { ledgerRows.push({ date: "", account: "", debit: "", credit: "" }); paintRows(); } }, "+ Add row")
     );

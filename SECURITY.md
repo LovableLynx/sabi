@@ -8,12 +8,13 @@ Sabi Arena is a learning game for Nigerian secondary and primary school students
 
 | Data | Where it lives | Who can see it |
 |---|---|---|
-| Nickname, avatar, state, school, XP, lesson progress | The student's own browser (`localStorage`) | Only that device |
-| Nickname, avatar, state, school, XP | The Sabi server's `ml/outputs/leaderboard.json`, **only if the student ticks the permission box** | Everyone who opens the leaderboard |
+| First and last name, avatar, class level, state, school, XP, lesson progress | The student's own browser (`localStorage`) | Only that device |
+| Display name ("Chidi O."), avatar, state, school, XP | The Sabi server's `ml/outputs/leaderboard.json`, **only if the student ticks the permission box** | Everyone who opens the leaderboard |
+| Anonymous lesson feedback: rating, whether Sabi gave the answer, hints and chat counts, with no name, ID or IP | The Sabi server's `ml/outputs/feedback.jsonl`, during supervised pilots | The team |
 | A random secret device ID | Browser, plus the server (as a lookup key) | Never shown or published |
 | Chat messages to the tutor | Sent to the Sabi server to generate a reply, then dropped (not stored with the profile) | The server operator, through server logs |
 
-We **never ask for** real names, phone numbers, emails, dates of birth or locations more precise than a state.
+We **never ask for** phone numbers, emails, dates of birth or locations more precise than a state. Full names are asked for but stay on the device.
 
 ## Children's data (Nigeria Data Protection Act 2023)
 
@@ -39,9 +40,12 @@ We **never ask for** real names, phone numbers, emails, dates of birth or locati
 | A crafted link (`?api=https://evil.example`) pointing the app at a hostile server | The app only accepts its own tunnel (`https://*.trycloudflare.com`) or this machine. Anything else is ignored, and the server's CSP (`connect-src 'self'`) blocks it too. | `app/src/core/api.js` |
 | Students' IP addresses sent to Google, and the app breaking offline | The Nunito font is self-hosted (SIL OFL licence, `app/fonts/OFL.txt`). The page loads nothing from any third party, and this is tested. | `app/styles.css` |
 | Fake sign-ups filling the server's disk | The leaderboard stores at most 20,000 players | `MAX_PLAYERS_STORED` |
+| Bad language, gibberish or junk symbols in names, schools or chat | One set of rules runs in the app (instant feedback) **and** on the server (the authority). It undoes tricks like `sh1t`, `f*ck` and `fuuuck` and blocks English and Nigerian insults. Names may only contain letters, so Ọlá, Adébáyọ̀ and Tunde-Bakare work. Real names that contain a blocked string, like Shittu, are allowed. Gibberish is detected against a 7,800-word vocabulary built from Sabi's own lessons (English, Pidgin and subject terms), allowing one typo. Blocked chat messages are answered politely **without reaching the AI**, which also saves GPU time. School vocabulary (King Lear's *Fool*, an *ode*, *sex*-linked genes) is deliberately not blocked in chat. | `app/src/core/validate.js`, `serve_sabi.py` |
+| Strangers finding a child by full name and school | Students enter first and last names, but the **full name never leaves the device**. The leaderboard only ever receives "First L." (e.g. *Chidi O.*). | `profile.js` |
+| Fake schools inflating school rankings | Schools are picked from a list. A typed-in school is marked **unverified** by the server and doesn't count in school rankings. | `profile.js`, `Leaderboard.validate` |
 | The server reachable from the local network | Binds to `127.0.0.1` by default. The tunnel connects locally. | `--host` |
 
-All of these are covered by an automated security suite of 46 checks. It covers id privacy, takeover attempts, XP limits, the nickname filter, size limits, deletion, headers, path traversal, rate limits, loopback binding, the child-safety guard, the `?api=` allowlist, having no third-party requests, the app running under CSP, consent gating and XSS rendering.
+All of these are covered by automated security and validation suites (84 checks). It covers id privacy, takeover attempts, XP limits, the nickname filter, size limits, deletion, headers, path traversal, rate limits, loopback binding, the child-safety guard, the `?api=` allowlist, having no third-party requests, the app running under CSP, consent gating and XSS rendering.
 
 ## Secrets
 

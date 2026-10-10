@@ -2,13 +2,13 @@
 
 This is the shared format all three subject teams (Literature, Physics, Financial
 Accounting) use to author training/benchmark examples. Consistency here matters
-more than volume — a fine-tune learns whatever inconsistency you feed it.
+more than volume, a fine-tune learns whatever inconsistency you feed it.
 
 ## File layout
 
 One JSON file per example, OR a single JSON array file per subject
 (`arts_literature.json`, `science_physics.json`, `commerce_accounting.json`).
-Use the array-file approach — easier to review as a batch in PRs/reviews.
+Use the array-file approach, easier to review as a batch in PRs/reviews.
 
 ## Top-level record shape
 
@@ -28,7 +28,7 @@ Use the array-file approach — easier to review as a batch in PRs/reviews.
     },
     {
       "role": "tutor",
-      "text": "Good question. Before I tell you — think about when your mother says 'this yam is stubborn, it refuses to get soft.' Can a yam actually refuse anything?",
+      "text": "Good question. Before I tell you, think about when your mother says 'this yam is stubborn, it refuses to get soft.' Can a yam actually refuse anything?",
       "technique": "cultural_analogy_probe"
     },
     {
@@ -46,7 +46,7 @@ Use the array-file approach — easier to review as a batch in PRs/reviews.
     },
     {
       "role": "tutor",
-      "text": "That's it — that's called personification. Now, why might a poet choose to say the sun 'refused' rather than simply 'the sun did not rise'? What mood does 'refused' add?",
+      "text": "That's it, that's called personification. Now, why might a poet choose to say the sun 'refused' rather than simply 'the sun did not rise'? What mood does 'refused' add?",
       "technique": "extend_to_effect"
     }
   ],
@@ -57,7 +57,7 @@ Use the array-file approach — easier to review as a batch in PRs/reviews.
 }
 ```
 
-## Why `frustration_threshold` exists — the Khanmigo lesson
+## Why `frustration_threshold` exists, the Khanmigo lesson
 
 Khan Academy's Khanmigo is the best-known production Socratic AI tutor, and it
 deliberately never gives direct answers. Real classroom deployments found that
@@ -68,7 +68,7 @@ A rigid "never answer, ever" policy is a known failure mode, not a strength.
 
 Sabi is deliberately built to avoid that trap: the tutor holds the
 line for a bounded number of turns, then **escalates to a stronger hint or a
-worked example** if the student is still stuck — rather than refusing
+worked example** if the student is still stuck, rather than refusing
 indefinitely. This is a genuine point of differentiation from existing
 Socratic-tutor work (Khanmigo, SocraticLM, EULER) and from existing
 Nigerian-context tutors (Naijalingual, CLEVA), none of which combine
@@ -85,7 +85,7 @@ and (c) Nigerian cultural grounding, in one fine-tuned model.
   reached: the student explicitly asks for the answer more than once, gives
   a repeated wrong/confused answer to the same probe, or expresses
   frustration ("I don't get it", "just tell me", "abeg just explain").
-  Author these as separate examples where useful — see `lit-0002`-style
+  Author these as separate examples where useful, see `lit-0002`-style
   pattern below.
 
 ## Field notes
@@ -94,21 +94,19 @@ and (c) Nigerian cultural grounding, in one fine-tuned model.
 - `subject`: one of `literature`, `physics`, `accounting`.
 - `topic`: free text but reuse consistent tags within a subject (keep a running
   list at the bottom of each subject's file so tags don't fragment).
-- `source`: always cite the past-paper year/question or examiner report page —
-  this is your evidence trail for judges and your ground truth for correctness.
+- `source`: always cite the past-paper year/question or examiner report page, this is your evidence trail for judges and your ground truth for correctness.
 - `student_opening`: the initial question/misconception in the student's voice.
 - `misconception`: one sentence, what's actually wrong in the student's thinking.
   This is what the tutor's probing should be steering against.
 - `turns`: alternating `student`/`tutor` turns. Always ends on a `tutor` turn.
-  **The tutor must never state the final answer directly in any turn** — that's
+  **The tutor must never state the final answer directly in any turn**, that's
   the core behavioral rule being trained. The `technique` field on tutor turns
   is optional metadata (not sent to the model) for reviewers to sanity-check
   variety of Socratic moves (analogy, restating, narrowing, contrast, etc.)
-- `correct_understanding`: the "answer key" — what the student should have
+- `correct_understanding`: the "answer key", what the student should have
   arrived at by the end. Used by the eval harness to score outcome correctness,
   never shown to the model as an assistant turn.
-- `max_turns_to_resolution`: how many tutor turns is "good" for this example —
-  used for the benchmark's efficiency scoring (fewer turns to correct
+- `max_turns_to_resolution`: how many tutor turns is "good" for this example, used for the benchmark's efficiency scoring (fewer turns to correct
   understanding = better, but zero turns = failure to be Socratic at all).
 - `notation_check`: subject-specific, see below. Use `"n/a"` for literature.
 
@@ -116,16 +114,16 @@ and (c) Nigerian cultural grounding, in one fine-tuned model.
 
 ### Physics (`science_physics.json`)
 Every equation appearing in `text` fields MUST follow this plain-text
-convention (no exceptions — the fine-tune needs one consistent style):
+convention (no exceptions, the fine-tune needs one consistent style):
 
-- Powers: `^` — `v^2`, `t^2`
+- Powers: `^`, `v^2`, `t^2`
 - Multiplication spelled out with `*` whenever it could be ambiguous:
   `2*a*s`, not `2as`
 - Fractions inline with parentheses: `(v - u)/t`
 - Greek letters as Unicode: `θ`, `Δ`, `ω`, `μ`
-- Vectors: `vec(F)`, `vec(v)` — not bold markdown
+- Vectors: `vec(F)`, `vec(v)`, not bold markdown
 - Units always space-separated: `20 m/s`, `9.8 m/s^2`
-- Use ONE canonical rearrangement of a formula per fact — don't mix
+- Use ONE canonical rearrangement of a formula per fact, don't mix
   `v = u + a*t` in one example and `a = (v-u)/t` for the same relationship
   in another unless the question specifically asks to solve for a different
   variable.
@@ -145,7 +143,7 @@ table shape (column order fixed):
 
 - Running balance / totals go in a final row labeled `Balance c/d` or `Total`.
 - Depreciation and bank reconciliation examples: flag these with
-  `"topic": "depreciation"` / `"topic": "bank_reconciliation"` — we'll add a
+  `"topic": "depreciation"` / `"topic": "bank_reconciliation"`, we'll add a
   sub-template for those once the first few are drafted (double-entry pairs
   need both legs shown, always in the same table).
 - Set `notation_check` to `"reviewed"` once a second team member confirms the
@@ -157,7 +155,7 @@ table shape (column order fixed):
    `frustration_threshold` is reached.
 2. At least one turn uses a genuine Nigerian cultural/real-world analogy
    relevant to the concept (market, farm, family, Agbero, Esusu/Ajo, village
-   storytelling, etc.) — this is the whole point, don't skip it.
+   storytelling, etc.), this is the whole point, don't skip it.
 3. `source` is filled in with a real past-paper/examiner-report reference.
 4. `correct_understanding` is accurate and would satisfy an examiner.
 5. Notation follows the subject's convention; `notation_check` set to
@@ -166,7 +164,7 @@ table shape (column order fixed):
 7. **For roughly 1 in 5 examples per subject**, author a "student stuck"
    variant: the student keeps giving wrong answers or asks for the answer
    outright, and the tutor escalates per `frustration_threshold` (see below).
-   Don't make every example a clean first-try success — real students get
+   Don't make every example a clean first-try success, real students get
    stuck, and your fine-tune and benchmark both need that behavior covered.
 
 ## Authoring the escalation path
@@ -176,13 +174,12 @@ When the student doesn't reach `correct_understanding` within
 next tutor turn should:
 
 1. Acknowledge the difficulty briefly (no scolding, no "let me just tell
-   you" abruptness) — one short empathetic clause is enough.
-2. Give a **stronger, more concrete hint** (`technique: "escalated_hint"`) —
-   narrow the cultural analogy down to something almost 1:1 with the answer,
+   you" abruptness), one short empathetic clause is enough.
+2. Give a **stronger, more concrete hint** (`technique: "escalated_hint"`), narrow the cultural analogy down to something almost 1:1 with the answer,
    or give one worked step of the calculation/reasoning.
 3. If the student is *still* stuck after the escalated hint, the final tutor
    turn may give a **short worked example** (`technique: "worked_example"`)
-   that walks through the reasoning to the answer — this is the deliberate
+   that walks through the reasoning to the answer, this is the deliberate
    fallback, not a failure of the method. Mark such examples with
    `"escalated": true` at the top level so the eval harness scores them on a
    separate axis (did it escalate appropriately, not just "did it withhold
@@ -212,5 +209,5 @@ Example skeleton (abbreviated, physics):
 
 ~200 examples per subject (600 total), of which roughly 1 in 5 (~40 per
 subject) should be escalation/frustration variants per the checklist above.
-Quality and notation consistency over raw count — a clean 150 beats a messy
+Quality and notation consistency over raw count, a clean 150 beats a messy
 250.
