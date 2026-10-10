@@ -25,7 +25,9 @@ function trustedApi(raw) {
 }
 
 export const API_BASE = trustedApi(params.get("api"));
-const STATIC_HOST = /github\.io$/.test(location.hostname) && !params.get("api");
+// Static hosts (Vercel, GitHub Pages) have no Sabi server; skip API calls
+// unless a trusted ?api= tunnel was given.
+const STATIC_HOST = /(\.vercel\.app|\.github\.io)$/.test(location.hostname) && !API_BASE;
 
 async function request(path, { method = "GET", body, timeout = 8000 } = {}) {
   if (STATIC_HOST) throw new Error("no server on a static host");

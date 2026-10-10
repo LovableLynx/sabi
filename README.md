@@ -145,6 +145,28 @@ auth = base64.b64encode(f"x-access-token:{gh}".encode()).decode()
 | `CUDA out of memory` | Choose **GPU T4 x2**, not a single T4, then restart the session |
 | GPU option greyed out | Verify your phone number on Kaggle |
 
+## Permanent link on Vercel (for judges)
+
+Vercel hosts the game for free, always on, over HTTPS. Use this link on the submission form.
+
+| What works on the Vercel link | |
+|---|---|
+| All 120 lessons, XP, fuel, ranks, badges | ✅ |
+| Offline guided hints in lessons | ✅ |
+| Leaderboard | ✅ On this device only. A shared board would need a database. |
+| **Ask Sabi with the real AI** | ✅ **Only while the Kaggle live demo is running.** Open the Vercel link with the tunnel added: `https://YOUR-APP.vercel.app/?api=https://something-random.trycloudflare.com`. With no tunnel, lessons use offline guided steps. |
+
+Vercel can't run the AI model itself: an 8B model needs a GPU, and Vercel has none.
+
+**Deploy (one time, about 5 minutes):**
+1. Sign in at [vercel.com](https://vercel.com) with GitHub.
+2. Click **Add New → Project**, then **import `LovableLynx/sabi`**. Vercel can read private repos once you allow it.
+3. Leave **Framework Preset: Other**, and don't change the build settings. `vercel.json` already tells Vercel to serve the `app/` folder with no build step, and adds the security headers.
+4. Click **Deploy**. You get a link like `https://sabi-xxxx.vercel.app`.
+5. From then on, every `git push` to `main` redeploys automatically.
+
+The page loads nothing from third parties. Its Content-Security-Policy only allows connections to itself and to `*.trycloudflare.com` tunnels, and the app also ignores any other `?api=` value.
+
 ### Rules for teammates
 
 - **Never commit keys or tokens.** Files like `ml/.hf_token` and `ml/.groq_key` are git-ignored; keep it that way.
