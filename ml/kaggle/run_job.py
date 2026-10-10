@@ -151,11 +151,17 @@ def push_kernel(job: str, spec: dict, tmp: Path) -> str:
 
 
 def wait(slug: str, poll: int = 60) -> str:
+    """Poll until Kaggle reports a terminal KernelWorkerStatus. Network errors
+    (flaky connections) are retried, never mistaken for a failed job."""
     while True:
-        status = kaggle("kernels", "status", slug, check=False).strip().splitlines()[-1]
-        print(time.strftime("%H:%M"), status, flush=True)
-        if any(s in status.lower() for s in ("complete", "error", "cancel")):
-            return status
+        out = kaggle("kernels", "status", slug, check=False).strip()
+        status = out.splitlines()[-1] if out else ""
+        if "KernelWorkerStatus" in status:
+            print(time.strftime("%H:%M"), status, flush=True)
+            if any(s in status for s in ("COMPLETE", "ERROR", "CANCEL")):
+                return status
+        else:
+            print(time.strftime("%H:%M"), "status check failed (network?), retrying", flush=True)
         time.sleep(poll)
 
 
@@ -192,30 +198,42 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("job", choices=JOBS)
     parser.add_argument("--keep-dataset", action="store_true", help="don't delete the private input dataset afterwards")
+    parser.add_argument("--attach", action="store_true",
+                        help="don't upload or start anything; wait for the job already running, fetch its results, clean up")
     args = parser.parse_args()
     spec = JOBS[args.job]
     dataset = f"{username()}/sabi-job-{args.job.replace('_', '-')}"
+    slug = f"{username()}/sabi-{args.job.replace('_', '-')}-job"
 
     with tempfile.TemporaryDirectory() as d:
-        tmp = Path(d)
-        build_dataset_dir(args.job, spec, tmp / "dataset")
-        listing = kaggle("datasets", "list", "--mine", "--csv", check=False)
-        exists = any(line.split(",")[0].strip() == dataset for line in listing.splitlines())
-        if exists:
-            print(kaggle("datasets", "version", "-p", str(tmp / "dataset"), "-m", "job inputs", "-q").strip())
-        else:
-            print(kaggle("datasets", "create", "-p", str(tmp / "dataset"), "-q").strip())
-        print("Waiting for the dataset to finish processing...")
-        for _ in range(60):
-            if "ready" in kaggle("datasets", "status", dataset, check=False).lower():
-                break
-            time.sleep(10)
-        (tmp / "kernel").mkdir()
-        slug = push_kernel(args.job, spec, tmp / "kernel")
+        if not args.attach:
+            tmp = Path(d)
+            build_dataset_dir(args.job, spec, tmp / "dataset")
+            listing = kaggle("datasets", "list", "--mine", "--csv", check=False)
+            exists = any(line.split(",")[0].strip() == dataset for line in listing.splitlines())
+            if exists:
+                print(kaggle("datasets", "version", "-p", str(tmp / "dataset"), "-m", "job inputs", "-q").strip())
+            else:
+                print(kaggle("datasets", "create", "-p", str(tmp / "dataset"), "-q").strip())
+            print("Waiting for the dataset to finish processing...")
+            for _ in range(60):
+                if "ready" in kaggle("datasets", "status", dataset, check=False).lower():
+                    break
+                time.sleep(10)
+            (tmp / "kernel").mkdir()
+            slug = push_kernel(args.job, spec, tmp / "kernel")
 
     try:
         status = wait(slug)
-        copied = fetch(slug, spec["fetch"])
+        for attempt in range(5):
+            try:
+                copied = fetch(slug, spec["fetch"])
+                break
+            except Exception as e:  # flaky connection while downloading results
+                print(f"download failed ({type(e).__name__}), retrying in 30s", flush=True)
+                time.sleep(30)
+        else:
+            raise SystemExit("Could not download results; rerun with --attach to try again.")
         print("\nStatus:", status)
         for c in copied:
             print("  saved", c.relative_to(ROOT))
