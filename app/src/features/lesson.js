@@ -10,6 +10,7 @@ import { chat, health } from "../core/api.js";
 import { loadContent } from "../core/content.js";
 import { h, clear, richText, tidyDashes } from "../core/dom.js";
 import { CHAT_REPLIES, checkChat } from "../core/validate.js";
+import { isAutoRead, speak, speakerButton } from "../core/speech.js";
 import { SUBJECTS } from "../core/nigeria.js";
 
 const LETTERS = ["A", "B", "C", "D"];
@@ -170,6 +171,7 @@ function render(container, content, lesson) {
       for (const m of s.messages) {
         const bubble = h("div", { class: "chat-msg " + m.role });
         bubble.appendChild(richText(m.text));
+        if (m.role === "tutor") { const b = speakerButton(m.text); if (b) bubble.appendChild(b); }
         chatLog.appendChild(bubble);
       }
       if (s.pending) chatLog.appendChild(h("div", { class: "chat-msg tutor thinking" }, s.waking ? "Waking Sabi up. The first answer takes about a minute…" : "Sabi is thinking…"));
@@ -229,6 +231,8 @@ function render(container, content, lesson) {
       s.pending = false;
       s.waking = false;
       paintChat();
+      const said = s.messages[s.messages.length - 1];
+      if (isAutoRead() && said?.role === "tutor") speak(said.text);
     }
 
     // ---- checking the answer ----

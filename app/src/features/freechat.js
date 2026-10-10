@@ -1,17 +1,19 @@
-// "Ask Sabi": open chat about anything in the three subjects, with the
+// "Ask Sabi": open chat about the student's own subjects, with the
 // physics symbol palette, the structured Debit/Credit ledger entry, and the
 // "compare with base N-ATLAS" toggle for side-by-side demos.
 // Needs the model server; without it the screen explains how to start it.
 
-import { answer, emit, provide } from "../core/bus.js";
+import { answer, ask, emit, provide } from "../core/bus.js";
 import { chat, health } from "../core/api.js";
 import { h, clear, richText } from "../core/dom.js";
-import { SUBJECTS } from "../core/nigeria.js";
+import { SUBJECTS, TRACKS } from "../core/nigeria.js";
+import { load } from "../core/storage.js";
 import { CHAT_REPLIES, checkChat } from "../core/validate.js";
+import { canSpeak, isAutoRead, setAutoRead, speak, speakerButton } from "../core/speech.js";
 
 const state = {
   subject: "physics",
-  history: { literature: [], physics: [], accounting: [] },
+  history: {}, // subject -> messages, created on first use
   compare: false,
   pending: false,
 };
@@ -26,20 +28,36 @@ function ledgerToMarkdown(rows) {
   return ["| Date | Account | Debit (₦) | Credit (₦) |", "|------|---------|-----------|------------|", ...body].join("\n");
 }
 
+// The subjects for the student's class level (WAEC, BECE or Common Entrance).
+function mySubjects() {
+  const level = ask("profile", null, null)?.level || load("guestLevel", null) || "waec";
+  const list = Object.entries(SUBJECTS).filter(([, s]) => s.track === level);
+  return list.length ? list : Object.entries(SUBJECTS).filter(([, s]) => s.track === "waec");
+}
+
 function render(container, status) {
   clear(container);
   const live = status.tutor !== "offline";
+  const subjects = mySubjects();
+  if (!subjects.some(([key]) => key === state.subject)) state.subject = subjects[0][0];
+  const track = TRACKS[SUBJECTS[state.subject].track];
 
   container.appendChild(
     h("div", { class: "card" },
       h("h2", {}, "💬 Ask Sabi"),
-      h("p", { class: "muted" }, "Bring any WAEC/JAMB question. Sabi guides you to the answer instead of handing it over."),
+      h("p", { class: "muted" }, `Bring any ${track.short} question. Sabi guides you to the answer instead of handing it over.`),
       h("div", { class: "status-row" },
         h("span", { class: "status-badge " + status.tutor }, { model: "Live · fine-tuned N-ATLAS", mock: "Test mode", offline: "Offline" }[status.tutor]),
         h("label", { class: "compare-toggle" },
           h("input", { type: "checkbox", checked: state.compare, disabled: !live, onchange: (e) => (state.compare = e.target.checked) }),
           " Compare with base N-ATLAS"
-        )
+        ),
+        canSpeak()
+          ? h("label", { class: "compare-toggle" },
+              h("input", { type: "checkbox", checked: isAutoRead(), onchange: (e) => setAutoRead(e.target.checked) }),
+              " 🔊 Read replies aloud"
+            )
+          : null
       )
     )
   );
@@ -58,7 +76,7 @@ function render(container, status) {
 
   container.appendChild(
     h("div", { class: "tabs" },
-      Object.entries(SUBJECTS).map(([key, s]) =>
+      subjects.map(([key, s]) =>
         h("button", {
           class: "tab" + (state.subject === key ? " active" : ""),
           onclick: () => { state.subject = key; render(container, status); },
@@ -68,18 +86,19 @@ function render(container, status) {
   );
 
   const log = h("div", { class: "chat-log tall" });
-  const history = state.history[state.subject];
+  const history = (state.history[state.subject] ||= []);
   if (!history.length) log.appendChild(h("p", { class: "muted center" }, "No messages yet. Ask your question below."));
   for (const m of history) {
     if (m.role === "tutor" && m.baseText !== undefined) {
       log.appendChild(
         h("div", { class: "compare-pair" },
-          h("div", { class: "chat-msg tutor" }, h("div", { class: "msg-label" }, m.calc ? "Sabi · 🧮 steps checked by calculator" : "Sabi (fine-tuned)"), richText(m.text)),
+          h("div", { class: "chat-msg tutor" }, h("div", { class: "msg-label" }, m.calc ? "Sabi · 🧮 steps checked by calculator" : "Sabi (fine-tuned)"), richText(m.text), speakerButton(m.text)),
           h("div", { class: "chat-msg base" }, h("div", { class: "msg-label" }, "Base N-ATLAS"), richText(m.baseText))
         )
       );
     } else {
-      log.appendChild(h("div", { class: "chat-msg " + m.role }, m.calc ? h("div", { class: "msg-label" }, "🧮 steps checked by calculator") : null, richText(m.text)));
+      log.appendChild(h("div", { class: "chat-msg " + m.role }, m.calc ? h("div", { class: "msg-label" }, "🧮 steps checked by calculator") : null, richText(m.text),
+        m.role === "tutor" ? speakerButton(m.text) : null));
     }
   }
   if (state.pending) log.appendChild(h("div", { class: "chat-msg tutor thinking" }, state.waking ? "Waking Sabi up. The first answer takes about a minute…" : "Sabi is thinking…"));
@@ -89,12 +108,13 @@ function render(container, status) {
   async function send(text) {
     if (!text.trim() || state.pending) return;
     const subject = state.subject;
-    const hist = state.history[subject];
+    const hist = (state.history[subject] ||= []);
     hist.push({ role: "student", text });
     const blocked = checkChat(text);
     if (blocked) {
       // Answered here: insults and keyboard-mashing never reach the tutor.
       hist.push({ role: "tutor", text: CHAT_REPLIES[blocked] });
+      if (isAutoRead()) speak(CHAT_REPLIES[blocked]);
       render(container, status);
       return;
     }
@@ -109,6 +129,7 @@ function render(container, status) {
       });
       const calc = data.checked === "calculator";
       hist.push(data.base_reply === undefined ? { role: "tutor", text: data.reply, calc } : { role: "tutor", text: data.reply, baseText: data.base_reply, calc });
+      if (isAutoRead()) speak(data.reply);
     } catch (err) {
       hist.push({ role: "note", text: `Couldn't reach Sabi: ${err.message}` });
     } finally {

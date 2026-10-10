@@ -441,6 +441,11 @@ button { font-family: inherit; }
 .chat-msg.base { align-self: flex-start; background: #f1f1f1; border: 2px dashed #c9c9c9; color: var(--muted); }
 .chat-msg.note { align-self: center; background: var(--red-soft); color: #8a2c2f; font-size: 0.8rem; }
 .chat-msg.thinking { color: var(--muted); font-style: italic; }
+.listen-btn {
+  display: inline-block; margin-top: 6px; padding: 3px 10px; border-radius: 999px; cursor: pointer;
+  border: 2px solid var(--line); background: var(--card); color: var(--ink); font: inherit; font-size: 0.75rem; font-weight: 800;
+}
+.listen-btn.playing { background: var(--green); border-color: var(--green); color: #fff; }
 .msg-label { font-size: 0.65rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 2px; }
 .chat-send { display: flex; gap: 8px; padding: 10px; align-items: flex-end; }
 .chat-send .field { resize: none; }
