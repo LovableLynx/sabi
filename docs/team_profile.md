@@ -5,6 +5,7 @@
 **Problem statement:** Sectoral Fine-Tuning (Education)
 **Project:** Sabi, a WAEC/JAMB tutor fine-tuned on N-ATLAS, delivered through the Sabi Arena learning game
 **Repository:** https://github.com/LovableLynx/sabi
+**Live app:** https://sabi-app-wine.vercel.app
 
 ---
 

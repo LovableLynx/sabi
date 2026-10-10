@@ -14,6 +14,8 @@ Submitted to the **National AI Innovation Challenge 2026** (NITDA / NCAIR / ONDI
 
 > *Sabi* is Nigerian Pidgin for "to know / to understand", as in *"I don sabi am!"*
 
+**▶ Play Sabi Arena: [sabi-app-wine.vercel.app](https://sabi-app-wine.vercel.app)** (works on any phone or laptop; lessons run offline. The live AI tutor is switched on during demos; see [Live demo with the real model](#live-demo-with-the-real-model-kaggle-gpu).)
+
 ---
 
 ## Quick start: run Sabi Arena on your laptop
@@ -154,7 +156,7 @@ Vercel hosts the game for free, always on, over HTTPS. Use this link on the subm
 | All 120 lessons, XP, fuel, ranks, badges | ✅ |
 | Offline guided hints in lessons | ✅ |
 | Leaderboard | ✅ On this device only. A shared board would need a database. |
-| **Ask Sabi with the real AI** | ✅ **Only while the Kaggle live demo is running.** Open the Vercel link with the tunnel added: `https://YOUR-APP.vercel.app/?api=https://something-random.trycloudflare.com`. With no tunnel, lessons use offline guided steps. |
+| **Ask Sabi with the real AI** | ✅ **Only while the Kaggle live demo is running.** Open the Vercel link with the tunnel added: `https://sabi-app-wine.vercel.app/?api=https://something-random.trycloudflare.com`. With no tunnel, lessons use offline guided steps. |
 
 Vercel can't run the AI model itself: an 8B model needs a GPU, and Vercel has none.
 
@@ -162,7 +164,7 @@ Vercel can't run the AI model itself: an 8B model needs a GPU, and Vercel has no
 1. Sign in at [vercel.com](https://vercel.com) with GitHub.
 2. Click **Add New → Project**, then **import `LovableLynx/sabi`**. Vercel can read private repos once you allow it.
 3. Leave **Framework Preset: Other**, and don't change the build settings. Then open **Settings → Build and Deployment**, set **Root Directory** to **`app`**, and save. `app/vercel.json` adds the security headers.
-4. Click **Deploy**. You get a link like `https://sabi-xxxx.vercel.app`.
+4. Click **Deploy**. You get a link like `https://sabi-xxxx.vercel.app`. Ours is **https://sabi-app-wine.vercel.app**.
 5. From then on, every `git push` to `main` redeploys automatically.
 
 The page loads nothing from third parties. Its Content-Security-Policy only allows connections to itself and to `*.trycloudflare.com` tunnels, and the app also ignores any other `?api=` value.
