@@ -132,9 +132,17 @@ export function checkSchool(value) {
 }
 
 // Chat: returns { block: "offensive" | "gibberish" | null }.
+// "ahhh", "I don't understand", "abeg help": a stuck student, not gibberish.
+// Mirrors STUCK in ml/serve/arith_coach.py.
+const STUCK = /^(a+h+|u+g+h+|h+m+|e+h+|o+h+|c+h+a+i+|h+a+b+a+|w+a+h+a+l+a+|kai+|e+y+a+h*|i ?(don'?t|dont|do not|no) (know|understand|get( it)?|sabi)|idk|dunno|i'?m (lost|stuck|confused)|confused|stuck|lost|help|help me|abeg|please|pls|hint|i give up|e (hard|too hard|dey hard)|hard)[\s!.?😩😭😢🙁]*$/iu;
+
+export function isStuck(value) {
+  return STUCK.test(String(value).trim());
+}
+
 export function checkChat(value) {
   if (isOffensive(value)) return "offensive";
-  if (isGibberish(value)) return "gibberish";
+  if (isGibberish(value) && !isStuck(value)) return "gibberish";
   return null;
 }
 

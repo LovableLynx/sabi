@@ -124,7 +124,9 @@ function render(container, content, lesson) {
       }
       s.hintsUsed += 1;
       round.hintsUsed += 1;
-      hintBtn.textContent = s.hintsUsed >= 2 ? "💡 No more hints" : "💡 Another hint (−XP)";
+      // Hints never take XP away; they only cost the end-of-stop "No hints needed" bonus.
+      if (round.hintsUsed === 1) emit("toast", { text: "Hints are free. You just miss the +5 \"No hints needed\" bonus for this stop." });
+      hintBtn.textContent = s.hintsUsed >= 2 ? "💡 No more hints" : "💡 Another hint";
       hintBtn.disabled = s.hintsUsed >= 2;
       emit("ui:tap");
       paintOptions();

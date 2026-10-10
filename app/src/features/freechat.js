@@ -74,12 +74,12 @@ function render(container, status) {
     if (m.role === "tutor" && m.baseText !== undefined) {
       log.appendChild(
         h("div", { class: "compare-pair" },
-          h("div", { class: "chat-msg tutor" }, h("div", { class: "msg-label" }, "Sabi (fine-tuned)"), richText(m.text)),
+          h("div", { class: "chat-msg tutor" }, h("div", { class: "msg-label" }, m.calc ? "Sabi · 🧮 steps checked by calculator" : "Sabi (fine-tuned)"), richText(m.text)),
           h("div", { class: "chat-msg base" }, h("div", { class: "msg-label" }, "Base N-ATLAS"), richText(m.baseText))
         )
       );
     } else {
-      log.appendChild(h("div", { class: "chat-msg " + m.role }, richText(m.text)));
+      log.appendChild(h("div", { class: "chat-msg " + m.role }, m.calc ? h("div", { class: "msg-label" }, "🧮 steps checked by calculator") : null, richText(m.text)));
     }
   }
   if (state.pending) log.appendChild(h("div", { class: "chat-msg tutor thinking" }, state.waking ? "Waking Sabi up. The first answer takes about a minute…" : "Sabi is thinking…"));
@@ -107,7 +107,8 @@ function render(container, status) {
       const data = await chat(msgs, state.compare ? "both" : "sabi", {
         onWaking: () => { state.waking = true; if (container.isConnected) render(container, status); },
       });
-      hist.push(data.base_reply === undefined ? { role: "tutor", text: data.reply } : { role: "tutor", text: data.reply, baseText: data.base_reply });
+      const calc = data.checked === "calculator";
+      hist.push(data.base_reply === undefined ? { role: "tutor", text: data.reply, calc } : { role: "tutor", text: data.reply, baseText: data.base_reply, calc });
     } catch (err) {
       hist.push({ role: "note", text: `Couldn't reach Sabi: ${err.message}` });
     } finally {

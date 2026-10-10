@@ -51,6 +51,9 @@ APP_DIR = ROOT / "app"
 sys.path.insert(0, str(ROOT / "ml" / "src"))
 from build_dataset import SYSTEM_PROMPT  # noqa: E402  same prompt the model was trained with
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import arith_coach  # noqa: E402  calculator-checked steps for bare sums like "5^6"
+
 MAX_HISTORY_MESSAGES = 16  # keep prompts well inside N-ATLAS's 8k context
 
 
@@ -107,7 +110,7 @@ class NoTutor:
     mode = "none"
     info = "no model on this server; the AI tutor runs on a separate GPU service"
 
-    def reply(self, messages, use_adapter):
+    def reply(self, messages, use_adapter, sample=False):
         raise WakingUp()
 
 
@@ -117,7 +120,7 @@ class MockTutor:
     mode = "mock"
     info = "mock replies (no model loaded)"
 
-    def reply(self, messages: list[dict], use_adapter: bool) -> str:
+    def reply(self, messages: list[dict], use_adapter: bool, sample: bool = False) -> str:
         time.sleep(0.6)
         if not use_adapter:
             return "[mock base N-ATLAS] Here is the answer directly: ..."
@@ -167,7 +170,7 @@ class ModelTutor:
             self.stop_ids.append(eot)
         self.info = f"{base_model} + {adapter_dir.name}"
 
-    def reply(self, messages: list[dict], use_adapter: bool) -> str:
+    def reply(self, messages: list[dict], use_adapter: bool, sample: bool = False) -> str:
         chat = [{"role": "system", "content": SYSTEM_PROMPT}] + messages
         text = self.tokenizer.apply_chat_template(chat, tokenize=False, add_generation_prompt=True)
         enc = self.tokenizer(text, return_tensors="pt", add_special_tokens=False).to(self.input_device)
@@ -176,9 +179,9 @@ class ModelTutor:
             out = self.model.generate(
                 **enc,
                 max_new_tokens=self.max_new_tokens,
-                do_sample=False,  # greedy, same as the benchmark
-                temperature=None,
-                top_p=None,
+                do_sample=sample,  # greedy (as in the benchmark) unless retrying a repeated reply
+                temperature=0.7 if sample else None,
+                top_p=0.9 if sample else None,
                 eos_token_id=self.stop_ids,
                 pad_token_id=self.tokenizer.pad_token_id,
             )
@@ -344,9 +347,13 @@ CHAT_BLOCK_REPLIES = {
 def chat_block(text: str) -> str | None:
     if is_offensive(text):
         return "offensive"
-    if is_gibberish(text):
+    if is_gibberish(text) and not arith_coach.is_stuck(text):  # "ahhh" is a stuck student, not gibberish
         return "gibberish"
     return None
+
+
+def _same(a: str, b: str) -> bool:
+    return normalize_text(a) == normalize_text(b)
 
 
 class WakingTutor:
@@ -374,10 +381,10 @@ class WakingTutor:
             self.info = "model failed to load"
             print(f"Model failed to load: {e!r}", file=sys.stderr, flush=True)
 
-    def reply(self, messages, use_adapter):
+    def reply(self, messages, use_adapter, sample=False):
         if self._tutor is None:
             raise WakingUp()
-        return self._tutor.reply(messages, use_adapter)
+        return self._tutor.reply(messages, use_adapter, sample)
 
 
 class WakingUp(Exception):
@@ -718,11 +725,19 @@ def make_handler(tutor, lock: threading.Lock, board: Leaderboard, limiter: RateL
                 result["seconds"] = 0.0
                 self._json(result)
                 return
+            coached = arith_coach.reply(messages)
             try:
                 with lock:  # one generation at a time on the single GPU
                     result = {}
-                    if which in ("sabi", "both"):
+                    if coached and which in ("sabi", "both"):
+                        # Bare sums are coached with calculator-checked steps, never the model's arithmetic.
+                        result["reply"], result["checked"] = coached, "calculator"
+                    elif which in ("sabi", "both"):
                         result["reply"] = tutor.reply(messages, use_adapter=True)
+                        earlier = [m["content"] for m in messages if m["role"] == "assistant"]
+                        if any(_same(result["reply"], e) for e in earlier):
+                            # Greedy decoding can loop on the same hint; try once with sampling.
+                            result["reply"] = tutor.reply(messages, use_adapter=True, sample=True)
                     if which in ("base", "both"):
                         key = "base_reply" if which == "both" else "reply"
                         result[key] = tutor.reply(messages, use_adapter=False)
