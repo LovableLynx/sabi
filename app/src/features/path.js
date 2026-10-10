@@ -19,26 +19,60 @@ function render(container, content) {
   const tracking = ask("stats", null, null) !== null;
   const isDone = (id) => ask("lessonDone", id, false);
   if (!content.subjects[subject]) subject = Object.keys(content.subjects)[0]; // saved subject not in this build
-  const track = SUBJECTS[subject]?.track || "waec";
 
   // Only offer tracks that have lessons in this build of the content.
   const tracks = Object.entries(TRACKS).filter(([key]) => subjectsIn(key, content).length);
+
+  // The student's class level (chosen at registration, or here for guests)
+  // decides which track is open; the others stay locked. If the profile
+  // feature isn't available, the level is asked here and kept on this device.
+  const level = ask("profile", null, null)?.level || load("guestLevel", null);
+  if (!level && tracks.length > 1) {
+    container.appendChild(
+      h("div", { class: "card center level-ask" },
+        h("h2", {}, "Which class are you in?"),
+        h("p", { class: "muted" }, "We'll show you the lessons for your exam."),
+        h("div", { class: "level-row" },
+          [["ncee", "🎒 Primary", "Common Entrance"], ["bece", "📘 JSS", "BECE"], ["waec", "🎓 SS", "WAEC / JAMB"]]
+            .filter(([key]) => tracks.some(([t]) => t === key))
+            .map(([key, label, exam]) =>
+              h("button", {
+                class: "level-pick", type: "button", "data-level": key,
+                onclick: () => { save("guestLevel", key); emit("ui:tap"); render(container, content); },
+              }, h("strong", {}, label), h("span", { class: "small" }, exam))
+            )
+        )
+      )
+    );
+    return;
+  }
+  if (level && SUBJECTS[subject]?.track !== level && subjectsIn(level, content).length) {
+    subject = subjectsIn(level, content)[0][0];
+  }
+  const track = SUBJECTS[subject]?.track || "waec";
+
   if (tracks.length > 1) {
     container.appendChild(
       h("div", { class: "track-switch", role: "tablist" },
-        tracks.map(([key, t]) =>
-          h("button", {
-            class: "track" + (key === track ? " active" : ""),
+        tracks.map(([key, t]) => {
+          const locked = level && key !== level;
+          return h("button", {
+            class: "track" + (key === track ? " active" : "") + (locked ? " locked" : ""),
             role: "tab",
+            "aria-disabled": locked ? "true" : null,
             onclick: () => {
+              if (locked) {
+                emit("toast", { text: `🔒 That's for another class. Your level is ${TRACKS[level].short} — change it under Me → Edit.`, kind: "info" });
+                return;
+              }
               if (key === track) return;
               subject = subjectsIn(key, content)[0][0];
               save("subject", subject);
               emit("ui:tap");
               render(container, content);
             },
-          }, t.label, t.pilot ? h("span", { class: "pilot-tag" }, "PILOT") : null)
-        )
+          }, locked ? "🔒 " : null, t.label, t.pilot ? h("span", { class: "pilot-tag" }, "PILOT") : null);
+        })
       )
     );
   }

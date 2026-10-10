@@ -150,10 +150,34 @@ function render(container, content, lesson) {
     sendBtn.disabled = s.pending;
   }
 
-  function guidedReply() {
+  // Offline mode can't read what the student typed, so it must not pretend to:
+  // the authored steps were written as replies to a sensible student answer
+  // ("Good — so…", "Exactly."), so we strip that praise and present each step
+  // as a numbered hint. Obvious gibberish gets a gentle nudge instead.
+  function looksLikeGibberish(text) {
+    const words = text.toLowerCase().match(/[a-z]+/g) || [];
+    if (!words.length) return !/\d/.test(text);
+    const rows = ["qwertyuiop", "asdfghjkl", "zxcvbnm"];
+    const keyboardRun = (w) => w.length >= 4 && rows.some((r) => r.includes(w) || r.split("").reverse().join("").includes(w));
+    const real = words.filter((w) => !keyboardRun(w) && (w.length <= 3 || (/[aeiou]/.test(w) && !/[^aeiou]{5,}/.test(w))));
+    return real.length / words.length < 0.5;
+  }
+
+  function stripPraise(step) {
+    return step.replace(/^(good|great|yes|exactly|correct|that's (it|right)|right|nice|well done|perfect|ehen)\b[^.!?—–-]*[.!?—–-]+\s*/i, "");
+  }
+
+  function guidedReply(studentText) {
+    if (looksLikeGibberish(studentText)) {
+      return "Hmm, I no understand that one 😅. Try telling me in your own words what the question is asking, or which part is confusing you.";
+    }
     const steps = content.guided[lesson.source_id] || [];
-    if (s.guidedIndex < steps.length) return steps[s.guidedIndex++];
-    return "That's all the guided steps I have for this one. You don reason am well — lock in your answer!";
+    if (s.guidedIndex < steps.length) {
+      const n = s.guidedIndex + 1;
+      const step = stripPraise(steps[s.guidedIndex++]);
+      return `Hint ${n} of ${steps.length}: ${step.charAt(0).toUpperCase()}${step.slice(1)}`;
+    }
+    return "That's all the hints I have for this one. You don reason am well — lock in your answer!";
   }
 
   async function sendChat() {
@@ -177,11 +201,11 @@ function render(container, content, lesson) {
       } catch (err) {
         setMode("offline");
         s.messages.push({ role: "note", text: `Live Sabi is unavailable (${err.message}). Switching to offline guided steps.` });
-        s.messages.push({ role: "tutor", text: guidedReply() });
+        s.messages.push({ role: "tutor", text: guidedReply(text) });
       }
     } else {
       await new Promise((r) => setTimeout(r, 500));
-      s.messages.push({ role: "tutor", text: guidedReply() });
+      s.messages.push({ role: "tutor", text: guidedReply(text) });
     }
     s.pending = false;
     paintChat();

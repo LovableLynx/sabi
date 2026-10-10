@@ -46,6 +46,28 @@ function onboardingScreen(container, params = {}) {
   );
   const school = h("input", { class: "field", maxlength: 60, placeholder: "e.g. Kings College, Lagos", value: profile?.school || "" });
   const consent = h("input", { type: "checkbox", checked: !!profile?.consent });
+  // School level decides which exam track the student sees (others stay locked).
+  let level = profile?.level || "";
+  const LEVELS = [
+    ["ncee", "🎒 Primary", "Common Entrance"],
+    ["bece", "📘 JSS", "BECE"],
+    ["waec", "🎓 SS", "WAEC / JAMB"],
+  ];
+  const levelRow = h("div", { class: "level-row" },
+    LEVELS.map(([key, label, exam]) =>
+      h("button", {
+        class: "level-pick" + (level === key ? " picked" : ""),
+        type: "button",
+        "data-level": key,
+        onclick: (e) => {
+          level = key;
+          levelRow.querySelectorAll(".level-pick").forEach((b) => b.classList.remove("picked"));
+          e.currentTarget.classList.add("picked");
+          emit("ui:tap");
+        },
+      }, h("strong", {}, label), h("span", { class: "small" }, exam))
+    )
+  );
   const error = h("p", { class: "form-error" });
 
   const avatarRow = h("div", { class: "avatar-row" },
@@ -71,10 +93,11 @@ function onboardingScreen(container, params = {}) {
     if (nick.length < 2) return (error.textContent = "Nickname must be at least 2 letters.");
     if (!stateSel.value) return (error.textContent = "Pick your state — it counts for the State leaderboard.");
     if (sch.length < 2) return (error.textContent = "Type your school name — it counts for the School leaderboard.");
+    if (!level) return (error.textContent = "Choose your class level — Primary, JSS or SS.");
     const problem = nameProblem(nick) || nameProblem(sch);
     if (problem) return (error.textContent = `Hmm — ${problem}.`);
     profile = {
-      id: profile?.id || newId(), nickname: nick, avatar, state: stateSel.value, school: sch,
+      id: profile?.id || newId(), nickname: nick, avatar, state: stateSel.value, school: sch, level,
       consent: consent.checked, createdAt: profile?.createdAt || Date.now(),
     };
     save("profile", profile);
@@ -91,6 +114,7 @@ function onboardingScreen(container, params = {}) {
       h("label", { class: "label" }, "Pick your avatar"), avatarRow,
       h("label", { class: "label" }, "Nickname", nickname),
       h("p", { class: "field-hint" }, "🛡️ Use a nickname — not your real name, phone number or address."),
+      h("label", { class: "label" }, "Your class level"), levelRow,
       h("label", { class: "label" }, "State", stateSel),
       h("label", { class: "label" }, "School", school),
       h("label", { class: "consent" }, consent,
