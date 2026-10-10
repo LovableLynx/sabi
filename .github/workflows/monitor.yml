@@ -1,0 +1,31 @@
+# Checks the public Sabi site every 30 minutes. A failed run makes GitHub
+# email the repo owner (Settings > Notifications > Actions: "failed workflows").
+# Results: the repo's Actions tab > "Site monitor" > any run > Summary.
+name: Site monitor
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:   # "Run workflow" button for a manual check
+  push:
+    branches: [main]
+    paths: ["app/**", "ml/monitor/**", ".github/workflows/monitor.yml"]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Wait for the Vercel deploy (push runs only)
+        if: github.event_name == 'push'
+        run: sleep 90
+      - name: Check the site
+        env:
+          # Optional: set a repo variable SABI_AI_URL to the Kaggle tunnel link
+          # while the live demo runs, and clear it when the session ends.
+          SABI_AI_URL: ${{ vars.SABI_AI_URL }}
+        run: python ml/monitor/check_site.py
