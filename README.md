@@ -328,13 +328,28 @@ Sabi is compared with base N-ATLAS on **642 held-out examples** in two complemen
 
 Each question has an `answer_terms` key listing the final value or named concept. A reply that contains one of those terms has **leaked** the answer. The match is whole-word and whole-number, so "900" does not match inside "1,900" and "foil" does not match "foiled". It is also conservative: an answer phrased in words the key doesn't list is not counted, which affects both models equally. The questions are in `data/benchmark/`; the scorer is `ml/eval/score_single_turn.py`.
 
-| Metric | Base N-ATLAS | Sabi | Δ |
+| Metric (522 questions) | Base N-ATLAS | Sabi | Δ |
 |---|---|---|---|
-| Gives the answer away in its first reply (lower is better) | – | – | – |
-| Asks the student a guiding question | – | – | – |
-| Brings in a Nigerian everyday reference | – | – | – |
+| Gives the answer away in its first reply (lower is better) | 32.2% | **2.1%** | **−30.1 pts** |
+| Asks the student a guiding question | 15.3% | **100.0%** | +84.7 pts |
+| Brings in a Nigerian everyday reference | 7.3% | **64.0%** | +56.7 pts |
+| Average reply length (words) | 112 | 48 | |
 
-> **Pending:** filled in from `ml/outputs/single_turn_report.md` once the GPU run finishes.
+A paired exact McNemar test on answer leaks found 159 questions where only base N-ATLAS leaked and 2 where only Sabi did, **p = 8.9 × 10⁻⁴⁵**.
+
+| Subject (n = 174 each) | Leaks: base → Sabi | Asks a question: base → Sabi | Nigerian reference: base → Sabi |
+|---|---|---|---|
+| Literature | 51.1% → 5.2% | 20.1% → 100% | 15.5% → 50.6% |
+| Physics | 25.9% → 1.1% | 16.1% → 100% | 4.0% → 74.7% |
+| Financial Accounting | 19.5% → 0.0% | 9.8% → 100% | 2.3% → 66.7% |
+
+**What we saw when reading the replies:**
+- All 522 Sabi replies are distinct.
+- Base N-ATLAS typically starts solving the problem ("Let's break it down: 1. …"). Sabi opens with a guiding analogy and a question.
+- **Weaknesses:**
+  - Sabi's openings are formulaic: many begin "Think of a…".
+  - An analogy is occasionally imprecise. One bank-reconciliation reply describes a dividend received as money "paid out".
+  - Both are targets for the next round of data.
 
 ### Benchmark B: multi-turn (120 dialogues)
 
