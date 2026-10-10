@@ -1,0 +1,306 @@
+{
+ "note": "Starter list of well-known secondary schools per state. A student whose school is missing ticks 'My school isn't listed'. Add schools here and redeploy.",
+ "states": {
+  "Abia": [
+   "Eziama High School, Aba",
+   "Federal Government College, Ohafia",
+   "Federal Government Girls' College, Umuahia",
+   "Government College, Umuahia",
+   "Holy Rosary Girls' Secondary School, Umuahia",
+   "Ngwa High School, Aba"
+  ],
+  "Adamawa": [
+   "American University of Nigeria Academy, Yola",
+   "Federal Government College, Ganye",
+   "Federal Government College, Yola",
+   "Federal Government Girls' College, Yola",
+   "Government Day Secondary School, Yola"
+  ],
+  "Akwa Ibom": [
+   "Cornelia Connelly College, Uyo",
+   "Federal Government College, Ikot Ekpene",
+   "Federal Government Girls' College, Ikot Obio Itong",
+   "Holy Family College, Abak",
+   "Lutheran High School, Obot Idim",
+   "Methodist Boys' High School, Oron"
+  ],
+  "Anambra": [
+   "Christ the King College, Onitsha",
+   "Dennis Memorial Grammar School, Onitsha",
+   "Federal Government College, Nise",
+   "Federal Government Girls' College, Onitsha",
+   "Loretto Special Science School, Adazi-Nnukwu",
+   "Queen of the Rosary College, Onitsha",
+   "St. Charles Special Science School, Onitsha"
+  ],
+  "Bauchi": [
+   "Federal Government College, Azare",
+   "Federal Government Girls' College, Bauchi",
+   "Federal Science and Technical College, Bauchi",
+   "Government Secondary School, Bauchi"
+  ],
+  "Bayelsa": [
+   "Bayelsa State Model Secondary School, Yenagoa",
+   "Bishop Dimieari Grammar School, Yenagoa",
+   "Federal Government College, Odi",
+   "Federal Government Girls' College, Imiringi"
+  ],
+  "Benue": [
+   "Bishop Murray Secondary School, Makurdi",
+   "Federal Government College, Otobi",
+   "Federal Government Girls' College, Gboko",
+   "Government College, Makurdi",
+   "Mount Saint Gabriel's Secondary School, Makurdi"
+  ],
+  "Borno": [
+   "Federal Government College, Maiduguri",
+   "Federal Government Girls' College, Monguno",
+   "Government College, Maiduguri",
+   "Yerwa Government Girls' Secondary School, Maiduguri"
+  ],
+  "Cross River": [
+   "Duke Town Secondary School, Calabar",
+   "Federal Government College, Ikom",
+   "Federal Government Girls' College, Calabar",
+   "Holy Child Secondary School, Calabar",
+   "Hope Waddell Training Institution, Calabar",
+   "West African People's Institute, Calabar"
+  ],
+  "Delta": [
+   "Anglican Girls' Grammar School, Ughelli",
+   "Federal Government College, Warri",
+   "Federal Government Girls' College, Agbor",
+   "Government College, Ughelli",
+   "Hussey College, Warri",
+   "St. Patrick's College, Asaba"
+  ],
+  "Ebonyi": [
+   "Federal Government College, Okposi",
+   "Federal Government Girls' College, Ezzamgbo",
+   "Government Secondary School, Afikpo",
+   "Presbyterian High School, Afikpo"
+  ],
+  "Edo": [
+   "Edo College, Benin City",
+   "Federal Government College, Ibillo",
+   "Federal Government Girls' College, Benin City",
+   "Immaculate Conception College, Benin City",
+   "UNIBEN Demonstration Secondary School, Benin City",
+   "Western Boys' High School, Benin City"
+  ],
+  "Ekiti": [
+   "Annunciation School, Ikere-Ekiti",
+   "Christ's School, Ado-Ekiti",
+   "Ekiti Parapo College, Ido-Ekiti",
+   "Federal Government College, Ikole-Ekiti",
+   "Federal Government Girls' College, Efon-Alaaye"
+  ],
+  "Enugu": [
+   "College of the Immaculate Conception, Enugu",
+   "Federal Government College, Enugu",
+   "Federal Government Girls' College, Lejja",
+   "Holy Rosary College, Enugu",
+   "Queen's School, Enugu",
+   "University of Nigeria Secondary School, Nsukka"
+  ],
+  "FCT Abuja": [
+   "Christ the King College, Gwagwalada",
+   "Federal Government Boys' College, Garki",
+   "Federal Government College, Rubochi",
+   "Federal Government Girls' College, Bwari",
+   "Government Secondary School, Garki",
+   "Government Secondary School, Wuse",
+   "Lead British International School, Abuja",
+   "Loyola Jesuit College, Abuja",
+   "Regent Secondary School, Abuja"
+  ],
+  "Gombe": [
+   "Federal Government College, Billiri",
+   "Federal Government Girls' College, Bajoga",
+   "Government Day Secondary School, Gombe",
+   "Government Science Secondary School, Gombe"
+  ],
+  "Imo": [
+   "Federal Government College, Okigwe",
+   "Federal Government Girls' College, Owerri",
+   "Government Secondary School, Owerri",
+   "Holy Ghost College, Owerri",
+   "Mount Saint Mary's Secondary School, Owerri",
+   "Owerri Girls' Secondary School, Owerri"
+  ],
+  "Jigawa": [
+   "Federal Government College, Kiyawa",
+   "Federal Government Girls' College, Kazaure",
+   "Federal Science and Technical College, Hadejia",
+   "Government Science Secondary School, Dutse"
+  ],
+  "Kaduna": [
+   "ABU Demonstration Secondary School, Zaria",
+   "Alhudahuda College, Zaria",
+   "Barewa College, Zaria",
+   "Federal Government College, Kaduna",
+   "Federal Government Girls' College, Zaria",
+   "Government College, Kaduna",
+   "Queen Amina College, Kaduna",
+   "St. Louis Secondary School, Kaduna"
+  ],
+  "Kano": [
+   "Federal Government College, Kano",
+   "Federal Government Girls' College, Minjibir",
+   "Federal Science and Technical College, Dawakin Tofa",
+   "Government Girls' Secondary School, Dala",
+   "Government Secondary School, Kano",
+   "Rumfa College, Kano"
+  ],
+  "Katsina": [
+   "Federal Government College, Daura",
+   "Federal Government Girls' College, Bakori",
+   "Government College, Katsina",
+   "Government Girls' College, Katsina"
+  ],
+  "Kebbi": [
+   "Federal Government College, Birnin Yauri",
+   "Federal Government Girls' College, Gwandu",
+   "Federal Science and Technical College, Zuru",
+   "Government College, Birnin Kebbi"
+  ],
+  "Kogi": [
+   "Federal Government College, Kabba",
+   "Federal Government Girls' College, Kabba",
+   "Federal Science and Technical College, Ogugu",
+   "Government College, Lokoja",
+   "Saint Augustine's College, Kabba"
+  ],
+  "Kwara": [
+   "Federal Government College, Ilorin",
+   "Federal Government Girls' College, Omu-Aran",
+   "Government High School, Ilorin",
+   "Kwara State Model Secondary School, Ilorin",
+   "Offa Grammar School, Offa",
+   "Queen Elizabeth School, Ilorin"
+  ],
+  "Lagos": [
+   "Ansar-Ud-Deen College, Isolo",
+   "Atlantic Hall, Epe",
+   "Baptist Academy, Obanikoro",
+   "CMS Grammar School, Bariga",
+   "Corona Secondary School, Agbara",
+   "Dowen College, Lekki",
+   "Federal Government College, Ijanikin",
+   "Federal Government Girls' College, Lagos",
+   "Federal Science and Technical College, Yaba",
+   "Grange School, Ikeja",
+   "Holy Child College, Ikoyi",
+   "Igbobi College, Yaba",
+   "Ikeja Grammar School, Ikeja",
+   "International School, University of Lagos",
+   "King's College, Lagos",
+   "Lagos State Model College, Meiran",
+   "Methodist Boys' High School, Victoria Island",
+   "Methodist Girls' High School, Yaba",
+   "Queen's College, Yaba",
+   "St. Gregory's College, Ikoyi",
+   "Vivian Fowler Memorial College for Girls, Ikeja"
+  ],
+  "Nasarawa": [
+   "Federal Government College, Keffi",
+   "Federal Government Girls' College, Keana",
+   "Government Secondary School, Lafia"
+  ],
+  "Niger": [
+   "Ahmadu Bahago Secondary School, Minna",
+   "Federal Government College, New Bussa",
+   "Federal Government Girls' College, Bida",
+   "Federal Science and Technical College, Kuta",
+   "Government College, Bida"
+  ],
+  "Ogun": [
+   "Abeokuta Girls' Grammar School, Abeokuta",
+   "Abeokuta Grammar School, Abeokuta",
+   "Baptist Boys' High School, Abeokuta",
+   "Federal Government College, Odogbolu",
+   "Federal Government Girls' College, Sagamu",
+   "Federal Science and Technical College, Ijebu-Imushin",
+   "Ijebu-Ode Grammar School, Ijebu-Ode",
+   "Lisabi Grammar School, Abeokuta",
+   "Mayflower School, Ikenne",
+   "Remo Secondary School, Sagamu"
+  ],
+  "Ondo": [
+   "Aquinas College, Akure",
+   "Federal Government College, Idoani",
+   "Federal Government Girls' College, Akure",
+   "Oyemekun Grammar School, Akure",
+   "St. Louis Girls' Grammar School, Akure",
+   "Victory College, Ikare"
+  ],
+  "Osun": [
+   "Baptist High School, Iwo",
+   "Federal Government College, Ikirun",
+   "Federal Government Girls' College, Ipetumodu",
+   "Ilesa Grammar School, Ilesa",
+   "Obafemi Awolowo University International School, Ile-Ife",
+   "Oduduwa College, Ile-Ife",
+   "Osogbo Grammar School, Osogbo"
+  ],
+  "Oyo": [
+   "Baptist High School, Ogbomoso",
+   "Command Day Secondary School, Ibadan",
+   "Federal Government College, Ogbomoso",
+   "Federal Government Girls' College, Oyo",
+   "Government College, Ibadan",
+   "Ibadan Grammar School, Ibadan",
+   "International School, Ibadan",
+   "Lagelu Grammar School, Ibadan",
+   "Lead City International School, Ibadan",
+   "Loyola College, Ibadan",
+   "Olivet Baptist High School, Oyo",
+   "Queen's School, Ibadan",
+   "St. Anne's School, Molete, Ibadan",
+   "St. Teresa's College, Ibadan"
+  ],
+  "Plateau": [
+   "Baptist High School, Jos",
+   "Federal Government College, Jos",
+   "Federal Government Girls' College, Langtang",
+   "Government Secondary School, Jos",
+   "Hillcrest School, Jos",
+   "St. Murumba College, Jos"
+  ],
+  "Rivers": [
+   "Baptist High School, Port Harcourt",
+   "Comprehensive Secondary School, Port Harcourt",
+   "Federal Government College, Port Harcourt",
+   "Federal Government Girls' College, Abuloma",
+   "Government Secondary School, Borokiri",
+   "Holy Rosary College, Port Harcourt",
+   "Okrika Grammar School, Okrika",
+   "Stella Maris College, Port Harcourt",
+   "UNIPORT Demonstration Secondary School, Port Harcourt"
+  ],
+  "Sokoto": [
+   "Federal Government College, Sokoto",
+   "Federal Government Girls' College, Tambuwal",
+   "Government Girls' College, Sokoto",
+   "Nagarta College, Sokoto",
+   "Sultan Abubakar College, Sokoto"
+  ],
+  "Taraba": [
+   "Federal Government College, Jalingo",
+   "Federal Government Girls' College, Jalingo",
+   "Government Secondary School, Jalingo"
+  ],
+  "Yobe": [
+   "Federal Government College, Buni Yadi",
+   "Federal Government Girls' College, Potiskum",
+   "Government Girls' Science Secondary School, Potiskum",
+   "Government Science Secondary School, Damaturu"
+  ],
+  "Zamfara": [
+   "Federal Government College, Anka",
+   "Federal Government Girls' College, Gusau",
+   "Government Girls' Secondary School, Gusau",
+   "Government Science Secondary School, Gusau"
+  ]
+ }
+}

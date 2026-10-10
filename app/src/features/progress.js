@@ -126,7 +126,16 @@ function awardLesson(result) {
   const replay = !!state.lessons[lesson.id];
   const parts = [];
 
-  if (correct) {
+  if (result.round && result.round.total > 1) {
+    // A round of tasks: 2 XP per task right first time, 1 XP per task right
+    // on the second try, plus a bonus for finishing the stop.
+    const { total, right, firstTry: first } = result.round;
+    parts.push({ label: `${right} of ${total} tasks right`, xp: first * 2 + (right - first) });
+    if (correct) parts.push({ label: "Stop complete", xp: 10 });
+    if (correct && first === total) parts.push({ label: "Perfect round", xp: 10 });
+    if (correct && hintsUsed === 0) parts.push({ label: "No hints needed", xp: 5 });
+    if (chatTurns > 0) parts.push({ label: "Thought it through with Sabi", xp: 5 });
+  } else if (correct) {
     parts.push({ label: firstTry ? "Correct!" : "Correct", xp: firstTry ? 20 : 10 });
     if (firstTry && hintsUsed === 0) parts.push({ label: "Solved it yourself", xp: 10 });
     if (chatTurns > 0) parts.push({ label: "Thought it through with Sabi", xp: 5 });
@@ -141,7 +150,7 @@ function awardLesson(result) {
   const after = rankFor(state.xp);
 
   if (correct) {
-    if (firstTry && hintsUsed === 0 && !replay) state.noHintSolves += 1;
+    if ((firstTry || result.round) && hintsUsed === 0 && !replay) state.noHintSolves += 1;
     state.lessons[lesson.id] = {
       subject: lesson.subject,
       unitId: lesson.unit?.id,

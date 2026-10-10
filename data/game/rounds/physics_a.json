@@ -1,0 +1,167 @@
+{
+"phy-u1-l1": [
+["A car speeds up from 10 m/s to 30 m/s in 5 s. What is its acceleration?", "4 m/s^2", "8 m/s^2", "6 m/s^2", "2 m/s^2", "a = (v - u)/t = (30 - 10)/5 = 4 m/s^2.", "Find the change in velocity first, then divide by the time."],
+["A keke starts from rest and reaches 12 m/s in 6 s. What is its acceleration?", "2 m/s^2", "72 m/s^2", "0.5 m/s^2", "6 m/s^2", "From rest means u = 0. a = (12 - 0)/6 = 2 m/s^2.", "'Starts from rest' tells you the initial velocity."],
+["A lorry moving at 25 m/s brakes and stops in 5 s. What is its acceleration?", "-5 m/s^2", "5 m/s^2", "-125 m/s^2", "-0.2 m/s^2", "a = (0 - 25)/5 = -5 m/s^2. The minus sign shows it is slowing down.", "When it stops, v = 0. Watch the sign."],
+["A bus moving at 5 m/s accelerates at 2 m/s^2 for 4 s. What is its final velocity?", "13 m/s", "8 m/s", "7 m/s", "40 m/s", "v = u + at = 5 + 2 * 4 = 13 m/s.", "Use v = u + at and don't forget the starting velocity."],
+["What is the SI unit of acceleration?", "m/s^2", "m/s", "m", "s/m", "Acceleration is change in velocity (m/s) per second, which gives m/s^2.", "Acceleration is velocity divided by time."],
+["An okada slows from 30 m/s to 10 m/s in 4 s. What is its acceleration?", "-5 m/s^2", "5 m/s^2", "-10 m/s^2", "-20 m/s^2", "a = (10 - 30)/4 = -20/4 = -5 m/s^2.", "Final minus initial, divided by time."],
+["A danfo starts from rest and accelerates at 3 m/s^2. How long does it take to reach 15 m/s?", "5 s", "45 s", "0.2 s", "12 s", "t = (v - u)/a = (15 - 0)/3 = 5 s.", "Rearrange v = u + at to find t."],
+["What does a negative acceleration (deceleration) tell you about a moving car?", "Its speed is decreasing", "Its speed is increasing", "It is moving backwards at constant speed", "It is not moving at all", "A negative acceleration in the direction of motion means the car is slowing down.", "What happens to a car's speed when it brakes?"],
+["On a velocity-time graph, what does the slope (gradient) represent?", "Acceleration", "Distance travelled", "Displacement", "Time taken", "The gradient is change in velocity over change in time, which is acceleration.", "Slope is rise over run. What is velocity over time?"]
+],
+"phy-u1-l2": [
+["Two cars move in the same direction at 30 m/s and 20 m/s. What is the speed of the faster car relative to the slower one?", "10 m/s", "50 m/s", "600 m/s", "1.5 m/s", "In the same direction, relative speed = 30 - 20 = 10 m/s.", "Same direction: subtract. Opposite directions: add."],
+["Two okadas approach each other at 12 m/s and 8 m/s. What is their relative speed?", "20 m/s", "4 m/s", "96 m/s", "10 m/s", "Moving towards each other, the speeds add: 12 + 8 = 20 m/s.", "Are they moving the same way or towards each other?"],
+["A passenger walks towards the front of a train at 1 m/s while the train moves at 20 m/s. What is the passenger's speed relative to the ground?", "21 m/s", "19 m/s", "20 m/s", "1 m/s", "Both velocities are in the same direction, so relative to the ground: 20 + 1 = 21 m/s.", "The passenger's own speed adds to the train's speed."],
+["Two buses 500 m apart move towards each other at 15 m/s and 10 m/s. After how long do they meet?", "20 s", "50 s", "100 s", "33 s", "They close the gap at 15 + 10 = 25 m/s, so t = 500/25 = 20 s.", "Find how fast the gap closes, then use time = distance/speed."],
+["A car at 25 m/s is 100 m behind a lorry moving at 20 m/s in the same direction. How long does the car take to catch up?", "20 s", "4 s", "2.2 s", "5 s", "The car gains 25 - 20 = 5 m/s, so t = 100/5 = 20 s.", "How many metres does the car gain every second?"],
+["A canoe is paddled straight across a river at 4 m/s while the current flows at 3 m/s. What is the canoe's resultant speed?", "5 m/s", "7 m/s", "1 m/s", "12 m/s", "The velocities are at right angles, so speed = sqrt(4^2 + 3^2) = sqrt(25) = 5 m/s.", "At right angles, use Pythagoras."],
+["The velocity of A relative to B is given by:", "Velocity of A minus velocity of B", "Velocity of A plus velocity of B", "Velocity of A times velocity of B", "Velocity of B divided by velocity of A", "Relative velocity of A with respect to B is v_A - v_B, using signs for direction.", "You 'stand on' B and watch A."],
+["Rain falls vertically at 8 m/s and a boy runs horizontally at 6 m/s. What is the speed of the rain relative to the boy?", "10 m/s", "14 m/s", "2 m/s", "48 m/s", "The two velocities are at right angles: sqrt(8^2 + 6^2) = sqrt(100) = 10 m/s.", "Vertical and horizontal are at right angles."],
+["Two okadas move side by side in the same direction, each at 15 m/s. What is their relative velocity?", "0 m/s", "30 m/s", "15 m/s", "225 m/s", "Same speed, same direction: 15 - 15 = 0. Each rider sees the other as not moving.", "If you look at the rider next to you, does he move away?"]
+],
+"phy-u1-l3": [
+["A coconut falls from a tree and hits the ground after 2 s. Taking g = 10 m/s^2, how high was it?", "20 m", "10 m", "40 m", "5 m", "s = (1/2)gt^2 = 0.5 * 10 * 2^2 = 20 m.", "Use s = ut + (1/2)gt^2 with u = 0."],
+["A stone is dropped down a well and hits the water after 4 s. How deep is the well? (g = 10 m/s^2)", "80 m", "40 m", "160 m", "20 m", "s = 0.5 * 10 * 4^2 = 0.5 * 10 * 16 = 80 m.", "Square the time before multiplying."],
+["A stone is dropped from rest. What is its speed after falling for 3 s? (g = 10 m/s^2)", "30 m/s", "45 m/s", "15 m/s", "90 m/s", "v = u + gt = 0 + 10 * 3 = 30 m/s.", "Use v = u + gt."],
+["A mango falls from a branch 5 m high. How long does it take to reach the ground? (g = 10 m/s^2)", "1 s", "0.5 s", "2 s", "10 s", "5 = 0.5 * 10 * t^2, so t^2 = 1 and t = 1 s.", "Rearrange s = (1/2)gt^2 for t."],
+["A ball is dropped from a height of 20 m. With what speed does it hit the ground? (g = 10 m/s^2)", "20 m/s", "200 m/s", "400 m/s", "10 m/s", "v^2 = u^2 + 2gh = 0 + 2 * 10 * 20 = 400, so v = 20 m/s.", "Use v^2 = u^2 + 2gh and remember the square root."],
+["A heavy stone and a light stone are dropped together from the same height. Ignoring air resistance, which lands first?", "They land at the same time", "The heavy stone", "The light stone", "It depends on their colour", "Without air resistance, all objects fall with the same acceleration g, whatever their mass.", "Does g depend on mass?"],
+["A ball is thrown straight up at 20 m/s. What maximum height does it reach? (g = 10 m/s^2)", "20 m", "40 m", "10 m", "2 m", "At the top v = 0: h = u^2/(2g) = 400/20 = 20 m.", "At the highest point, the velocity is zero."],
+["A ball is thrown straight up at 30 m/s. How long does it take to reach the highest point? (g = 10 m/s^2)", "3 s", "6 s", "30 s", "1.5 s", "0 = 30 - 10t, so t = 3 s.", "Use v = u - gt with v = 0 at the top."],
+["A stone thrown upwards reaches its highest point. What is its acceleration at that moment?", "10 m/s^2 downwards", "Zero", "10 m/s^2 upwards", "20 m/s^2 downwards", "Its velocity is zero for an instant, but gravity still acts: acceleration stays 10 m/s^2 downwards.", "Does gravity switch off at the top?"]
+],
+"phy-u1-l4": [
+["A car starts from rest and reaches 20 m/s over a distance of 50 m. What is its acceleration?", "4 m/s^2", "8 m/s^2", "0.4 m/s^2", "2 m/s^2", "v^2 = u^2 + 2as: 400 = 0 + 2a(50), so a = 400/100 = 4 m/s^2.", "No time is given, so use v^2 = u^2 + 2as."],
+["A bus speeds up from 10 m/s to 20 m/s over 75 m. What is its acceleration?", "2 m/s^2", "4 m/s^2", "0.13 m/s^2", "1 m/s^2", "400 = 100 + 2a(75), so 300 = 150a and a = 2 m/s^2.", "Square both velocities before subtracting."],
+["A keke starts from rest and accelerates at 2 m/s^2 over 25 m. What is its final speed?", "10 m/s", "50 m/s", "100 m/s", "5 m/s", "v^2 = 0 + 2 * 2 * 25 = 100, so v = 10 m/s.", "Don't forget to take the square root."],
+["A car moving at 20 m/s brakes with a deceleration of 4 m/s^2. How far does it travel before stopping?", "50 m", "100 m", "5 m", "80 m", "0 = 400 - 2 * 4 * s, so s = 400/8 = 50 m.", "Final velocity is 0, and the acceleration is negative."],
+["Which equation links v, u, a and s without using time?", "v^2 = u^2 + 2as", "v = u + at", "s = ut + (1/2)at^2", "s = vt", "v^2 = u^2 + 2as is the equation of motion that has no t in it.", "Look for the equation with no t."],
+["An object speeds up from 6 m/s to 10 m/s with an acceleration of 2 m/s^2. How far does it travel?", "16 m", "32 m", "8 m", "64 m", "s = (v^2 - u^2)/(2a) = (100 - 36)/4 = 16 m.", "Rearrange v^2 = u^2 + 2as for s."],
+["A motorcycle starts from rest and accelerates at 3 m/s^2 over 24 m. What is its final speed?", "12 m/s", "72 m/s", "144 m/s", "8 m/s", "v^2 = 2 * 3 * 24 = 144, so v = 12 m/s.", "Find v^2 first, then the square root."],
+["A car starts from rest and accelerates at 2 m/s^2. How far does it travel in 4 s?", "16 m", "8 m", "32 m", "4 m", "s = ut + (1/2)at^2 = 0 + 0.5 * 2 * 16 = 16 m.", "Use s = ut + (1/2)at^2 with u = 0."],
+["A bus moving at 5 m/s accelerates at 2 m/s^2 for 3 s. How far does it travel in that time?", "24 m", "15 m", "33 m", "11 m", "s = ut + (1/2)at^2 = 5 * 3 + 0.5 * 2 * 9 = 15 + 9 = 24 m.", "Two parts: distance from the starting speed plus the extra from acceleration."]
+],
+"phy-u1-l5": [
+["A ball rolls off the edge of a 20 m high cliff horizontally. How long does it take to reach the ground? (g = 10 m/s^2)", "2 s", "4 s", "1 s", "20 s", "Vertically it starts from rest: 20 = 0.5 * 10 * t^2, so t = 2 s.", "The vertical motion is just like a dropped object."],
+["A stone is thrown horizontally at 15 m/s from a height of 20 m. How far from the base does it land? (g = 10 m/s^2)", "30 m", "15 m", "300 m", "60 m", "Time to fall 20 m is 2 s. Horizontal distance = 15 * 2 = 30 m.", "Find the time from the height, then multiply by the horizontal speed."],
+["Ignoring air resistance, what happens to the horizontal velocity of a projectile during its flight?", "It stays constant", "It increases", "It decreases to zero", "It keeps changing direction", "No horizontal force acts, so the horizontal velocity stays the same.", "Is there any horizontal force on it?"],
+["What is the vertical acceleration of a projectile (ignoring air resistance)?", "10 m/s^2 downwards", "Zero", "It depends on the horizontal speed", "10 m/s^2 upwards", "Only gravity acts, so the vertical acceleration is g downwards throughout.", "Which force acts on it in flight?"],
+["A stone is thrown horizontally from the top of an 80 m building. How long is it in the air? (g = 10 m/s^2)", "4 s", "8 s", "16 s", "2 s", "80 = 0.5 * 10 * t^2, so t^2 = 16 and t = 4 s.", "Only the height decides the time of flight."],
+["A ball is kicked horizontally at 10 m/s off a 45 m high roof. How far from the building does it land? (g = 10 m/s^2)", "30 m", "45 m", "15 m", "450 m", "45 = 5t^2 gives t = 3 s. Range = 10 * 3 = 30 m.", "Time from height first, then horizontal distance."],
+["A projectile is launched at 20 m/s at 30 degrees above level ground. What is its time of flight? (g = 10 m/s^2, sin 30 = 0.5)", "2 s", "4 s", "1 s", "3.5 s", "T = 2u sin(theta)/g = 2 * 20 * 0.5/10 = 2 s.", "Use the vertical component, u sin(theta)."],
+["For a fixed launch speed on level ground, which angle gives the greatest range?", "45 degrees", "30 degrees", "60 degrees", "90 degrees", "Range = u^2 sin(2 theta)/g, which is greatest when 2 theta = 90 degrees, so theta = 45 degrees.", "When is sin(2 theta) largest?"],
+["From the same height, one ball is dropped while another is thrown horizontally at the same moment. Which hits the ground first?", "Both land at the same time", "The dropped ball", "The thrown ball", "It depends on the ball's mass", "Both start with zero vertical velocity and fall with the same g, so they land together.", "Does horizontal speed affect vertical falling?"]
+],
+"phy-u2-l1": [
+["A sound wave has a frequency of 200 Hz and a wavelength of 1.7 m. What is its speed?", "340 m/s", "117.6 m/s", "201.7 m/s", "0.0085 m/s", "v = f * lambda = 200 * 1.7 = 340 m/s.", "Wave speed = frequency * wavelength."],
+["A radio station broadcasts at 100 MHz. Radio waves travel at 3 * 10^8 m/s. What is the wavelength?", "3 m", "0.33 m", "30 m", "3 * 10^16 m", "lambda = v/f = (3 * 10^8)/(1 * 10^8) = 3 m.", "Convert MHz to Hz: 100 MHz = 1 * 10^8 Hz."],
+["Sound travels at 340 m/s. What is the wavelength of a 170 Hz note?", "2 m", "0.5 m", "57800 m", "170 m", "lambda = v/f = 340/170 = 2 m.", "Divide speed by frequency."],
+["A wave travels at 120 m/s with a wavelength of 0.6 m. What is its frequency?", "200 Hz", "72 Hz", "0.005 Hz", "120 Hz", "f = v/lambda = 120/0.6 = 200 Hz.", "Rearrange v = f * lambda for f."],
+["The wavelength of a wave is:", "The distance between two successive crests", "The height of a crest", "The time for one complete wave", "The number of waves per second", "Wavelength is the length of one full wave, for example crest to the next crest.", "Think of the distance from one crest to the next."],
+["If the frequency of a wave doubles while its speed stays the same, the wavelength:", "Halves", "Doubles", "Stays the same", "Becomes four times as long", "v = f * lambda is constant, so doubling f halves lambda.", "If f goes up and v stays fixed, what must happen to lambda?"],
+["10 water waves pass a fisherman's canoe in 5 s. What is their frequency?", "2 Hz", "50 Hz", "0.5 Hz", "15 Hz", "Frequency = number of waves/time = 10/5 = 2 Hz.", "Frequency is waves per second."],
+["What is the SI unit of frequency?", "Hertz (Hz)", "Metre (m)", "Second (s)", "Newton (N)", "Frequency is measured in hertz; 1 Hz is one wave per second.", "Named after Heinrich Hertz."],
+["The distance from a crest to the next trough of a wave is 0.5 m, and its frequency is 4 Hz. What is its speed?", "4 m/s", "2 m/s", "8 m/s", "0.125 m/s", "Crest to trough is half a wavelength, so lambda = 1 m. v = 4 * 1 = 4 m/s.", "Crest to next trough is not a full wavelength."]
+],
+"phy-u2-l2": [
+["A pendulum makes 20 complete oscillations in 10 s. What is its period?", "0.5 s", "2 s", "200 s", "30 s", "Period = time/oscillations = 10/20 = 0.5 s.", "Period is the time for ONE oscillation."],
+["An alternating current supply has a frequency of 50 Hz. What is its period?", "0.02 s", "50 s", "0.2 s", "2 s", "T = 1/f = 1/50 = 0.02 s.", "Period and frequency are reciprocals."],
+["A vibrating object has a period of 0.25 s. What is its frequency?", "4 Hz", "0.25 Hz", "25 Hz", "40 Hz", "f = 1/T = 1/0.25 = 4 Hz.", "Use f = 1/T."],
+["A swing makes 30 complete oscillations in 1 minute. What is its frequency?", "0.5 Hz", "30 Hz", "2 Hz", "1800 Hz", "1 minute = 60 s. f = 30/60 = 0.5 Hz.", "Convert minutes to seconds first."],
+["The amplitude of an oscillation is:", "The maximum displacement from the rest position", "The time for one oscillation", "The number of oscillations per second", "The total distance travelled", "Amplitude is how far the object moves from its rest position at most.", "How far does it swing from the middle?"],
+["A swing completes one oscillation every 2 s. How many oscillations does it make in 1 minute?", "30", "120", "60", "15", "60 s/2 s = 30 oscillations.", "How many 2-second intervals fit into 60 s?"],
+["What is the relationship between frequency (f) and period (T)?", "f = 1/T", "f = T", "f = 2T", "f = T^2", "Frequency is the number of oscillations per second, the reciprocal of the period.", "If one oscillation takes T seconds, how many happen in one second?"],
+["The period of a simple pendulum depends on:", "Its length (and g), but not the mass of the bob", "Only the mass of the bob", "The colour of the bob", "How hard you push it", "T = 2 pi sqrt(L/g), so only length and g matter, not mass.", "Look at the formula T = 2 pi sqrt(L/g)."],
+["A talking drum's skin makes 25 vibrations in 0.5 s. What is its frequency?", "50 Hz", "12.5 Hz", "0.02 Hz", "25 Hz", "f = 25/0.5 = 50 Hz.", "Vibrations divided by time."]
+],
+"phy-u2-l3": [
+["A boy hears the echo of his shout from a hill 3 s later. The speed of sound is 330 m/s. How far away is the hill?", "495 m", "990 m", "110 m", "165 m", "Sound travels there and back: 2d = 330 * 3 = 990, so d = 495 m.", "The sound makes a round trip."],
+["A girl stands 170 m from a wall. The speed of sound is 340 m/s. After how long does she hear the echo of a clap?", "1 s", "0.5 s", "2 s", "4 s", "Total distance = 2 * 170 = 340 m. t = 340/340 = 1 s.", "The sound goes to the wall and back."],
+["Why do we divide by 2 when using an echo to find a distance?", "The sound travels to the reflector and back", "Sound loses half its speed", "Echoes are always half as loud", "The listener hears two sounds", "The measured time covers the journey out and back, so the one-way distance is half.", "How many times does the sound cover the distance?"],
+["A man stands 680 m from a cliff and hears his echo after 4 s. What is the speed of sound?", "340 m/s", "170 m/s", "680 m/s", "2720 m/s", "v = 2d/t = (2 * 680)/4 = 340 m/s.", "Total distance travelled is twice 680 m."],
+["A ship's sonar pulse returns from the seabed after 2 s. Sound travels at 1500 m/s in water. How deep is the sea?", "1500 m", "3000 m", "750 m", "1000 m", "2d = 1500 * 2 = 3000 m, so d = 1500 m.", "Sonar works like an echo."],
+["An echo is:", "A reflected sound", "A refracted light wave", "A sound that travels faster", "A sound made by a drum only", "An echo is sound reflected back from a surface.", "What happens when sound hits a hard surface?"],
+["A girl claps and hears the echo from a wall 0.5 s later. The speed of sound is 340 m/s. How far away is the wall?", "85 m", "170 m", "340 m", "680 m", "2d = 340 * 0.5 = 170 m, so d = 85 m.", "Find the total distance, then halve it."],
+["You see lightning and hear the thunder 3 s later. The speed of sound is 340 m/s. How far away is the storm?", "1020 m", "510 m", "113 m", "3400 m", "This is NOT an echo; the sound travels only one way: d = 340 * 3 = 1020 m.", "Is the sound bouncing back here, or travelling one way?"],
+["Why can't you hear a clear echo from a wall that is very close to you?", "The reflected sound returns too quickly and merges with the original sound", "Sound cannot reflect from walls", "Sound travels too slowly", "Close walls absorb all sound", "The ear needs about 0.1 s between sounds to hear them separately.", "How long does the ear need to separate two sounds?"]
+],
+"phy-u2-l4": [
+["An open pipe is 0.5 m long and the speed of sound is 340 m/s. What is its fundamental frequency?", "340 Hz", "680 Hz", "170 Hz", "85 Hz", "For an open pipe, f = v/(2L) = 340/(2 * 0.5) = 340 Hz.", "Open at both ends: lambda = 2L."],
+["An open flute pipe is 0.85 m long. The speed of sound is 340 m/s. What is its fundamental frequency?", "200 Hz", "400 Hz", "100 Hz", "289 Hz", "f = v/(2L) = 340/1.7 = 200 Hz.", "Use f = v/(2L)."],
+["For an open pipe of length L, what is the wavelength of the fundamental note?", "2L", "L", "4L", "L/2", "The fundamental has an antinode at each open end and one node in the middle, so lambda = 2L.", "Draw it: antinode, node, antinode."],
+["An open pipe is 0.4 m long and the speed of sound is 320 m/s. What is its fundamental frequency?", "400 Hz", "800 Hz", "200 Hz", "128 Hz", "f = 320/(2 * 0.4) = 320/0.8 = 400 Hz.", "Double the length, then divide speed by it."],
+["An open pipe has a fundamental frequency of 250 Hz. What is the frequency of its second harmonic?", "500 Hz", "750 Hz", "125 Hz", "1000 Hz", "Open pipes give all harmonics: the second is 2 * 250 = 500 Hz.", "Harmonics are whole-number multiples of the fundamental."],
+["An open pipe has a fundamental frequency of 500 Hz. The speed of sound is 340 m/s. How long is the pipe?", "0.34 m", "0.68 m", "0.17 m", "1.47 m", "L = v/(2f) = 340/1000 = 0.34 m.", "Rearrange f = v/(2L) for L."],
+["Which harmonics can an open pipe produce?", "All harmonics, both odd and even", "Only odd harmonics", "Only even harmonics", "Only the fundamental", "Open pipes produce every whole-number harmonic: f, 2f, 3f and so on.", "Contrast this with a pipe closed at one end."],
+["What is found at the open ends of a sounding pipe?", "Antinodes", "Nodes", "Neither nodes nor antinodes", "Only compressions", "The air moves most freely at an open end, so there is an antinode there.", "Where can the air vibrate most freely?"],
+["If the length of an open pipe is doubled, its fundamental frequency:", "Halves", "Doubles", "Stays the same", "Becomes four times higher", "f = v/(2L), so doubling L halves f. Longer pipes give lower notes.", "Is the frequency on top or bottom with L?"]
+],
+"phy-u2-l5": [
+["A pipe closed at one end is 0.25 m long. The speed of sound is 340 m/s. What is its fundamental frequency?", "340 Hz", "680 Hz", "170 Hz", "1360 Hz", "For a closed pipe, f = v/(4L) = 340/1 = 340 Hz.", "Closed at one end: lambda = 4L."],
+["A closed pipe is 0.85 m long. The speed of sound is 340 m/s. What is its fundamental frequency?", "100 Hz", "200 Hz", "400 Hz", "289 Hz", "f = v/(4L) = 340/3.4 = 100 Hz.", "Multiply the length by 4."],
+["For a pipe closed at one end with length L, what is the wavelength of the fundamental?", "4L", "2L", "L", "L/4", "There is a node at the closed end and an antinode at the open end: a quarter wavelength fits, so lambda = 4L.", "How much of a wave fits from a node to the next antinode?"],
+["Which harmonics does a pipe closed at one end produce?", "Only odd harmonics", "All harmonics", "Only even harmonics", "No harmonics", "A closed pipe gives only f, 3f, 5f and so on.", "Its frequencies follow f, 3f, 5f..."],
+["A closed pipe has a fundamental of 200 Hz. What is the next higher frequency it can produce?", "600 Hz", "400 Hz", "300 Hz", "800 Hz", "Only odd harmonics are possible, so the next is 3 * 200 = 600 Hz.", "It can't make 2f."],
+["A closed pipe sounds a fundamental of 425 Hz. The speed of sound is 340 m/s. How long is the pipe?", "0.2 m", "0.4 m", "0.8 m", "0.1 m", "L = v/(4f) = 340/1700 = 0.2 m.", "Rearrange f = v/(4L) for L."],
+["What is found at the closed end of a sounding pipe?", "A node", "An antinode", "A crest", "A compression only", "Air cannot move at the closed end, so there is a node there.", "Can the air move against a solid end?"],
+["An open pipe and a closed pipe have the same length. Compared with the open pipe, the closed pipe's fundamental frequency is:", "Half", "Double", "The same", "Four times as high", "Open: f = v/(2L). Closed: f = v/(4L), which is half as much.", "Compare v/(2L) with v/(4L)."],
+["In a resonance tube experiment, the first resonance with a tuning fork occurs at an air column of 0.17 m. The speed of sound is 340 m/s. What is the fork's frequency?", "500 Hz", "1000 Hz", "250 Hz", "2000 Hz", "The first resonance is a quarter wavelength: f = v/(4L) = 340/0.68 = 500 Hz.", "A resonance tube is closed at one end by water."]
+],
+"phy-u3-l1": [
+["A pressing iron draws 2 A from a 240 V supply. What is its resistance?", "120 Ω", "480 Ω", "0.0083 Ω", "242 Ω", "R = V/I = 240/2 = 120 Ω.", "Ohm's law: R = V/I."],
+["A current of 2 A flows through a 6 Ω resistor. What is the voltage across it?", "12 V", "3 V", "8 V", "0.33 V", "V = IR = 2 * 6 = 12 V.", "Use V = IR."],
+["A 9 V battery is connected across a 3 Ω resistor. What current flows?", "3 A", "27 A", "0.33 A", "12 A", "I = V/R = 9/3 = 3 A.", "Rearrange V = IR for I."],
+["What is the SI unit of electrical resistance?", "Ohm (Ω)", "Ampere (A)", "Volt (V)", "Watt (W)", "Resistance is measured in ohms, with the symbol Ω.", "Named after Georg Ohm."],
+["Ohm's law states that, at constant temperature, the current through a conductor is:", "Directly proportional to the voltage across it", "Inversely proportional to the voltage", "Independent of the voltage", "Proportional to the square of the voltage", "V = IR: if R stays fixed, doubling V doubles I.", "What happens to the current when you increase the voltage?"],
+["A 12 V lamp draws 0.5 A. What is its resistance?", "24 Ω", "6 Ω", "12.5 Ω", "11.5 Ω", "R = 12/0.5 = 24 Ω.", "Dividing by 0.5 is the same as multiplying by 2."],
+["A 1.5 V torchlight bulb draws 0.3 A. What is its resistance?", "5 Ω", "0.45 Ω", "0.2 Ω", "1.8 Ω", "R = 1.5/0.3 = 5 Ω.", "R = V/I."],
+["If the voltage across a fixed resistor is doubled, the current:", "Doubles", "Halves", "Stays the same", "Becomes four times as large", "With R constant, I = V/R, so I doubles when V doubles.", "Look at I = V/R with R fixed."],
+["For an ohmic conductor, a graph of voltage (V) against current (I) is:", "A straight line through the origin whose slope is the resistance", "A curve that bends upwards", "A horizontal line", "A vertical line", "V = IR is a straight line through (0, 0) with gradient R.", "V = R * I looks like y = mx."]
+],
+"phy-u3-l2": [
+["Resistors of 6 Ω and 3 Ω are connected in parallel. What is their combined resistance?", "2 Ω", "9 Ω", "4.5 Ω", "18 Ω", "R = (6 * 3)/(6 + 3) = 18/9 = 2 Ω.", "For two resistors in parallel: product over sum."],
+["Two 10 Ω resistors are connected in parallel. What is the combined resistance?", "5 Ω", "20 Ω", "10 Ω", "0.2 Ω", "Two equal resistors in parallel give half: 10/2 = 5 Ω.", "Equal resistors in parallel: divide by how many there are."],
+["Resistors of 12 Ω and 4 Ω are connected in parallel. What is the combined resistance?", "3 Ω", "16 Ω", "8 Ω", "48 Ω", "R = (12 * 4)/(12 + 4) = 48/16 = 3 Ω.", "Product over sum."],
+["Three 6 Ω resistors are connected in parallel. What is the combined resistance?", "2 Ω", "18 Ω", "6 Ω", "3 Ω", "1/R = 1/6 + 1/6 + 1/6 = 3/6, so R = 2 Ω.", "Add the reciprocals, then flip."],
+["The combined resistance of resistors in parallel is always:", "Less than the smallest single resistor", "Greater than the largest resistor", "Equal to the sum of the resistors", "Equal to the largest resistor", "Each new parallel path lets more current flow, so the total resistance falls below the smallest one.", "Adding more paths makes it easier for current to flow."],
+["Why are appliances in a house wired in parallel?", "Each gets the full mains voltage and can be switched on or off on its own", "To use less wire", "To increase the total resistance", "So that all appliances go off together", "In parallel every appliance gets the full voltage and works independently.", "What happens to other bulbs when one bulb blows in a parallel circuit?"],
+["Resistors of 2 Ω, 2 Ω and 1 Ω are connected in parallel. What is the combined resistance?", "0.5 Ω", "5 Ω", "1 Ω", "2 Ω", "1/R = 1/2 + 1/2 + 1/1 = 2, so R = 0.5 Ω.", "Add 1/2 + 1/2 + 1, then take the reciprocal."],
+["Resistors of 20 Ω and 5 Ω are connected in parallel. What is the combined resistance?", "4 Ω", "25 Ω", "12.5 Ω", "100 Ω", "R = (20 * 5)/(20 + 5) = 100/25 = 4 Ω.", "Product over sum."],
+["A 6 V battery is connected across 3 Ω and 6 Ω resistors in parallel. What total current flows from the battery?", "3 A", "1 A", "0.67 A", "1.5 A", "Combined R = (3 * 6)/9 = 2 Ω, so I = 6/2 = 3 A.", "Find the combined resistance first."]
+],
+"phy-u3-l3": [
+["A 3 Ω resistor is in series with two 4 Ω resistors that are in parallel. What is the total resistance?", "5 Ω", "11 Ω", "7 Ω", "2 Ω", "The parallel pair gives 4/2 = 2 Ω. Total = 3 + 2 = 5 Ω.", "Simplify the parallel part first, then add the series part."],
+["A 5 Ω resistor is in series with a parallel combination of 6 Ω and 3 Ω. What is the total resistance?", "7 Ω", "14 Ω", "2 Ω", "4.5 Ω", "Parallel: (6 * 3)/9 = 2 Ω. Total = 5 + 2 = 7 Ω.", "Handle the parallel pair first."],
+["Resistors of 2 Ω, 3 Ω and 5 Ω are connected in series. What is the total resistance?", "10 Ω", "0.97 Ω", "30 Ω", "5 Ω", "In series, resistances add: 2 + 3 + 5 = 10 Ω.", "Series: just add."],
+["A 10 V battery is connected to 2 Ω and 3 Ω resistors in series. What current flows?", "2 A", "50 A", "5 A", "0.5 A", "Total R = 5 Ω, so I = 10/5 = 2 A.", "Add the series resistors, then use I = V/R."],
+["A 1 Ω resistor is in series with a parallel combination of 12 Ω and 6 Ω. What is the total resistance?", "5 Ω", "19 Ω", "4 Ω", "3 Ω", "Parallel: (12 * 6)/18 = 4 Ω. Total = 1 + 4 = 5 Ω.", "Parallel part first."],
+["A 2 Ω and a 4 Ω resistor in series are connected in parallel with a 6 Ω resistor. What is the total resistance?", "3 Ω", "12 Ω", "6 Ω", "2 Ω", "The series branch is 6 Ω. 6 Ω parallel with 6 Ω gives 3 Ω.", "Add the series branch first, then combine in parallel."],
+["In a series circuit, the current is:", "The same through every component", "Largest through the biggest resistor", "Zero in the last resistor", "Shared equally between branches", "There is only one path in series, so the same current passes through everything.", "How many paths does the current have?"],
+["A 12 V battery is connected to a 4 Ω resistor in series with two 4 Ω resistors in parallel. What current flows from the battery?", "2 A", "3 A", "1 A", "6 A", "Parallel pair = 2 Ω, total = 4 + 2 = 6 Ω. I = 12/6 = 2 A.", "Find the total resistance first."],
+["Three 4 Ω resistors: two are in parallel, and this pair is in series with the third. What is the total resistance?", "6 Ω", "12 Ω", "1.33 Ω", "8 Ω", "Two 4 Ω in parallel give 2 Ω. Adding 4 Ω in series gives 6 Ω.", "Parallel pair first, then add."]
+],
+"phy-u3-l4": [
+["A cell has an e.m.f. of 6 V and an internal resistance of 1 Ω. What is its terminal voltage when it delivers 1 A?", "5 V", "7 V", "6 V", "1 V", "V = E - Ir = 6 - 1 * 1 = 5 V.", "Some voltage is 'lost' inside the cell."],
+["A 12 V battery with internal resistance 1 Ω is connected to a 5 Ω resistor. What current flows?", "2 A", "2.4 A", "3 A", "0.5 A", "I = E/(R + r) = 12/(5 + 1) = 2 A.", "Include the internal resistance in the total."],
+["A battery has an e.m.f. of 9 V. When it delivers 0.5 A, the terminal voltage is 8 V. What is its internal resistance?", "2 Ω", "0.5 Ω", "16 Ω", "18 Ω", "Lost volts = 9 - 8 = 1 V. r = 1/0.5 = 2 Ω.", "Lost volts = E - V, and lost volts = Ir."],
+["The e.m.f. of a cell is:", "The energy it supplies to each coulomb of charge (its voltage when no current flows)", "The current it gives", "Its internal resistance", "The power it wastes", "E.m.f. is energy per unit charge supplied by the source, equal to the terminal voltage on open circuit.", "Think of joules per coulomb."],
+["A 1.5 V cell with internal resistance 0.5 Ω is connected to a 2.5 Ω bulb. What is the terminal voltage?", "1.25 V", "1.5 V", "0.25 V", "0.6 V", "I = 1.5/(2.5 + 0.5) = 0.5 A. V = IR = 0.5 * 2.5 = 1.25 V.", "Find the current first, then V across the bulb."],
+["Why is the terminal voltage of a battery less than its e.m.f. when current flows?", "Some voltage is used up driving current through the internal resistance", "The battery gains energy", "The wires create extra voltage", "The e.m.f. increases with current", "Lost volts (Ir) are used inside the battery, so less is available outside.", "Where is some of the energy used?"],
+["When no current is drawn from a battery, its terminal voltage is:", "Equal to its e.m.f.", "Zero", "Greater than its e.m.f.", "Half its e.m.f.", "With I = 0, V = E - 0 * r = E.", "Put I = 0 into V = E - Ir."],
+["A 24 V generator battery with internal resistance 2 Ω supplies 3 A. What is its terminal voltage?", "18 V", "30 V", "6 V", "21 V", "V = E - Ir = 24 - 3 * 2 = 18 V.", "Lost volts = I * r."],
+["A 12 V car battery with internal resistance 0.5 Ω is short-circuited (external resistance zero). What current flows?", "24 A", "6 A", "12 A", "0.04 A", "I = E/r = 12/0.5 = 24 A. This large current is why short circuits are dangerous.", "With no external resistance, only r limits the current."]
+],
+"phy-u3-l5": [
+["A 100 W bulb is left on for 10 hours. How much energy does it use?", "1 kWh", "1000 kWh", "10 kWh", "0.1 kWh", "Energy = 0.1 kW * 10 h = 1 kWh.", "Change watts to kilowatts first."],
+["A 2 kW air conditioner runs for 5 hours. How much energy does it use?", "10 kWh", "2.5 kWh", "7 kWh", "10000 kWh", "Energy = power * time = 2 * 5 = 10 kWh.", "kWh = kW * hours."],
+["A 60 W fan runs 5 hours a day for 30 days. Electricity costs ₦100 per kWh. What is the cost?", "₦900", "₦9,000", "₦90", "₦300", "Energy = 0.06 kW * 5 h * 30 = 9 kWh. Cost = 9 * ₦100 = ₦900.", "Find the total kWh first."],
+["One kilowatt-hour (kWh) is equal to:", "3.6 * 10^6 J", "1000 J", "3600 J", "60 J", "1 kWh = 1000 W * 3600 s = 3,600,000 J.", "1000 W for 3600 seconds."],
+["A blender works on 240 V and draws 5 A. What is its power?", "1200 W", "48 W", "245 W", "0.02 W", "P = VI = 240 * 5 = 1200 W.", "Power = voltage * current."],
+["A 2000 W electric kettle is used for 30 minutes. How much energy does it use?", "1 kWh", "60 kWh", "2 kWh", "0.5 kWh", "2 kW * 0.5 h = 1 kWh.", "30 minutes is half an hour."],
+["A 1.5 kW heater runs for 4 hours. Electricity costs ₦80 per kWh. What is the cost?", "₦480", "₦120", "₦320", "₦480,000", "Energy = 1.5 * 4 = 6 kWh. Cost = 6 * ₦80 = ₦480.", "kWh first, then multiply by the price."],
+["A 500 W rice cooker runs for 2 minutes. How much energy does it use in joules?", "60,000 J", "1000 J", "250 J", "1,000,000 J", "E = Pt = 500 * 120 s = 60,000 J.", "Convert minutes to seconds."],
+["A family buys ₦3,500 of prepaid electricity at ₦70 per unit (kWh). How many units do they get?", "50 units", "245,000 units", "35 units", "500 units", "Units = ₦3,500/₦70 = 50 kWh.", "Divide the money by the price per unit."]
+]
+}

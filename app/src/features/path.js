@@ -135,7 +135,8 @@ function render(container, content) {
           },
             h("span", { class: "stop-tag" }, "BUS STOP"),
             h("span", { class: "stop-num" }, done ? "★" : open ? String(l + 1) : "🔒"),
-            h("span", { class: "stop-sub" }, done ? "Done" : current ? "Board here" : open ? "Open" : "Locked")
+            h("span", { class: "stop-sub" }, done ? "Done" : current ? "Board here" : open ? "Open" : "Locked"),
+            h("span", { class: "stop-tasks" }, `${1 + (lesson.round?.length || 0)} tasks`)
           ),
           h("span", { class: "stop-post" }),
           current ? h("span", { class: "danfo", "aria-hidden": "true" }, "🚌") : null

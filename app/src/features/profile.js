@@ -136,11 +136,12 @@ function onboardingScreen(container, params = {}) {
     if (schoolError) return (error.textContent = schoolError);
     let schoolName = sch;
     let schoolVerified = false;
-    if (schoolsByState && !notListed.checked) {
-      const match = findListed(stateSel.value, sch);
-      if (!match) return (error.textContent = `Pick your school from the ${stateSel.value} list, or tick "My school isn't listed".`);
+    const match = schoolsByState && findListed(stateSel.value, sch);
+    if (match) {
       schoolName = match; // use the list's exact spelling so classmates group together
-      schoolVerified = true;
+      schoolVerified = true; // typed in full but it is on the list: same as picking it
+    } else if (schoolsByState && !notListed.checked) {
+      return (error.textContent = `Pick your school from the ${stateSel.value} list, or tick "My school isn't listed".`);
     }
     if (!level) return (error.textContent = "Choose your class level: Primary, JSS or SS.");
     profile = {

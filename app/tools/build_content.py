@@ -88,6 +88,43 @@ def main() -> int:
                     guided[lid] = steps
             subjects[subject] = {"units": data["units"]}
 
+    # Practice rounds: data/game/rounds/*.json map a lesson id to extra tasks
+    # on the same idea, each written as [question, correct, wrong, wrong, wrong,
+    # explanation, hint]. The correct option is written first and shuffled
+    # here (seeded, so builds are repeatable).
+    import random
+    lessons_by_id = {l["id"]: l for s in subjects.values() for u in s["units"] for l in u["lessons"]}
+    for round_file in sorted((ROOT / "data" / "game" / "rounds").glob("*.json")):
+        for lid, items in json.loads(round_file.read_text(encoding="utf-8")).items():
+            lesson = lessons_by_id.get(lid)
+            if not lesson:
+                errors.append(f"{round_file.name}: unknown lesson {lid}")
+                continue
+            if len(items) > 9:
+                errors.append(f"{lid}: at most 9 practice tasks (10 with the stop question)")
+            tasks = []
+            for n, item in enumerate(items):
+                where = f"{round_file.name} {lid} task {n + 2}"
+                if len(item) != 7 or not all(isinstance(x, str) and x.strip() for x in item):
+                    errors.append(f"{where}: needs 7 non-empty strings")
+                    continue
+                question, correct, *wrong, explanation, hint = item
+                options = [correct, *wrong]
+                if len({o.strip() for o in options}) != 4:
+                    errors.append(f"{where}: options must be different")
+                if any(ch in x for x in item for ch in "—–"):
+                    errors.append(f"{where}: no em or en dashes")
+                order = list(range(4))
+                random.Random(f"{lid}:{n}").shuffle(order)
+                tasks.append({
+                    "question": question,
+                    "options": [options[i] for i in order],
+                    "answer_index": order.index(0),
+                    "explanation": explanation,
+                    "hint": hint,
+                })
+            lesson["round"] = tasks
+
     if errors:
         print("Content build FAILED:")
         for e in errors:
@@ -119,7 +156,8 @@ def main() -> int:
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps({"version": 1, "subjects": subjects, "guided": guided}, ensure_ascii=False), encoding="utf-8")
     n = sum(len(u["lessons"]) for s in subjects.values() for u in s["units"])
-    print(f"Wrote {OUT.relative_to(ROOT)}: {n} lessons, {len(guided)} guided dialogues, {OUT.stat().st_size // 1024} KB")
+    tasks = sum(1 + len(l.get("round", [])) for s in subjects.values() for u in s["units"] for l in u["lessons"])
+    print(f"Wrote {OUT.relative_to(ROOT)}: {n} lessons, {tasks} tasks, {len(guided)} guided dialogues, {OUT.stat().st_size // 1024} KB")
     return 0
 
 

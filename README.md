@@ -47,7 +47,7 @@ Leave this terminal window open. When it prints `Serving Sabi (mock ...)`, open 
 
 | Feature | Works? |
 |---|---|
-| All 120 lessons: WAEC/JAMB, plus the BECE and Common Entrance pilot tracks | ✅ |
+| All 120 bus stops (1,200 tasks, 10 per stop): WAEC/JAMB, plus the BECE and Common Entrance pilot tracks | ✅ |
 | XP, fuel ⛽, ranks, streaks and badges | ✅ |
 | School / State / Nigeria leaderboards (tick the permission box on your profile to appear) | ✅ |
 | Offline guided hints inside lessons | ✅ |
@@ -153,7 +153,7 @@ Vercel hosts the game for free, always on, over HTTPS. Use this link on the subm
 
 | What works on the Vercel link | |
 |---|---|
-| All 120 lessons, XP, fuel, ranks, badges | ✅ |
+| All 120 bus stops (1,200 tasks), XP, fuel, ranks, badges | ✅ |
 | Offline guided hints in lessons | ✅ |
 | Leaderboard | ✅ On this device only. A shared board would need a database. |
 | **Ask Sabi with the real AI** | ✅ **Only while the Kaggle live demo is running.** Open the Vercel link with the tunnel added: `https://sabi-app-wine.vercel.app/?api=https://something-random.trycloudflare.com`. With no tunnel, lessons use offline guided steps. |
@@ -241,7 +241,7 @@ Gamified WAEC/JAMB practice already exists: [PassGo](https://passgoapp.carrd.co/
 1. **It teaches instead of marking.** The others test what a student already knows. Sabi's fine-tuned tutor guides students to the answer, with Nigerian analogies, and stops holding back once they are stuck (the escalation behaviour).
 2. **The points reward thinking.** XP is highest for solving a problem yourself, so the game encourages the same behaviour the tutor is trained for.
 3. **Schools compete as schools.** We found no existing WAEC/JAMB app with school-vs-school rankings. This is the hook for selling to schools and state education boards.
-4. **It works on weak data connections.** All 120 lessons (90 WAEC/JAMB, 15 BECE, 15 Common Entrance) load as a single 143 KB file. With no server reachable, lessons switch to **Offline Guided mode**, which replays Sabi's authored Socratic steps from the training data. Offline mode can't read what students type, so it presents those steps as numbered hints ("Hint 1 of 4") rather than pretending to react, and it answers obvious gibberish with a gentle nudge.
+4. **It works on weak data connections.** Each bus stop is a round of 10 tasks: the stop's exam question (with Sabi's authored guiding steps) plus 9 practice questions on the same idea. A stop is passed at 6 of 10; a wrong first try is free and a missed task costs 1 fuel. All 120 stops (1,200 tasks: 900 WAEC/JAMB, 150 BECE, 150 Common Entrance) load as a single 500 KB file. Every practice question was answered blind by a separate model (gpt-oss-120b) as a check on the answer key. With no server reachable, lessons switch to **Offline Guided mode**, which replays Sabi's authored Socratic steps from the training data. Offline mode can't read what students type, so it presents those steps as numbered hints ("Hint 1 of 4") rather than pretending to react, and it answers obvious gibberish with a gentle nudge.
 
 ### Built so each feature works alone
 

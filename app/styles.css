@@ -372,6 +372,7 @@ button { font-family: inherit; }
 }
 .stop-num { font-size: 1.4rem; line-height: 1.2; }
 .stop-sub { font-size: 0.7rem; font-weight: 800; }
+.stop-tasks { font-size: 0.62rem; font-weight: 800; opacity: 0.8; }
 .stop.done { background: var(--green); color: #fff; border-color: var(--green-dark); box-shadow: 0 5px 0 var(--green-dark); }
 .stop.done .stop-tag { background: var(--green-dark); color: #d9f1e3; }
 .stop.locked { background: #e9e6dc; color: #9a9a90; border-color: #c8c4b6; box-shadow: 0 5px 0 #c8c4b6; cursor: not-allowed; }
@@ -413,6 +414,17 @@ button { font-family: inherit; }
   border-radius: 14px; padding: 10px 12px; margin-bottom: 10px; font-weight: 700;
 }
 .tool-row { display: flex; gap: 8px; margin-bottom: 4px; }
+.task-progress { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.task-dots { display: flex; gap: 4px; flex: 1; }
+.task-dot { flex: 1; height: 10px; border-radius: 999px; background: var(--line); }
+.task-dot.now { background: var(--danfo); }
+.task-dot.right { background: var(--green); }
+.task-dot.missed { background: var(--red); }
+.task-count { font-size: 0.78rem; font-weight: 900; color: var(--muted); white-space: nowrap; }
+.next-task { margin-top: 10px; }
+.round-summary { text-align: center; }
+.round-summary .xp-list { text-align: left; }
+.round-score { font-size: 1.15rem; font-weight: 900; }
 
 .chat-panel { margin-top: 10px; border: 2px solid var(--line); border-radius: var(--radius); background: var(--card); overflow: hidden; }
 .chat-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 10px 12px; border-bottom: 2px solid var(--line); flex-wrap: wrap; }
