@@ -82,7 +82,7 @@ function render(container, status) {
       log.appendChild(h("div", { class: "chat-msg " + m.role }, richText(m.text)));
     }
   }
-  if (state.pending) log.appendChild(h("div", { class: "chat-msg tutor thinking" }, "Sabi is thinking…"));
+  if (state.pending) log.appendChild(h("div", { class: "chat-msg tutor thinking" }, state.waking ? "Waking Sabi up. The first answer takes about a minute…" : "Sabi is thinking…"));
   container.appendChild(h("div", { class: "card" }, log));
   setTimeout(() => (log.scrollTop = log.scrollHeight), 0);
 
@@ -104,12 +104,15 @@ function render(container, status) {
       const msgs = hist
         .filter((m) => m.role === "student" || m.role === "tutor")
         .map((m) => ({ role: m.role === "student" ? "user" : "assistant", content: m.text }));
-      const data = await chat(msgs, state.compare ? "both" : "sabi");
+      const data = await chat(msgs, state.compare ? "both" : "sabi", {
+        onWaking: () => { state.waking = true; if (container.isConnected) render(container, status); },
+      });
       hist.push(data.base_reply === undefined ? { role: "tutor", text: data.reply } : { role: "tutor", text: data.reply, baseText: data.base_reply });
     } catch (err) {
       hist.push({ role: "note", text: `Couldn't reach Sabi: ${err.message}` });
     } finally {
       state.pending = false;
+      state.waking = false;
       if (container.isConnected) render(container, status);
     }
   }

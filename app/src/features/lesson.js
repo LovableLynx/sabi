@@ -146,7 +146,7 @@ function render(container, content, lesson) {
       bubble.appendChild(richText(m.text));
       chatLog.appendChild(bubble);
     }
-    if (s.pending) chatLog.appendChild(h("div", { class: "chat-msg tutor thinking" }, "Sabi is thinking…"));
+    if (s.pending) chatLog.appendChild(h("div", { class: "chat-msg tutor thinking" }, s.waking ? "Waking Sabi up. The first answer takes about a minute…" : "Sabi is thinking…"));
     chatLog.scrollTop = chatLog.scrollHeight;
     sendBtn.disabled = s.pending;
   }
@@ -192,7 +192,7 @@ function render(container, content, lesson) {
         content: i === 0 ? `Question: ${lesson.question}\n\n${m.text}` : m.text,
       }));
       try {
-        const data = await chat(msgs, "sabi");
+        const data = await chat(msgs, "sabi", { onWaking: () => { s.waking = true; paintChat(); } });
         s.messages.push({ role: "tutor", text: data.reply });
       } catch (err) {
         setMode("offline");
@@ -204,6 +204,7 @@ function render(container, content, lesson) {
       s.messages.push({ role: "tutor", text: guidedReply(text) });
     }
     s.pending = false;
+    s.waking = false;
     paintChat();
   }
 

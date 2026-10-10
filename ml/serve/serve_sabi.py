@@ -100,6 +100,17 @@ NIGERIAN_STATES = {
 }
 
 
+class NoTutor:
+    """Leaderboard + feedback only, no model (Modal's cheap CPU service).
+    Chat requests go to the separate GPU service instead."""
+
+    mode = "none"
+    info = "no model on this server; the AI tutor runs on a separate GPU service"
+
+    def reply(self, messages, use_adapter):
+        raise WakingUp()
+
+
 class MockTutor:
     """Canned replies so the app and API can be tested without a GPU."""
 
@@ -336,6 +347,41 @@ def chat_block(text: str) -> str | None:
     if is_gibberish(text):
         return "gibberish"
     return None
+
+
+class WakingTutor:
+    """Loads ModelTutor in a background thread so the server can answer at
+    once. Until the model is ready, health reports mode "loading" and chats
+    get a friendly 503, which the app turns into "Waking Sabi up...".
+    Used on serverless hosts (Modal) where a cold start takes ~1-2 minutes."""
+
+    def __init__(self, *args):
+        self.mode = "loading"
+        self.info = "loading N-ATLAS + Sabi adapter"
+        self._tutor = None
+        self._error = None
+        threading.Thread(target=self._load, args=args, daemon=True).start()
+
+    def _load(self, *args):
+        try:
+            self._tutor = ModelTutor(*args)
+            self.info = self._tutor.info
+            self.mode = "model"
+            print("Model loaded and ready", flush=True)
+        except Exception as e:  # keep serving the app; report the failure in health
+            self._error = repr(e)
+            self.mode = "error"
+            self.info = "model failed to load"
+            print(f"Model failed to load: {e!r}", file=sys.stderr, flush=True)
+
+    def reply(self, messages, use_adapter):
+        if self._tutor is None:
+            raise WakingUp()
+        return self._tutor.reply(messages, use_adapter)
+
+
+class WakingUp(Exception):
+    pass
 
 
 def load_school_list() -> dict[str, set[str]]:
@@ -680,6 +726,9 @@ def make_handler(tutor, lock: threading.Lock, board: Leaderboard, limiter: RateL
                     if which in ("base", "both"):
                         key = "base_reply" if which == "both" else "reply"
                         result[key] = tutor.reply(messages, use_adapter=False)
+            except WakingUp:
+                self._json({"error": "Sabi is waking up. Please try again in about a minute.", "waking": True}, status=503)
+                return
             except Exception as e:  # log details server-side; don't leak internals to the browser
                 print(f"generation failed: {e!r}", file=sys.stderr, flush=True)
                 self._json({"error": "Sabi couldn't answer just now, please try again"}, status=500)
@@ -705,9 +754,15 @@ def main() -> None:
     parser.add_argument("--max-new-tokens", type=int, default=300)
     parser.add_argument("--mock", action="store_true", help="canned replies, no GPU/model needed")
     parser.add_argument("--leaderboard-file", default="ml/outputs/leaderboard.json")
+    parser.add_argument("--no-model", action="store_true",
+                        help="serve the app, leaderboard and feedback only (no GPU, no model)")
+    parser.add_argument("--background-load", action="store_true",
+                        help="start serving at once and load the model in the background (serverless hosts)")
     args = parser.parse_args()
 
-    if args.mock:
+    if args.no_model:
+        tutor = NoTutor()
+    elif args.mock:
         tutor = MockTutor()
     else:
         adapter_dir = Path(args.adapter)
@@ -715,7 +770,8 @@ def main() -> None:
             adapter_dir = ROOT / adapter_dir
         if not adapter_dir.exists():
             raise SystemExit(f"Adapter not found: {adapter_dir}")
-        tutor = ModelTutor(args.base_model, adapter_dir, args.max_new_tokens)
+        tutor_cls = WakingTutor if args.background_load else ModelTutor
+        tutor = tutor_cls(args.base_model, adapter_dir, args.max_new_tokens)
 
     board_path = Path(args.leaderboard_file)
     if not board_path.is_absolute():
