@@ -9,7 +9,7 @@ The **SAY** lines are short on purpose. Say them slowly. Pause between lines. It
 1. Open the app with the live AI in an incognito window:
    `https://sabi-app-wine.vercel.app/?api=<your Kaggle tunnel link>`
 2. In a normal window, send one message in Ask Sabi so the AI is warmed up.
-3. Have a second tab open on the results: `https://github.com/LovableLynx/sabi#evaluation`
+3. Have a second tab open on the results: `https://github.com/LovableLynx/sabi#results`
 4. Zoom the browser to 125%. Turn sound ON.
 5. In Loom, choose Screen + Camera.
 
