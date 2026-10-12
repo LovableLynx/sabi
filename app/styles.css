@@ -619,6 +619,36 @@ button { font-family: inherit; }
   from { opacity: 0; transform: scale(0.92); }
   to { opacity: 1; transform: scale(1); }
 }
+
+/* Conductor & driver street slang callout banner */
+.journey-conductor-callout {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+  line-height: 1.35;
+}
+.journey-conductor-callout.good {
+  background: rgba(34, 197, 94, 0.14);
+  border: 1.5px solid rgba(34, 197, 94, 0.45);
+  color: #14532d;
+}
+.journey-conductor-callout.bad {
+  background: rgba(239, 68, 68, 0.14);
+  border: 1.5px solid rgba(239, 68, 68, 0.45);
+  color: #7f1d1d;
+}
+.journey-conductor-callout .kicker {
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+  opacity: 0.85;
+}
+
 .question-card { border-color: var(--subject); border-left-width: 8px; font-size: 1.02rem; font-weight: 700; }
 .rich p { margin: 4px 0; white-space: pre-wrap; }
 .rich table { border-collapse: collapse; width: 100%; margin: 8px 0; font-size: 0.85rem; font-weight: 600; }

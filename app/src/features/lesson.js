@@ -91,6 +91,24 @@ export const VEHICLES = [
   },
 ];
 
+// Nigerian Conductor & Driver Street Slangs
+export const GOOD_SLANGS = [
+  "Pigeon soul, oh well done, you sabi! 🕊️",
+  "Drive on now! No stopping on Third Mainland! 🚗💨",
+  "You dey move! Speed throttle! 🚀",
+  "Oya clear road for this ride! 🛣️",
+  "Motor don accelerate, you sharp well well! 🔥",
+  "Master driver! Green light all the way! 🟢",
+];
+
+export const WRONG_SLANGS = [
+  "Hold am! Hold am! Wrong bus stop! 🛑",
+  "Oga driver, step on brake quick! ⚠️",
+  "Which kind turn be this? Park well first! 🚌",
+  "Conductor say: Wait first, check your map! 🔄",
+  "Engine cough small! Cool down reason am! ⛽",
+];
+
 // A stop is a round of tasks: the stop's exam question first (with Sabi's
 // authored guiding steps), then practice tasks on the same idea. A wrong first
 // try is free; failing a task costs 1 fuel. The stop is passed with 60%.
@@ -108,9 +126,33 @@ function render(container, content, lesson) {
   const replay = ask("lessonDone", lesson.id, false); // practising a finished stop never strands you
   let mode = "checking"; // model | mock | offline
 
-  // ---- car journey state ----
+  // ---- car journey state & performance progression ----
   let currentVehicleIdx = 0; // Everyone starts with Hijapa
   let carSpeedState = "moving"; // moving | fast | stopped
+  let fastCorrectCount = 0;
+  let correctCount = 0;
+
+  function evaluateCarUpgrade(isFast, isFirstTry) {
+    if (isFirstTry) correctCount += 1;
+    if (isFast && isFirstTry) fastCorrectCount += 1;
+
+    let targetVehicle = currentVehicleIdx;
+    if (fastCorrectCount >= 8 && correctCount >= 8) targetVehicle = 5; // Limousine
+    else if (fastCorrectCount >= 6 && correctCount >= 6) targetVehicle = 4; // Escalade
+    else if (fastCorrectCount >= 4 && correctCount >= 4) targetVehicle = 3; // Jeep
+    else if (fastCorrectCount >= 2) targetVehicle = 2; // BRT
+    else if (fastCorrectCount >= 1) targetVehicle = 1; // Danfo
+
+    if (targetVehicle > currentVehicleIdx) {
+      currentVehicleIdx = targetVehicle;
+      const upgraded = VEHICLES[currentVehicleIdx];
+      emit("toast", {
+        text: `🚀 VEHICLE UPGRADE! You don upgrade to ${upgraded.name} (${upgraded.tier})! ${upgraded.icon}`,
+        kind: "good",
+      });
+      emit("rank:up", { name: upgraded.name });
+    }
+  }
 
   const modeLabels = [];
   function setMode(m) {
@@ -206,6 +248,7 @@ function render(container, content, lesson) {
 
   function showTask(task) {
     const s = { selected: null, wrong: new Set(), eliminated: new Set(), hintsUsed: 0, done: false, messages: [], guidedIndex: 0, pending: false, waking: false };
+    const taskStartTime = Date.now();
     clear(taskArea);
     paintProgress();
 
@@ -371,7 +414,7 @@ function render(container, content, lesson) {
     const sheet = h("div", { class: "result-sheet", hidden: true });
     const checkBtn = h("button", { class: "btn btn-primary btn-block", disabled: true, onclick: check }, "Lock in answer");
 
-    function endTask(result) {
+    function endTask(result, slang) {
       s.done = true;
       round.results[round.index] = result;
       paintOptions();
@@ -381,7 +424,12 @@ function render(container, content, lesson) {
       clear(sheet);
       sheet.hidden = false;
       sheet.className = "result-sheet " + (right ? "good" : "bad");
+      const conductorQuote = slang || (right ? "Drive on now, you sabi am!" : "Hold am! Wrong turn!");
       sheet.append(
+        h("div", { class: "journey-conductor-callout " + (right ? "good" : "bad") },
+          h("span", { class: "small kicker" }, right ? "🗣️ Driver & Conductor:" : "🛑 Conductor caution:"),
+          h("strong", {}, conductorQuote)
+        ),
         h("h3", {}, right ? (result === "first" ? "You don sabi! 🎉" : "You got there! 👏") : "Na the correct one be this 👇"),
         h("p", {}, tidyDashes(task.explanation)),
         h("button", {
@@ -399,19 +447,32 @@ function render(container, content, lesson) {
 
     function check() {
       if (s.selected === null || s.done) return;
+      const elapsed = (Date.now() - taskStartTime) / 1000;
+      const isFast = elapsed <= 14;
+
       if (s.selected === task.answer_index) {
         emit("answer:correct");
-        endTask(s.wrong.size === 0 ? "first" : "second");
+        carSpeedState = isFast ? "fast" : "moving";
+        const isFirstTry = s.wrong.size === 0;
+        evaluateCarUpgrade(isFast, isFirstTry);
+        const slang = GOOD_SLANGS[Math.floor(Math.random() * GOOD_SLANGS.length)];
+        emit("toast", { text: slang, kind: "good" });
+        endTask(isFirstTry ? "first" : "second", slang);
         return;
       }
+
       emit("answer:wrong");
+      carSpeedState = "stopped";
+      updateJourneyCar();
+      const wrongSlang = WRONG_SLANGS[Math.floor(Math.random() * WRONG_SLANGS.length)];
       s.wrong.add(s.selected);
       s.selected = null;
       paintOptions();
       if (s.wrong.size < 2) {
-        emit("toast", { text: "E no easy, one more try!", kind: "bad" });
+        emit("toast", { text: `${wrongSlang} E no easy, one more try!`, kind: "bad" });
         return;
       }
+
       // Two misses: the task is lost and costs 1 fuel.
       const fuelLeft = ask("loseHeart", null, null);
       if (fuelLeft === 0 && round.index + 1 < total && !replay) {
@@ -423,6 +484,10 @@ function render(container, content, lesson) {
         sheet.hidden = false;
         sheet.className = "result-sheet bad";
         sheet.append(
+          h("div", { class: "journey-conductor-callout bad" },
+            h("span", { class: "small kicker" }, "🛑 Conductor caution:"),
+            h("strong", {}, wrongSlang)
+          ),
           h("h3", {}, "Out of fuel ⛽"),
           h("p", {}, tidyDashes(task.explanation)),
           h("p", {}, "That one cost your last fuel. Practise a finished stop to refuel, then come back to this one."),
@@ -430,8 +495,8 @@ function render(container, content, lesson) {
         );
         return;
       }
-      emit("toast", { text: "That one cost 1 ⛽. Fuel comes back by itself, 1 every 20 minutes.", kind: "bad" });
-      endTask("missed");
+      emit("toast", { text: `${wrongSlang} That one cost 1 ⛽. Fuel comes back by itself, 1 every 20 minutes.`, kind: "bad" });
+      endTask("missed", wrongSlang);
     }
 
     taskArea.append(
