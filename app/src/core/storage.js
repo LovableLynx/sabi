@@ -35,3 +35,16 @@ export function save(key, value) {
     memory.set(key, raw);
   }
 }
+
+// Remove every Sabi key from this device ("Delete my data"). Features that are
+// still running keep their in-memory state until they react to data:delete.
+export function clearAll() {
+  memory.clear();
+  try {
+    if (persistent) {
+      Object.keys(localStorage).filter((k) => k.startsWith("sabi:")).forEach((k) => localStorage.removeItem(k));
+    }
+  } catch {
+    /* storage blocked: nothing saved to clear */
+  }
+}

@@ -6,7 +6,7 @@
 import { answer, ask, emit, provide } from "../core/bus.js";
 import { h, clear } from "../core/dom.js";
 import { AVATARS, STATES } from "../core/nigeria.js";
-import { load, save } from "../core/storage.js";
+import { load, save, clearAll } from "../core/storage.js";
 import { checkName, checkSchool } from "../core/validate.js";
 
 let profile = load("profile", null);
@@ -270,7 +270,7 @@ function profileScreen(container) {
           deleteArmed = false;
           emit("data:delete", { id: profile.id });
           profile = null;
-          save("profile", null);
+          clearAll(); // exam dates, settings, everything Sabi kept on this device
           save("seenOnboarding", false);
           emit("profile:changed", null);
           emit("toast", { text: "Your Sabi data has been deleted.", kind: "good" });
