@@ -102,6 +102,8 @@ NIGERIAN_STATES = {
     "Taraba", "Yobe", "Zamfara",
 }
 
+CANONICAL_AVATARS = {"🐢", "🦁", "🦅", "🐘", "🦒", "🐆", "🦜", "🐊"}
+
 
 class NoTutor:
     """Leaderboard + feedback only, no model (Modal's cheap CPU service).
@@ -462,8 +464,11 @@ class Leaderboard:
         xp = raw.get("xp")
         if not isinstance(xp, int) or isinstance(xp, bool) or not 0 <= xp <= 1_000_000:
             raise ValueError("xp must be a whole number 0-1,000,000")
+        avatar = text("avatar", 1, 8)
+        if avatar not in CANONICAL_AVATARS:
+            raise ValueError("invalid avatar")
         return {
-            "id": player_id, "nickname": nickname, "avatar": text("avatar", 1, 8),
+            "id": player_id, "nickname": nickname, "avatar": avatar,
             "state": state, "school": school, "xp": xp, "updated": time.time(),
             "verified": school.lower() in SCHOOLS.get(state, set()),
         }
