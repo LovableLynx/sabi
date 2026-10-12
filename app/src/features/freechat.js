@@ -34,7 +34,7 @@ const EXAMPLES = {
 
 function tooVague(text) {
   const t = text.trim();
-  return t.split(/\s+/).length < 3 && !/[?\d]/.test(t);
+  return t.split(/\s+/).length < 2 && !/[?\d]/.test(t); // "they", "ok"; "Explain refraction" is fine
 }
 
 const PHYSICS_SYMBOLS = ["^2", "^", "√", "Δ", "θ", "ω", "μ", "→", "vec()", "/", "*"];
