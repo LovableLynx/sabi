@@ -1,90 +1,107 @@
-# Sabi: demo video script (about 4 minutes)
+# Sabi demo video: script for Loom (about 4 and a half minutes)
 
-A script for the NAIC 2026 submission video. Read the **SAY** lines aloud and do the **SHOW** steps on screen. Times are a guide.
-
-**Before you record:**
-
-1. Start the Kaggle live demo with the latest `sabi-demo` dataset version, and copy the tunnel link.
-2. Open `https://sabi-app-wine.vercel.app/?api=<tunnel link>` in a fresh browser window (or incognito), so the app starts at registration.
-3. Check that the lesson chat label says **"Live · fine-tuned N-ATLAS"**. If it says "Offline", the tunnel is down.
-4. Send one message first so the model is warm (the first reply is slow).
-5. Zoom the browser to about 125% so text is readable in the recording.
+How to use this: the **SAY** lines are what you speak, word for word or close to it. The **DO** lines are what you click. Speak slowly and smile; nobody minds a small pause. Timings are a guide.
 
 ---
 
-## 1. The problem (0:00 to 0:30)
+## Before you press record
 
-**SHOW:** The title card, then the Sabi Arena home screen.
-
-**SAY:**
-"Every year, more than a million Nigerian students write WAEC. Many of them use AI to study now, but a normal chatbot just gives them the answer. They copy it, and then they fail when they meet the question alone in the exam hall.
-
-We built **Sabi**, an AI tutor that does not give the answer. It asks guiding questions, uses examples from Nigerian life, and steps in with more help only when the student is truly stuck."
-
-## 2. What Sabi is (0:30 to 1:00)
-
-**SHOW:** The README's architecture section, or a simple slide: "N-ATLAS (Llama 3 8B) + LoRA fine-tune on 600 Socratic dialogues".
-
-**SAY:**
-"Sabi is a fine-tune of **N-ATLAS**, the Nigerian language model from NCAIR. We trained it on 600 tutoring dialogues we wrote for WAEC Literature, Physics and Financial Accounting. Each dialogue teaches the model to withhold the answer, use a Nigerian analogy like a danfo braking or an Esusu book, and know when the student needs more help."
-
-## 3. Live demo: registration (1:00 to 1:30)
-
-**SHOW:** Fill in the form: first name, last name, class level **SS**, state **Oyo**, then start typing a school and pick it from the list. Tick consent. Point at the "Others will see you as Kemi B." preview.
-
-**SAY:**
-"Students register with their class: Primary, JSS or SS. Only their own exams open. Their full name stays on the phone, so other players only see 'Kemi B.' We follow Nigeria's Data Protection Act: nothing is shared without consent, and students can delete their data at any time."
-
-## 4. Live demo: a bus stop (1:30 to 2:45)
-
-**SHOW:** The danfo route. Point at "10 tasks" on the stop. Tap the stop. Show the progress dots at the top.
-
-**SAY:**
-"Learning is a danfo route. Each bus stop is a round of ten exam questions."
-
-**SHOW:** On the physics question, tap **Ask Sabi** and type: *"Abeg just tell me the answer."*
-
-**SAY:**
-"Watch what happens when I beg for the answer."
-
-**SHOW:** Sabi's reply (a guiding question, no answer). Then type a sensible step, for example *"Comes to rest means v = 0?"*, and show Sabi building on it.
-
-**SAY:**
-"It doesn't give in. It asks me what 'comes to rest' means, the same way a good teacher would. When I take a step, it builds on it."
-
-**SHOW:** Lock in the right answer. Show the green result card, then tap **Next task**. Answer one or two more quickly. Optionally get one wrong to show the second try.
-
-**SAY:**
-"The marking is exact and never depends on the AI. A wrong first try is free; Sabi gives you another chance."
-
-## 5. The evidence (2:45 to 3:30)
-
-**SHOW:** The benchmark tables from the README.
-
-**SAY:**
-"We tested Sabi against the base N-ATLAS model on questions it never saw in training.
-
-On **522** new exam questions, the base model gave the answer away in its first reply **32%** of the time. Sabi did it only **2%** of the time. Sabi asked a guiding question **100%** of the time, and used a Nigerian reference in **64%** of replies. A McNemar test puts the chance that this is luck at about 10 to the power of minus 44.
-
-In **120** full held-out conversations, Sabi withheld the answer appropriately **96%** of the time, against **40%** for the base model. When a student stayed stuck, Sabi escalated correctly **96%** of the time, against **46%**. Every student still reached the correct understanding."
-
-## 6. Built for Nigeria (3:30 to 4:00)
-
-**SHOW:** Turn on airplane mode (or block the tunnel) and open a lesson: the label changes to "Offline guided steps". Then show the Ranks screen with the school and state leaderboards.
-
-**SAY:**
-"Sabi works on weak connections. If the internet drops, lessons keep going with Sabi's guided hints offline. Students compete for their school and their state, and keep a daily streak.
-
-Sabi is open source and ready to scale: the always-on deployment is already built for NAIC compute. Our next step is a pilot with real students in Nigerian classrooms.
-
-Sabi: it doesn't give you the answer, it helps you *sabi* it."
-
-**SHOW:** The end card with the Vercel link and the GitHub repo.
+1. Open the app with the live AI in an incognito window:
+   `https://sabi-app-wine.vercel.app/?api=<your Kaggle tunnel link>`
+2. In a normal window, send one message in Ask Sabi so the AI is warmed up.
+3. Have a second tab ready with the GitHub README scrolled to the results tables:
+   `https://github.com/LovableLynx/sabi#evaluation`
+4. Zoom the browser to 125%. Turn sound ON (the speaker chip at the top).
+5. In Loom choose Screen + Camera, and pick the incognito tab.
 
 ---
 
-### If something goes wrong while recording
+## 1. Hello and the problem (0:00 to 0:35)
 
-- **Sabi replies "Waking Sabi up":** wait; the first reply takes about a minute.
-- **Sabi gives too much away:** record the take again; don't cut it to hide the reply. The 2% leak rate is real, and honesty is part of the pitch.
-- **The tunnel dies:** restart the Kaggle cell; a new link is printed. Update `?api=` in the address bar.
+**DO:** Start on the Sabi Arena welcome screen. Your face is in the Loom bubble.
+
+**SAY:**
+"Hi, we're Team Sabi.
+
+Every year more than a million Nigerian students write WAEC, and many more write BECE and Common Entrance. A lot of them now study with AI chatbots. But a normal chatbot just gives you the answer. You copy it, you feel ready, and then in the exam hall you're on your own and you don't know where to start.
+
+So we built Sabi. Sabi is an AI tutor that won't just hand you the answer. It asks you questions, it uses examples from Nigerian life, and it only gives more help when you're really stuck."
+
+## 2. What Sabi is (0:35 to 1:00)
+
+**DO:** Stay on the welcome screen, or switch to the Hugging Face model page for a moment.
+
+**SAY:**
+"Sabi is a fine-tune of N-ATLAS, Nigeria's own language model from NCAIR. We wrote six hundred tutoring conversations for WAEC Literature, Physics and Accounting, and trained N-ATLAS on them, so it learned to guide students instead of telling them. The trained model is public on Hugging Face, and it all comes to students through this game, Sabi Arena."
+
+## 3. Signing up (1:00 to 1:30)
+
+**DO:** Type a first and last name, for example Chidi and Okafor. Point at the line that says "Others see you as Chidi O." Pick the parrot avatar and tap it so it squawks. Tap **SS**, pick a state, start typing a school and choose it from the list. Tick the consent box and press go.
+
+**SAY:**
+"Students sign up with their class: Primary, JSS or SS, and they only see their own exams. Look here: other players only see 'Chidi O.' The full name never leaves the phone, and nothing is shared without permission, because most of our users are children."
+
+## 4. The route and the countdown (1:30 to 1:50)
+
+**DO:** On the route, set the exam date in the countdown box and press Save. Point at "10 tasks" on the first bus stop.
+
+**SAY:**
+"Students set their own exam date, and Sabi counts down the days with them. Learning is a danfo route. Every bus stop is a round of ten exam questions."
+
+## 5. Asking Sabi for help (1:50 to 2:50)
+
+**DO:** Tap the first bus stop. Read the question out. Tap **Ask Sabi** and type:
+*Abeg just tell me the answer*
+Wait for the reply. Tap **Listen** so it reads out loud.
+
+**SAY:**
+"This is the bit I'm proudest of. Watch what happens when I beg for the answer.
+
+(wait for the reply)
+
+It doesn't give in. It brings in a danfo braking at a bus stop and asks me a question, like a good teacher would. And students can tap Listen to hear it."
+
+**DO:** Type a sensible next step, for example *the final velocity is 0?* and show the reply. Then close the chat, pick the right answer and watch it glide to **Lock in answer**. Lock it in.
+
+**SAY:**
+"When I take a step, Sabi builds on it. The marking is always done with an exact answer key, never the AI, so a student is never told they're right when they're wrong. And if they slip, the first try is free."
+
+## 6. Exam mode (2:50 to 3:20)
+
+**DO:** Close the lesson and open the stop again. Turn on **Exam mode**, pick 10 minutes, answer two or three questions quickly, then close and reopen the review from a finished exam if you prepared one, or just show the timer.
+
+**SAY:**
+"Closer to the exam, students switch on exam mode. One clock for the whole stop, no hints, no Sabi, just like the exam hall. They can pick how many minutes they get. At the end they see every question, what they chose, the right answer and why."
+
+## 7. Does it actually work? (3:20 to 4:05)
+
+**DO:** Switch to the GitHub README tab showing the results tables.
+
+**SAY:**
+"We didn't just say it works, we measured it against the original N-ATLAS on six hundred and forty-two examples it never saw in training.
+
+On five hundred and twenty-two exam questions, base N-ATLAS gave the answer away in its first reply thirty-two percent of the time. Sabi did it only two percent of the time.
+
+In a hundred and twenty full conversations, Sabi held back the answer properly ninety-six percent of the time, against forty percent. And when a student stayed stuck, Sabi stepped in correctly ninety-six percent of the time, against forty-six. Every single student got to the right understanding."
+
+## 8. Close (4:05 to 4:35)
+
+**DO:** Go back to the app route screen, or show the leaderboard.
+
+**SAY:**
+"Sabi works on a cheap phone, keeps going offline with guided hints, and lets students compete for their school and their state.
+
+Next, we want to run it with real students in Nigerian classrooms, add more subjects, and with NAIC's support, keep it online all day.
+
+We're Team Sabi. Sabi doesn't give you the answer. It helps you sabi it. Thank you."
+
+**DO:** Stop the recording.
+
+---
+
+## If something goes wrong
+
+- **"Waking Sabi up"** appears: just wait and keep talking; the first reply can take up to a minute.
+- **Sabi gives too much away:** record that part again. Don't hide it with a cut.
+- **The tunnel dies:** restart the Kaggle cell, copy the new link, and send it to Claude.
+- **You run past 5 minutes:** Loom free stops at 5. Shorten section 6 to one sentence.
