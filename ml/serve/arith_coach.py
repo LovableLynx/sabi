@@ -56,7 +56,7 @@ def _clean(text: str) -> str:
     t = re.sub(r"\bto the power of\b|\bto the power\b|\braised to\b", "^", t)
     t = re.sub(r"(\d+)\s*squared", r"\1^2", t)
     t = re.sub(r"(\d+)\s*cubed", r"\1^3", t)
-    t = re.sub(r"\btimes\b|\bmultiplied by\b|[x×*]", "*", t)
+    t = re.sub(r"\btimes\b|\bmultiplied by\b|\bx\b|[×*]", "*", t)
     t = re.sub(r"\bdivided by\b|[÷/]", "/", t)
     t = re.sub(r"\bplus\b|\badd\b", "+", t)
     t = re.sub(r"\bminus\b|\btake away\b", "-", t)
