@@ -323,6 +323,8 @@ def check_display_name(value: str) -> str | None:
     first = value[:-3] if re.search(r" \w\.$", value) else value
     if not first or not all(c.isalpha() or c in " '-" for c in first) or not first[0].isalpha():
         return "names can only have letters, spaces, hyphens or apostrophes"
+    if re.search(r"([^\W\d_])\1\1", first, re.I):  # before normalize_text shortens "aaaa" to "aa"
+        return "that doesn't look like a real name"
     if not all(_word_looks_real(w) for w in normalize_text(first).split()):
         return "that doesn't look like a real name"
     if normalize_text(first) in IMPERSONATE:

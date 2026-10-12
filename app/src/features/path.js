@@ -20,14 +20,18 @@ function subjectsIn(track, content) {
 function examCountdown(track, rerender) {
   const exam = TRACKS[track].short;
   const key = "examDate:" + track;
-  const date = load(key, null);
   const today = new Date(new Date().toDateString());
+  const iso = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+  const saved = load(key, null);
+  // Ignore anything that isn't a real YYYY-MM-DD date (damaged or hand-edited data).
+  const date = typeof saved === "string" && /^\d{4}-\d{2}-\d{2}$/.test(saved) && !isNaN(new Date(saved + "T00:00:00")) ? saved : null;
   const days = date ? Math.round((new Date(date + "T00:00:00") - today) / 86400000) : null;
-  const input = h("input", { class: "field", type: "date", value: date || "", min: today.toISOString().slice(0, 10), "aria-label": `${exam} date` });
+  const input = h("input", { class: "field", type: "date", value: days !== null && days >= 0 ? date : "", min: iso(today), "aria-label": `${exam} date` });
   const saveBtn = h("button", {
     class: "btn btn-primary btn-small", type: "button",
     onclick: () => {
       if (!input.value) return emit("toast", { text: "Pick the date of your exam first.", kind: "bad" });
+      if (input.value < iso(today)) return emit("toast", { text: "That date has already passed. Pick your next exam date.", kind: "bad" });
       save(key, input.value);
       emit("toast", { text: `📅 Exam date saved. Oya, let's prepare!`, kind: "good" });
       rerender();

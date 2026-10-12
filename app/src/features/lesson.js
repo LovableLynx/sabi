@@ -11,6 +11,13 @@ import { loadContent } from "../core/content.js";
 import { h, clear, richText, tidyDashes } from "../core/dom.js";
 import { CHAT_REPLIES, checkChat } from "../core/validate.js";
 import { isAutoRead, speak, speakerButton } from "../core/speech.js";
+
+// Spoken praise and encouragement, so the student hears how they did. Uses
+// the phone's own voice and follows the sound switch (muted means silent).
+function cheer(text) {
+  if (ask("muted", null, false)) return;
+  speak(text);
+}
 import { SUBJECTS } from "../core/nigeria.js";
 import { load, save } from "../core/storage.js";
 
@@ -572,6 +579,7 @@ function render(container, content, lesson) {
         evaluateCarUpgrade(isFast, isFirstTry);
         const slang = GOOD_SLANGS[Math.floor(Math.random() * GOOD_SLANGS.length)];
         emit("toast", { text: slang, kind: "good" });
+        cheer(isFirstTry ? `Well done! ${slang}` : `You got there! ${slang}`);
         endTask(isFirstTry ? "first" : "second", slang);
         return;
       }
@@ -585,6 +593,7 @@ function render(container, content, lesson) {
       paintOptions();
       if (s.wrong.size < 2) {
         emit("toast", { text: `${wrongSlang} E no easy, one more try!`, kind: "bad" });
+        cheer("Not quite. E no easy, try one more time!");
         return;
       }
 
@@ -612,6 +621,7 @@ function render(container, content, lesson) {
         return;
       }
       emit("toast", { text: `${wrongSlang} That one cost 1 ⛽. Fuel comes back by itself, 1 every 20 minutes.`, kind: "bad" });
+      cheer("No wahala. Look at the correct answer and the explanation, then we go again.");
       endTask("missed", wrongSlang);
     }
 
@@ -637,6 +647,9 @@ function render(container, content, lesson) {
     const firstTry = round.results.filter((r) => r === "first").length;
     const right = round.results.filter((r) => r !== "missed").length;
     const passed = right >= passMark;
+    cheer(passed
+      ? (right === total ? `Perfect! You got all ${total} right. You don sabi am well well!` : `Well done! You got ${right} out of ${total}. Stop complete!`)
+      : `You got ${right} out of ${total}. You need ${passMark} to pass this stop. No wahala, try again, you go get am!`);
     const result = ask("awardLesson", {
       lesson, correct: passed, firstTry: firstTry === total, hintsUsed: round.hintsUsed, chatTurns: round.chatTurns,
       round: { total, right, firstTry },

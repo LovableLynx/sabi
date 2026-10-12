@@ -44,6 +44,19 @@ const state = load("progress", {
   noHintSolves: 0,
   chatted: false,
 });
+// Saved data can be damaged or edited by hand: keep every field in a sane range.
+{
+  const num = (v, lo, hi, d) => (Number.isFinite(v) ? Math.min(hi, Math.max(lo, v)) : d);
+  state.xp = num(state.xp, 0, 1e9, 0);
+  state.noHintSolves = num(state.noHintSolves, 0, 1e6, 0);
+  if (!state.hearts || typeof state.hearts !== "object") state.hearts = { count: MAX_HEARTS, updatedAt: Date.now() };
+  state.hearts.count = Math.round(num(state.hearts.count, 0, MAX_HEARTS, MAX_HEARTS));
+  state.hearts.updatedAt = num(state.hearts.updatedAt, 0, Date.now(), Date.now());
+  if (!state.streak || typeof state.streak !== "object") state.streak = { count: 0, lastDay: null };
+  state.streak.count = num(state.streak.count, 0, 1e5, 0);
+  if (!Array.isArray(state.badges)) state.badges = [];
+  if (!state.lessons || typeof state.lessons !== "object") state.lessons = {};
+}
 
 function persist() {
   save("progress", state);

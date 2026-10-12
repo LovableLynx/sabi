@@ -110,6 +110,8 @@ export function checkName(value, label) {
   const v = String(value).trim();
   if (v.length < 2) return `Type your ${label} (at least 2 letters).`;
   if (!NAME_RE.test(v)) return `Your ${label} can only have letters, spaces, hyphens or apostrophes.`;
+  // Check before normalize(), which shortens "aaaa" to "aa" and would let it through.
+  if (/(\p{L})\1\1/iu.test(v)) return `That doesn't look like a real ${label}. Please check it.`;
   if (isOffensive(v, { strict: true })) return "Please use your real name, nicely.";
   if (IMPERSONATE.includes(normalize(v))) return `"${v}" can't be used as a name.`;
   const words = normalize(v).split(" ").filter(Boolean);
