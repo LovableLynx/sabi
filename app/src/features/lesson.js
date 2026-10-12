@@ -18,7 +18,10 @@ import { load, save } from "../core/storage.js";
 // answer per question with no marking along the way, no hints or Ask Sabi,
 // and a full review at the end. Unanswered questions count as missed. Exam
 // mode never costs fuel. Off by default; the choice is remembered.
-const EXAM_ROUND_SECONDS = 120;
+// The student picks how long the whole stop gets; 10 minutes is about real
+// WAEC objective pace (roughly a minute a question).
+const EXAM_MINUTE_CHOICES = [2, 5, 10, 15];
+const examMinutes = () => (EXAM_MINUTE_CHOICES.includes(load("examMinutes", 10)) ? load("examMinutes", 10) : 10);
 
 const LETTERS = ["A", "B", "C", "D"];
 
@@ -205,7 +208,7 @@ function render(container, content, lesson) {
   const examAnswers = []; // index of the option chosen for each task (exam mode)
   const timerBox = h("div", { class: "exam-timer", hidden: !examMode });
   function startExamClock() {
-    let left = EXAM_ROUND_SECONDS;
+    let left = examMinutes() * 60;
     const paint = () => {
       timerBox.textContent = `⏱ ${Math.floor(left / 60)}:${String(left % 60).padStart(2, "0")} left for all ${total} questions`;
       timerBox.classList.toggle("low", left <= 20);
@@ -702,15 +705,27 @@ function render(container, content, lesson) {
     );
   }
 
-  // ---- exam mode switch ----
-  const examToggle = h("button", {
-    class: "exam-toggle" + (examMode ? " on" : ""), type: "button",
-    onclick: () => {
-      save("examMode", !examMode);
-      emit("toast", { text: !examMode ? `⏱ Exam mode on: ${EXAM_ROUND_SECONDS / 60} minutes for all ${total} questions, no hints, results at the end.` : "Exam mode off. Take your time and use hints.", kind: "info" });
-      emit("nav", { screen: "lesson", params: { id: lesson.id } }); // start the stop again in the new mode
+  // ---- exam mode switch and time picker ----
+  const restart = () => emit("nav", { screen: "lesson", params: { id: lesson.id } }); // start the stop again
+  const timePick = h("select", {
+    class: "field exam-minutes", "aria-label": "Time for the whole stop",
+    onchange: (e) => {
+      save("examMinutes", Number(e.target.value));
+      emit("toast", { text: `⏱ ${e.target.value} minutes for all ${total} questions. Starting again.`, kind: "info" });
+      restart();
     },
-  }, examMode ? `⏱ Exam mode: ON (${EXAM_ROUND_SECONDS / 60} min for ${total} questions)` : "⏱ Exam mode: OFF");
+  }, EXAM_MINUTE_CHOICES.map((m) =>
+    h("option", { value: m, selected: m === examMinutes() }, `${m} min${m === 10 ? " (WAEC pace)" : ""}`)));
+  const examToggle = h("div", { class: "exam-controls" },
+    h("button", {
+      class: "exam-toggle" + (examMode ? " on" : ""), type: "button",
+      onclick: () => {
+        save("examMode", !examMode);
+        emit("toast", { text: !examMode ? `⏱ Exam mode on: ${examMinutes()} minutes for all ${total} questions, no hints, results at the end.` : "Exam mode off. Take your time and use hints.", kind: "info" });
+        restart();
+      },
+    }, examMode ? "⏱ Exam mode: ON" : "⏱ Exam mode: OFF"),
+    examMode ? timePick : null);
 
   // ---- layout ----
   container.appendChild(

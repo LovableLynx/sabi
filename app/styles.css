@@ -888,3 +888,6 @@ body[data-screen="onboarding"] .mascot-slot { display: none; }
 .review-item.bad { border-color: var(--red); }
 .review-q { font-weight: 700; margin-bottom: 4px; }
 .review-q .rich { display: inline; }
+.exam-controls { display: flex; justify-content: flex-end; align-items: center; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+.exam-controls .exam-toggle { margin: 0; }
+.exam-minutes { width: auto; padding: 5px 10px; font-size: 0.8rem; font-weight: 800; }
