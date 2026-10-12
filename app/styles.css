@@ -892,3 +892,6 @@ body[data-screen="lesson"] .mascot-slot { display: none; } /* no animal over the
 .exam-controls { display: flex; justify-content: flex-end; align-items: center; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
 .exam-controls .exam-toggle { margin: 0; }
 .exam-minutes { width: auto; padding: 5px 10px; font-size: 0.8rem; font-weight: 800; }
+
+/* Leave room for the bottom menu when the chat glides into view. */
+.composer, .chat-panel { scroll-margin-bottom: 96px; }

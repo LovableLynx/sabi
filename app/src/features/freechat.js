@@ -127,7 +127,13 @@ function render(container, status) {
   }
   if (state.pending) log.appendChild(h("div", { class: "chat-msg tutor thinking" }, state.waking ? "Waking Sabi up. The first answer takes about a minute…" : "Sabi is thinking…"));
   container.appendChild(h("div", { class: "card" }, log));
-  setTimeout(() => (log.scrollTop = log.scrollHeight), 0);
+  // Keep the newest message (or "Sabi is thinking...") in view without manual scrolling:
+  // scroll inside the chat box, then bring the bottom of the box onto the screen.
+  setTimeout(() => {
+    log.scrollTop = log.scrollHeight;
+    const composer = container.querySelector(".composer");
+    if (history.length && composer) composer.scrollIntoView({ behavior: "smooth", block: "end" });
+  }, 0);
 
   async function send(text) {
     if (!text.trim() || state.pending) return;

@@ -463,6 +463,7 @@ function render(container, content, lesson) {
       }
       if (s.pending) chatLog.appendChild(h("div", { class: "chat-msg tutor thinking" }, s.waking ? "Waking Sabi up. The first answer takes about a minute…" : "Sabi is thinking…"));
       chatLog.scrollTop = chatLog.scrollHeight;
+      if (s.messages.length > 1) chatPanel.scrollIntoView({ behavior: "smooth", block: "nearest" }); // keep the reply in view
       sendBtn.disabled = s.pending;
     }
 
