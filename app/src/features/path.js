@@ -14,6 +14,39 @@ function subjectsIn(track, content) {
   return Object.entries(SUBJECTS).filter(([key, s]) => s.track === track && content.subjects[key]);
 }
 
+// Days left to the student's own exam (WAEC/JAMB, BECE or Common Entrance).
+// Exam dates differ by school and year, so each student sets theirs; it is
+// kept on this device per track.
+function examCountdown(track, rerender) {
+  const exam = TRACKS[track].short;
+  const key = "examDate:" + track;
+  const date = load(key, null);
+  const today = new Date(new Date().toDateString());
+  const days = date ? Math.round((new Date(date + "T00:00:00") - today) / 86400000) : null;
+  const input = h("input", { class: "field", type: "date", value: date || "", min: today.toISOString().slice(0, 10), "aria-label": `${exam} date` });
+  const saveBtn = h("button", {
+    class: "btn btn-primary btn-small", type: "button",
+    onclick: () => {
+      if (!input.value) return emit("toast", { text: "Pick the date of your exam first.", kind: "bad" });
+      save(key, input.value);
+      emit("toast", { text: `📅 Exam date saved. Oya, let's prepare!`, kind: "good" });
+      rerender();
+    },
+  }, "Save");
+  if (days === null || days < 0) {
+    return h("div", { class: "card exam-countdown" },
+      h("div", {}, h("strong", {}, days < 0 ? `📅 Your ${exam} date has passed.` : `📅 When is your ${exam}?`),
+        h("div", { class: "small muted" }, "Set the date and Sabi will count down the days with you.")),
+      h("div", { class: "btn-row" }, input, saveBtn));
+  }
+  const change = h("button", { class: "btn btn-ghost btn-small", type: "button", onclick: () => { save(key, null); rerender(); } }, "Change");
+  const message = days === 0 ? `📅 Your ${exam} is today. You don prepare, go and sabi am! 💪`
+    : `📅 ${days} ${days === 1 ? "day" : "days"} to your ${exam}`;
+  const tip = days === 0 ? "" : days <= 14 ? "Final stretch: try Exam mode on a stop to practise under time." : "A stop a day keeps the exam fear away.";
+  return h("div", { class: "card exam-countdown" },
+    h("div", {}, h("strong", {}, message), tip ? h("div", { class: "small muted" }, tip) : null), change);
+}
+
 function render(container, content) {
   clear(container);
   const tracking = ask("stats", null, null) !== null;
@@ -98,6 +131,8 @@ function render(container, content) {
         `🧪 ${TRACKS[track].short} is a pilot track. Sabi's tutor was trained on WAEC/JAMB, so it may be less sharp here. Tell us what you think!`)
     );
   }
+
+  container.appendChild(examCountdown(track, () => render(container, content)));
 
   const stats = ask("stats", null, null);
   if (stats && stats.hearts === 0) {

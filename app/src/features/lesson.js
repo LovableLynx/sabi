@@ -12,6 +12,12 @@ import { h, clear, richText, tidyDashes } from "../core/dom.js";
 import { CHAT_REPLIES, checkChat } from "../core/validate.js";
 import { isAutoRead, speak, speakerButton } from "../core/speech.js";
 import { SUBJECTS } from "../core/nigeria.js";
+import { load, save } from "../core/storage.js";
+
+// Exam mode: each question gets a countdown, like a real objective paper, and
+// hints and Ask Sabi are switched off. Running out of time counts the task as
+// missed but never costs fuel. Off by default; the choice is remembered.
+const EXAM_SECONDS = 60;
 
 const LETTERS = ["A", "B", "C", "D"];
 
@@ -192,6 +198,10 @@ function render(container, content, lesson) {
   const passMark = Math.ceil(total * PASS_SHARE);
   const round = { index: 0, results: [], hintsUsed: 0, chatTurns: 0, liveAi: false };
   const replay = ask("lessonDone", lesson.id, false); // practising a finished stop never strands you
+  let examMode = load("examMode", false);
+  let examTimer = null;
+  const stopTimer = () => { clearInterval(examTimer); examTimer = null; };
+  let restartTask = null; // set by showTask so the exam toggle can restart an untouched task
   let mode = "checking"; // model | mock | offline
 
   // ---- car journey state & performance progression ----
@@ -483,6 +493,7 @@ function render(container, content, lesson) {
     const checkBtn = h("button", { class: "btn btn-primary btn-block", disabled: true, onclick: check }, "Lock in answer");
 
     function endTask(result, slang) {
+      stopTimer();
       s.done = true;
       round.results[round.index] = result;
       paintOptions();
@@ -544,6 +555,7 @@ function render(container, content, lesson) {
       // Two misses: the task is lost and costs 1 fuel.
       const fuelLeft = ask("loseHeart", null, null);
       if (fuelLeft === 0 && round.index + 1 < total && !replay) {
+        stopTimer();
         s.done = true;
         round.results[round.index] = "missed";
         paintOptions();
@@ -567,11 +579,35 @@ function render(container, content, lesson) {
       endTask("missed", wrongSlang);
     }
 
+    // ---- exam-mode countdown ----
+    stopTimer();
+    const timerBox = h("div", { class: "exam-timer", hidden: !examMode });
+    if (examMode) {
+      let left = EXAM_SECONDS;
+      const paint = () => {
+        timerBox.textContent = `⏱ ${Math.floor(left / 60)}:${String(left % 60).padStart(2, "0")}`;
+        timerBox.classList.toggle("low", left <= 10);
+      };
+      paint();
+      examTimer = setInterval(() => {
+        if (!taskArea.isConnected) return stopTimer(); // left the lesson
+        left -= 1;
+        paint();
+        if (left <= 0 && !s.done) {
+          emit("answer:wrong");
+          emit("toast", { text: "⏱ Time up! In the exam hall, move on and come back later. No fuel lost.", kind: "bad" });
+          endTask("missed", "Time don finish! Next one.");
+        }
+      }, 1000);
+    }
+    restartTask = () => { if (!s.done && s.wrong.size === 0 && s.selected === null) showTask(task); };
+
     taskArea.append(
+      timerBox,
       h("div", { class: "card question-card" }, richText(task.question)),
       h("div", { class: "options" }, optionEls),
       hintBox,
-      h("div", { class: "tool-row" }, hintBtn, chatBtn),
+      examMode ? h("p", { class: "muted small exam-note" }, "📝 Exam mode: no hints or Ask Sabi, just like the exam hall.") : h("div", { class: "tool-row" }, hintBtn, chatBtn),
       chatPanel,
       checkBtn,
       sheet
@@ -584,6 +620,7 @@ function render(container, content, lesson) {
   const feedbackSlot = h("div", { class: "feedback-slot" });
 
   function finishRound() {
+    stopTimer();
     const firstTry = round.results.filter((r) => r === "first").length;
     const right = round.results.filter((r) => r !== "missed").length;
     const passed = right >= passMark;
@@ -637,6 +674,19 @@ function render(container, content, lesson) {
     window.scrollTo({ top: 0 });
   }
 
+  // ---- exam mode switch ----
+  const examToggle = h("button", {
+    class: "exam-toggle" + (examMode ? " on" : ""), type: "button",
+    onclick: () => {
+      examMode = !examMode;
+      save("examMode", examMode);
+      examToggle.className = "exam-toggle" + (examMode ? " on" : "");
+      examToggle.textContent = examMode ? `⏱ Exam mode: ON (${EXAM_SECONDS} s per question)` : "⏱ Exam mode: OFF";
+      emit("toast", { text: examMode ? `⏱ Exam mode on: ${EXAM_SECONDS} seconds per question, no hints. Like the real exam!` : "Exam mode off. Take your time and use hints.", kind: "info" });
+      if (restartTask) restartTask(); // applies now if this question hasn't been tried yet, else from the next one
+    },
+  }, examMode ? `⏱ Exam mode: ON (${EXAM_SECONDS} s per question)` : "⏱ Exam mode: OFF");
+
   // ---- layout ----
   container.appendChild(
     h("div", { class: "lesson", style: `--subject:${subject.color}` },
@@ -649,6 +699,7 @@ function render(container, content, lesson) {
       ),
       journeyBar,
       total > 1 ? h("div", { class: "task-progress" }, h("div", { class: "task-dots" }, dots), counter) : null,
+      examToggle,
       taskArea
     )
   );

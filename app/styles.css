@@ -861,3 +861,19 @@ body[data-screen="onboarding"] .mascot-slot { display: none; }
 .feedback-pick { font: inherit; font-weight: 700; font-size: 0.85rem; padding: 8px 12px; border-radius: 999px; border: 2px solid var(--line); background: #fff; cursor: pointer; color: var(--ink); }
 .feedback-pick.picked { border-color: var(--green); background: var(--green-soft); }
 .feedback-thanks { font-weight: 800; color: var(--green-dark); margin: 0; }
+
+/* ---------- exam mode & exam countdown ---------- */
+.exam-toggle {
+  display: block; margin: 0 0 10px auto; padding: 5px 12px; border-radius: 999px; cursor: pointer;
+  border: 2px solid var(--line); background: var(--card); color: var(--ink); font: inherit; font-size: 0.78rem; font-weight: 800;
+}
+.exam-toggle.on { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+.exam-timer {
+  text-align: center; font-size: 1.3rem; font-weight: 900; margin-bottom: 8px; padding: 6px;
+  border-radius: 12px; background: var(--card); border: 2px solid var(--line);
+}
+.exam-timer.low { border-color: var(--red); color: var(--red); }
+.exam-note { margin: 0 0 6px; }
+.exam-countdown { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+.exam-countdown strong { font-size: 1.05rem; }
+.exam-countdown input { max-width: 170px; }
