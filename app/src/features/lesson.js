@@ -33,6 +33,64 @@ function outOfFuel(container) {
 }
 
 
+// Real Nigerian & Premium Vehicles Roster
+export const VEHICLES = [
+  {
+    id: "hijapa",
+    name: "Hijapa",
+    tier: "Starting Ride",
+    color: "#22c55e",
+    icon: "🐢",
+    desc: "Small local Naija classic bug. Resilient and ready to roll.",
+    svg: `<svg viewBox="0 0 100 48" class="car-svg"><ellipse cx="48" cy="24" rx="34" ry="16" fill="#15803d"/><path d="M 22 24 Q 48 8 74 24 Z" fill="#22c55e"/><circle cx="38" cy="20" r="6" fill="#bae6fd"/><circle cx="58" cy="20" r="6" fill="#bae6fd"/><rect x="74" y="22" width="6" height="4" rx="2" fill="#eab308"/><circle cx="30" cy="36" r="8" fill="#1f2937"/><circle cx="30" cy="36" r="3" fill="#9ca3af"/><circle cx="66" cy="36" r="8" fill="#1f2937"/><circle cx="66" cy="36" r="3" fill="#9ca3af"/></svg>`,
+  },
+  {
+    id: "danfo",
+    name: "Danfo",
+    tier: "Level 1 Upgrade",
+    color: "#eab308",
+    icon: "🚌",
+    desc: "Iconic Lagos yellow commercial bus with twin black stripes. Agile and sharp!",
+    svg: `<svg viewBox="0 0 110 50" class="car-svg"><rect x="15" y="10" width="75" height="28" rx="6" fill="#facc15"/><rect x="15" y="24" width="75" height="5" fill="#18181b"/><rect x="15" y="31" width="75" height="5" fill="#18181b"/><rect x="22" y="14" width="14" height="8" rx="2" fill="#e0f2fe"/><rect x="40" y="14" width="14" height="8" rx="2" fill="#e0f2fe"/><rect x="58" y="14" width="14" height="8" rx="2" fill="#e0f2fe"/><rect x="76" y="14" width="10" height="8" rx="2" fill="#bae6fd"/><circle cx="89" cy="28" r="3" fill="#fef08a"/><circle cx="32" cy="38" r="8" fill="#27272a"/><circle cx="32" cy="38" r="3" fill="#a1a1aa"/><circle cx="75" cy="38" r="8" fill="#27272a"/><circle cx="75" cy="38" r="3" fill="#a1a1aa"/></svg>`,
+  },
+  {
+    id: "brt",
+    name: "BRT",
+    tier: "Level 2 Upgrade",
+    color: "#2563eb",
+    icon: "🚍",
+    desc: "Lagos Blue Mass Transit bus. Modern, high-capacity expressway cruiser.",
+    svg: `<svg viewBox="0 0 130 52" class="car-svg"><rect x="12" y="8" width="98" height="30" rx="6" fill="#1d4ed8"/><rect x="12" y="24" width="98" height="4" fill="#ffffff"/><rect x="18" y="12" width="16" height="9" rx="2" fill="#dbeafe"/><rect x="38" y="12" width="16" height="9" rx="2" fill="#dbeafe"/><rect x="58" y="12" width="16" height="9" rx="2" fill="#dbeafe"/><rect x="78" y="12" width="16" height="9" rx="2" fill="#dbeafe"/><rect x="98" y="12" width="10" height="9" rx="2" fill="#bfdbfe"/><circle cx="109" cy="27" r="3" fill="#fef08a"/><circle cx="30" cy="38" r="8" fill="#1e293b"/><circle cx="30" cy="38" r="3" fill="#cbd5e1"/><circle cx="85" cy="38" r="8" fill="#1e293b"/><circle cx="85" cy="38" r="3" fill="#cbd5e1"/></svg>`,
+  },
+  {
+    id: "jeep",
+    name: "Jeep",
+    tier: "Level 3 Upgrade",
+    color: "#059669",
+    icon: "🚙",
+    desc: "Rugged lifted Naija 4x4 SUV. High ground clearance and tough bumper.",
+    svg: `<svg viewBox="0 0 115 54" class="car-svg"><rect x="18" y="16" width="70" height="22" rx="4" fill="#047857"/><path d="M 32 16 L 46 8 L 74 8 L 84 16 Z" fill="#065f46"/><polygon points="48,10 72,10 80,16 48,16" fill="#a7f3d0"/><rect x="12" y="18" width="6" height="18" rx="3" fill="#111827"/><rect x="88" y="24" width="4" height="10" rx="2" fill="#475569"/><circle cx="88" cy="26" r="3" fill="#fef08a"/><circle cx="34" cy="38" r="10" fill="#0f172a"/><circle cx="34" cy="38" r="4" fill="#94a3b8"/><circle cx="74" cy="38" r="10" fill="#0f172a"/><circle cx="74" cy="38" r="4" fill="#94a3b8"/></svg>`,
+  },
+  {
+    id: "escalade",
+    name: "Escalade",
+    tier: "Level 4 Upgrade",
+    color: "#0f172a",
+    icon: "🚘",
+    desc: "Executive Obsidian Black Luxury SUV. Chrome accents & VIP privacy glass.",
+    svg: `<svg viewBox="0 0 125 52" class="car-svg"><rect x="14" y="14" width="86" height="24" rx="5" fill="#09090b"/><path d="M 32 14 L 46 7 L 82 7 L 94 14 Z" fill="#18181b"/><polygon points="48,9 80,9 90,14 48,14" fill="#38bdf8"/><rect x="94" y="22" width="5" height="12" fill="#e2e8f0"/><line x1="14" y1="26" x2="100" y2="26" stroke="#94a3b8" stroke-width="1.5"/><circle cx="98" cy="22" r="3" fill="#ffffff"/><circle cx="34" cy="38" r="9" fill="#09090b" stroke="#cbd5e1" stroke-width="2"/><circle cx="34" cy="38" r="3" fill="#f1f5f9"/><circle cx="82" cy="38" r="9" fill="#09090b" stroke="#cbd5e1" stroke-width="2"/><circle cx="82" cy="38" r="3" fill="#f1f5f9"/></svg>`,
+  },
+  {
+    id: "limousine",
+    name: "Limousine",
+    tier: "Supreme VIP",
+    color: "#6b21a8",
+    icon: "🏎️",
+    desc: "Ultra-stretch VIP Presidential Limousine. The highest pinnacle of style!",
+    svg: `<svg viewBox="0 0 155 50" class="car-svg"><rect x="10" y="15" width="126" height="21" rx="5" fill="#3b0764"/><rect x="30" y="10" width="88" height="12" rx="4" fill="#581c87"/><rect x="36" y="12" width="16" height="7" rx="1.5" fill="#cbd5e1"/><rect x="56" y="12" width="16" height="7" rx="1.5" fill="#cbd5e1"/><rect x="76" y="12" width="16" height="7" rx="1.5" fill="#cbd5e1"/><rect x="96" y="12" width="16" height="7" rx="1.5" fill="#cbd5e1"/><line x1="10" y1="25" x2="136" y2="25" stroke="#facc15" stroke-width="2"/><polygon points="135,16 138,13 138,19" fill="#e11d48"/><circle cx="134" cy="22" r="3" fill="#ffffff"/><circle cx="28" cy="36" r="8" fill="#18181b" stroke="#facc15" stroke-width="1.5"/><circle cx="28" cy="36" r="3" fill="#e2e8f0"/><circle cx="114" cy="36" r="8" fill="#18181b" stroke="#facc15" stroke-width="1.5"/><circle cx="114" cy="36" r="3" fill="#e2e8f0"/></svg>`,
+  },
+];
+
 // A stop is a round of tasks: the stop's exam question first (with Sabi's
 // authored guiding steps), then practice tasks on the same idea. A wrong first
 // try is free; failing a task costs 1 fuel. The stop is passed with 60%.
@@ -50,6 +108,10 @@ function render(container, content, lesson) {
   const replay = ask("lessonDone", lesson.id, false); // practising a finished stop never strands you
   let mode = "checking"; // model | mock | offline
 
+  // ---- car journey state ----
+  let currentVehicleIdx = 0; // Everyone starts with Hijapa
+  let carSpeedState = "moving"; // moving | fast | stopped
+
   const modeLabels = [];
   function setMode(m) {
     mode = m;
@@ -60,6 +122,74 @@ function render(container, content, lesson) {
   }
   health().then((st) => setMode(st.tutor === "offline" ? "offline" : st.tutor));
 
+  // ---- car journey ui (Option A: persistent top road) ----
+  const carRunner = h("div", { class: "journey-car-runner moving", html: VEHICLES[0].svg });
+  const roadDashes = h("div", { class: "journey-road-dashes moving" });
+  const carStatus = h("span", { class: "journey-status-text" }, `${VEHICLES[0].icon} ${VEHICLES[0].name}`);
+
+  function openFleetModal() {
+    emit("ui:tap");
+    const modal = h("div", { class: "fleet-modal-backdrop", onclick: (e) => { if (e.target === modal) modal.remove(); } },
+      h("div", { class: "fleet-modal card" },
+        h("div", { class: "fleet-modal-head" },
+          h("h3", {}, "🚘 Sabi Highway Fleet"),
+          h("button", { class: "icon-btn", type: "button", onclick: () => modal.remove() }, "✕")
+        ),
+        h("p", { class: "muted small" }, "Start with the humble Hijapa. Answer correctly and with good speed to upgrade through Danfo, BRT, Jeep, Escalade, and Limousine!"),
+        h("div", { class: "fleet-grid" },
+          VEHICLES.map((veh, idx) => {
+            const isCurrent = idx === currentVehicleIdx;
+            const isUnlocked = idx <= currentVehicleIdx;
+            return h("div", { class: "fleet-card" + (isCurrent ? " current" : "") + (isUnlocked ? " unlocked" : "") },
+              h("div", { class: "fleet-card-badge" }, isCurrent ? "Active Ride" : isUnlocked ? "Unlocked" : `Stage ${idx + 1}`),
+              h("div", { class: "fleet-svg-wrap", html: veh.svg }),
+              h("strong", {}, `${veh.icon} ${veh.name}`),
+              h("span", { class: "fleet-tier small" }, veh.tier),
+              h("p", { class: "fleet-desc small muted" }, veh.desc)
+            );
+          })
+        ),
+        h("button", { class: "btn btn-primary btn-block", type: "button", onclick: () => modal.remove() }, "Back to Driving")
+      )
+    );
+    document.body.appendChild(modal);
+  }
+
+  const fleetBtn = h("button", {
+    class: "journey-fleet-btn",
+    type: "button",
+    onclick: openFleetModal,
+    "aria-label": "View Nigerian car fleet and upgrades",
+  }, "🚘 Fleet");
+
+  const journeyBar = h("div", { class: "journey-bar card" },
+    h("div", { class: "journey-info-row" },
+      h("div", { class: "journey-title-wrap" },
+        h("span", { class: "journey-kicker small" }, "🛣️ Express Journey"),
+        carStatus
+      ),
+      fleetBtn
+    ),
+    h("div", { class: "journey-road-box", onclick: openFleetModal, title: "Tap to view vehicle fleet" },
+      h("span", { class: "journey-flag-start small" }, "🏁"),
+      h("div", { class: "journey-road-surface" },
+        roadDashes,
+        carRunner
+      ),
+      h("span", { class: "journey-flag-end small" }, `🚏 Stop ${lesson.lessonIndex + 1}`)
+    )
+  );
+
+  function updateJourneyCar() {
+    const v = VEHICLES[currentVehicleIdx];
+    carRunner.innerHTML = v.svg;
+    carStatus.textContent = `${v.icon} ${v.name}`;
+    const percent = Math.min(92, Math.max(2, Math.round((round.index / total) * 100)));
+    carRunner.style.left = `calc(${percent}% - 22px)`;
+    roadDashes.className = `journey-road-dashes ${carSpeedState}`;
+    carRunner.className = `journey-car-runner ${carSpeedState}`;
+  }
+
   // ---- progress dots ----
   const dots = tasks.map(() => h("span", { class: "task-dot" }));
   const counter = h("span", { class: "task-count" });
@@ -69,6 +199,7 @@ function render(container, content, lesson) {
       d.className = "task-dot" + (i === round.index && r === undefined ? " now" : "") + (r === "first" || r === "second" ? " right" : "") + (r === "missed" ? " missed" : "");
     });
     counter.textContent = round.index < total ? `Task ${round.index + 1} of ${total}` : `${total} of ${total} done`;
+    updateJourneyCar();
   }
 
   const taskArea = h("div", { class: "task-area" });
@@ -367,6 +498,7 @@ function render(container, content, lesson) {
           h("strong", {}, `Stop ${lesson.lessonIndex + 1}: ${lesson.unit.title}`)
         )
       ),
+      journeyBar,
       total > 1 ? h("div", { class: "task-progress" }, h("div", { class: "task-dots" }, dots), counter) : null,
       taskArea
     )
