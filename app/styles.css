@@ -228,7 +228,10 @@ button { font-family: inherit; }
 .big-avatar {
   font-size: 2.4rem; width: 66px; height: 66px; display: grid; place-items: center;
   border-radius: 20px; background: var(--green-soft); flex-shrink: 0;
+  border: 2px solid transparent; cursor: pointer; transition: transform 0.15s ease, border-color 0.15s ease;
 }
+.big-avatar:hover { transform: scale(1.06); border-color: var(--green); }
+.big-avatar:active { transform: scale(0.96); }
 .rank-line { display: flex; gap: 12px; align-items: flex-start; }
 .rank-icon { font-size: 2rem; }
 .bar { height: 12px; background: var(--bg); border-radius: 999px; overflow: hidden; margin: 6px 0 2px; border: 1px solid var(--line); }
