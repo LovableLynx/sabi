@@ -203,7 +203,16 @@ function profileScreen(container) {
 
   container.appendChild(
     h("div", { class: "card profile-head" },
-      h("div", { class: "big-avatar" }, profile.avatar),
+      h("button", {
+        class: "big-avatar",
+        type: "button",
+        title: "Change your avatar",
+        "aria-label": `Avatar: ${profile.avatar}. Tap to change`,
+        onclick: () => {
+          emit("ui:tap");
+          emit("nav", { screen: "onboarding" });
+        },
+      }, profile.avatar),
       h("div", {},
         h("h2", {}, profile.firstName ? `${profile.firstName} ${profile.lastName}` : profile.nickname),
         profile.firstName ? h("p", { class: "muted small" }, `Others see you as ${profile.nickname}`) : null,
