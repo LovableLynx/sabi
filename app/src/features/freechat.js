@@ -32,6 +32,12 @@ const EXAMPLES = {
   "ncee-science": "Why do plants need sunlight?",
 };
 
+// A bare sum like "2x3" or "what is 5^6" typed in a Literature or English chat.
+const WORD_SUBJECTS = new Set(["literature", "bece-english", "ncee-english"]);
+function bareSum(text) {
+  return /^\s*(what is |calculate |solve )?[\d.,\s()]+([x×*/÷+^-]\s*[\d.,\s()]+)+[?=\s]*$/i.test(text);
+}
+
 function tooVague(text) {
   const t = text.trim();
   return t.split(/\s+/).length < 2 && !/[?\d]/.test(t); // "they", "ok"; "Explain refraction" is fine
@@ -131,6 +137,8 @@ function render(container, status) {
     const blocked = checkChat(text);
     const first = !hist.some((m) => m.role === "tutor" && !m.local);
     const local = blocked ? CHAT_REPLIES[blocked]
+      : WORD_SUBJECTS.has(subject) && bareSum(text)
+        ? `That looks like a maths sum 🙂. This is the ${SUBJECTS[subject].label} chat, so ask me about ${subject === "literature" ? "poems, novels, plays or figures of speech" : "grammar, spelling, comprehension or punctuation"}. For sums, open the ${subject === "literature" ? "Physics or Accounting" : subject === "bece-english" ? "Basic Science or Business Studies" : "Mathematics"} tab.`
       : first && tooVague(text)
         ? `Tell me a bit more 🙂. What would you like to know in ${SUBJECTS[subject].label}? For example: "${EXAMPLES[subject] || "Explain this topic to me"}"`
         : null;

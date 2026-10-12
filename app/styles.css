@@ -877,3 +877,14 @@ body[data-screen="onboarding"] .mascot-slot { display: none; }
 .exam-countdown { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
 .exam-countdown strong { font-size: 1.05rem; }
 .exam-countdown input { max-width: 170px; }
+
+/* The hidden attribute must always win over display rules on buttons and cards. */
+[hidden] { display: none !important; }
+.task-dot.answered { background: var(--ink); opacity: 0.55; }
+.exam-review { text-align: left; margin: 12px 0; }
+.exam-review h4 { margin: 0 0 8px; }
+.review-item { border: 2px solid var(--line); border-radius: 12px; padding: 8px 10px; margin-bottom: 8px; background: var(--card); }
+.review-item.good { border-color: var(--green); }
+.review-item.bad { border-color: var(--red); }
+.review-q { font-weight: 700; margin-bottom: 4px; }
+.review-q .rich { display: inline; }

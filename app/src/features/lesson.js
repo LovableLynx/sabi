@@ -14,10 +14,11 @@ import { isAutoRead, speak, speakerButton } from "../core/speech.js";
 import { SUBJECTS } from "../core/nigeria.js";
 import { load, save } from "../core/storage.js";
 
-// Exam mode: each question gets a countdown, like a real objective paper, and
-// hints and Ask Sabi are switched off. Running out of time counts the task as
-// missed but never costs fuel. Off by default; the choice is remembered.
-const EXAM_SECONDS = 60;
+// Exam mode: like a real objective paper. One clock for the whole stop, one
+// answer per question with no marking along the way, no hints or Ask Sabi,
+// and a full review at the end. Unanswered questions count as missed. Exam
+// mode never costs fuel. Off by default; the choice is remembered.
+const EXAM_ROUND_SECONDS = 120;
 
 const LETTERS = ["A", "B", "C", "D"];
 
@@ -201,7 +202,28 @@ function render(container, content, lesson) {
   let examMode = load("examMode", false);
   let examTimer = null;
   const stopTimer = () => { clearInterval(examTimer); examTimer = null; };
-  let restartTask = null; // set by showTask so the exam toggle can restart an untouched task
+  const examAnswers = []; // index of the option chosen for each task (exam mode)
+  const timerBox = h("div", { class: "exam-timer", hidden: !examMode });
+  function startExamClock() {
+    let left = EXAM_ROUND_SECONDS;
+    const paint = () => {
+      timerBox.textContent = `⏱ ${Math.floor(left / 60)}:${String(left % 60).padStart(2, "0")} left for all ${total} questions`;
+      timerBox.classList.toggle("low", left <= 20);
+    };
+    paint();
+    examTimer = setInterval(() => {
+      if (!timerBox.isConnected) return stopTimer(); // left the lesson
+      left -= 1;
+      paint();
+      if (left <= 0) {
+        stopTimer();
+        for (let i = round.index; i < total; i++) round.results[i] = "missed";
+        round.index = total;
+        emit("toast", { text: "⏱ Time up! Let's see how you did. No fuel lost.", kind: "bad" });
+        finishRound();
+      }
+    }, 1000);
+  }
   let mode = "checking"; // model | mock | offline
 
   // ---- car journey state & performance progression ----
@@ -315,8 +337,8 @@ function render(container, content, lesson) {
   const counter = h("span", { class: "task-count" });
   function paintProgress() {
     dots.forEach((d, i) => {
-      const r = round.results[i];
-      d.className = "task-dot" + (i === round.index && r === undefined ? " now" : "") + (r === "first" || r === "second" ? " right" : "") + (r === "missed" ? " missed" : "");
+      const r = examMode && round.index < total ? (round.results[i] ? "done" : undefined) : round.results[i];
+      d.className = "task-dot" + (i === round.index && r === undefined ? " now" : "") + (r === "first" || r === "second" ? " right" : "") + (r === "missed" ? " missed" : "") + (r === "done" ? " answered" : "");
     });
     counter.textContent = round.index < total ? `Task ${round.index + 1} of ${total}` : `${total} of ${total} done`;
     updateJourneyCar();
@@ -526,6 +548,17 @@ function render(container, content, lesson) {
 
     function check() {
       if (s.selected === null || s.done) return;
+      if (examMode) {
+        // One try, no marking now: record the answer and move straight on.
+        s.done = true;
+        examAnswers[round.index] = s.selected;
+        round.results[round.index] = s.selected === task.answer_index ? "first" : "missed";
+        emit("ui:tap");
+        round.index += 1;
+        if (round.index >= total) finishRound();
+        else showTask(tasks[round.index]);
+        return;
+      }
       const elapsed = (Date.now() - taskStartTime) / 1000;
       const isFast = elapsed <= 14;
 
@@ -579,31 +612,7 @@ function render(container, content, lesson) {
       endTask("missed", wrongSlang);
     }
 
-    // ---- exam-mode countdown ----
-    stopTimer();
-    const timerBox = h("div", { class: "exam-timer", hidden: !examMode });
-    if (examMode) {
-      let left = EXAM_SECONDS;
-      const paint = () => {
-        timerBox.textContent = `⏱ ${Math.floor(left / 60)}:${String(left % 60).padStart(2, "0")}`;
-        timerBox.classList.toggle("low", left <= 10);
-      };
-      paint();
-      examTimer = setInterval(() => {
-        if (!taskArea.isConnected) return stopTimer(); // left the lesson
-        left -= 1;
-        paint();
-        if (left <= 0 && !s.done) {
-          emit("answer:wrong");
-          emit("toast", { text: "⏱ Time up! In the exam hall, move on and come back later. No fuel lost.", kind: "bad" });
-          endTask("missed", "Time don finish! Next one.");
-        }
-      }, 1000);
-    }
-    restartTask = () => { if (!s.done && s.wrong.size === 0 && s.selected === null) showTask(task); };
-
     taskArea.append(
-      timerBox,
       h("div", { class: "card question-card" }, richText(task.question)),
       h("div", { class: "options" }, optionEls),
       hintBox,
@@ -621,6 +630,7 @@ function render(container, content, lesson) {
 
   function finishRound() {
     stopTimer();
+    timerBox.hidden = true;
     const firstTry = round.results.filter((r) => r === "first").length;
     const right = round.results.filter((r) => r !== "missed").length;
     const passed = right >= passMark;
@@ -651,6 +661,7 @@ function render(container, content, lesson) {
         h("h3", {}, passed ? (right === total ? "Perfect round! You don sabi am well well!" : "Stop complete!") : "Almost there!"),
         h("p", { class: "round-score" }, `You got ${right} of ${total} right`),
         rewardCardEl,
+        examMode ? examReview() : null,
         passed ? null : h("p", {}, `You need ${passMark} of ${total} to finish this stop. Try again, you go get am.`),
         result
           ? h("ul", { class: "xp-list" },
@@ -674,18 +685,32 @@ function render(container, content, lesson) {
     window.scrollTo({ top: 0 });
   }
 
+  // Exam mode review: every question, the student's answer, the right answer and why.
+  function examReview() {
+    return h("div", { class: "exam-review" },
+      h("h4", {}, "📝 Your exam review"),
+      tasks.map((t, i) => {
+        const picked = examAnswers[i];
+        const right = picked === t.answer_index;
+        return h("div", { class: "review-item " + (right ? "good" : "bad") },
+          h("div", { class: "review-q" }, `${i + 1}. `, richText(t.question)),
+          h("div", { class: "small" }, picked === undefined ? "⏱ Not answered" : `${right ? "✅" : "❌"} Your answer: ${tidyDashes(t.options[picked])}`),
+          right ? null : h("div", { class: "small" }, `✔️ Correct answer: ${tidyDashes(t.options[t.answer_index])}`),
+          right ? null : h("div", { class: "small muted" }, tidyDashes(t.explanation))
+        );
+      })
+    );
+  }
+
   // ---- exam mode switch ----
   const examToggle = h("button", {
     class: "exam-toggle" + (examMode ? " on" : ""), type: "button",
     onclick: () => {
-      examMode = !examMode;
-      save("examMode", examMode);
-      examToggle.className = "exam-toggle" + (examMode ? " on" : "");
-      examToggle.textContent = examMode ? `⏱ Exam mode: ON (${EXAM_SECONDS} s per question)` : "⏱ Exam mode: OFF";
-      emit("toast", { text: examMode ? `⏱ Exam mode on: ${EXAM_SECONDS} seconds per question, no hints. Like the real exam!` : "Exam mode off. Take your time and use hints.", kind: "info" });
-      if (restartTask) restartTask(); // applies now if this question hasn't been tried yet, else from the next one
+      save("examMode", !examMode);
+      emit("toast", { text: !examMode ? `⏱ Exam mode on: ${EXAM_ROUND_SECONDS / 60} minutes for all ${total} questions, no hints, results at the end.` : "Exam mode off. Take your time and use hints.", kind: "info" });
+      emit("nav", { screen: "lesson", params: { id: lesson.id } }); // start the stop again in the new mode
     },
-  }, examMode ? `⏱ Exam mode: ON (${EXAM_SECONDS} s per question)` : "⏱ Exam mode: OFF");
+  }, examMode ? `⏱ Exam mode: ON (${EXAM_ROUND_SECONDS / 60} min for ${total} questions)` : "⏱ Exam mode: OFF");
 
   // ---- layout ----
   container.appendChild(
@@ -700,10 +725,12 @@ function render(container, content, lesson) {
       journeyBar,
       total > 1 ? h("div", { class: "task-progress" }, h("div", { class: "task-dots" }, dots), counter) : null,
       examToggle,
+      timerBox,
       taskArea
     )
   );
   showTask(tasks[0]);
+  if (examMode) startExamClock();
 }
 
 function stripPraise(step) {
