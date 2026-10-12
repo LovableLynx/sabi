@@ -846,7 +846,8 @@ button { font-family: inherit; }
 }
 
 /* Keep the registration form fully readable: no mascot over it. */
-body[data-screen="onboarding"] .mascot-slot { display: none; }
+body[data-screen="onboarding"] .mascot-slot,
+body[data-screen="lesson"] .mascot-slot { display: none; } /* no animal over the question while solving */
 
 .name-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 .field-hint strong { color: var(--ink); }

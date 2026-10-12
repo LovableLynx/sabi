@@ -370,6 +370,8 @@ function render(container, content, lesson) {
           s.selected = i;
           emit("ui:tap");
           paintOptions();
+          // Glide down to the Lock in answer button so the student doesn't have to scroll.
+          checkBtn.scrollIntoView({ behavior: "smooth", block: "center" });
         },
       }, h("span", { class: "option-letter" }, LETTERS[i]), h("span", {}, tidyDashes(opt)))
     );
