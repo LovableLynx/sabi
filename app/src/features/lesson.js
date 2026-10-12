@@ -168,9 +168,25 @@ const PASS_SHARE = 0.6;
 
 function render(container, content, lesson) {
   const subject = SUBJECTS[lesson.subject];
+  // On a replay of a finished stop, the practice tasks come in a new order
+  // with their options mixed, so it doesn't feel like the same round again.
+  const replaying = ask("lessonDone", lesson.id, false);
+  const shuffle = (list) => {
+    const a = [...list];
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  };
+  const mixOptions = (t) => {
+    const order = shuffle([0, 1, 2, 3]);
+    return { ...t, options: order.map((i) => t.options[i]), answer_index: order.indexOf(t.answer_index) };
+  };
+  const practice = (lesson.round || []).map((t) => ({ ...t, steps: t.hint ? [t.hint] : [] }));
   const tasks = [
     { ...lesson, steps: content.guided[lesson.source_id] || [] },
-    ...(lesson.round || []).map((t) => ({ ...t, steps: t.hint ? [t.hint] : [] })),
+    ...(replaying ? shuffle(practice).map(mixOptions) : practice),
   ];
   const total = tasks.length;
   const passMark = Math.ceil(total * PASS_SHARE);
