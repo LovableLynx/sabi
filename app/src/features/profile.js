@@ -37,7 +37,7 @@ function displayName(first, last) {
 
 function onboardingScreen(container, params = {}) {
   const editing = !!profile;
-  let avatar = profile?.avatar || AVATARS[0];
+  let avatar = AVATARS.includes(profile?.avatar) ? profile.avatar : AVATARS[0];
 
   // Full name stays on this device. Only "First L." is ever shown publicly or
   // sent to the leaderboard, so strangers can't find a child by full name + school.
@@ -146,7 +146,7 @@ function onboardingScreen(container, params = {}) {
     if (!level) return (error.textContent = "Choose your class level: Primary, JSS or SS.");
     profile = {
       id: profile?.id || newId(), firstName: first, lastName: last, nickname: nick,
-      avatar, state: stateSel.value, school: schoolName, schoolVerified, level,
+      avatar: AVATARS.includes(avatar) ? avatar : AVATARS[0], state: stateSel.value, school: schoolName, schoolVerified, level,
       consent: consent.checked, createdAt: profile?.createdAt || Date.now(),
     };
     save("profile", profile);
