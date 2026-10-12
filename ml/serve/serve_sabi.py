@@ -557,8 +557,11 @@ class Feedback:
             "live_ai": choice("live_ai", {True, False}),
             "comment": comment,
         }
-        with self.lock, self.path.open("a", encoding="utf-8") as f:
-            f.write(json.dumps(row, ensure_ascii=False) + "\n")
+        try:
+            with self.lock, self.path.open("a", encoding="utf-8") as f:
+                f.write(json.dumps(row, ensure_ascii=False) + "\n")
+        except OSError as e:
+            raise ValueError(f"could not save feedback: {e}")
 
 
 MAX_BODY = {"/api/chat": 64 * 1024, "/api/score": 4096, "/api/delete": 1024, "/api/feedback": 2048}
