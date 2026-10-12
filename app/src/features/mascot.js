@@ -2,7 +2,7 @@
 // student on. Renders into its own slot and reacts to game events. If it
 // fails, the game simply has no mascot.
 
-import { on } from "../core/bus.js";
+import { ask, on } from "../core/bus.js";
 import { h } from "../core/dom.js";
 
 export const IJAPA_SVG = `
@@ -46,12 +46,26 @@ function say(mood, text) {
   timer = setTimeout(() => slot && slot.classList.remove("talking"), 3500);
 }
 
+// The mascot is the student's own avatar animal (the one on their profile).
+// Ijapa the tortoise is drawn for 🐢 and for guests with no profile yet.
+function paintBody() {
+  if (!slot) return;
+  const avatar = ask("profile", null, null)?.avatar;
+  const body = slot.querySelector(".mascot-body");
+  body.classList.toggle("emoji", !!avatar && avatar !== "🐢");
+  if (avatar && avatar !== "🐢") body.textContent = avatar;
+  else body.innerHTML = IJAPA_SVG;
+}
+
 export function init(container) {
   slot = h("div", { class: "mascot" },
     h("div", { class: "mascot-bubble" }, pick(LINES.idle)),
-    h("div", { class: "mascot-body", html: IJAPA_SVG })
+    h("div", { class: "mascot-body" })
   );
   container.appendChild(slot);
+  paintBody();
+  on("profile:changed", paintBody);
+  on("data:delete", () => setTimeout(paintBody, 0));
   // Taps pass straight through Ijapa (pointer-events: none) so it never blocks a button.
 
   on("answer:correct", () => say("correct"));

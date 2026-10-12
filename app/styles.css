@@ -819,6 +819,7 @@ button { font-family: inherit; }
 .mascot { display: flex; flex-direction: column; align-items: flex-end; pointer-events: none; }
 .mascot-body { width: 74px; }
 .mascot-body svg { width: 100%; display: block; }
+.mascot-body.emoji { font-size: 58px; line-height: 1; text-align: center; filter: drop-shadow(0 4px 3px rgba(0, 0, 0, 0.18)); }
 .mascot-bubble {
   max-width: 190px; background: var(--card); border: 2px solid var(--line);
   border-radius: 14px 14px 4px 14px; padding: 8px 10px; font-weight: 800; font-size: 0.82rem;
