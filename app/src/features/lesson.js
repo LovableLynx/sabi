@@ -109,6 +109,58 @@ export const WRONG_SLANGS = [
   "Engine cough small! Cool down reason am! ⛽",
 ];
 
+// Random positive achievement cards awarded at end of stage
+export const REWARD_CARDS = [
+  {
+    id: "expressway-master",
+    icon: "🛣️",
+    title: "Expressway Master",
+    tag: "High Velocity",
+    condition: (score, total, fastCount) => fastCount >= 3,
+    blurb: "You navigated the bus route with lightning speed. Pure throttle!",
+  },
+  {
+    id: "distinction-scholar",
+    icon: "⭐",
+    title: "Naija Distinction Scholar",
+    tag: "Top Accuracy",
+    condition: (score, total) => score >= total * 0.8,
+    blurb: "Academic perfection! Your brain compass nailed every twist and turn.",
+  },
+  {
+    id: "limo-vip",
+    icon: "🏎️",
+    title: "Presidential Fleet VIP",
+    tag: "Highway Prestige",
+    condition: (score, total, fastCount, vehIdx) => vehIdx >= 2,
+    blurb: "Cruising in top luxury! You upgraded high up the transport hierarchy.",
+  },
+  {
+    id: "sabi-navigator",
+    icon: "🧭",
+    title: "Sharp Route Navigator",
+    tag: "Resilient Sabi",
+    condition: (score, total, fastCount, vehIdx, hints) => hints <= 1,
+    blurb: "Zero traffic held you back. You read every question with complete clarity!",
+  },
+  {
+    id: "danfo-hustler",
+    icon: "🚌",
+    title: "Lagos Street Hustler",
+    tag: "No Dulling",
+    condition: () => true,
+    blurb: "Pure energy and resilience! You kept the wheels moving forward to victory.",
+  },
+  {
+    id: "lionheart-scholar",
+    icon: "🦁",
+    title: "Lionheart Scholar",
+    tag: "Courageous Mind",
+    condition: (score, total, fastCount, vehIdx, hints, firstTry) => firstTry >= total * 0.7,
+    blurb: "Unshakable first-try focus of a champion. The road belongs to you!",
+  },
+];
+
 // A stop is a round of tasks: the stop's exam question first (with Sabi's
 // authored guiding steps), then practice tasks on the same idea. A wrong first
 // try is free; failing a task costs 1 fuel. The stop is passed with 60%.
@@ -523,6 +575,21 @@ function render(container, content, lesson) {
       lesson, correct: passed, firstTry: firstTry === total, hintsUsed: round.hintsUsed, chatTurns: round.chatTurns,
       round: { total, right, firstTry },
     }, null);
+
+    let rewardCardEl = null;
+    if (passed) {
+      const candidates = REWARD_CARDS.filter((c) =>
+        c.condition(right, total, fastCorrectCount, currentVehicleIdx, round.hintsUsed, firstTry)
+      );
+      const chosen = candidates[Math.floor(Math.random() * candidates.length)] || REWARD_CARDS[0];
+      rewardCardEl = h("div", { class: "stage-reward-card" },
+        h("div", { class: "reward-card-badge small" }, `🎁 STAGE REWARD CARD · ${chosen.tag}`),
+        h("div", { class: "reward-card-icon" }, chosen.icon),
+        h("strong", { class: "reward-card-title" }, chosen.title),
+        h("p", { class: "reward-card-blurb small" }, chosen.blurb)
+      );
+    }
+
     paintProgress();
     clear(taskArea);
     taskArea.append(
@@ -530,6 +597,7 @@ function render(container, content, lesson) {
         h("div", { class: "big-emoji" }, passed ? (right === total ? "🏆" : "🎉") : "💪"),
         h("h3", {}, passed ? (right === total ? "Perfect round! You don sabi am well well!" : "Stop complete!") : "Almost there!"),
         h("p", { class: "round-score" }, `You got ${right} of ${total} right`),
+        rewardCardEl,
         passed ? null : h("p", {}, `You need ${passMark} of ${total} to finish this stop. Try again, you go get am.`),
         result
           ? h("ul", { class: "xp-list" },
