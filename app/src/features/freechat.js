@@ -3,13 +3,13 @@
 // "compare with base N-ATLAS" toggle for side-by-side demos.
 // Needs the model server; without it the screen explains how to start it.
 
-import { answer, ask, emit, provide } from "../core/bus.js";
+import { answer, ask, emit, on, provide } from "../core/bus.js";
 import { chat, health } from "../core/api.js";
 import { h, clear, richText } from "../core/dom.js";
 import { SUBJECTS, TRACKS } from "../core/nigeria.js";
 import { load } from "../core/storage.js";
 import { CHAT_REPLIES, checkChat } from "../core/validate.js";
-import { canSpeak, isAutoRead, setAutoRead, speak, speakerButton } from "../core/speech.js";
+import { canSpeak, isAutoRead, setAutoRead, speak, speakerButton, stop } from "../core/speech.js";
 
 const state = {
   subject: "physics",
@@ -250,4 +250,11 @@ function screen(container) {
 
 export function init() {
   provide("screen:chat", screen);
+  // "Delete my data" also wipes the conversations with Sabi on this device.
+  on("data:delete", () => {
+    state.history = {};
+    state.pending = false;
+    ledgerRows = [{ date: "", account: "", debit: "", credit: "" }];
+    stop();
+  });
 }
