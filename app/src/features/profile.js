@@ -117,7 +117,7 @@ function onboardingScreen(container, params = {}) {
           avatar = a;
           avatarRow.querySelectorAll(".avatar-pick").forEach((b) => b.classList.remove("picked"));
           e.currentTarget.classList.add("picked");
-          emit("ui:tap");
+          emit("avatar:sound", a);
         },
       }, a)
     )
@@ -203,7 +203,13 @@ function profileScreen(container) {
 
   container.appendChild(
     h("div", { class: "card profile-head" },
-      h("div", { class: "big-avatar" }, profile.avatar),
+      h("button", {
+        class: "big-avatar",
+        type: "button",
+        "aria-label": "Play avatar sound",
+        title: "Tap to hear avatar sound",
+        onclick: () => emit("avatar:sound", profile.avatar)
+      }, profile.avatar),
       h("div", {},
         h("h2", {}, profile.firstName ? `${profile.firstName} ${profile.lastName}` : profile.nickname),
         profile.firstName ? h("p", { class: "muted small" }, `Others see you as ${profile.nickname}`) : null,
